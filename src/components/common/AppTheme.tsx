@@ -23,6 +23,9 @@ const AppTheme: React.FC = () => {
         primary: currentThemeContext.lightMode ? '#666666' : '#ffffff',
         secondary: currentThemeContext.lightMode ? '#999999' : '#111111',
       },
+    },
+    typography: {
+      fontFamily: "'American Typewriter', sans-serif"
     }
   });
 

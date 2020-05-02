@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
       minHeight: '100vh',
       backgroundColor: theme.palette.background.default,
       color: theme.palette.text.primary,
+      fontFamily: theme.typography.fontFamily,
     },
   }),
 );

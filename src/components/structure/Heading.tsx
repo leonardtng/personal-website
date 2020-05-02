@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import Cover from '../../assets/images/cover.jpg';
+import Corners from '../shapes/Corners';
+import { Typography, Fade } from '@material-ui/core';
+import { useScrollPosition } from '../../@utils/useScrollPosition';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  header: {
+    height: '100vh',
+    backgroundImage: `url(${Cover})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'bottom',
+    backgroundSize: 'cover',
+  },
+  mask: {
+    height: '100vh',
+    backgroundColor: '#868AA7',
+    opacity: '0.28',
+  },
+  title: {
+    position: 'absolute',
+    height: '100vh',
+    width: '100vw',
+    top: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+  },
+  name: {
+    fontSize: 36.7,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    textTransform: 'uppercase',
+  },
+  divider: {
+    height: 7,
+    width: 410,
+    margin: 5,
+    backgroundColor: '#ffffff',
+  },
+  description: {
+    fontSize: 23.55,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+}));
+
+const Heading: React.FC = () => {
+  const classes = useStyles();
+
+  const [cornerEnter, setCornerEnter] = useState(true)
+
+  useScrollPosition(({ currPos }: any) => {
+    if (currPos.y > 150) {
+      setCornerEnter(false)
+    } else {
+      setCornerEnter(true)
+    }
+  })
+
+  return (
+    <header className={classes.header}>
+      <div className={classes.mask}>
+      </div>
+      <Fade in={cornerEnter} timeout={{ enter: 1000, exit: 1000 }} style={{ transitionDelay: '150ms' }}>
+        <div>
+          <Corners />
+        </div>
+      </Fade>
+      <Fade in={cornerEnter} timeout={{ enter: 1000, exit: 1000 }} style={{ transitionDelay: '150ms' }}>
+        <div className={classes.title}>
+          <Typography className={classes.name} component='h1'>Leonard Tng</Typography>
+          <div className={classes.divider} />
+          <Typography className={classes.description} component='h2'>Software Engineer, Singapore</Typography>
+        </div>
+      </Fade>
+    </header>
+  );
+}
+
+export default Heading;
