@@ -20,7 +20,7 @@ const AppTheme: React.FC = () => {
         default: currentThemeContext.lightMode ? '#EBECF0' : '#1F1F1F',
       },
       text: {
-        primary: currentThemeContext.lightMode ? '#666666' : '#ffffff',
+        primary: currentThemeContext.lightMode ? '#111111' : '#ffffff',
         secondary: currentThemeContext.lightMode ? '#999999' : '#111111',
       },
     },

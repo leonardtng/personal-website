@@ -1,16 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Heading from '../components/structure/Heading';
+import Body from '../components/structure/Body';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  body: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    height: '100vh',
-    width: '100vw',
+  main: {
+    minHeight: '100vh',
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+    fontFamily: theme.typography.fontFamily,
   },
 }));
 
@@ -18,12 +16,10 @@ const Main: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Fragment >
+    <div className={classes.main}>
       <Heading />
-      <div className={classes.body}>
-        Body
-      </div>
-    </Fragment>
+      <Body />
+    </div>
   );
 }
 

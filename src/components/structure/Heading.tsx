@@ -47,37 +47,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 'bold',
     color: '#ffffff',
   },
+  hi: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: '#111111',
+  }
 }));
 
 const Heading: React.FC = () => {
   const classes = useStyles();
 
-  const [cornerEnter, setCornerEnter] = useState(true)
+  const [cornerEnter, setCornerEnter] = useState(true);
 
   useScrollPosition(({ currPos }: any) => {
-    if (currPos.y > 150) {
-      setCornerEnter(false)
-    } else {
-      setCornerEnter(true)
-    }
+    currPos.y > 150 ? setCornerEnter(false) : setCornerEnter(true);
   })
 
   return (
     <header className={classes.header}>
       <div className={classes.mask}>
       </div>
-      <Fade in={cornerEnter} timeout={{ enter: 1000, exit: 1000 }} style={{ transitionDelay: '150ms' }}>
+      <Fade in={cornerEnter} timeout={{ enter: 700, exit: 500 }} style={{ transitionDelay: '150ms' }}>
         <div>
           <Corners />
         </div>
       </Fade>
-      <Fade in={cornerEnter} timeout={{ enter: 1000, exit: 1000 }} style={{ transitionDelay: '150ms' }}>
+      <Fade in={cornerEnter} timeout={{ enter: 700, exit: 500 }} style={{ transitionDelay: '150ms' }}>
         <div className={classes.title}>
           <Typography className={classes.name} component='h1'>Leonard Tng</Typography>
           <div className={classes.divider} />
           <Typography className={classes.description} component='h2'>Software Engineer, Singapore</Typography>
         </div>
       </Fade>
+
     </header>
   );
 }
