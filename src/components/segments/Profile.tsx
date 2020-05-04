@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '50vw',
     display: 'flex',
     alignItems: 'center',
+    marginBottom: 200,
   },
   rect: {
     height: 15,

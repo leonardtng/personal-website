@@ -3,6 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Fade } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import Profile from '../segments/Profile';
+import About from '../segments/About';
 
 const useStyles = makeStyles((theme: Theme) => ({
   body: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100vh',
   },
   content: {
-    height: '200vh',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -59,9 +60,12 @@ const Body: React.FC = () => {
         </Fade>
       </div>
       <div className={classes.buffer} />
-      <Grid container spacing={0} className={classes.content}>
+      <Grid container spacing={2} className={classes.content}>
         <Grid item xs={12}>
           <Profile />
+        </Grid>
+        <Grid item xs={12}>
+          <About />
         </Grid>
       </Grid>
 
