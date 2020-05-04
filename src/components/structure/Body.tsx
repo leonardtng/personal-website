@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Fade } from '@material-ui/core';
-import { useScrollPosition } from '../../@utils/useScrollPosition';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import Profile from '../segments/Profile';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -42,14 +42,13 @@ const Body: React.FC = () => {
 
   const [hiState, setHiState] = useState({
     enter: false,
-    sticky: false,
+    sticky: true,
   });
 
-  const vh = document.documentElement.clientHeight;
-
   useScrollPosition(({ currPos }: any) => {
+    console.log(currPos.y, vh)
     currPos.y > vh && currPos.y < vh * 2.2 ? setHiState(prev => ({ ...prev, sticky: true})) : setHiState(prev => ({ ...prev, sticky: false}));
-    currPos.y > vh * 0.7 && currPos.y < vh * 1.7 ? setHiState(prev => ({ ...prev, enter: true})) : setHiState(prev => ({ ...prev, enter: false}));
+    currPos.y > vh * 0.9 && currPos.y < vh * 1.7 ? setHiState(prev => ({ ...prev, enter: true})) : setHiState(prev => ({ ...prev, enter: false}));
   });
 
   return (

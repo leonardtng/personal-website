@@ -2,7 +2,9 @@ import { useState, useRef, useLayoutEffect } from 'react';
 
 const isBrowser = typeof window !== `undefined`;
 
-export interface ScrollPosition {
+export const vh = document.documentElement.clientHeight;
+
+interface ScrollPosition {
   element?: any;
   useWindow: boolean;
 }
@@ -23,14 +25,14 @@ export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDiv
 
   const [throttleTimeout, setThrottleTimeout] = useState<any>(null)
 
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow })
-    effect({ prevPos: position.current, currPos })
-    position.current = currPos
-    setThrottleTimeout(null)
-  }
-
   useLayoutEffect(() => {
+    const callBack = () => {
+      const currPos = getScrollPosition({ element, useWindow })
+      effect({ prevPos: position.current, currPos })
+      position.current = currPos
+      setThrottleTimeout(null)
+    }
+
     const handleScroll = () => {
       if (wait && throttleTimeout === null) {
         setThrottleTimeout(setTimeout(callBack, wait));
@@ -42,5 +44,5 @@ export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDiv
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
-  })
+  }, [throttleTimeout, wait, effect, element, useWindow])
 }

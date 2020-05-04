@@ -4,9 +4,9 @@ import ProfileImage from '../../assets/images/profile.png';
 import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   profile: {
-    width: '50vw',
+    width: styleProps => styleProps.checked? '50vw' : '10vw',
     display: 'flex',
     alignItems: 'center',
   },
@@ -56,8 +56,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+interface StyleProps {
+  checked: boolean
+}
+
 const Profile: React.FC = () => {
-  const classes = useStyles();
 
   const [checked, setChecked] = useState<boolean>(false)
   const profileRef: any = useRef();
@@ -65,6 +68,9 @@ const Profile: React.FC = () => {
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.55 && currPos.y > 0 ? setChecked(true) : setChecked(false);
   }, profileRef, false);
+
+  const styleProps: StyleProps = {checked: checked}
+  const classes = useStyles(styleProps);
 
   return (
     <Grid container spacing={0} className={classes.profile}>
