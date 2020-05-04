@@ -79,7 +79,6 @@ const Heading: React.FC = () => {
           <Typography className={classes.description} component='h2'>Software Engineer, Singapore</Typography>
         </div>
       </Fade>
-
     </header>
   );
 }
