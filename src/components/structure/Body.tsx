@@ -4,6 +4,7 @@ import { Grid, Typography, Fade } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import Profile from '../segments/Profile';
 import About from '../segments/About';
+import ProgressBar from '../../components/utility/ProgressBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
   body: {
@@ -40,6 +41,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Body: React.FC = () => {
   const classes = useStyles();
+  const [positions, setPositions] = useState({
+    about: 0,
+  })
 
   const [hiState, setHiState] = useState({
     enter: false,
@@ -47,7 +51,6 @@ const Body: React.FC = () => {
   });
 
   useScrollPosition(({ currPos }: any) => {
-    console.log(currPos.y, vh)
     currPos.y > vh && currPos.y < vh * 2.2 ? setHiState(prev => ({ ...prev, sticky: true})) : setHiState(prev => ({ ...prev, sticky: false}));
     currPos.y > vh * 0.9 && currPos.y < vh * 1.7 ? setHiState(prev => ({ ...prev, enter: true})) : setHiState(prev => ({ ...prev, enter: false}));
   });
@@ -68,7 +71,7 @@ const Body: React.FC = () => {
           <About />
         </Grid>
       </Grid>
-
+      <ProgressBar/>
     </div>
   );
 }

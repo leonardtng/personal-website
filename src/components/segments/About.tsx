@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'left',
+    marginBottom: '1000px',
   },
   divider: {
     height: 2,
@@ -31,6 +32,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
 }));
+
+
 
 const About: React.FC = () => {
   const classes = useStyles();

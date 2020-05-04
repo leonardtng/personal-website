@@ -11,10 +11,11 @@ const AppTheme: React.FC = () => {
     palette: {
       type: currentThemeContext.lightMode ? 'light' : 'dark',
       primary: {
-        main: currentThemeContext.lightMode ? '#12CBD6' : '#232426',
+        main: currentThemeContext.lightMode ? '#02BABC' : '#232426',
       },
       secondary: {
-        main: currentThemeContext.lightMode ? '#ffffff' : '#12CBD6',
+        main: currentThemeContext.lightMode ? '#010101' : '#12CBD6',
+        contrastText: currentThemeContext.lightMode ? '#ffffff' : '#010101',
       },
       background: {
         default: currentThemeContext.lightMode ? '#EBECF0' : '#1F1F1F',

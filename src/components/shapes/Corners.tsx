@@ -29,13 +29,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     width: 21.3,
     height: 93.6,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.contrastText,
   },
   corner2: {
     position: 'absolute',
     width: 93.6,
     height: 21.3,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.contrastText,
   }
 }));
 

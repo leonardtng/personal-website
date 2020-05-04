@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   rect: {
     height: 15,
     width: '80%',
-    backgroundColor: theme.palette.text.primary,
+    backgroundColor: theme.palette.secondary.main,
   },
   rectLeft: {
     '& div': {
