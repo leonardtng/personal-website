@@ -34,6 +34,8 @@ const Welcome: React.FC = () => {
     currPos.y > vh * 0.9 && currPos.y < vh * 1.7 ? setHiState(prev => ({ ...prev, enter: true })) : setHiState(prev => ({ ...prev, enter: false }));
   });
 
+console.log(hiState.sticky)
+
   return (
     <div className={classes.hiBox} style={{ position: hiState.sticky ? 'sticky' : 'relative' }}>
       <Fade in={hiState.enter} timeout={{ enter: 1500, exit: 1500 }}>

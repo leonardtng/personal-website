@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: 200,
+    overflowX: 'hidden',
   },
   rect: {
     height: 15,
