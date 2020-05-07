@@ -89,12 +89,12 @@ const Profile: React.FC = () => {
       <Grid item xs={12} className={classes.description}>
         <Typography variant='subtitle1'>I'm an imaginative and fun-loving Software Engineer, <br /> based in Singapore</Typography>
       </Grid>
-      <Grid item xs={1} sm={1} md={3} lg={3}/>
-      <Grid item xs={10} sm={10} md={6} lg={6} className={classes.map}>
+      <Grid item xs={1} sm={1} md={2} lg={2}/>
+      <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
         <Map />
         <div className={classes.buffer} />
       </Grid>
-      <Grid item xs={1} sm={1} md={3} lg={3}/>
+      <Grid item xs={1} sm={1} md={2} lg={2}/>
     </Grid>
   );
 }

@@ -4,6 +4,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_singaporeHigh from '@amcharts/amcharts4-geodata/singaporeHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import { tooltipString } from '../utility/mapTooltip';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
@@ -37,7 +38,6 @@ class Map extends Component<{}, DataMapState> {
       "name": "South West",
     }];
 
-
     let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}";
     polygonTemplate.fill = am4core.color("#CCCCCC");
@@ -50,15 +50,15 @@ class Map extends Component<{}, DataMapState> {
     let imageSeries = map.series.push(new am4maps.MapImageSeries());
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-    imageSeries.mapImages.template.tooltipText = "Hello!!";
+    imageSeries.mapImages.template.tooltipHTML = tooltipString;
     // imageSeries.mapImages.template.propertyFields.url = "url";
 
     let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle.radius = 5;
+    circle.radius = 8;
     circle.propertyFields.fill = "color";
 
     let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle2.radius = 5;
+    circle2.radius = 8;
     circle2.propertyFields.fill = "color";
 
     circle2.events.on("inited", function (event) {
@@ -105,7 +105,7 @@ class Map extends Component<{}, DataMapState> {
 
   render() {
     return (
-      <div id='mapSG' style={{ width: '100%', height: '25vh' }}></div>
+      <div id='mapSG' style={{ width: '100%', height: '35vh' }}></div>
     );
   }
 }
