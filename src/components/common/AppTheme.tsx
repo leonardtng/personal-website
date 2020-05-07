@@ -12,6 +12,7 @@ const AppTheme: React.FC = () => {
       type: currentThemeContext.lightMode ? 'light' : 'dark',
       primary: {
         main: currentThemeContext.lightMode ? '#02BABC' : '#232426',
+        contrastText: currentThemeContext.lightMode ? '#016E6E' : '#FD634B'
       },
       secondary: {
         main: currentThemeContext.lightMode ? '#010101' : '#12CBD6',

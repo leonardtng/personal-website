@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Slide } from '@material-ui/core';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   experience: {
     display: 'flex',
     alignItems: 'flex-start',
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   container: {
-    overflowX: 'hidden',
+    // overflowX: 'hidden',
     paddingBottom: 50,
     width: '90%',
     textAlign: 'center',
@@ -54,7 +55,6 @@ const useStyles = makeStyles((theme: Theme) => ({
           width: 30,
           height: 30,
           borderRadius: '50%',
-          background: 'inherit'
         },
         '&:nth-child(odd) div': {
           left: '2.3vw',
@@ -99,11 +99,53 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'justify',
       }
     }
-  }
+  },
+  first:{
+    '&:after':{
+      background: styleProps => styleProps.firstCheck ? theme.palette.primary.main : 'inherit',
+    }
+  },
+  second:{
+    '&:after':{
+      background: styleProps => styleProps.secondCheck ? theme.palette.primary.main : 'inherit',
+    }
+  },
+  third:{
+    '&:after':{
+      background: styleProps => styleProps.thirdCheck ? theme.palette.primary.main : 'inherit',
+    }
+  },
 }));
 
+interface StyleProps {
+  firstCheck: boolean;
+  secondCheck: boolean;
+  thirdCheck: boolean;
+}
+
 const Experience: React.FC = () => {
-  const classes = useStyles();
+  const firstRef = useRef<any>();
+  const secondRef = useRef<any>();
+  const thirdRef = useRef<any>();
+
+  const [firstCheck, setFirstCheck] = useState<boolean>(false);
+  const [secondCheck, setSecondCheck] = useState<boolean>(false);
+  const [thirdCheck, setThirdCheck] = useState<boolean>(false);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.5 ? setFirstCheck(true) : setFirstCheck(false);
+  }, firstRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.5 ? setSecondCheck(true) : setSecondCheck(false);
+  }, secondRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.5 ? setThirdCheck(true) : setThirdCheck(false);
+  }, thirdRef, false);
+
+  const styleProps: StyleProps = {firstCheck: firstCheck, secondCheck: secondCheck, thirdCheck: thirdCheck}
+  const classes = useStyles(styleProps);
 
   return (
     <Grid container spacing={0} className={classes.experience}>
@@ -115,23 +157,29 @@ const Experience: React.FC = () => {
         <section className={classes.timeline}>
           <ul>
             <span className={classes.circle} />
-            <li>
-              <div>
-                <time>2017</time>
-                <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-              </div>
+            <li ref={firstRef} className={classes.first}>
+              <Slide in={firstCheck} direction='right'>
+                <div>
+                  <time>2017</time>
+                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+                </div>
+              </Slide>
             </li>
-            <li>
-              <div>
-                <time>2018</time>
-                <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-              </div>
+            <li ref={secondRef} className={classes.second}>
+              <Slide in={secondCheck} direction='left'>
+                <div>
+                  <time>2018</time>
+                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+                </div>
+              </Slide>
             </li>
-            <li>
-              <div>
-                <time>2019</time>
-                <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-              </div>
+            <li ref={thirdRef} className={classes.third}>
+              <Slide in={thirdCheck} direction='right'>
+                <div>
+                  <time>2019</time>
+                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+                </div>
+              </Slide>
             </li>
           </ul>
         </section>
