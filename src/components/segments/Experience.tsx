@@ -1,11 +1,12 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+import ProgressBar from '../utility/ProgressBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
   experience: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     textAlign: 'justify',
     marginBottom: '1000px',
   },
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: '#7F7F7F',
   },
   title: {
-    margin: '50px 0 20px',
+    margin: '50px 0 50px',
     '& h1': {
       fontWeight: 500,
     },
@@ -31,7 +32,13 @@ const Experience: React.FC = () => {
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1'>What I've been involved in</Typography>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={2}>
+        <ProgressBar />
+      </Grid>
+      <Grid item xs={3}>
+
+      </Grid>
+      <Grid item xs={7}>
         <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
       </Grid>
     </Grid>
