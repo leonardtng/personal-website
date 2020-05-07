@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollPosition } from '../../@utils/useScrollPosition';
 
