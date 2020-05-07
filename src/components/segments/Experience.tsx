@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'flex-start',
     textAlign: 'justify',
-    marginBottom: '1000px',
+    height: '300%',
+    marginBottom: 1000
   },
   divider: {
     height: 2,
@@ -16,10 +17,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: '#7F7F7F',
   },
   title: {
-    margin: '50px 0 50px',
+    margin: '50px 0 80px',
     '& h1': {
       fontWeight: 500,
     },
+  },
+  progressBar: {
+    position: 'sticky',
+    top: 0
+  },
+  paragraph: {
+    marginBottom: 50,
   },
 }));
 
@@ -32,14 +40,42 @@ const Experience: React.FC = () => {
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1'>What I've been involved in</Typography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={1} className={classes.progressBar}>
         <ProgressBar />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={11}>
+        <Grid container spacing={0}>
+          <Grid item xs={4}>
 
-      </Grid>
-      <Grid item xs={7}>
-        <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+          <Grid item xs={8} className={classes.paragraph}>
+            <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+          <Grid item xs={4}>
+
+          </Grid>
+          <Grid item xs={8} className={classes.paragraph}>
+            <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+          <Grid item xs={4}>
+
+          </Grid>
+          <Grid item xs={8} className={classes.paragraph}>
+            <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+          <Grid item xs={4}>
+
+          </Grid>
+          <Grid item xs={8} className={classes.paragraph}>
+            <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+          <Grid item xs={4}>
+
+          </Grid>
+          <Grid item xs={8} className={classes.paragraph}>
+            <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

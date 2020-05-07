@@ -48,6 +48,7 @@ const Body: React.FC = () => {
   return (
     <div className={classes.body}>
       <Welcome />
+
       <div className={classes.buffer} />
       <Grid container spacing={2} className={classes.content}>
 
@@ -63,6 +64,7 @@ const Body: React.FC = () => {
           <Experience />
         </ResponsiveWrapper>
 
+
         <ResponsiveWrapper>
           {/* What I've done */}
         </ResponsiveWrapper>
@@ -70,6 +72,7 @@ const Body: React.FC = () => {
         <ResponsiveWrapper>
           {/* Where I've Been */}
         </ResponsiveWrapper>
+
       </Grid>
     </div>
   );
