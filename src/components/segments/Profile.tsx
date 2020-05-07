@@ -3,13 +3,12 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import ProfileImage from '../../assets/images/profile.png';
 import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import Map from '../panels/Map';
 
 const useStyles = makeStyles((theme: Theme) => ({
   profile: {
-    width: '50vw',
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 200,
     overflowX: 'hidden',
   },
   rect: {
@@ -40,18 +39,22 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: 20,
     },
   },
+  map: {
+    marginTop: 50,
+  },
+  buffer: {
+    position: 'relative',
+    backgroundColor: theme.palette.background.default,
+    height: 50,
+    width: '100%',
+    transform: 'translateY(-20px)'
+  },
   '@media only screen and (max-width: 1200px)': {
-    profile: {
-      width: '60vw',
-    },
     rect: {
       width: '80%',
     },
   },
   '@media only screen and (max-width: 800px)': {
-    profile: {
-      width: '90vw',
-    },
     rect: {
       width: '100%',
     },
@@ -86,6 +89,12 @@ const Profile: React.FC = () => {
       <Grid item xs={12} className={classes.description}>
         <Typography variant='subtitle1'>I'm an imaginative and fun-loving Software Engineer, <br /> based in Singapore</Typography>
       </Grid>
+      <Grid item xs={1} sm={1} md={3} lg={3}/>
+      <Grid item xs={10} sm={10} md={6} lg={6} className={classes.map}>
+        <Map />
+        <div className={classes.buffer} />
+      </Grid>
+      <Grid item xs={1} sm={1} md={3} lg={3}/>
     </Grid>
   );
 }

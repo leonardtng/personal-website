@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 // import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import Profile from '../segments/Profile';
 import About from '../segments/About';
 import Welcome from '../segments/Welcome';
+import Experience from '../segments/Experience';
 // import ProgressBar from '../../components/utility/ProgressBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -18,12 +19,28 @@ const useStyles = makeStyles((theme: Theme) => ({
   content: {
     height: '100%',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
   },
 }));
+
+interface ResponsiveWrapperProps {
+  children: React.ReactNode;
+}
+
+const ResponsiveWrapper: React.FC<ResponsiveWrapperProps> = (props: ResponsiveWrapperProps) => {
+  return (
+    <Fragment>
+      <Grid item xs={1} sm={1} md={3} lg={3} />
+      <Grid item xs={10} sm={10} md={6} lg={6}>
+        {props.children}
+      </Grid>
+      <Grid item xs={1} sm={1} md={3} lg={3} />
+    </Fragment>
+  );
+}
 
 const Body: React.FC = () => {
   const classes = useStyles();
@@ -33,12 +50,26 @@ const Body: React.FC = () => {
       <Welcome />
       <div className={classes.buffer} />
       <Grid container spacing={2} className={classes.content}>
-        <Grid item xs={12}>
+
+        <ResponsiveWrapper>
           <Profile />
-        </Grid>
-        <Grid item xs={12}>
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
           <About />
-        </Grid>
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
+          <Experience />
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
+          {/* What I've done */}
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
+          {/* Where I've Been */}
+        </ResponsiveWrapper>
       </Grid>
     </div>
   );
