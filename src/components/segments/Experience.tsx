@@ -57,7 +57,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           borderRadius: '50%',
         },
         '&:nth-child(odd) div': {
-          left: '2.3vw',
+          left: 45,
           '&:before': {
             left: -15,
             borderWidth: '8px 16px 8px 0',
@@ -65,7 +65,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           }
         },
         '&:nth-child(even) div': {
-          left: '-22.5vw',
+          left: -469,
           '&:before': {
             right: -15,
             borderWidth: '8px 0 8px 16px',
@@ -76,7 +76,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       '& div': {
         position: 'relative',
         bottom: 0,
-        width: '19vw',
+        width: 400,
         padding: 15,
         background: theme.palette.primary.main,
         borderRadius: 10,
