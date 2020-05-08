@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import ProfileImage from '../../assets/images/profile.png';
 import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import Map from '../panels/Map';
+import Map from '../interactive/Map';
 
 const useStyles = makeStyles((theme: Theme) => ({
   profile: {
