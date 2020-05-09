@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   rect: {
     height: 15,
     width: '80%',
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   rectLeft: {
     '& div': {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: '80%',
     },
   },
-  '@media only screen and (max-width: 800px)': {
+  '@media only screen and (max-width: 600px)': {
     rect: {
       width: '100%',
     },

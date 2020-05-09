@@ -46,7 +46,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       width: '80%',
     },
   },
-  '@media only screen and (max-width: 800px)': {
+  '@media only screen and (max-width: 600px)': {
     profile: {
       width: '90vw',
     },

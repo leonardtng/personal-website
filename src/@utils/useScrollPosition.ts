@@ -3,6 +3,7 @@ import { useState, useRef, useLayoutEffect } from 'react';
 const isBrowser = typeof window !== `undefined`;
 
 export const vh = document.documentElement.clientHeight;
+export const vw = document.documentElement.clientWidth;
 
 interface ScrollPosition {
   element?: any;

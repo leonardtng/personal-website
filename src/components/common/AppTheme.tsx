@@ -11,19 +11,19 @@ const AppTheme: React.FC = () => {
     palette: {
       type: currentThemeContext.lightMode ? 'light' : 'dark',
       primary: {
-        main: currentThemeContext.lightMode ? '#02BABC' : '#232426',
-        contrastText: currentThemeContext.lightMode ? '#016E6E' : '#FD634B'
+        main: currentThemeContext.lightMode ? '#17577e' : '#66FCF1',
+        contrastText: currentThemeContext.lightMode ? '#cccccc' : '#ffffff'
       },
       secondary: {
-        main: currentThemeContext.lightMode ? '#010101' : '#12CBD6',
-        contrastText: currentThemeContext.lightMode ? '#ffffff' : '#010101',
+        main: currentThemeContext.lightMode ? '#44546b' : '#45A29E',
+        contrastText: currentThemeContext.lightMode ? '#f7f9fb' : '#010101',
       },
       background: {
-        default: currentThemeContext.lightMode ? '#EBECF0' : '#1F1F1F',
+        default: currentThemeContext.lightMode ? '#baaaa0' : '#0B0C10',
+        paper: currentThemeContext.lightMode ? '#63939d' : '#1F2833',
       },
       text: {
-        primary: currentThemeContext.lightMode ? '#111111' : '#ffffff',
-        secondary: currentThemeContext.lightMode ? '#999999' : '#111111',
+        primary: currentThemeContext.lightMode ? '#121858' : '#C5C6C7',
       },
     },
     typography: {

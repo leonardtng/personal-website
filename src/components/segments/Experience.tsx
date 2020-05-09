@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Slide, Paper, List, ListItem } from '@material-ui/core';
-import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import { Grid, Typography, Slide, List, ListItem, Card, CardContent } from '@material-ui/core';
+import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
-const SCROLL_THRESHOLD = vh * 0.7
+const SCROLL_THRESHOLD = vh * 0.7;
+const TIMELINE_WIDTH = 6;
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   experience: {
@@ -25,13 +27,15 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     },
   },
   container: {
+    paddingTop: 20,
     paddingBottom: 50,
     width: '90%',
     textAlign: 'center',
+    overflow: 'hidden',
   },
   circle: {
     position: 'absolute',
-    backgroundColor: styleProps => styleProps.scroll > 0 ? theme.palette.primary.main : theme.palette.secondary.main,
+    backgroundColor: styleProps => styleProps.scroll > 0 ? theme.palette.primary.main : theme.palette.primary.contrastText,
     borderRadius: '50%',
     transform: 'translate(-15px, -10px)',
     height: 30,
@@ -44,7 +48,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       '&:before': {
         position: 'absolute',
         content: '""',
-        width: 6,
+        width: TIMELINE_WIDTH,
         height: styleProps => styleProps.scroll,
         maxHeight: styleProps => styleProps.maxScroll,
         backgroundColor: theme.palette.primary.main,
@@ -60,7 +64,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         width: 6,
         margin: '0 auto',
         paddingTop: 50,
-        background: theme.palette.secondary.main,
+        background: theme.palette.primary.contrastText,
         '&:after': {
           content: '""',
           position: 'absolute',
@@ -71,29 +75,30 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           height: 40,
           borderRadius: '20%',
         },
-        '&:nth-child(odd) div': {
+        '&:nth-child(odd) .MuiCard-root': {
           left: 45,
           '&:before': {
             left: -15,
             borderWidth: '8px 16px 8px 0',
-            borderColor: `transparent ${theme.palette.secondary.contrastText} transparent transparent`
+            borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
           }
         },
-        '&:nth-child(even) div': {
+        '&:nth-child(even) .MuiCard-root': {
           left: -469,
           '&:before': {
             right: -15,
             borderWidth: '8px 0 8px 16px',
-            borderColor: `transparent transparent transparent ${theme.palette.secondary.contrastText}`
+            borderColor: `transparent transparent transparent ${theme.palette.background.paper}`
           }
         },
       },
-      '& div': {
+      '& .MuiCard-root': {
         position: 'relative',
+        overflow: 'visible',
         bottom: 0,
         width: 400,
         padding: 15,
-        background: theme.palette.secondary.contrastText,
+        background: theme.palette.background.paper,
         borderRadius: 10,
         '&:before': {
           content: '""',
@@ -129,6 +134,74 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     '&:after': {
       background: styleProps => styleProps.thirdCheck ? theme.palette.primary.main : 'inherit',
     }
+  },
+  '@media only screen and (max-width: 1900px)': {
+    timeline: {
+      '& ul': {
+        '& .MuiCard-root': {
+          width: 300,
+        },
+        '& li': {
+          '&:nth-child(even) .MuiCard-root': {
+            left: -369,
+          }
+        }
+      }
+    },
+  },
+  '@media only screen and (max-width: 1500px)': {
+    timeline: {
+      '& ul': {
+        '& .MuiCard-root': {
+          width: 200,
+        },
+        '& li': {
+          '&:nth-child(even) .MuiCard-root': {
+            left: -269,
+          }
+        }
+      }
+    },
+  },
+  '@media only screen and (max-width: 1200px)': {
+    timeline: {
+      '& ul': {
+        '& .MuiCard-root': {
+          width: 150,
+        },
+        '& li': {
+          '&:nth-child(even) .MuiCard-root': {
+            left: -219,
+          }
+        }
+      }
+    },
+  },
+  '@media only screen and (max-width: 600px)': {
+    circle: {
+      left: 23, //TIMELINE_WIDTH /2 + marginLeft
+    },
+    timeline: {
+      '& ul': {
+        '&:before': {
+          left: 23
+        },
+        '& .MuiCard-root': {
+          width: 'calc(100vw - 200px)',
+        },
+        '& li': {
+          marginLeft: 20,
+          '&:nth-child(even) .MuiCard-root': {
+            left: 45,
+            '&:before': {
+              left: -15,
+              borderWidth: '8px 16px 8px 0',
+              borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
+            }
+          },
+        }
+      }
+    },
   },
 }));
 
@@ -167,14 +240,13 @@ const Experience: React.FC = () => {
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
-
   }, timelineRef, false);
 
-  const styleProps: StyleProps = { 
-    firstCheck: firstCheck, 
-    secondCheck: secondCheck, 
-    thirdCheck: thirdCheck, scroll: timelineRef.current? scroll  : 0, 
-    maxScroll: timelineRef.current? timelineRef.current.clientHeight : 0,
+  const styleProps: StyleProps = {
+    firstCheck: firstCheck,
+    secondCheck: secondCheck,
+    thirdCheck: thirdCheck, scroll: timelineRef.current ? scroll : 0,
+    maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   }
 
   const classes = useStyles(styleProps);
@@ -188,32 +260,38 @@ const Experience: React.FC = () => {
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>
           <List ref={timelineRef}>
-            <span className={classes.circle}  />
-            <ListItem  className={classes.first}>
-              <Slide in={firstCheck} direction='right'>
-                <Paper elevation={2}>
-                  <time>2017</time>
-                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-                  <span ref={firstRef} />
-                </Paper>
+            <span className={classes.circle} />
+            <ListItem className={classes.first}>
+              <Slide in={firstCheck} direction={vw < 600 ? 'left' : 'right'}>
+                <Card elevation={5}>
+                  <CardContent>
+                    <time>2017</time>
+                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.</Typography>
+                    <span ref={firstRef} />
+                  </CardContent>
+                </Card>
               </Slide>
             </ListItem>
             <ListItem className={classes.second}>
               <Slide in={secondCheck} direction='left'>
-                <Paper elevation={2}>
-                  <time>2018</time>
-                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-                  <span ref={secondRef} />
-                </Paper>
+                <Card elevation={5}>
+                  <CardContent>
+                    <time>2018</time>
+                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. </Typography>
+                    <span ref={secondRef} />
+                  </CardContent>
+                </Card>
               </Slide>
             </ListItem>
-            <ListItem  className={classes.third}>
-              <Slide in={thirdCheck} direction='right'>
-                <Paper elevation={2}>
-                  <time>2019</time>
-                  <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
-                  <span ref={thirdRef} />
-                </Paper>
+            <ListItem className={classes.third}>
+              <Slide in={thirdCheck} direction={vw < 600 ? 'left' : 'right'}>
+                <Card elevation={5}>
+                  <CardContent>
+                    <time>2019</time>
+                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. </Typography>
+                    <span ref={thirdRef} />
+                  </CardContent>
+                </Card>
               </Slide>
             </ListItem>
           </List>

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   hi: {
     fontSize: 80,
     fontWeight: 'bold',
-    color: '#111111',
+    color: theme.palette.text.primary,
   },
 }));
 
