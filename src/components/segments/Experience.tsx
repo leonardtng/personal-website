@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Slide, List, ListItem, Card, CardContent } from '@material-ui/core';
+import { Grid, Typography, Slide, List, ListItem } from '@material-ui/core';
 import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import NjcCard from '../cards/NjcCard';
+import BoogleFirstCard from '../cards/BoogleFirstCard';
+import YaleNusCard from '../cards/YaleNusCard';
 
-const SCROLL_THRESHOLD = vh * 0.7;
+const SCROLL_THRESHOLD = vh * 0.8;
 const TIMELINE_WIDTH = 6;
+export const CARD_HEIGHT = 250;
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   experience: {
@@ -23,6 +26,17 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   title: {
     margin: '50px 0 80px',
     '& h1': {
+      fontWeight: 500,
+    },
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: styleProps => styleProps.scroll > 0 ? theme.palette.primary.main : theme.palette.primary.contrastText,
+    margin: '10px 0',
+    '& h2': {
+    fontWeight: 500,
+    },
+    '& h3': {
       fontWeight: 500,
     },
   },
@@ -84,7 +98,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           }
         },
         '&:nth-child(even) .MuiCard-root': {
-          left: -469,
+          left: -439,
           '&:before': {
             right: -15,
             borderWidth: '8px 0 8px 16px',
@@ -97,7 +111,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         overflow: 'visible',
         bottom: 0,
         width: 400,
-        padding: 15,
+        padding: 0,
         background: theme.palette.background.paper,
         borderRadius: 10,
         '&:before': {
@@ -108,6 +122,10 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           height: 0,
           borderStyle: 'solid',
         },
+      },
+      '& .MuiCardMedia-root': {
+        height: CARD_HEIGHT,
+        borderRadius: '10px 10px 0 0',
       },
       '& time': {
         display: 'block',
@@ -135,7 +153,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       background: styleProps => styleProps.thirdCheck ? theme.palette.primary.main : 'inherit',
     }
   },
-  '@media only screen and (max-width: 1900px)': {
+  '@media only screen and (max-width: 1700px)': {
     timeline: {
       '& ul': {
         '& .MuiCard-root': {
@@ -143,36 +161,74 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         },
         '& li': {
           '&:nth-child(even) .MuiCard-root': {
-            left: -369,
+            left: -339,
           }
         }
       }
     },
   },
-  '@media only screen and (max-width: 1500px)': {
+  '@media only screen and (max-width: 1400px)': {
     timeline: {
       '& ul': {
         '& .MuiCard-root': {
-          width: 200,
+          width: 250,
         },
         '& li': {
           '&:nth-child(even) .MuiCard-root': {
-            left: -269,
+            left: -289,
           }
         }
       }
     },
   },
   '@media only screen and (max-width: 1200px)': {
+    circle: {
+      left: 23, //TIMELINE_WIDTH /2 + marginLeft
+    },
     timeline: {
       '& ul': {
+        '&:before': {
+          left: 23
+        },
         '& .MuiCard-root': {
-          width: 150,
+          width: 'calc(100vw - 680px)',
         },
         '& li': {
+          marginLeft: 20,
           '&:nth-child(even) .MuiCard-root': {
-            left: -219,
-          }
+            left: 45,
+            '&:before': {
+              left: -15,
+              borderWidth: '8px 16px 8px 0',
+              borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
+            }
+          },
+        }
+      }
+    },
+  },
+  '@media only screen and (max-width: 960px)': {
+    circle: {
+      left: 23, //TIMELINE_WIDTH /2 + marginLeft
+    },
+    timeline: {
+      '& ul': {
+        '&:before': {
+          left: 23
+        },
+        '& .MuiCard-root': {
+          width: 'calc(100vw - 300px)',
+        },
+        '& li': {
+          marginLeft: 20,
+          '&:nth-child(even) .MuiCard-root': {
+            left: 45,
+            '&:before': {
+              left: -15,
+              borderWidth: '8px 16px 8px 0',
+              borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
+            }
+          },
         }
       }
     },
@@ -226,26 +282,26 @@ const Experience: React.FC = () => {
   const [thirdCheck, setThirdCheck] = useState<boolean>(false);
 
   useScrollPosition(({ currPos }: any) => {
-    currPos.y < SCROLL_THRESHOLD ? setFirstCheck(true) : setFirstCheck(false);
+    currPos.y < SCROLL_THRESHOLD + 40 ? setFirstCheck(true) : setFirstCheck(false);
   }, firstRef, false);
 
   useScrollPosition(({ currPos }: any) => {
-    currPos.y < SCROLL_THRESHOLD ? setSecondCheck(true) : setSecondCheck(false);
+    currPos.y < SCROLL_THRESHOLD + 40 ? setSecondCheck(true) : setSecondCheck(false);
   }, secondRef, false);
 
   useScrollPosition(({ currPos }: any) => {
-    currPos.y < SCROLL_THRESHOLD ? setThirdCheck(true) : setThirdCheck(false);
-    console.log(currPos.y, vh)
+    currPos.y < SCROLL_THRESHOLD + 40 ? setThirdCheck(true) : setThirdCheck(false);
   }, thirdRef, false);
 
   useScrollPosition(({ currPos }: any) => {
-    currPos.y < SCROLL_THRESHOLD ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
+    currPos.y < SCROLL_THRESHOLD + 40 ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
   }, timelineRef, false);
 
   const styleProps: StyleProps = {
     firstCheck: firstCheck,
     secondCheck: secondCheck,
-    thirdCheck: thirdCheck, scroll: timelineRef.current ? scroll : 0,
+    thirdCheck: thirdCheck,
+    scroll: timelineRef.current ? scroll : 0,
     maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   }
 
@@ -255,7 +311,11 @@ const Experience: React.FC = () => {
     <Grid container spacing={0} className={classes.experience}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>What I've been involved in</Typography>
+        <Typography variant='h3' component='h1'>What I've Done So Far</Typography>
+      </Grid>
+      <Grid item xs={12} className={classes.subtitle}>
+        <Typography variant='h5' component='h2'>A journey begins</Typography>
+        <Typography variant='body1' component='h3'>(Hover over images for description)</Typography>
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>
@@ -263,35 +323,26 @@ const Experience: React.FC = () => {
             <span className={classes.circle} />
             <ListItem className={classes.first}>
               <Slide in={firstCheck} direction={vw < 600 ? 'left' : 'right'}>
-                <Card elevation={5}>
-                  <CardContent>
-                    <time>2017</time>
-                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.</Typography>
-                    <span ref={firstRef} />
-                  </CardContent>
-                </Card>
+                <div>
+                  <NjcCard />
+                  <span ref={firstRef} />
+                </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.second}>
               <Slide in={secondCheck} direction='left'>
-                <Card elevation={5}>
-                  <CardContent>
-                    <time>2018</time>
-                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. </Typography>
-                    <span ref={secondRef} />
-                  </CardContent>
-                </Card>
+                <div>
+                  <BoogleFirstCard />
+                  <span ref={secondRef} />
+                </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.third}>
               <Slide in={thirdCheck} direction={vw < 600 ? 'left' : 'right'}>
-                <Card elevation={5}>
-                  <CardContent>
-                    <time>2019</time>
-                    <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. </Typography>
-                    <span ref={thirdRef} />
-                  </CardContent>
-                </Card>
+                <div>
+                  <YaleNusCard />
+                  <span ref={thirdRef} />
+                </div>
               </Slide>
             </ListItem>
           </List>

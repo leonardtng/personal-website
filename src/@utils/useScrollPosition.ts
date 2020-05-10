@@ -21,7 +21,7 @@ function getScrollPosition({ element, useWindow }: ScrollPosition) {
     : { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDivElement>, useWindow: boolean = true, wait: number = 0) {
+export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDivElement>, useWindow: boolean = true, wait: number = 0, deps: any = null) {
   const position = useRef(getScrollPosition({ useWindow }))
 
   const [throttleTimeout, setThrottleTimeout] = useState<any>(null)
@@ -45,5 +45,5 @@ export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDiv
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [throttleTimeout, wait, effect, element, useWindow])
+  }, [throttleTimeout, wait, effect, element, useWindow, deps])
 }

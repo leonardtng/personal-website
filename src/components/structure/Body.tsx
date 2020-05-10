@@ -64,11 +64,6 @@ const Body: React.FC = () => {
           <Experience />
         </ResponsiveWrapper>
 
-
-        <ResponsiveWrapper>
-          {/* What I've done */}
-        </ResponsiveWrapper>
-
         <ResponsiveWrapper>
           {/* Where I've Been */}
         </ResponsiveWrapper>
