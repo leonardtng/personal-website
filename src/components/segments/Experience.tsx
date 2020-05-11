@@ -307,6 +307,9 @@ const Experience: React.FC = () => {
 
   const classes = useStyles(styleProps);
 
+  const slideDirectionOdd = vw < 600 ? 'left' : 'right';
+  const slideDirectionEven = 'left'
+
   return (
     <Grid container spacing={0} className={classes.experience}>
       <div className={classes.divider} />
@@ -315,32 +318,32 @@ const Experience: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
         <Typography variant='h5' component='h2'>A journey begins</Typography>
-        <Typography variant='body1' component='h3'>(Hover over images for description)</Typography>
+        <Typography variant='body1' component='h3'>(Hover over images for more!)</Typography>
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>
           <List ref={timelineRef}>
             <span className={classes.circle} />
             <ListItem className={classes.first}>
-              <Slide in={firstCheck} direction={vw < 600 ? 'left' : 'right'}>
+              <Slide in={firstCheck} direction={slideDirectionOdd}>
                 <div>
-                  <NjcCard />
+                  <NjcCard direction={slideDirectionOdd} />
                   <span ref={firstRef} />
                 </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.second}>
-              <Slide in={secondCheck} direction='left'>
+              <Slide in={secondCheck} direction={slideDirectionEven}>
                 <div>
-                  <BoogleFirstCard />
+                  <BoogleFirstCard direction={slideDirectionEven} />
                   <span ref={secondRef} />
                 </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.third}>
-              <Slide in={thirdCheck} direction={vw < 600 ? 'left' : 'right'}>
+              <Slide in={thirdCheck} direction={slideDirectionOdd}>
                 <div>
-                  <YaleNusCard />
+                  <YaleNusCard direction={slideDirectionOdd} />
                   <span ref={thirdRef} />
                 </div>
               </Slide>

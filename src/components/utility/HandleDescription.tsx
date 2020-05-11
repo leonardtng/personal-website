@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Fade, CardMedia, Typography } from '@material-ui/core';
+import { Fade, CardMedia, Typography, Slide } from '@material-ui/core';
 import { CARD_HEIGHT } from '../segments/Experience';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -15,8 +15,16 @@ const useStyles = makeStyles((theme: Theme) =>
       height: CARD_HEIGHT,
       opacity: 0.1,
     },
+    textContainer: {
+      overflow: 'hidden',
+      position: 'absolute',
+      top: 0,
+      height: CARD_HEIGHT,
+      width: '100%',
+    },
     description: {
-      transform: `translate(0, -${CARD_HEIGHT}px)`,
+      position: 'absolute',
+      top: 0,
       textAlign: 'justify',
       padding: 15,
       color: theme.palette.text.primary,
@@ -29,6 +37,7 @@ interface HandleDescriptionProps {
   name: string;
   description: string;
   showDescription: boolean;
+  direction: 'left' | 'right';
 }
 
 const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescriptionProps) => {
@@ -52,9 +61,14 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
           image={props.img}
           title={props.name}
         />
-        <Typography className={classes.description} variant='body1' component='p'>
-          {modifyDescription(props.description)}
-        </Typography>
+        <div className={classes.textContainer}>
+          <Slide in={props.showDescription} direction={props.direction} timeout={300}>
+            <Typography className={classes.description} variant='body1' component='p'>
+              {modifyDescription(props.description)}
+            </Typography>
+          </Slide>
+        </div>
+
       </div>
     </Fade>
   } return (

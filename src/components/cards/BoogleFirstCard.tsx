@@ -3,9 +3,13 @@ import { Typography, Card, CardContent, CardActionArea } from '@material-ui/core
 import BoogleCover from '../../assets/images/cards/boogle-hq.jpg';
 import HandleDescription from '../utility/HandleDescription';
 
-const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.'
+const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.';
 
-const BoogleFirstCard: React.FC = () => {
+interface BoogleFirstCardProps {
+  direction: 'left' | 'right';
+}
+
+const BoogleFirstCard: React.FC<BoogleFirstCardProps> = (props: BoogleFirstCardProps) => {
 
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
@@ -20,12 +24,13 @@ const BoogleFirstCard: React.FC = () => {
           name='Boogle HQ'
           description={description}
           showDescription={showDescription}
+          direction={props.direction}
         />
       </CardActionArea>
       <CardContent>
         <time>Oct 2019</time>
         <Typography variant='subtitle1' component='h1'>Boogle Group Ltd</Typography>
-        <Typography variant='body1' component='h2'>[Software Engineer Intern]</Typography>
+        <Typography variant='body1' component='h2'>[Software Engineer]</Typography>
       </CardContent>
     </Card>
   );

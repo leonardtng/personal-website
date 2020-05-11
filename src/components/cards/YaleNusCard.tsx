@@ -3,9 +3,13 @@ import { Typography, Card, CardContent, CardActionArea } from '@material-ui/core
 import YaleNusCover from '../../assets/images/cards/yale-nus.png';
 import HandleDescription from '../utility/HandleDescription';
 
-const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.'
+const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.';
 
-const YaleNusCard: React.FC = () => {
+interface YaleNusCardProps {
+  direction: 'left' | 'right';
+}
+
+const YaleNusCard: React.FC<YaleNusCardProps> = (props: YaleNusCardProps) => {
 
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
@@ -20,6 +24,7 @@ const YaleNusCard: React.FC = () => {
           name='Yale-NUS'
           description={description}
           showDescription={showDescription}
+          direction={props.direction}
         />
       </CardActionArea>
       <CardContent>

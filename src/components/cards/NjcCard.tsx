@@ -3,9 +3,13 @@ import { Typography, Card, CardContent, CardActionArea } from '@material-ui/core
 import NjcCover from '../../assets/images/cards/national-junior-college-1024x683.jpg';
 import HandleDescription from '../utility/HandleDescription';
 
-const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.'
+const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.';
 
-const NjcCard: React.FC = () => {
+interface NjcCardProps {
+  direction: 'left' | 'right';
+}
+
+const NjcCard: React.FC<NjcCardProps> = (props: NjcCardProps) => {
 
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
@@ -20,6 +24,7 @@ const NjcCard: React.FC = () => {
           name='NJC'
           description={description}
           showDescription={showDescription}
+          direction={props.direction}
         />
       </CardActionArea>
       <CardContent>
