@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'justify',
-    marginBottom: '100px',
+    marginBottom: 100,
   },
   divider: {
     height: 2,

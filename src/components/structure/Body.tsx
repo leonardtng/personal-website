@@ -6,6 +6,7 @@ import Profile from '../segments/Profile';
 import About from '../segments/About';
 import Welcome from '../segments/Welcome';
 import Experience from '../segments/Experience';
+import Abilities from '../segments/Abilities';
 // import ProgressBar from '../../components/utility/ProgressBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
+    '& h1': {
+      color: theme.palette.primary.main,
+    }
   },
 }));
 
@@ -62,6 +66,10 @@ const Body: React.FC = () => {
 
         <ResponsiveWrapper>
           <Experience />
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
+          <Abilities />
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>

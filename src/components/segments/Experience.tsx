@@ -16,7 +16,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     alignItems: 'flex-start',
     textAlign: 'justify',
     height: '300%',
-    marginBottom: 1000
+    marginBottom: 100
   },
   divider: {
     height: 2,
@@ -31,7 +31,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   },
   subtitle: {
     textAlign: 'center',
-    color: styleProps => styleProps.scroll > 0 ? theme.palette.primary.main : theme.palette.primary.contrastText,
+    color: styleProps => styleProps.scroll > 0 ? theme.palette.text.primary : theme.palette.primary.contrastText,
     margin: '10px 0',
     '& h2': {
     fontWeight: 500,

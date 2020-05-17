@@ -68,7 +68,6 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
             </Typography>
           </Slide>
         </div>
-
       </div>
     </Fade>
   } return (
