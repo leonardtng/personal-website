@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Cover from '../../assets/images/cover.jpg';
 import Corners from '../shapes/Corners';
-import { Typography, Fade } from '@material-ui/core';
+import { Typography, Fade, Hidden } from '@material-ui/core';
 import { useScrollPosition } from '../../@utils/useScrollPosition';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -67,11 +67,13 @@ const Heading: React.FC = () => {
     <header className={classes.header}>
       <div className={classes.mask}>
       </div>
-      <Fade in={cornerEnter} timeout={{ enter: 700, exit: 500 }} style={{ transitionDelay: '150ms' }}>
-        <div>
-          <Corners />
-        </div>
-      </Fade>
+      <Hidden smDown>
+        <Fade in={cornerEnter} timeout={{ enter: 700, exit: 500 }} style={{ transitionDelay: '150ms' }}>
+          <div>
+            <Corners />
+          </div>
+        </Fade>
+      </Hidden>
       <Fade in={cornerEnter} timeout={{ enter: 700, exit: 500 }} style={{ transitionDelay: '150ms' }}>
         <div className={classes.title}>
           <Typography className={classes.name} component='h1'>Leonard Tng</Typography>

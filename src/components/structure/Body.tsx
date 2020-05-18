@@ -37,11 +37,11 @@ interface ResponsiveWrapperProps {
 const ResponsiveWrapper: React.FC<ResponsiveWrapperProps> = (props: ResponsiveWrapperProps) => {
   return (
     <Fragment>
-      <Grid item xs={1} sm={1} md={3} lg={3} />
-      <Grid item xs={10} sm={10} md={6} lg={6}>
+      <Grid item xs={1} sm={1} md={2} lg={2} />
+      <Grid item xs={10} sm={10} md={8} lg={8}>
         {props.children}
       </Grid>
-      <Grid item xs={1} sm={1} md={3} lg={3} />
+      <Grid item xs={1} sm={1} md={2} lg={2} />
     </Fragment>
   );
 }

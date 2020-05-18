@@ -98,7 +98,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           }
         },
         '&:nth-child(even) .MuiCard-root': {
-          left: -439,
+          left: -509,
           '&:before': {
             right: -15,
             borderWidth: '8px 0 8px 16px',
@@ -110,7 +110,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         position: 'relative',
         overflow: 'visible',
         bottom: 0,
-        width: 400,
+        width: 470,
         padding: 0,
         background: theme.palette.background.paper,
         borderRadius: 10,
@@ -157,11 +157,11 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     timeline: {
       '& ul': {
         '& .MuiCard-root': {
-          width: 300,
+          width: 430,
         },
         '& li': {
           '&:nth-child(even) .MuiCard-root': {
-            left: -339,
+            left: -469,
           }
         }
       }
@@ -171,11 +171,11 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     timeline: {
       '& ul': {
         '& .MuiCard-root': {
-          width: 250,
+          width: 350,
         },
         '& li': {
           '&:nth-child(even) .MuiCard-root': {
-            left: -289,
+            left: -389,
           }
         }
       }
@@ -243,7 +243,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           left: 23
         },
         '& .MuiCard-root': {
-          width: 'calc(100vw - 200px)',
+          width: 'calc(100vw - 160px)',
         },
         '& li': {
           marginLeft: 20,
@@ -307,7 +307,7 @@ const Experience: React.FC = () => {
 
   const classes = useStyles(styleProps);
 
-  const slideDirectionOdd = vw < 600 ? 'left' : 'right';
+  const slideDirectionOdd = vw < 1200 ? 'left' : 'right';
   const slideDirectionEven = 'left'
 
   return (
@@ -317,7 +317,7 @@ const Experience: React.FC = () => {
         <Typography variant='h3' component='h1'>What I've Done So Far</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
-        <Typography variant='h5' component='h2'>A journey begins</Typography>
+        <Typography variant='h5' component='h2'>My journey begins here</Typography>
         <Typography variant='body1' component='h3'>(Hover over images for more!)</Typography>
       </Grid>
       <Grid item xs={12} className={classes.container}>

@@ -27,7 +27,10 @@ const AppTheme: React.FC = () => {
       },
     },
     typography: {
-      fontFamily: "'American Typewriter', sans-serif"
+      fontFamily: "'Avenir', sans-serif",
+      h3: {
+        fontFamily: "'American Typewriter', sans-serif"
+      }
     }
   });
 
