@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Typography, Card, CardContent, CardActionArea } from '@material-ui/core';
+import React from 'react';
+import { Typography, Card, CardContent } from '@material-ui/core';
 import BoogleCover from '../../assets/images/cards/boogle-hq.jpg';
 import HandleDescription from '../utility/HandleDescription';
 
@@ -10,23 +10,14 @@ interface BoogleFirstCardProps {
 }
 
 const BoogleFirstCard: React.FC<BoogleFirstCardProps> = (props: BoogleFirstCardProps) => {
-
-  const [showDescription, setShowDescription] = useState<boolean>(false);
-
   return (
     <Card elevation={5}>
-      <CardActionArea
-        onMouseEnter={() => setShowDescription(true)}
-        onMouseLeave={() => setShowDescription(false)}
-      >
-        <HandleDescription
-          img={BoogleCover}
-          name='Boogle HQ'
-          description={description}
-          showDescription={showDescription}
-          direction={props.direction}
-        />
-      </CardActionArea>
+      <HandleDescription
+        img={BoogleCover}
+        name='Boogle HQ'
+        description={description}
+        direction={props.direction}
+      />
       <CardContent>
         <time>Oct 2019</time>
         <Typography variant='subtitle1' component='h1'>Boogle Group Ltd</Typography>

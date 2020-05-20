@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   '@media only screen and (max-width: 600px)': {
+    ratingsBlock: {
+      marginBottom: 0,
+    },
     wrapper: {
       '& p': {
         marginRight: 10,

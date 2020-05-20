@@ -36,7 +36,7 @@ const FloatingButtons = () => {
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: vh * 3,
+    threshold: vh * 2.5,
   });
 
   const handleClick = () => {

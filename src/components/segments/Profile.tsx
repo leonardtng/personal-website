@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import ProfileImage from '../../assets/images/profile.png';
+import ProfileImageDark from '../../assets/images/profile-dark.png';
 import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   profile: {
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rectLeft: {
     '& div': {
-      float: 'left',
+      float: 'right',
     }
   },
   image: {
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rectRight: {
     '& div': {
-      float: 'right',
+      float: 'left',
     }
   },
   description: {
@@ -63,6 +65,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Profile: React.FC = () => {
   const classes = useStyles();
+  const { lightMode } = useContext(ThemeContext);
 
   const [checked, setChecked] = useState<boolean>(false)
   const profileRef: any = useRef();
@@ -79,7 +82,7 @@ const Profile: React.FC = () => {
         </Slide>
       </Grid>
       <Grid item xs={8} sm={8} md={6} lg={4} className={classes.image} >
-        <img src={ProfileImage} alt='Leonard' ref={profileRef} />
+        <img src={lightMode ? ProfileImage : ProfileImageDark} alt='Leonard' ref={profileRef} />
       </Grid>
       <Grid item xs={2} sm={2} md={3} lg={4} className={classes.rectRight}>
         <Slide in={checked} direction='left'>
@@ -89,12 +92,12 @@ const Profile: React.FC = () => {
       <Grid item xs={12} className={classes.description}>
         <Typography variant='subtitle1'>I'm an imaginative and fun-loving Software Engineer, <br /> based in Singapore</Typography>
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2}/>
+      <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
         <SingaporeMap />
         <div className={classes.buffer} />
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2}/>
+      <Grid item xs={1} sm={1} md={2} lg={2} />
     </Grid>
   );
 }

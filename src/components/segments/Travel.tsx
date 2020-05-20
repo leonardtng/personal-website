@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import WorldMap from '../interactive/WorldMap';
+import Gallery from '../interactive/Gallery';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -61,6 +62,9 @@ const Travel: React.FC = () => {
         <div className={classes.buffer} />
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
+      <Grid item xs={12}>
+        <Gallery />
+      </Grid>
     </Grid>
   );
 }

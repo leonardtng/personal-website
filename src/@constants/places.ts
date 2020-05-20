@@ -126,9 +126,15 @@ export const places = [
     color: colorSet.next(),
   },
   {
-    title: 'Jordan',
-    longitude: 36.2384,
-    latitude: 30.5852,
+    title: 'Petra',
+    longitude: 35.4444,
+    latitude: 30.3285,
+    color: colorSet.next()
+  },
+  {
+    title: 'Amman',
+    longitude: 40.2384, //longitude: 36.2384
+    latitude: 31.5852, //latitude: 30.5852
     color: colorSet.next()
   },
   {
