@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import ProfileImage from '../../assets/images/profile.png';
 import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import Map from '../interactive/Map';
+import SingaporeMap from '../interactive/SingaporeMap';
 
 const useStyles = makeStyles((theme: Theme) => ({
   profile: {
@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     backgroundColor: theme.palette.background.default,
     height: 50,
-    width: '100%',
-    transform: 'translateY(-20px)'
+    width: '101%',
+    transform: 'translate(-1px, -20px)'
   },
   '@media only screen and (max-width: 1200px)': {
     rect: {
@@ -91,7 +91,7 @@ const Profile: React.FC = () => {
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2}/>
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
-        <Map />
+        <SingaporeMap />
         <div className={classes.buffer} />
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2}/>

@@ -13,7 +13,7 @@ interface DataMapState {
   map: am4maps.MapChart;
 }
 
-class Map extends Component<{}, DataMapState> {
+class SingaporeMap extends Component<{}, DataMapState> {
   componentDidMount() {
     var map = am4core.create('mapSG', am4maps.MapChart);
     map.geodata = am4geodata_singaporeHigh;
@@ -110,4 +110,4 @@ class Map extends Component<{}, DataMapState> {
   }
 }
 
-export default Map;
+export default SingaporeMap;

@@ -7,6 +7,8 @@ import About from '../segments/About';
 import Welcome from '../segments/Welcome';
 import Experience from '../segments/Experience';
 import Abilities from '../segments/Abilities';
+import FloatingButtons from '../buttons/FloatingButtons';
+import Travel from '../segments/Travel';
 // import ProgressBar from '../../components/utility/ProgressBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -73,9 +75,10 @@ const Body: React.FC = () => {
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>
-          {/* Where I've Been */}
+          <Travel />
         </ResponsiveWrapper>
 
+        <FloatingButtons />
       </Grid>
     </div>
   );

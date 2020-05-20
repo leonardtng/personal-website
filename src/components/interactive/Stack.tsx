@@ -39,8 +39,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-
-
 const Stack: React.FC = () => {
   const classes = useStyles();
 
@@ -55,42 +53,42 @@ const Stack: React.FC = () => {
   return (
     <div className={classes.container} ref={stackRef}>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '100ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '100ms' : '0ms' }}>
           <Tooltip title='React'>
             <img className={classes.logo} src={ReactLogo} alt='react' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '150ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '150ms' : '0ms' }}>
           <Tooltip title='Material-UI'>
             <img className={classes.logo} src={MUILogo} alt='material-ui' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '200ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '200ms' : '0ms' }}>
           <Tooltip title='HTML 5'>
             <img className={classes.logo} src={HTMLLogo} alt='html' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '250ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
           <Tooltip title='CSS 3'>
             <img className={classes.css} src={CSSLogo} alt='css' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '300ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '300ms' : '0ms' }}>
           <Tooltip title='Django'>
             <img className={classes.django} src={DjangoLogo} alt='django' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={checked} style={{ transitionDelay: '350ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '350ms' : '0ms' }}>
           <Tooltip title='MySQL'>
             <img className={classes.logo} src={MySQLLogo} alt='mysql' />
           </Tooltip>
