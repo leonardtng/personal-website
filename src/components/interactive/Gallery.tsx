@@ -28,28 +28,29 @@ import Krabi1 from '../../assets/images/gallery/krabi1.jpg';
 import Krabi2 from '../../assets/images/gallery/krabi2.jpg';
 import Krabi3 from '../../assets/images/gallery/krabi3.jpg';
 import Krabi4 from '../../assets/images/gallery/krabi4.jpg';
+import { GridList, GridListTile } from '@material-ui/core';
+import { vw } from '../../@utils/useScrollPosition';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  container: {
+  root: {
     display: 'flex',
     flexWrap: 'wrap',
-    padding: 0
-  },
-  column: {
-    flex: 'calc(25% - 8px)',
-    maxWidth: '25%',
-    padding: '0 4px',
-    '& img': {
-      marginTop: 4,
-      veritcalAlign: 'middle',
-      width: '100%',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.default,
+    '& div': {
       filter: 'grayscale(80%)',
       transition: '0.6s ease',
+      overflow: 'hidden'
     },
-    '& img:hover': {
+    '& div:hover': {
       filter: 'grayscale(0%)',
-      transform: 'scale(1.03)',
+      transform: 'scale(1.01)',
     },
+  },
+  gridList: {
+    width: '100%',
+    height: '100%',
   },
   '@media only screen and (max-width: 1200px)': {
     column: {
@@ -65,50 +66,161 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+const data = [
+  {
+    img: Bali1,
+    title: 'Bali',
+    cols: 1
+  },
+  {
+    img: Bali2,
+    title: 'Bali',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Jordan1,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Jordan2,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Dubai1,
+    title: 'Dubai',
+    cols: 1
+  },
+  {
+    img: Jordan4,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Bali6,
+    title: 'Bali',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Bali5,
+    title: 'Bali',
+    cols: 1
+  },
+  {
+    img: Jordan8,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Bangkok1,
+    title: 'Bangkok',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Jordan7,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Krabi4,
+    title: 'Krabi',
+    cols: 1
+  },
+  {
+    img: Krabi3,
+    title: 'Krabi',
+    cols: 1
+  },
+  {
+    img: Dubai2,
+    title: 'Dubai',
+    cols: 1
+  },
+  {
+    img: Bali3,
+    title: 'Bali',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Jordan5,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Jordan11,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Jordan12,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Dubai3,
+    title: 'Dubai',
+    cols: 1
+  },
+  {
+    img: Jordan6,
+    title: 'Jordan',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Bali7,
+    title: 'Bali',
+    cols: 1
+  },
+  {
+    img: Bali4,
+    title: 'Bali',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Jordan9,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Krabi2,
+    title: 'Krabi',
+    cols: 1
+  },
+  {
+    img: Jordan3,
+    title: 'Jordan',
+    cols: vw < 1200 ? 1 : 2
+  },
+  {
+    img: Krabi1,
+    title: 'Krabi',
+    cols: 1
+  },
+  {
+    img: Jordan10,
+    title: 'Jordan',
+    cols: 1
+  },
+  {
+    img: Jordan13,
+    title: 'Jordan',
+    cols: 1
+  },
+]
+
 const Gallery: React.FC = () => {
   const classes = useStyles();
 
-
   return (
-    <div className={classes.container}>
-      <div className={classes.column}>
-        <img src={Bali1} alt='Bali' style={{ width: '100%' }} />
-        <img src={Bangkok1} alt='Bangkok' style={{ width: '100%' }} />
-        <img src={Bali7} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Dubai3} alt='Dubai' style={{ width: '100%' }} />
-        <img src={Dubai1} alt='Dubai' style={{ width: '100%' }} />
-        <img src={Jordan13} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Krabi2} alt='Krabi' style={{ width: '100%' }} />
-      </div>
-      <div className={classes.column}>
-        <img src={Bali3} alt='Bali' style={{ width: '100%' }} />
-        <img src={Dubai2} alt='Dubai' style={{ width: '100%' }} />
-        <img src={Jordan10} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan1} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Bali6} alt='Bali' style={{ width: '100%' }} />
-        <img src={Jordan9} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan2} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Bali4} alt='Bali' style={{ width: '100%' }} />
-      </div>
-      <div className={classes.column}>
-        <img src={Jordan5} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan6} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan7} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan8} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Krabi1} alt='Krabi' style={{ width: '100%' }} />
-        <img src={Jordan11} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan12} alt='Jordan' style={{ width: '100%' }} />
-      </div>
-      <div className={classes.column}>
-        <img src={Bali2} alt='Bali' style={{ width: '100%' }} />
-        <img src={Bali5} alt='Bali' style={{ width: '100%' }} />
-        <img src={Krabi4} alt='Krabi' style={{ width: '100%' }} />
-        <img src={Jordan3} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Jordan4} alt='Jordan' style={{ width: '100%' }} />
-        <img src={Bali3} alt='Bali' style={{ width: '100%' }} />
-        <img src={Krabi3} alt='Krabi' style={{ width: '100%' }} />
-      </div>
-
+    <div className={classes.root}>
+      <GridList cellHeight={300} className={classes.gridList} cols={vw < 600 ? 1 : vw < 1200 ? 2 : 5}>
+        {data.map((tile: any) => (
+          <GridListTile key={tile.img} cols={tile.cols || 1}>
+            <img src={tile.img} alt={tile.title} />
+          </GridListTile>
+        ))}
+      </GridList>
     </div>
   );
 }

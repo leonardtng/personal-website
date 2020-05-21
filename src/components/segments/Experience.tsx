@@ -31,10 +31,11 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   },
   subtitle: {
     textAlign: 'center',
-    color: styleProps => styleProps.scroll > 0 ? theme.palette.secondary.main : theme.palette.primary.contrastText,
+    color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
+    transition: '0.5s ease',
     margin: '10px 0',
     '& h2': {
-    fontWeight: 500,
+      fontWeight: 500,
     },
     '& h3': {
       fontWeight: 500,
@@ -49,12 +50,27 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   },
   circle: {
     position: 'absolute',
-    backgroundColor: styleProps => styleProps.scroll > 0 ? theme.palette.primary.main : theme.palette.primary.contrastText,
+    backgroundColor: styleProps => styleProps.scroll ? theme.palette.primary.main : theme.palette.primary.contrastText,
     borderRadius: '50%',
-    transform: 'translate(-15px, -10px)',
-    height: 30,
-    width: 30,
+    transform: styleProps => `translate(-${styleProps.scroll ? 15 : 7.5}px, -10px)`,
+    height: styleProps => styleProps.scroll ? 30 : 15,
+    width: styleProps => styleProps.scroll ? 30 : 15,
+    transition: '0.5s ease',
+    boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);',
     zIndex: 1,
+    '&:after': {
+      fontFamily: 'Material Icons',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'absolute',
+      left: '50%',
+      top: 0,
+      transform: 'translate(-50%)',
+      content: styleProps => styleProps.scroll ? '"radio_button_unchecked"' : '""',
+      fontSize: styleProps => styleProps.scroll ? 30 : 0,
+      color: theme.palette.secondary.contrastText,
+    },
   },
   timeline: {
     '& ul': {
@@ -67,6 +83,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         maxHeight: styleProps => styleProps.maxScroll,
         backgroundColor: theme.palette.primary.main,
         transform: 'translateX(-50%)',
+        borderRadius: '0 0 100% 100% / 0 0 15px 15px',
         zIndex: 1,
       },
       '& li': {
@@ -79,15 +96,21 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         margin: '0 auto',
         paddingTop: 50,
         background: theme.palette.primary.contrastText,
+        boxShadow: '0 3px 54px rgba(0,0,0,0.70), 0 5px 18px rgba(0,0,0,0.32);', //0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
         '&:after': {
-          content: '""',
+          fontFamily: 'Material Icons',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           position: 'absolute',
           left: '50%',
           bottom: 0,
           transform: 'translateX(-50%)',
-          width: 15,
-          height: 40,
+          zIndex: 1,
+          color: theme.palette.secondary.contrastText,
           borderRadius: '20%',
+          transition: '0.5s ease',
+          boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);',
         },
         '&:nth-child(odd) .MuiCard-root': {
           left: 45,
@@ -138,20 +161,32 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       }
     }
   },
-  first: {
+  card1: {
     '&:after': {
-      background: styleProps => styleProps.firstCheck ? theme.palette.primary.main : 'inherit',
-    }
+      content: styleProps => styleProps.firstCheck ? '"school"' : '""',
+      fontSize: styleProps => styleProps.firstCheck ? 20 : 0,
+      width: styleProps => styleProps.firstCheck ? 30 : 15,
+      height: styleProps => styleProps.firstCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.firstCheck ? '#FF5755' : theme.palette.primary.contrastText,
+    },
   },
-  second: {
+  card2: {
     '&:after': {
-      background: styleProps => styleProps.secondCheck ? theme.palette.primary.main : 'inherit',
-    }
+      content: styleProps => styleProps.secondCheck ? '"work"' : '""',
+      fontSize: styleProps => styleProps.secondCheck ? 20 : 0,
+      width: styleProps => styleProps.secondCheck ? 30 : 15,
+      height: styleProps => styleProps.secondCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.secondCheck ? '#FEDD65' : theme.palette.primary.contrastText,
+    },
   },
-  third: {
+  card3: {
     '&:after': {
-      background: styleProps => styleProps.thirdCheck ? theme.palette.primary.main : 'inherit',
-    }
+      content: styleProps => styleProps.thirdCheck ? '"school"' : '""',
+      fontSize: styleProps => styleProps.thirdCheck ? 20 : 0,
+      width: styleProps => styleProps.thirdCheck ? 30 : 15,
+      height: styleProps => styleProps.thirdCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.thirdCheck ? '#7ED857' : theme.palette.primary.contrastText,
+    },
   },
   '@media only screen and (max-width: 1700px)': {
     timeline: {
@@ -324,7 +359,7 @@ const Experience: React.FC = () => {
         <section className={classes.timeline}>
           <List ref={timelineRef}>
             <span className={classes.circle} />
-            <ListItem className={classes.first}>
+            <ListItem className={classes.card1}>
               <Slide in={firstCheck} direction={slideDirectionOdd}>
                 <div>
                   <NjcCard direction={slideDirectionOdd} />
@@ -332,7 +367,7 @@ const Experience: React.FC = () => {
                 </div>
               </Slide>
             </ListItem>
-            <ListItem className={classes.second}>
+            <ListItem className={classes.card2}>
               <Slide in={secondCheck} direction={slideDirectionEven}>
                 <div>
                   <BoogleFirstCard direction={slideDirectionEven} />
@@ -340,7 +375,7 @@ const Experience: React.FC = () => {
                 </div>
               </Slide>
             </ListItem>
-            <ListItem className={classes.third}>
+            <ListItem className={classes.card3}>
               <Slide in={thirdCheck} direction={slideDirectionOdd}>
                 <div>
                   <YaleNusCard direction={slideDirectionOdd} />
