@@ -69,6 +69,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       transform: 'translate(-50%)',
       content: styleProps => styleProps.scroll ? '"radio_button_unchecked"' : '""',
       fontSize: styleProps => styleProps.scroll ? 30 : 0,
+      transitionDelay: '0.2s',
       color: theme.palette.secondary.contrastText,
     },
   },
@@ -96,7 +97,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
         margin: '0 auto',
         paddingTop: 50,
         background: theme.palette.primary.contrastText,
-        boxShadow: '0 3px 54px rgba(0,0,0,0.70), 0 5px 18px rgba(0,0,0,0.32);', //0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);', //0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
         '&:after': {
           fontFamily: 'Material Icons',
           display: 'flex',
