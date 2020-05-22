@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   name: {
     fontSize: 36.7,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: '#ffffff',
     textTransform: 'uppercase',
   },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   description: {
     fontSize: 23.55,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: '#ffffff',
   },
   hi: {

@@ -20,14 +20,14 @@ const AppTheme: React.FC = () => {
     palette: {
       primary: {
         main: '#17577e',
-        contrastText: '#cccccc',
+        contrastText: '#E7E7E4',
       },
       secondary: {
-        main: '#44546b',
+        main: '#4086A1',
         contrastText: '#f7f9fb',
       },
       background: {
-        default: '#baaaa0',
+        default: '#CBC9C2',
         paper: '#63939d',
       },
       text: {
@@ -44,7 +44,7 @@ const AppTheme: React.FC = () => {
         contrastText: '#686c6c',
       },
       secondary: {
-        main: '#45A29E',
+        main: '#9fb3c8',
         contrastText: '#010101',
       },
       background: {
@@ -56,7 +56,7 @@ const AppTheme: React.FC = () => {
       },
     },
     ...common
-  });
+  }, );
 
   return (
     <ThemeProvider theme={currentThemeContext.lightMode ? light : dark}>

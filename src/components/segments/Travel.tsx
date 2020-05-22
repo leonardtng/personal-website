@@ -8,8 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   travel: {
     display: 'flex',
     alignItems: 'center',
-    textAlign: 'justify',
-    marginBottom: 1000,
+    marginBottom: 100,
   },
   divider: {
     height: 2,

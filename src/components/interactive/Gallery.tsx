@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.default,
     '& div': {
-      filter: 'grayscale(80%)',
+      filter: 'grayscale(90%)',
       transition: '0.6s ease',
       overflow: 'hidden'
     },
@@ -53,12 +53,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100%',
   },
   '@media only screen and (max-width: 1200px)': {
+    root: {
+      '& div': {
+        filter: 'grayscale(0%)',
+      },
+    },
     column: {
       flex: 'calc(50% - 8px)',
       maxWidth: '50%',
     },
   },
   '@media only screen and (max-width: 600px)': {
+    root: {
+      '& div': {
+        filter: 'grayscale(0%)',
+      },
+    },
     column: {
       flex: 'calc(100% - 8px)',
       maxWidth: '100%',

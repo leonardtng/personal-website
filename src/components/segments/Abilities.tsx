@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   about: {
     display: 'flex',
     alignItems: 'center',
-    textAlign: 'justify',
   },
   divider: {
     height: 2,
@@ -25,6 +24,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& h1': {
       fontWeight: 500,
     },
+  },
+  italics: {
+    fontStyle: 'oblique',
+    marginTop: 20,
   },
   subheader: {
     marginTop: 50,
@@ -150,11 +153,17 @@ const Abilities: React.FC = () => {
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1'>What I Can Do</Typography>
       </Grid>
+      <Grid item xs={12}>
+        <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+      </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>Stack</Typography>
       </Grid>
       <Grid item xs={12}>
         <Stack />
+      </Grid>
+      <Grid item xs={12} className={classes.italics}>
+        <Typography variant='body1' component='p'>This project was built with React</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>Skills</Typography>

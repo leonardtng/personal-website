@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-// import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import ResponsiveWrapper from '../utility/ResponsiveWrapper';
 import Profile from '../segments/Profile';
 import About from '../segments/About';
 import Welcome from '../segments/Welcome';
@@ -9,12 +9,13 @@ import Experience from '../segments/Experience';
 import Abilities from '../segments/Abilities';
 import FloatingButtons from '../buttons/FloatingButtons';
 import Travel from '../segments/Travel';
-// import ProgressBar from '../../components/utility/ProgressBar';
+import Contact from '../segments/Contact';
 
 const useStyles = makeStyles((theme: Theme) => ({
   body: {
     height: '100%',
     width: '100vw',
+    textAlign: 'center',
   },
   buffer: {
     height: '100vh',
@@ -31,22 +32,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
 }));
-
-interface ResponsiveWrapperProps {
-  children: React.ReactNode;
-}
-
-const ResponsiveWrapper: React.FC<ResponsiveWrapperProps> = (props: ResponsiveWrapperProps) => {
-  return (
-    <Fragment>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
-      <Grid item xs={10} sm={10} md={8} lg={8}>
-        {props.children}
-      </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
-    </Fragment>
-  );
-}
 
 const Body: React.FC = () => {
   const classes = useStyles();
@@ -76,6 +61,10 @@ const Body: React.FC = () => {
 
         <ResponsiveWrapper>
           <Travel />
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
+          <Contact />
         </ResponsiveWrapper>
 
         <FloatingButtons />

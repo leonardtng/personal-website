@@ -90,7 +90,7 @@ class WorldMap extends Component<{}, DataMapState> {
 
   render() {
     return (
-      <div id='mapWorld' style={{ width: '100%', height: vw < 600 ? '30vh' : '50vh' }}></div>
+      <div id='mapWorld' style={{ width: '100%', height: vw < 1200 ? '30vh' : '50vh' }}></div>
     );
   }
 }

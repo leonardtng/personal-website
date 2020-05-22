@@ -14,7 +14,6 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   experience: {
     display: 'flex',
     alignItems: 'flex-start',
-    textAlign: 'justify',
     height: '300%',
     marginBottom: 100
   },
@@ -24,7 +23,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     backgroundColor: '#7F7F7F',
   },
   title: {
-    margin: '50px 0 80px',
+    margin: '50px 0 60px',
     '& h1': {
       fontWeight: 500,
     },
@@ -227,7 +226,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           left: 23
         },
         '& .MuiCard-root': {
-          width: 'calc(100vw - 680px)',
+          width: 'calc(100vw - 480px)',
         },
         '& li': {
           marginLeft: 20,
