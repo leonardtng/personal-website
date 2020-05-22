@@ -36,7 +36,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   ratingsBlock: {
     display: 'flex',
     flexDirection: 'column',
+    textAlign: 'left',
     marginBottom: 50,
+    paddingRight: 20,
+    paddingLeft: 20,
     '& fieldset': {
       transition: 'transform 0.2s',
     },
@@ -55,26 +58,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    '& p': {
-      right: 0,
-      marginRight: 50,
-    }
   },
   '@media only screen and (max-width: 1200px)': {
-    wrapper: {
-      '& p': {
-        marginRight: 10,
-      }
+    ratingsBlock: {
+      paddingRight: 5,
+      paddingLeft: 5,
     },
   },
   '@media only screen and (max-width: 600px)': {
     ratingsBlock: {
       marginBottom: 0,
-    },
-    wrapper: {
-      '& p': {
-        marginRight: 10,
-      }
+      paddingRight: 5,
+      paddingLeft: 5,
     },
   },
 }));
