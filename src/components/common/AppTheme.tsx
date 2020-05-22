@@ -1,41 +1,65 @@
 import React, { useContext } from 'react';
 import AppRouter from './AppRouter';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core';
 import { ThemeContext } from '../../contexts/ThemeContext';
 
 const AppTheme: React.FC = () => {
   const currentThemeContext = useContext(ThemeContext);
 
-  const theme = createMuiTheme({
-    palette: {
-      type: currentThemeContext.lightMode ? 'light' : 'dark',
-      primary: {
-        main: currentThemeContext.lightMode ? '#17577e' : '#66FCF1',
-        contrastText: currentThemeContext.lightMode ? '#cccccc' : '#686c6c'
-      },
-      secondary: {
-        main: currentThemeContext.lightMode ? '#44546b' : '#45A29E',
-        contrastText: currentThemeContext.lightMode ? '#f7f9fb' : '#010101',
-      },
-      background: {
-        default: currentThemeContext.lightMode ? '#baaaa0' : '#0B0C10',
-        paper: currentThemeContext.lightMode ? '#63939d' : '#1F2833',
-      },
-      text: {
-        primary: currentThemeContext.lightMode ? '#121858' : '#C5C6C7',
-      },
-    },
+  const common: ThemeOptions = {
     typography: {
       fontFamily: "'Avenir', sans-serif",
       h3: {
         fontFamily: "'American Typewriter', sans-serif"
       }
     }
+  };
+
+  const light: Theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#17577e',
+        contrastText: '#cccccc',
+      },
+      secondary: {
+        main: '#44546b',
+        contrastText: '#f7f9fb',
+      },
+      background: {
+        default: '#baaaa0',
+        paper: '#63939d',
+      },
+      text: {
+        primary: '#121858',
+      },
+    },
+    ...common
+  });
+
+  const dark: Theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#66FCF1',
+        contrastText: '#686c6c',
+      },
+      secondary: {
+        main: '#45A29E',
+        contrastText: '#010101',
+      },
+      background: {
+        default: '#0B0C10',
+        paper: '#1F2833',
+      },
+      text: {
+        primary: '#C5C6C7',
+      },
+    },
+    ...common
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentThemeContext.lightMode ? light : dark}>
       <AppRouter />
     </ThemeProvider>
   );

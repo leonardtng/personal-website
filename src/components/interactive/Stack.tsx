@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Stack: React.FC = () => {
   const classes = useStyles();
 
-
   const [checked, setChecked] = useState<boolean>(false)
   const stackRef: any = useRef();
 
