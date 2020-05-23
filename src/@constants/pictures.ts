@@ -27,8 +27,9 @@ import Krabi2 from '../assets/images/gallery/krabi2.jpg';
 import Krabi3 from '../assets/images/gallery/krabi3.jpg';
 import Krabi4 from '../assets/images/gallery/krabi4.jpg';
 import { vw } from '../@utils/useScrollPosition';
+import { Picture } from '../@types';
 
-export const pictures = [
+export const pictures: Array<Picture> = [
   {
     img: Bali1,
     title: 'Bali',

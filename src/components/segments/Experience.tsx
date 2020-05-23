@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Slide, List, ListItem } from '@material-ui/core';
-import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
-import NjcCard from '../cards/NjcCard';
-import BoogleFirstCard from '../cards/BoogleFirstCard';
-import YaleNusCard from '../cards/YaleNusCard';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../@constants/info';
+import ExperienceCard from '../interactive/ExperienceCard';
+import { getSlideDirection } from '../../@utils/getSlideDirection';
+import { ExperienceStyleProps, Card } from '../../@types';
 
 const SCROLL_THRESHOLD = vh * 0.8;
 const TIMELINE_WIDTH = 6;
 export const CARD_HEIGHT = 250;
 
-const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
+const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   experience: {
     display: 'flex',
     alignItems: 'flex-start',
@@ -182,11 +182,20 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   },
   card3: {
     '&:after': {
-      content: styleProps => styleProps.thirdCheck ? '"school"' : '""',
+      content: styleProps => styleProps.thirdCheck ? '"assignment"' : '""',
       fontSize: styleProps => styleProps.thirdCheck ? 20 : 0,
       width: styleProps => styleProps.thirdCheck ? 30 : 15,
       height: styleProps => styleProps.thirdCheck ? 30 : 15,
       backgroundColor: styleProps => styleProps.thirdCheck ? '#7ED857' : theme.palette.primary.contrastText,
+    },
+  },
+  card4: {
+    '&:after': {
+      content: styleProps => styleProps.fourthCheck ? '"school"' : '""',
+      fontSize: styleProps => styleProps.fourthCheck ? 20 : 0,
+      width: styleProps => styleProps.fourthCheck ? 30 : 15,
+      height: styleProps => styleProps.fourthCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.fourthCheck ? '#3AC3EA' : theme.palette.primary.contrastText,
     },
   },
   '@media only screen and (max-width: 1700px)': {
@@ -297,25 +306,19 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   },
 }));
 
-interface StyleProps {
-  firstCheck: boolean;
-  secondCheck: boolean;
-  thirdCheck: boolean;
-  scroll: number;
-  maxScroll: number;
-}
-
 const Experience: React.FC = () => {
   const timelineRef = useRef<any>();
   const firstRef = useRef<any>();
   const secondRef = useRef<any>();
   const thirdRef = useRef<any>();
+  const fourthRef = useRef<any>();
 
   const [scroll, setScroll] = useState<number>(0);
 
   const [firstCheck, setFirstCheck] = useState<boolean>(false);
   const [secondCheck, setSecondCheck] = useState<boolean>(false);
   const [thirdCheck, setThirdCheck] = useState<boolean>(false);
+  const [fourthCheck, setFourthCheck] = useState<boolean>(false);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setFirstCheck(true) : setFirstCheck(false);
@@ -330,21 +333,33 @@ const Experience: React.FC = () => {
   }, thirdRef, false);
 
   useScrollPosition(({ currPos }: any) => {
+    currPos.y < SCROLL_THRESHOLD + 40 ? setFourthCheck(true) : setFourthCheck(false);
+  }, fourthRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
   }, timelineRef, false);
 
-  const styleProps: StyleProps = {
+  const styleProps: ExperienceStyleProps = {
     firstCheck: firstCheck,
     secondCheck: secondCheck,
     thirdCheck: thirdCheck,
+    fourthCheck: fourthCheck,
     scroll: timelineRef.current ? scroll : 0,
     maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   }
 
   const classes = useStyles(styleProps);
 
-  const slideDirectionOdd = vw < 1200 ? 'left' : 'right';
-  const slideDirectionEven = 'left'
+  const cardList =  info.experience.cards.map((item: Card, index: number) => {
+    return <ExperienceCard
+      title={item.title}
+      date={item.date}
+      role={item.role}
+      description={item.description}
+      image={item.image}
+      direction={getSlideDirection(index)} />
+  });
 
   return (
     <Grid container spacing={0} className={classes.experience}>
@@ -361,26 +376,34 @@ const Experience: React.FC = () => {
           <List ref={timelineRef}>
             <span className={classes.circle} />
             <ListItem className={classes.card1}>
-              <Slide in={firstCheck} direction={slideDirectionOdd}>
+              <Slide in={firstCheck} direction={getSlideDirection(0)}>
                 <div>
-                  <NjcCard direction={slideDirectionOdd} />
+                  {cardList[0]}
                   <span ref={firstRef} />
                 </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.card2}>
-              <Slide in={secondCheck} direction={slideDirectionEven}>
+              <Slide in={secondCheck} direction={getSlideDirection(1)}>
                 <div>
-                  <BoogleFirstCard direction={slideDirectionEven} />
+                  {cardList[1]}
                   <span ref={secondRef} />
                 </div>
               </Slide>
             </ListItem>
             <ListItem className={classes.card3}>
-              <Slide in={thirdCheck} direction={slideDirectionOdd}>
+              <Slide in={thirdCheck} direction={getSlideDirection(2)}>
                 <div>
-                  <YaleNusCard direction={slideDirectionOdd} />
+                  {cardList[2]}
                   <span ref={thirdRef} />
+                </div>
+              </Slide>
+            </ListItem>
+            <ListItem className={classes.card4}>
+              <Slide in={fourthCheck} direction={getSlideDirection(3)}>
+                <div>
+                  {cardList[3]}
+                  <span ref={fourthRef} />
                 </div>
               </Slide>
             </ListItem>

@@ -1,10 +1,11 @@
 import * as am4core from '@amcharts/amcharts4/core';
+import { Place } from '../@types';
 
 let colorSet = new am4core.ColorSet();
 
 //some coordinates are altered to prevent overlap on map
 
-export const places = [
+export const places: Array<Place> = [
   {
     title: 'Singapore',
     longitude: 103.8536,

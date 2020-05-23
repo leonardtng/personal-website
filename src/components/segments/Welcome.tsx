@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Fade } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import { HiState } from '../../@types';
 
 const useStyles = makeStyles((theme: Theme) => ({
   hiBox: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Welcome: React.FC = () => {
   const classes = useStyles();
 
-  const [hiState, setHiState] = useState({
+  const [hiState, setHiState] = useState<HiState>({
     enter: false,
     sticky: true,
   });

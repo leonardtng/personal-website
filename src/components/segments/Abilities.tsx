@@ -9,6 +9,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import Stack from '../interactive/Stack';
 import { info } from '../../@constants/info';
+import { Ability } from '../../@types';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -165,12 +166,12 @@ const Abilities: React.FC = () => {
         <Typography variant='h5'>{info.abilities.subsections.skills.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.skills.itemsBlockLeft.map(item => {
+        {info.abilities.subsections.skills.itemsBlockLeft.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.skills.itemsBlockRight.map(item => {
+        {info.abilities.subsections.skills.itemsBlockRight.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>
@@ -178,12 +179,12 @@ const Abilities: React.FC = () => {
         <Typography variant='h5'>{info.abilities.subsections.languages.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.languages.itemsBlockLeft.map(item => {
+        {info.abilities.subsections.languages.itemsBlockLeft.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.languages.itemsBlockRight.map(item => {
+        {info.abilities.subsections.languages.itemsBlockRight.map((item: Ability)=> {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>
@@ -191,12 +192,12 @@ const Abilities: React.FC = () => {
         <Typography variant='h5'>{info.abilities.subsections.tools.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.tools.itemsBlockLeft.map(item => {
+        {info.abilities.subsections.tools.itemsBlockLeft.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.tools.itemsBlockRight.map(item => {
+        {info.abilities.subsections.tools.itemsBlockRight.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>

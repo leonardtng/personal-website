@@ -4,9 +4,9 @@ import { places } from './places';
 import { pictures } from './pictures';
 import { subsections } from './subsections';
 import { cards } from './cards';
+import { Info } from '../@types';
 
-
-export const info = {
+export const info: Info = {
   profile: {
     image: ProfileImage,
     imageDark: ProfileImageDark,

@@ -1,4 +1,6 @@
-export const subsections = {
+import { Subsection } from "../@types";
+
+export const subsections: Subsection = {
   stack: {
     title: "Stack",
   },
