@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+import { info } from '../../@constants/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -28,10 +29,10 @@ const About: React.FC = () => {
     <Grid container spacing={0} className={classes.about}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>I write code</Typography>
+        <Typography variant='h3' component='h1'>{info.about.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+        <Typography variant='body1' component='p'>{info.about.description}</Typography>
       </Grid>
     </Grid>
   );

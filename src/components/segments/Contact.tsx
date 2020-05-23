@@ -49,6 +49,7 @@ const Contact: React.FC = () => {
           color="secondary"
           className={classes.button}
           startIcon={<EmojiPeopleIcon />}
+          href='mailto:leonardtng@gmail.com'
         >
           Contact Me!
         </Button>

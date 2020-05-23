@@ -8,6 +8,7 @@ import HotTubIcon from '@material-ui/icons/HotTub';
 import StarsIcon from '@material-ui/icons/Stars';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import Stack from '../interactive/Stack';
+import { info } from '../../@constants/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -146,13 +147,13 @@ const Abilities: React.FC = () => {
     <Grid container spacing={0} className={classes.about}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>What I Can Do</Typography>
+        <Typography variant='h3' component='h1'>{info.abilities.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant='body1' component='p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget. Vivamus at scelerisque libero. Ut odio eros, pretium vitae orci vel, sodales tempus arcu. Fusce ultricies fermentum libero, vel rhoncus mi mattis egestas. Donec suscipit mattis libero. Donec euismod eget elit eget dignissim. Proin viverra enim quis auctor ornare.</Typography>
+        <Typography variant='body1' component='p'>{info.abilities.description}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
-        <Typography variant='h5'>Stack</Typography>
+        <Typography variant='h5'>{info.abilities.subsections.stack.title}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Stack />
@@ -161,51 +162,43 @@ const Abilities: React.FC = () => {
         <Typography variant='body1' component='p'>This project was built with React</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
-        <Typography variant='h5'>Skills</Typography>
+        <Typography variant='h5'>{info.abilities.subsections.skills.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='React' value={5} />
-        <RatingComponent legend='Material-UI' value={5} />
-        <RatingComponent legend='TypeScript' value={5} />
-        <RatingComponent legend='Product Management' value={4} />
-        <RatingComponent legend='Scrum' value={4} />
-        <RatingComponent legend='HTML(5)' value={4} />
-        <RatingComponent legend='CSS(3)' value={4} />
-        <RatingComponent legend='Raspberry Pi(3)' value={4} />
-        <RatingComponent legend='MySQL' value={4} />
+        {info.abilities.subsections.skills.itemsBlockLeft.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='React Native' value={4} />
-        <RatingComponent legend='Python' value={4} />
-        <RatingComponent legend='Pandas' value={3} />
-        <RatingComponent legend='Sci-kit Learn' value={3} />
-        <RatingComponent legend='Django' value={3} />
-        <RatingComponent legend='Django REST Framework' value={3} />
-        <RatingComponent legend='Arduino' value={3} />
-        <RatingComponent legend='BootStrap(4)' value={2} />
-        <RatingComponent legend='C#' value={1} />
+        {info.abilities.subsections.skills.itemsBlockRight.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
-        <Typography variant='h5'>Languages</Typography>
+        <Typography variant='h5'>{info.abilities.subsections.languages.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='English' value={5} />
+        {info.abilities.subsections.languages.itemsBlockLeft.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='Mandarin' value={4} />
+        {info.abilities.subsections.languages.itemsBlockRight.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
-        <Typography variant='h5'>Tools</Typography>
+        <Typography variant='h5'>{info.abilities.subsections.tools.title}</Typography>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='AWS S3' value={5} />
-        <RatingComponent legend='AWS CodeCommit' value={5} />
-        <RatingComponent legend='Git' value={4} />
+        {info.abilities.subsections.tools.itemsBlockLeft.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        <RatingComponent legend='Invision Studio' value={4} />
-        <RatingComponent legend='Adobe XD' value={4} />
-        <RatingComponent legend='AWS EC2' value={1} />
+        {info.abilities.subsections.tools.itemsBlockRight.map(item => {
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
+        })}
       </Grid>
     </Grid>
   );

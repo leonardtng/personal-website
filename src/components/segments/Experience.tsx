@@ -5,6 +5,7 @@ import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
 import NjcCard from '../cards/NjcCard';
 import BoogleFirstCard from '../cards/BoogleFirstCard';
 import YaleNusCard from '../cards/YaleNusCard';
+import { info } from '../../@constants/info';
 
 const SCROLL_THRESHOLD = vh * 0.8;
 const TIMELINE_WIDTH = 6;
@@ -349,11 +350,11 @@ const Experience: React.FC = () => {
     <Grid container spacing={0} className={classes.experience}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>What I've Done So Far</Typography>
+        <Typography variant='h3' component='h1'>{info.experience.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
-        <Typography variant='h5' component='h2'>My journey begins here</Typography>
-        <Typography variant='body1' component='h3'>(Hover over images for more!)</Typography>
+        <Typography variant='h5' component='h2'>{info.experience.subtitle}</Typography>
+        <Typography variant='body1' component='h3'>{info.experience.caption}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>

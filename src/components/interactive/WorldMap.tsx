@@ -4,8 +4,8 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldHigh from '@amcharts/amcharts4-geodata/worldHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import { places } from '../../@constants/places';
 import { vw } from '../../@utils/useScrollPosition';
+import { info } from '../../@constants/info';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
@@ -59,7 +59,7 @@ class WorldMap extends Component<{}, DataMapState> {
 
     let colorSet = new am4core.ColorSet();
 
-    imageSeries.data = places;
+    imageSeries.data = info.travel.places;
 
     for (let object of imageSeries.data) {
       object.color = colorSet.next();
