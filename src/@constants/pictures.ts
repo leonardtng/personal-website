@@ -1,145 +1,173 @@
+import Bali1 from '../assets/images/gallery/bali1.jpg';
+import Bali2 from '../assets/images/gallery/bali2.jpg';
+import Bali3 from '../assets/images/gallery/bali3.jpg';
+import Bali4 from '../assets/images/gallery/bali4.jpg';
+import Bali5 from '../assets/images/gallery/bali5.jpg';
+import Bali6 from '../assets/images/gallery/bali6.jpg';
+import Bali7 from '../assets/images/gallery/bali7.jpg';
+import Bangkok1 from '../assets/images/gallery/bangkok1.jpg';
+import Dubai1 from '../assets/images/gallery/dubai1.jpg';
+import Dubai2 from '../assets/images/gallery/dubai2.jpg';
+import Dubai3 from '../assets/images/gallery/dubai3.jpg';
+import Jordan1 from '../assets/images/gallery/jordan1.jpg';
+import Jordan2 from '../assets/images/gallery/jordan2.jpg';
+import Jordan3 from '../assets/images/gallery/jordan3.jpg';
+import Jordan4 from '../assets/images/gallery/jordan4.jpg';
+import Jordan5 from '../assets/images/gallery/jordan5.jpg';
+import Jordan6 from '../assets/images/gallery/jordan6.jpg';
+import Jordan7 from '../assets/images/gallery/jordan7.jpg';
+import Jordan8 from '../assets/images/gallery/jordan8.jpg';
+import Jordan9 from '../assets/images/gallery/jordan9.jpg';
+import Jordan10 from '../assets/images/gallery/jordan10.jpg';
+import Jordan11 from '../assets/images/gallery/jordan11.jpg';
+import Jordan12 from '../assets/images/gallery/jordan12.jpg';
+import Jordan13 from '../assets/images/gallery/jordan13.jpg';
+import Krabi1 from '../assets/images/gallery/krabi1.jpg';
+import Krabi2 from '../assets/images/gallery/krabi2.jpg';
+import Krabi3 from '../assets/images/gallery/krabi3.jpg';
+import Krabi4 from '../assets/images/gallery/krabi4.jpg';
 import { vw } from '../@utils/useScrollPosition';
 import { Picture } from '../@types';
 
 export const pictures: Array<Picture> = [
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali1.jpg',
-    title: 'Bali1',
+    img: Bali1,
+    title: 'Bali',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali2.jpg',
-    title: 'Bali2',
+    img: Bali2,
+    title: 'Bali',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan1.jpg',
-    title: 'Jordan1',
+    img: Jordan1,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan2.jpg',
-    title: 'Jordan2',
+    img: Jordan2,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/dubai1.jpg',
-    title: 'Dubai1',
+    img: Dubai1,
+    title: 'Dubai',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan4.jpg',
-    title: 'Jordan4',
+    img: Jordan4,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali6.jpg',
-    title: 'Bali6',
+    img: Bali6,
+    title: 'Bali',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali5.jpg',
-    title: 'Bali5',
+    img: Bali5,
+    title: 'Bali',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan8.jpg',
-    title: 'Jordan8',
+    img: Jordan8,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bangkok1.jpg',
-    title: 'Bangkok1',
+    img: Bangkok1,
+    title: 'Bangkok',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan7.jpg',
-    title: 'Jordan7',
+    img: Jordan7,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/krabi4.jpg',
-    title: 'Krabi4',
+    img: Krabi4,
+    title: 'Krabi',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/krabi3.jpg',
-    title: 'Krabi3',
+    img: Krabi3,
+    title: 'Krabi',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/dubai2.jpg',
-    title: 'Dubai2',
+    img: Dubai2,
+    title: 'Dubai',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali3.jpg',
-    title: 'Bali3',
+    img: Bali3,
+    title: 'Bali',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan5.jpg',
-    title: 'Jordan5',
+    img: Jordan5,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan11.jpg',
-    title: 'Jordan11',
+    img: Jordan11,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan12.jpg',
-    title: 'Jordan12',
+    img: Jordan12,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/dubai3.jpg',
-    title: 'Dubai3',
+    img: Dubai3,
+    title: 'Dubai',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan6.jpg',
-    title: 'Jordan6',
+    img: Jordan6,
+    title: 'Jordan',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali7.jpg',
-    title: 'Bali7',
+    img: Bali7,
+    title: 'Bali',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/bali4.jpg',
-    title: 'Bali4',
+    img: Bali4,
+    title: 'Bali',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan9.jpg',
-    title: 'Jordan9',
+    img: Jordan9,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/krabi2.jpg',
-    title: 'Krabi2',
+    img: Krabi2,
+    title: 'Krabi',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan3.jpg',
-    title: 'Jordan3',
+    img: Jordan3,
+    title: 'Jordan',
     cols: vw < 1200 ? 1 : 2
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/krabi1.jpg',
-    title: 'Krabi1',
+    img: Krabi1,
+    title: 'Krabi',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan10.jpg',
-    title: 'Jordan10',
+    img: Jordan10,
+    title: 'Jordan',
     cols: 1
   },
   {
-    img: 'https://personal-website-v1-storage.s3-ap-southeast-1.amazonaws.com/jordan13.jpg',
-    title: 'Jordan13',
+    img: Jordan13,
+    title: 'Jordan',
     cols: 1
   },
 ];

@@ -11,14 +11,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.default,
-    '& div': {
-      filter: 'grayscale(90%)',
-      transition: '0.6s ease',
-      overflow: 'hidden'
+    '& li': {
+      display: 'block',
+      objectFit: 'cover',
+      overflow: 'hidden',
+      padding: '0 !important',
+      border: `2px solid ${theme.palette.background.default}`,
+      '& .MuiGridListTile-tile': {
+        filter: 'grayscale(90%)',
+        transition: '0.6s ease',
+      },
     },
-    '& div:hover': {
-      filter: 'grayscale(0%)',
-      transform: 'scale(1.01)',
+    '& li:hover': {
+      '& .MuiGridListTile-tile': {
+        filter: 'grayscale(0%)',
+        transform: 'scale(1.08)'
+      },
     },
   },
   gridList: {
@@ -27,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   '@media only screen and (max-width: 1200px)': {
     root: {
-      '& div': {
+      '& .MuiGridListTile-tile': {
         filter: 'grayscale(0%)',
       },
     },
@@ -38,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   '@media only screen and (max-width: 600px)': {
     root: {
-      '& div': {
+      '& .MuiGridListTile-tile': {
         filter: 'grayscale(0%)',
       },
     },

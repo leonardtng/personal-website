@@ -24,12 +24,29 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 30,
   },
   button: {
-    margin: 50
+    margin: 50,
+    boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
+    animation: '$pulse 1.5s ease infinite',
   },
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(0.9)',
+    },
+    '70%': {
+      transform: 'scale(1)',
+      boxShadow: `0 0 0 15px ${theme.palette.secondary.main}00`,
+    },
+    '100%': {
+      transform: 'scale(0.9)',
+      boxShadow: `0 0 0 0 ${theme.palette.secondary.main}00`
+    }
+  }
 }));
 
 const Contact: React.FC = () => {
   const classes = useStyles();
+
+  
 
   return (
     <Grid container spacing={0} className={classes.contact}>
@@ -45,8 +62,8 @@ const Contact: React.FC = () => {
       </Grid>
       <Grid item xs={12}>
         <Button
-          variant="contained"
-          color="secondary"
+          variant='contained'
+          color='secondary'
           className={classes.button}
           startIcon={<EmojiPeopleIcon />}
           href='mailto:leonardtng@gmail.com'
@@ -54,9 +71,6 @@ const Contact: React.FC = () => {
           Contact Me!
         </Button>
       </Grid>
-      {/* <Grid item xs={12}>
-        <Typography variant='body1' component='p'>Or you can send me a DM on these platforms too, and we can get in touch! </Typography>
-      </Grid> */}
     </Grid>
   );
 }

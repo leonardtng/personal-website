@@ -7,7 +7,7 @@ import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, Card } from '../../@types';
 
-const SCROLL_THRESHOLD = vh * 0.8;
+const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
 export const CARD_HEIGHT = 250;
 
