@@ -9,9 +9,9 @@ const AppTheme: React.FC = () => {
 
   const common: ThemeOptions = {
     typography: {
-      fontFamily: "'Avenir', sans-serif",
+      fontFamily: "'Avenir', sans-serif !important",
       h3: {
-        fontFamily: "'American Typewriter', sans-serif"
+        fontFamily: "'Arvo', sans-serif !important"
       }
     }
   };

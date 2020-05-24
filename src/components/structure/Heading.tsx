@@ -10,9 +10,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100vh',
     backgroundImage: `url(${Cover})`,
     backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed',
+    backgroundAttachment: 'scroll',
     backgroundPosition: 'bottom',
     backgroundSize: 'cover',
+    '-webkit-background-size': 'cover',
+    '-moz-background-size': 'cover',
+    '-o-background-size': 'cover',
   },
   mask: {
     height: '100vh',

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { CardMedia, Typography, Slide, CardActionArea } from '@material-ui/core';
+import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@material-ui/core';
 import { CARD_HEIGHT } from '../segments/Experience';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -62,27 +62,62 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
     return description
   };
 
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <CardActionArea
-      className={classes.maxheight}
-      onMouseEnter={() => setShowDescription(true)}
-      onMouseLeave={() => setShowDescription(false)}
-    >
-      <CardMedia
-        component='img'
-        className={classes.background}
-        alt={props.name}
-        image={props.img}
-        title={props.name}
-      />
-      <div className={classes.textContainer}>
-        <Slide in={showDescription} direction={props.direction} timeout={300}>
-          <Typography className={classes.description} variant='body1' component='p'>
-            {modifyDescription(props.description)}
-          </Typography>
-        </Slide>
-      </div>
-    </CardActionArea>
+    <Fragment>
+      <CardActionArea
+        className={classes.maxheight}
+        onMouseEnter={() => setShowDescription(true)}
+        onMouseLeave={() => setShowDescription(false)}
+        onClick={handleClickOpen}
+      >
+        <CardMedia
+          component='img'
+          className={classes.background}
+          alt={props.name}
+          image={props.img}
+          title={props.name}
+        />
+        <div className={classes.textContainer}>
+          <Slide in={showDescription} direction={props.direction} timeout={300}>
+            <Typography className={classes.description} variant='body1' component='p'>
+              {modifyDescription(props.description)}
+            </Typography>
+          </Slide>
+        </div>
+      </CardActionArea>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          {/* <DialogContentText> */}
+            <Typography variant='body1' component='p'>
+              LoremIpsum
+            </Typography>
+          {/* </DialogContentText> */}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Disagree
+            </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Agree
+            </Button>
+        </DialogActions>
+      </Dialog>
+    </Fragment>
   )
 }
 
