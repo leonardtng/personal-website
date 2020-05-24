@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   divider: {
     height: 7,
+    maxWidth: '80vw',
     width: 410,
     margin: 5,
     backgroundColor: '#ffffff',

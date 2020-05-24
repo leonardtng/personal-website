@@ -19,7 +19,7 @@ export const info: Info = {
   },
   experience: {
     title: "What I've Done So Far",
-    subtitle: "My journey begins her",
+    subtitle: "My journey begins here",
     caption: "(Hover over images for more!)",
     cards: cards,
   },
