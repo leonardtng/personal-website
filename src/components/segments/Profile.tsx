@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& div': {
       float: 'right',
       boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
+      borderRadius: '15px 15px 15px 15px / 100% 100% 100% 100%',
     }
   },
   image: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& div': {
       float: 'left',
       boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
+      borderRadius: '15px 15px 15px 15px / 100% 100% 100% 100%',
     }
   },
   description: {
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   map: {
     marginTop: 50,
+    marginBottom: 50,
   },
   buffer: {
     position: 'relative',
@@ -71,7 +74,7 @@ const Profile: React.FC = () => {
   const { lightMode } = useContext(ThemeContext);
 
   const [checked, setChecked] = useState<boolean>(false)
-  const profileRef: any = useRef();
+  const profileRef = useRef<HTMLImageElement>(null);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.55 && currPos.y > 0 ? setChecked(true) : setChecked(false);
@@ -98,7 +101,7 @@ const Profile: React.FC = () => {
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
         <SingaporeMap />
-        <div className={classes.buffer} />
+        {/* <div className={classes.buffer} /> */}
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
     </Grid>

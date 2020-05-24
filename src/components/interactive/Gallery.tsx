@@ -62,7 +62,7 @@ const Gallery: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={300} className={classes.gridList} cols={vw < 600 ? 1 : vw < 1200 ? 2 : 5}>
+      <GridList cellHeight={vw < 600 ? 260 : vw < 1400 ? 350 : 260} className={classes.gridList} cols={vw < 600 ? 1 : vw < 1400 ? 2 : 5}>
         {info.travel.pictures.map((tile: any) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
             <img src={tile.img} alt={tile.title} />

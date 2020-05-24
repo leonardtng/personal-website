@@ -29,6 +29,8 @@ import Krabi4 from '../assets/images/gallery/krabi4.jpg';
 import { vw } from '../@utils/useScrollPosition';
 import { Picture } from '../@types';
 
+const SIZE_THRESHOLD = 1400;
+
 export const pictures: Array<Picture> = [
   {
     img: Bali1,
@@ -38,7 +40,7 @@ export const pictures: Array<Picture> = [
   {
     img: Bali2,
     title: 'Bali',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Jordan1,
@@ -63,7 +65,7 @@ export const pictures: Array<Picture> = [
   {
     img: Bali6,
     title: 'Bali',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Bali5,
@@ -78,7 +80,7 @@ export const pictures: Array<Picture> = [
   {
     img: Bangkok1,
     title: 'Bangkok',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Jordan7,
@@ -103,7 +105,7 @@ export const pictures: Array<Picture> = [
   {
     img: Bali3,
     title: 'Bali',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Jordan5,
@@ -128,7 +130,7 @@ export const pictures: Array<Picture> = [
   {
     img: Jordan6,
     title: 'Jordan',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Bali7,
@@ -138,7 +140,7 @@ export const pictures: Array<Picture> = [
   {
     img: Bali4,
     title: 'Bali',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Jordan9,
@@ -153,7 +155,7 @@ export const pictures: Array<Picture> = [
   {
     img: Jordan3,
     title: 'Jordan',
-    cols: vw < 1200 ? 1 : 2
+    cols: vw < SIZE_THRESHOLD ? 1 : 2
   },
   {
     img: Krabi1,

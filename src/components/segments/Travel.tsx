@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   map: {
     marginTop: 50,
+    marginBottom: 50,
   },
   buffer: {
     position: 'relative',
@@ -59,7 +60,7 @@ const Travel: React.FC = () => {
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
         <WorldMap />
-        <div className={classes.buffer} />
+        {/* <div className={classes.buffer} /> */}
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={12}>

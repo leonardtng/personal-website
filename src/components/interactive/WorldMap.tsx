@@ -16,6 +16,9 @@ interface DataMapState {
 
 class WorldMap extends Component<{}, DataMapState> {
   componentDidMount() {
+    am4core.addLicense("CH224389178")
+    am4core.addLicense("MP224380308");
+    
     var map = am4core.create('mapWorld', am4maps.MapChart);
     map.geodata = am4geodata_worldHigh;
     map.projection = new am4maps.projections.Miller();
@@ -76,6 +79,8 @@ class WorldMap extends Component<{}, DataMapState> {
     });
     button.icon = new am4core.Sprite();
     button.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+
+    map.chartContainer.wheelable = false;
 
     this.setState({
       map: map

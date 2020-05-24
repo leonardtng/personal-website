@@ -55,11 +55,11 @@ const Footer: React.FC = () => {
           </Link>
         </Typography>
         <Typography className={classes.section} variant='body1' component='p'>
-          <Link href='mailto:leonardtng@gmail.com'>
+          <Link href='mailto:theleonardtng@gmail.com'>
             <MailIcon />
           </Link>
-          <Link href='mailto:leonardtng@gmail.com'>
-            <Hidden mdDown>leonardtng@gmail.com</Hidden>
+          <Link href='mailto:theleonardtng@gmail.com'>
+            <Hidden mdDown>theleonardtng@gmail.com</Hidden>
           </Link>
         </Typography>
         <Typography className={classes.section} variant='body1' component='p'>

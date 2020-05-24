@@ -43,7 +43,7 @@ const Stack: React.FC = () => {
   const classes = useStyles();
 
   const [checked, setChecked] = useState<boolean>(false)
-  const stackRef = useRef<any>();
+  const stackRef = useRef<HTMLDivElement>(null);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.85 ? setChecked(true) : setChecked(false);

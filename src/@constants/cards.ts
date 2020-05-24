@@ -6,7 +6,7 @@ import { Card } from '../@types';
 
 export const cards: Array<Card> = [
   {
-    title: "NJC",
+    title: "National Junior College",
     date: "Nov 2017",
     role: "[GCE 'A' Level Graduate]",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet efficitur lectus, vel tempus sem pretium eget.",

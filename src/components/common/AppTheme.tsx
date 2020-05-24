@@ -28,7 +28,7 @@ const AppTheme: React.FC = () => {
       },
       background: {
         default: '#CBC9C2',
-        paper: '#63939d',
+        paper: '#96BDC9', //#63939d
       },
       text: {
         primary: '#121858',

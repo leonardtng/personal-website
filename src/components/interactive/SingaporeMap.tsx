@@ -15,6 +15,9 @@ interface DataMapState {
 
 class SingaporeMap extends Component<{}, DataMapState> {
   componentDidMount() {
+    am4core.addLicense("CH224389178")
+    am4core.addLicense("MP224380308");
+
     var map = am4core.create('mapSG', am4maps.MapChart);
     map.geodata = am4geodata_singaporeHigh;
     map.projection = new am4maps.projections.Miller();
@@ -79,6 +82,8 @@ class SingaporeMap extends Component<{}, DataMapState> {
     for (let object of imageSeries.data) {
       object.color = colorSet.next();
     }
+
+    map.chartContainer.wheelable = false;
 
     // map.zoomControl = new am4maps.ZoomControl();
 

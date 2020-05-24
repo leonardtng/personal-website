@@ -21,7 +21,7 @@ function getScrollPosition({ element, useWindow }: ScrollPosition) {
     : { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect: any, element?: React.RefObject<HTMLDivElement>, useWindow: boolean = true, wait: number = 0, deps: any = null) {
+export function useScrollPosition(effect: any, element?: React.RefObject<HTMLElement>, useWindow: boolean = true, wait: number = 0, deps: any = null) {
   const position = useRef(getScrollPosition({ useWindow }))
 
   const [throttleTimeout, setThrottleTimeout] = useState<any>(null)

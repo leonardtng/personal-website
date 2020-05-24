@@ -177,7 +177,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.secondCheck ? 20 : 0,
       width: styleProps => styleProps.secondCheck ? 30 : 15,
       height: styleProps => styleProps.secondCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.secondCheck ? '#FEDD65' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.secondCheck ? '#AD3AEA' : theme.palette.primary.contrastText,
     },
   },
   card3: {
@@ -195,7 +195,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.fourthCheck ? 20 : 0,
       width: styleProps => styleProps.fourthCheck ? 30 : 15,
       height: styleProps => styleProps.fourthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.fourthCheck ? '#3AC3EA' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.fourthCheck ? '#EAA03A' : theme.palette.primary.contrastText,
     },
   },
   '@media only screen and (max-width: 1700px)': {
@@ -307,11 +307,11 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
 }));
 
 const Experience: React.FC = () => {
-  const timelineRef = useRef<any>();
-  const firstRef = useRef<any>();
-  const secondRef = useRef<any>();
-  const thirdRef = useRef<any>();
-  const fourthRef = useRef<any>();
+  const timelineRef = useRef<HTMLUListElement>(null);
+  const firstRef = useRef<HTMLSpanElement>(null);
+  const secondRef = useRef<HTMLSpanElement>(null);
+  const thirdRef = useRef<HTMLSpanElement>(null);
+  const fourthRef = useRef<HTMLSpanElement>(null);
 
   const [scroll, setScroll] = useState<number>(0);
 
@@ -351,7 +351,7 @@ const Experience: React.FC = () => {
 
   const classes = useStyles(styleProps);
 
-  const cardList =  info.experience.cards.map((item: Card, index: number) => {
+  const cardList = info.experience.cards.map((item: Card, index: number) => {
     return <ExperienceCard
       title={item.title}
       date={item.date}
