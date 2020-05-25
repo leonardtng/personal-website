@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper, List, ListItem, Collapse, ListItemText } from '@material-ui/core';
 import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
 import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
-import { CardDialogContent } from '../../@types';
+import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
@@ -104,7 +104,13 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
 
 
   const [open, setOpen] = React.useState(false);
-  const [dropdown, setDropdown] = useState<boolean>(false);
+  const [dropdown, setDropdown] = useState<Array<boolean | undefined>>([]);
+
+  const handleChange = (index: number) => {
+    let newArray = [...dropdown];
+    newArray[index] = !dropdown[index]
+    return newArray
+  }
 
   return (
     <Fragment>
@@ -133,7 +139,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         open={open}
         onClose={() => {
           setOpen(false);
-          setDropdown(false);
+          setDropdown([]);
         }}
         className={classes.dialog}
         TransitionComponent={Transition}
@@ -145,19 +151,23 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
               {props.description}
             </Typography>
             <List>
-            <ListItem button onClick={() => setDropdown(!dropdown)}>
-              <ListItemText primary={props.cardDialogContent.infoTitle} className={classes.infoHeader} />
-              {dropdown ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Typography variant='subtitle2' component='div'>
-              <Collapse in={dropdown} timeout='auto' unmountOnExit>
-                <List>
-                  {props.cardDialogContent.infoItems.map((item: string, index: number) => {
-                    return <ListItem key={index} className={classes.listItem}>{item}</ListItem>
-                  })}
-                </List>
-              </Collapse>
-            </Typography>
+              {props.cardDialogContent.infoList ? props.cardDialogContent.infoList.map((category: CardDialogInfo, index: number) => {
+                return <Fragment key={index}>
+                  <ListItem button onClick={() => setDropdown(handleChange(index))}>
+                    <ListItemText primary={category.infoTitle} className={classes.infoHeader} />
+                    {dropdown[index] ? <ExpandLess /> : <ExpandMore />}
+                  </ListItem>
+                  <Typography variant='subtitle2' component='div'>
+                    <Collapse in={dropdown[index]} timeout='auto' unmountOnExit>
+                      <List>
+                        {category.infoItems.map((item: string, index: number) => {
+                          return <ListItem key={index} className={classes.listItem}>{item}</ListItem>
+                        })}
+                      </List>
+                    </Collapse>
+                  </Typography>
+                </Fragment>
+              }) : null}
             </List>
           </DialogContent>
         </Paper>

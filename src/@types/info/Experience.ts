@@ -3,10 +3,14 @@ export interface CardDialogImageInterface {
     image: string;
 };
 
-export interface CardDialogContentInterface {
-    carousel: Array<CardDialogImageInterface>;
+export interface CardDialogInfoInterface {
     infoTitle: string;
     infoItems: Array<string>;
+}
+
+export interface CardDialogContentInterface {
+    carousel: Array<CardDialogImageInterface>;
+    infoList?: Array<CardDialogInfoInterface>;
 };
 
 export interface CardDataInterface {

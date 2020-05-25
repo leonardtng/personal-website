@@ -22,14 +22,25 @@ export const cards: Array<CardData> = [
           image: NjcCover
         }
       ],
-      infoTitle: 'Subjects',
-      infoItems: [
-        'H2 Mathematics',
-        'H2 Economics',
-        'H2 Physics',
-        'H2 Chemistry',
-        'H3 Economics'
-      ]
+      infoList: [
+        {
+          infoTitle: 'Subjects',
+          infoItems: [
+            'H2 Mathematics',
+            'H2 Economics',
+            'H2 Physics',
+            'H2 Chemistry',
+            'H3 Economics'
+          ],
+        },
+        {
+          infoTitle: 'Awards and Honours',
+          infoItems: [
+            'MOE Pre-U Scholarship',
+            'YDSP Academic Award for Mathematics'
+          ]
+        }
+      ],
     }
   },
   {
@@ -65,15 +76,20 @@ export const cards: Array<CardData> = [
           image: BoogleCover
         }
       ],
-      infoTitle: 'Skills',
-      infoItems: [
-        'React',
-        'Typescript',
-        'Python',
-        'Django',
-        'MySQL',
-        'AWS'
+      infoList: [
+        {
+          infoTitle: 'Skills',
+          infoItems: [
+            'React',
+            'Typescript',
+            'Python',
+            'Django',
+            'MySQL',
+            'AWS'
+          ]
+        }
       ]
+
     }
   },
   {
@@ -93,11 +109,15 @@ export const cards: Array<CardData> = [
           image: PersonalWebsiteV1Cover
         }
       ],
-      infoTitle: 'Stack',
-      infoItems: [
-        'React',
-        'Typescript',
-        'AWS',
+      infoList: [
+        {
+          infoTitle: 'Stack',
+          infoItems: [
+            'React',
+            'Typescript',
+            'AWS',
+          ]
+        }
       ]
     }
   },
@@ -114,10 +134,6 @@ export const cards: Array<CardData> = [
           image: YaleNusCover
         },
       ],
-      infoTitle: 'Major',
-      infoItems: [
-        '',
-      ]
     }
   },
 ]
