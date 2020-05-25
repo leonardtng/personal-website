@@ -1,11 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@material-ui/core';
-import { CARD_HEIGHT } from '../segments/Experience';
+import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper } from '@material-ui/core';
+import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
+import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
+import { CardDialogContent } from '../../@types';
+import { TransitionProps } from '@material-ui/core/transitions/transition';
+
+const PAPER_HEIGHT = 300;
+const BORDER_RADIUS = 30
 
 const useStyles = makeStyles((theme: Theme) => ({
   maxheight: {
-    maxHeight: CARD_HEIGHT,
+    maxHeight: IMAGE_HEIGHT,
     '& img': {
       transition: '0.3s ease'
     },
@@ -21,16 +27,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   media: {
-    height: CARD_HEIGHT,
+    height: IMAGE_HEIGHT,
   },
   background: {
-    height: CARD_HEIGHT,
+    height: IMAGE_HEIGHT,
   },
   textContainer: {
     overflow: 'hidden',
     position: 'absolute',
     top: 0,
-    height: CARD_HEIGHT,
+    height: IMAGE_HEIGHT,
     width: '100%',
   },
   description: {
@@ -40,12 +46,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: 15,
     color: theme.palette.text.primary,
   },
+  dialog: {
+    '& .MuiDialog-paper': {
+      borderRadius: BORDER_RADIUS,
+      maxWidth: 400,
+      height: `calc(${IMAGE_HEIGHT}px + ${PAPER_HEIGHT}px - ${PAPER_OFFSET}px)`,
+    },
+    '& .MuiDialogContent-root': {
+      borderRadius: '20%',
+    },
+  },
+  content: {
+    height: PAPER_HEIGHT,
+    borderRadius: BORDER_RADIUS,
+    width: '100%',
+    position: 'absolute',
+    top: `calc(${IMAGE_HEIGHT}px - ${PAPER_OFFSET}px)`,
+  }
 }));
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement<any, any> },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction='up' ref={ref} {...props} />;
+});
 
 interface HandleDescriptionProps {
   img: string;
   name: string;
   description: string;
+  cardDialogContent: CardDialogContent;
   direction: 'left' | 'right';
 }
 
@@ -96,27 +127,21 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
           </Slide>
         </div>
       </CardActionArea>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
-        <DialogContent>
-          {/* <DialogContentText> */}
-            <Typography variant='body1' component='p'>
-              LoremIpsum
-            </Typography>
-          {/* </DialogContentText> */}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-            </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
-            </Button>
-        </DialogActions>
-      </Dialog>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          className={classes.dialog}
+          TransitionComponent={Transition}
+        >
+          <DialogCarousel carousel={props.cardDialogContent.carousel} />
+          <Paper className={classes.content}>
+            <DialogContent>
+              <Typography variant='body1' component='p'>
+                {props.description}
+              </Typography>
+            </DialogContent>
+          </Paper>
+        </Dialog>
     </Fragment>
   )
 }

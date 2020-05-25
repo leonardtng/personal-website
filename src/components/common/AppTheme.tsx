@@ -27,8 +27,8 @@ const AppTheme: React.FC = () => {
         contrastText: '#f7f9fb',
       },
       background: {
-        default: '#CBC9C2',
-        paper: '#96BDC9', //#63939d
+        default: '#E7E7E4',
+        paper: '#A5C9CD', //#63939d
       },
       text: {
         primary: '#121858',

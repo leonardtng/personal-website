@@ -5,11 +5,11 @@ import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../@constants/info';
 import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
-import { ExperienceStyleProps, Card } from '../../@types';
+import { ExperienceStyleProps, CardData } from '../../@types';
+import { IMAGE_HEIGHT } from '../../components/interactive/DialogCarousel';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
-export const CARD_HEIGHT = 250;
 
 const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   experience: {
@@ -148,7 +148,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         },
       },
       '& .MuiCardMedia-root': {
-        height: CARD_HEIGHT,
+        height: IMAGE_HEIGHT,
         borderRadius: '10px 10px 0 0',
       },
       '& time': {
@@ -351,13 +351,14 @@ const Experience: React.FC = () => {
 
   const classes = useStyles(styleProps);
 
-  const cardList = info.experience.cards.map((item: Card, index: number) => {
+  const cardList = info.experience.cards.map((item: CardData, index: number) => {
     return <ExperienceCard
       title={item.title}
       date={item.date}
       role={item.role}
       description={item.description}
       image={item.image}
+      cardDialogContent={item.cardDialogContent}
       direction={getSlideDirection(index)} />
   });
 

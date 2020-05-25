@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100vh',
     backgroundImage: `url(${Cover})`,
     backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'scroll',
+    backgroundAttachment: navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)  || navigator.userAgent.match(/iPod/i) ? 'scroll' : 'fixed',
     backgroundPosition: 'bottom',
     backgroundSize: 'cover',
     '-webkit-background-size': 'cover',
