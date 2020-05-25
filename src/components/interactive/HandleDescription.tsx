@@ -51,10 +51,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   dialog: {
     '& .MuiDialog-paper': {
-      borderRadius: BORDER_RADIUS,
       maxWidth: 600,
       height: `calc(${IMAGE_HEIGHT}px + ${PAPER_HEIGHT}px - ${PAPER_OFFSET}px)`,
     },
+    '& .MuiPaper-root': {
+      borderRadius: BORDER_RADIUS,
+    }
   },
   content: {
     height: PAPER_HEIGHT,
