@@ -94,7 +94,8 @@ export const cards: Array<CardData> = [
     role: `V1`,
     description: `This project is the very first personal project I designed, built, and deployed, and is also my first take on a personal website. Building this website 
     not only allowed me to put my development skills to the test, but was also a great sandbox for me to explore and experiment with new development and design techniques
-    such as implementing a dark theme, and being creative with scroll effects.`,
+    such as implementing a dark theme`,
+    descriptionSecondPart: `, and being creative with scroll effects.`,
     image: PersonalWebsiteV1Cover,
     cardDialogContent: {
       carousel: [

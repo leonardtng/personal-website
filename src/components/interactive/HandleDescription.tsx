@@ -7,6 +7,7 @@ import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import { vw } from '../../@utils/useScrollPosition';
+import ThemeToggle from '../buttons/ThemeToggle';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 30
@@ -91,9 +92,10 @@ const Transition = React.forwardRef(function Transition(
 });
 
 interface HandleDescriptionProps {
-  img: string;
-  name: string;
+  image: string;
+  title: string;
   description: string;
+  descriptionSecondPart?: string;
   cardDialogContent: CardDialogContent;
   direction: 'left' | 'right';
 }
@@ -114,7 +116,6 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
     return description
   };
 
-
   const [open, setOpen] = React.useState(false);
   const [dropdown, setDropdown] = useState<Array<boolean | undefined>>([]);
 
@@ -122,7 +123,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
     let newArray = [...dropdown];
     newArray[index] = !dropdown[index]
     return newArray
-  }
+  };
 
   return (
     <Fragment>
@@ -135,9 +136,9 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         <CardMedia
           component='img'
           className={classes.background}
-          alt={props.name}
-          image={props.img}
-          title={props.name}
+          alt={props.title}
+          image={props.image}
+          title={props.title}
         />
         <div className={classes.textContainer}>
           <Slide in={showDescription} direction={props.direction} timeout={300}>
@@ -160,7 +161,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         <Paper className={classes.content}>
           <DialogContent>
             <Typography variant='body1' component='p'>
-              {props.description}
+              {props.description} {props.title === 'Personal Website' ? <><ThemeToggle />{props.descriptionSecondPart}</> : null}
             </Typography>
             <List>
               {props.cardDialogContent.infoList ? props.cardDialogContent.infoList.map((category: CardDialogInfo, index: number) => {

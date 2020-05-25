@@ -18,6 +18,7 @@ export interface CardDataInterface {
     date: string;
     role: string;
     description: string;
+    descriptionSecondPart?: string;
     image: string;
     cardDialogContent: CardDialogContentInterface;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Card, CardContent } from '@material-ui/core';
-import HandleDescription from '../utility/HandleDescription';
+import HandleDescription from './HandleDescription';
 import { CardDialogContent } from '../../@types';
 
 interface ExperienceCardProps {
@@ -8,6 +8,7 @@ interface ExperienceCardProps {
   date: string;
   role: string;
   description: string;
+  descriptionSecondPart?: string;
   image: string;
   cardDialogContent: CardDialogContent;
   direction: 'left' | 'right';
@@ -17,9 +18,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProp
   return (
     <Card elevation={5}>
       <HandleDescription
-        img={props.image}
-        name={props.title}
+        image={props.image}
+        title={props.title}
         description={props.description}
+        descriptionSecondPart={props.descriptionSecondPart}
         cardDialogContent={props.cardDialogContent}
         direction={props.direction}
       />

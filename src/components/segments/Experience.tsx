@@ -357,6 +357,7 @@ const Experience: React.FC = () => {
       date={item.date}
       role={item.role}
       description={item.description}
+      descriptionSecondPart={item.descriptionSecondPart}
       image={item.image}
       cardDialogContent={item.cardDialogContent}
       direction={getSlideDirection(index)} />
