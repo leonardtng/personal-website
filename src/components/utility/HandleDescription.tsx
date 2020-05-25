@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper } from '@material-ui/core';
+import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper, List, ListItem, Collapse, ListItemText } from '@material-ui/core';
 import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
 import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 30
@@ -62,6 +63,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     position: 'absolute',
     top: `calc(${IMAGE_HEIGHT}px - ${PAPER_OFFSET}px)`,
+    overflow: 'scroll',
+  },
+  infoHeader: {
+    marginTop: 10,
+    fontWeight: 'bold',
+  },
+  listItem: {
+    paddingLeft: 32,
   }
 }));
 
@@ -95,14 +104,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
 
 
   const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [dropdown, setDropdown] = useState<boolean>(false);
 
   return (
     <Fragment>
@@ -110,7 +112,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         className={classes.maxheight}
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
-        onClick={handleClickOpen}
+        onClick={() => setOpen(true)}
       >
         <CardMedia
           component='img'
@@ -127,22 +129,40 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
           </Slide>
         </div>
       </CardActionArea>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          className={classes.dialog}
-          TransitionComponent={Transition}
-        >
-          <DialogCarousel carousel={props.cardDialogContent.carousel} />
-          <Paper className={classes.content}>
-            <DialogContent>
-              <Typography variant='body1' component='p'>
-                {props.description}
-              </Typography>
-            </DialogContent>
-          </Paper>
-        </Dialog>
-    </Fragment>
+      <Dialog
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          setDropdown(false);
+        }}
+        className={classes.dialog}
+        TransitionComponent={Transition}
+      >
+        <DialogCarousel carousel={props.cardDialogContent.carousel} />
+        <Paper className={classes.content}>
+          <DialogContent>
+            <Typography variant='body1' component='p'>
+              {props.description}
+            </Typography>
+            <List>
+            <ListItem button onClick={() => setDropdown(!dropdown)}>
+              <ListItemText primary={props.cardDialogContent.infoTitle} className={classes.infoHeader} />
+              {dropdown ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Typography variant='subtitle2' component='div'>
+              <Collapse in={dropdown} timeout='auto' unmountOnExit>
+                <List>
+                  {props.cardDialogContent.infoItems.map((item: string, index: number) => {
+                    return <ListItem key={index} className={classes.listItem}>{item}</ListItem>
+                  })}
+                </List>
+              </Collapse>
+            </Typography>
+            </List>
+          </DialogContent>
+        </Paper>
+      </Dialog>
+    </Fragment >
   )
 }
 
