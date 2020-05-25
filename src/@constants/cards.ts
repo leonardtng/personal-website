@@ -1,7 +1,7 @@
-import NjcCover from '../assets/images/cards/national-junior-college-1024x683.jpg';
-import BoogleCover from '../assets/images/cards/boogle-hq.jpg';
-import YaleNusCover from '../assets/images/cards/yale-nus.png';
-import PersonalWebsiteV1Cover from '../assets/images/cards/personal-website-v1.png';
+import NjcCover from '../assets/images/cards/national-junior-college/national-junior-college-1024x683.jpg';
+import BoogleCover from '../assets/images/cards/boogle/boogle-hq.jpg';
+import YaleNusCover from '../assets/images/cards/yale-nus/yale-nus.png';
+import PersonalWebsiteV1Cover from '../assets/images/cards/personal-website-v1/personal-website-v1.png';
 import { CardData } from '../@types';
 
 import NJC1 from '../assets/images/cards/national-junior-college/carousel1.jpg';
