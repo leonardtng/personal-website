@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   '@media only screen and (max-width: 1200px)': {
     root: {
       '& .MuiGridListTile-tile': {
-        filter: 'grayscale(0%)',
+        filter: 'grayscale(0%) !important',
       },
     },
     column: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   '@media only screen and (max-width: 600px)': {
     root: {
       '& .MuiGridListTile-tile': {
-        filter: 'grayscale(0%)',
+        filter: 'grayscale(0%) !important',
       },
     },
     column: {

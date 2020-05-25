@@ -6,6 +6,7 @@ import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { vw } from '../../@utils/useScrollPosition';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 30
@@ -50,11 +51,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   dialog: {
     '& .MuiDialog-paper': {
       borderRadius: BORDER_RADIUS,
-      maxWidth: 400,
+      maxWidth: 600,
       height: `calc(${IMAGE_HEIGHT}px + ${PAPER_HEIGHT}px - ${PAPER_OFFSET}px)`,
-    },
-    '& .MuiDialogContent-root': {
-      borderRadius: '20%',
     },
   },
   content: {
@@ -64,6 +62,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     top: `calc(${IMAGE_HEIGHT}px - ${PAPER_OFFSET}px)`,
     overflow: 'scroll',
+    textAlign: 'justify',
+    '& .MuiDialogContent-root': {
+      marginBottom: 30,
+    },
   },
   infoHeader: {
     marginTop: 10,
@@ -71,7 +73,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   listItem: {
     paddingLeft: 32,
-  }
+  },
+  '@media only screen and (max-width: 600px)': {
+    dialog: {
+      '& .MuiDialog-paper': {
+        maxWidth: 400,
+      },
+    },
+  },
 }));
 
 const Transition = React.forwardRef(function Transition(
@@ -97,6 +106,9 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
   const modifyDescription = (description: string) => {
     if (description.length > 505) {
       const newDescription = description.slice(0, 500) + ' ...'
+      return newDescription;
+    } else if (vw < 600) {
+      const newDescription = description.slice(0, 200) + ' ...'
       return newDescription;
     };
     return description

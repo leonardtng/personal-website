@@ -6,10 +6,10 @@ import { info } from '../../@constants/info';
 import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';
-import { IMAGE_HEIGHT } from '../../components/interactive/DialogCarousel';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
+const CARD_HEIGHT = 250;
 
 const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   experience: {
@@ -148,7 +148,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         },
       },
       '& .MuiCardMedia-root': {
-        height: IMAGE_HEIGHT,
+        height: CARD_HEIGHT,
         borderRadius: '10px 10px 0 0',
       },
       '& time': {

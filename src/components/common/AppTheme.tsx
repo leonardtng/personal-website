@@ -20,7 +20,7 @@ const AppTheme: React.FC = () => {
     palette: {
       primary: {
         main: '#17577e',
-        contrastText: '#E7E7E4',
+        contrastText: '#DCD6D2',
       },
       secondary: {
         main: '#4086A1',

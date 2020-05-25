@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   map: {
     marginTop: 50,
-    marginBottom: 50,
+    marginBottom: 60,
   },
   buffer: {
     position: 'relative',
@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 50,
     width: '101%',
     transform: 'translate(-1px, -20px)'
+  },
+  caption: {
+    marginBottom: 50,
+    fontStyle: 'oblique',
   },
   '@media only screen and (max-width: 1200px)': {
     rect: {
@@ -61,6 +65,9 @@ const Travel: React.FC = () => {
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
         <WorldMap />
         {/* <div className={classes.buffer} /> */}
+      </Grid>
+      <Grid item xs={12} className={classes.caption}>
+        <Typography variant='body1' component='p'>{info.travel.caption}</Typography>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={12}>

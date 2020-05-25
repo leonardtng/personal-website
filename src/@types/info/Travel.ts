@@ -16,6 +16,7 @@ export interface PictureInterface {
 export interface TravelInterface {
     title: string;
     description: string;
+    caption: string;
     places: Array<PlaceInterface>;
     pictures: Array<PictureInterface>;
 };
