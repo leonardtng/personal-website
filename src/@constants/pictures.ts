@@ -29,7 +29,7 @@ import Krabi4 from '../assets/images/gallery/krabi4.jpg';
 import { vw } from '../@utils/useScrollPosition';
 import { Picture } from '../@types';
 
-const SIZE_THRESHOLD = 1400;
+const SIZE_THRESHOLD = 1200;
 
 export const pictures: Array<Picture> = [
   {
