@@ -1,8 +1,13 @@
 import NjcCover from '../assets/images/cards/national-junior-college-1024x683.jpg';
 import BoogleCover from '../assets/images/cards/boogle-hq.jpg';
 import YaleNusCover from '../assets/images/cards/yale-nus.png';
-import PersonalWebsiteV1Cover from '../assets/images/cards/personal-website-v1.png'
+import PersonalWebsiteV1Cover from '../assets/images/cards/personal-website-v1.png';
 import { CardData } from '../@types';
+
+import NJC1 from '../assets/images/cards/national-junior-college/carousel1.jpg';
+import Boogle1 from '../assets/images/cards/boogle/carousel1.jpg';
+import PW1 from '../assets/images/cards/personal-website-v1/carousel1.png';
+import PW2 from '../assets/images/cards/personal-website-v1/carousel2.png';
 
 export const cards: Array<CardData> = [
   {
@@ -18,9 +23,9 @@ export const cards: Array<CardData> = [
           image: NjcCover
         },
         {
-          caption: 'NJC',
-          image: NjcCover
-        }
+          caption: 'Picked up saxophone here!',
+          image: NJC1
+        },
       ],
       infoList: [
         {
@@ -34,7 +39,7 @@ export const cards: Array<CardData> = [
           ],
         },
         {
-          infoTitle: 'Awards and Honours',
+          infoTitle: 'Awards and Scholarships',
           infoItems: [
             'MOE Pre-U Scholarship',
             'YDSP Academic Award for Mathematics'
@@ -56,25 +61,9 @@ export const cards: Array<CardData> = [
           image: BoogleCover
         },
         {
-          caption: 'Boogle',
-          image: BoogleCover
+          caption: 'Interacting with a younger batch of interns',
+          image: Boogle1
         },
-        {
-          caption: 'Boogle',
-          image: BoogleCover
-        },
-        {
-          caption: 'Boogle',
-          image: BoogleCover
-        },
-        {
-          caption: 'Boogle',
-          image: BoogleCover
-        },
-        {
-          caption: 'Boogle',
-          image: BoogleCover
-        }
       ],
       infoList: [
         {
@@ -101,13 +90,13 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: 'Personal Website',
-          image: PersonalWebsiteV1Cover
+          caption: 'Personal Website Cover',
+          image: PW1,
         },
         {
-          caption: 'Personal Website',
-          image: PersonalWebsiteV1Cover
-        }
+          caption: 'Tried out creating with dark theme',
+          image: PW2,
+        },
       ],
       infoList: [
         {
@@ -134,6 +123,14 @@ export const cards: Array<CardData> = [
           image: YaleNusCover
         },
       ],
+      infoList: [
+        {
+          infoTitle: 'Awards and Scholarships',
+          infoItems: [
+            'Global Leader Scholar',
+          ]
+        }
+      ]
     }
   },
 ]
