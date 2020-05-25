@@ -108,8 +108,8 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
   const modifyDescription = (description: string) => {
-    if (description.length > 505) {
-      const newDescription = description.slice(0, 500) + ' ...'
+    if (description.length > 405) {
+      const newDescription = description.slice(0, 400) + ' ...'
       return newDescription;
     } else if (vw < 600) {
       const newDescription = description.slice(0, 200) + ' ...'
