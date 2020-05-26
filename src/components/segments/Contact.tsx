@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       transform: 'scale(0.9)',
       boxShadow: `0 0 0 0 ${theme.palette.secondary.main}00`
     }
-  }
+  },
 }));
 
 const Contact: React.FC = () => {

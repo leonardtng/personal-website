@@ -14,16 +14,16 @@ export const info: Info = {
     captionSecondLine: ` based in Singapore`
   },
   about: {
-    title: `I write code`,
-    description: `And not just any code. I believe in writing code with structure and readability, and as a developer, enjoys optimising and improving the quality of the code 
-    that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plans to venture into the field of machine learning and
-    artificial intelligence. I am also a technology enthusiast, who is passionate about the potential of technology in changing the world. From simple websites
-    to complex systems, I enjoy the process of building software, solving complex problems, and working with others to produce amazing projects.`,
+    title: `I write code.`,
+    description: `Not just any code. I believe in writing code with both structure and readability, and as a developer, enjoys optimising and improving the quality of the code 
+    that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of machine learning and
+    artificial intelligence. A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
+    to complex systems, I thoroughly enjoy the process of building software, solving complex problems, and working with others to produce amazing end-products.`,
   },
   experience: {
     title: `What I've Done So Far`,
     subtitle: `My journey begins here`,
-    caption: `(Click for more!)`,
+    caption: ``,
     cards: cards,
   },
   abilities: {
@@ -35,7 +35,7 @@ export const info: Info = {
   },
   travel: {
     title: `Where I've Been`,
-    description: `Travelling greatly excites me. I love experiencing new cultures, seeing breathtaking sceneries, as well as eating amazing food, and I hope to one day 
+    description: `Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food, and I hope to one day 
     fill this map with even more locations that I've visited.`,
     caption: `Here are some snapshots I took from the places I've been recently.`,
     places: places,

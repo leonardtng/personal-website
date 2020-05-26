@@ -6,6 +6,7 @@ import { info } from '../../@constants/info';
 import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';
+import ScrollDownMouse from '../shapes/ScrollDownMouse';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
@@ -24,7 +25,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     backgroundColor: '#7F7F7F',
   },
   title: {
-    margin: '50px 0 60px',
+    margin: '50px 0 10px',
     '& h2': {
       fontWeight: 500,
     },
@@ -33,13 +34,22 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     textAlign: 'center',
     color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
     transition: '0.5s ease',
-    margin: '10px 0',
+    margin: '20px 0',
     '& h3': {
       fontWeight: 500,
+      marginBottom: 10,
     },
-    '& h4': {
-      fontWeight: 500,
-    },
+    '& #mouse': {
+      '& span': {
+        borderColor: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
+        transition: '0.5s ease',
+        transform: styleProps => styleProps.scroll ? 'scale(1.3)' : 'scale(1)',
+        '&:before': {
+          backgroundColor: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
+          transition: '0.5s ease',
+        }
+      },
+    }
   },
   container: {
     paddingTop: 20,
@@ -138,6 +148,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         padding: 0,
         background: theme.palette.background.paper,
         borderRadius: 10,
+        animation: '$pulse 1.5s ease infinite',
         '&:before': {
           content: '""',
           position: 'absolute',
@@ -304,6 +315,17 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       }
     },
   },
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(0.98)',
+    },
+    '70%': {
+      transform: 'scale(1)',
+    },
+    '100%': {
+      transform: 'scale(0.98)',
+    }
+  },
 }));
 
 const Experience: React.FC = () => {
@@ -371,7 +393,8 @@ const Experience: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
         <Typography variant='h5' component='h3'>{info.experience.subtitle}</Typography>
-        <Typography variant='body1' component='h4'>{info.experience.caption}</Typography>
+        <ScrollDownMouse />
+        {/* <Typography variant='body1' component='h4'>Scroll</Typography> */}
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>

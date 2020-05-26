@@ -3,6 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Fade } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { HiState } from '../../@types';
+import ArrowDown from '../shapes/ArrowDown';
 
 const useStyles = makeStyles((theme: Theme) => ({
   hiBox: {
@@ -39,6 +40,7 @@ const Welcome: React.FC = () => {
       <Fade in={hiState.enter} timeout={{ enter: 1500, exit: 1500 }}>
         <Typography className={classes.hi} variant='h3' component='h2'>Hi</Typography>
       </Fade>
+      <ArrowDown />
     </div>
   );
 }
