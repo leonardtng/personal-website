@@ -68,7 +68,7 @@ class WorldMap extends Component<{}, DataMapState> {
       object.color = colorSet.next();
     }
 
-    // map.zoomControl = new am4maps.ZoomControl();
+    map.zoomControl = new am4maps.ZoomControl();
 
     let button = map.chartContainer.createChild(am4core.Button);
     button.padding(5, 5, 5, 5);
@@ -95,7 +95,7 @@ class WorldMap extends Component<{}, DataMapState> {
 
   render() {
     return (
-      <div id='mapWorld' style={{ width: '100%', height: vw < 1200 ? '30vh' : '50vh' }}></div>
+      <div id='mapWorld' style={{ width: '100%', height: vw < 1200 ? '25vh' : '50vh' }}></div>
     );
   }
 }

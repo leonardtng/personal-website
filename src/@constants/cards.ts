@@ -53,7 +53,7 @@ export const cards: Array<CardData> = [
   {
     title: `Boogle Group Ltd`,
     date: `Oct 2019`,
-    role: `[Software Engineer]`,
+    role: `[Software Engineer Intern]`,
     description: `My time at this vibrant startup has been nothing less than fruitful. It was here where I started designing and building sophisticated software from ground up, and 
     learnt much of the coding best practices and standards which I still practice heavily today. During the months I was here, I was heavily involved in the front-end
     development, while occasionally being immersed in the back-end and mobile development as well. I also had the opportunity to be part of an amazing product team,
@@ -72,6 +72,13 @@ export const cards: Array<CardData> = [
         },
       ],
       infoList: [
+        {
+          infoTitle: 'Positions Held',
+          infoItems: [
+            'Oct 2019 - Jan 2020: Product Specialist Intern',
+            'Jan 2020 - : Software Engineer Intern'
+          ]
+        },
         {
           infoTitle: 'Skills',
           infoItems: [
@@ -95,7 +102,7 @@ export const cards: Array<CardData> = [
     description: `This project is the very first personal project I designed, built, and deployed, and is also my first take on a personal website. Building this website 
     not only allowed me to put my development skills to the test, but was also a great sandbox for me to explore and experiment with new development and design techniques
     such as implementing a dark theme`,
-    descriptionSecondPart: `, and being creative with scroll effects.`,
+    descriptionSecondPart: `, using React hooks, and being creative with scroll effects.`,
     image: PersonalWebsiteV1Cover,
     cardDialogContent: {
       carousel: [
