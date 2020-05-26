@@ -25,7 +25,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   title: {
     margin: '50px 0 60px',
-    '& h1': {
+    '& h2': {
       fontWeight: 500,
     },
   },
@@ -34,10 +34,10 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
     transition: '0.5s ease',
     margin: '10px 0',
-    '& h2': {
+    '& h3': {
       fontWeight: 500,
     },
-    '& h3': {
+    '& h4': {
       fontWeight: 500,
     },
   },
@@ -367,11 +367,11 @@ const Experience: React.FC = () => {
     <Grid container spacing={0} className={classes.experience}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.experience.title}</Typography>
+        <Typography variant='h3' component='h2'>{info.experience.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
-        <Typography variant='h5' component='h2'>{info.experience.subtitle}</Typography>
-        <Typography variant='body1' component='h3'>{info.experience.caption}</Typography>
+        <Typography variant='h5' component='h3'>{info.experience.subtitle}</Typography>
+        <Typography variant='body1' component='h4'>{info.experience.caption}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>

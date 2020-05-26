@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    '& h1': {
+    '& h2': {
       color: theme.palette.primary.main,
     }
   },

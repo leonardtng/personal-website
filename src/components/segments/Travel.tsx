@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   title: {
     margin: '50px 0 20px',
-    '& h1': {
+    '& h2': {
       fontWeight: 500,
     },
   },
@@ -56,7 +56,7 @@ const Travel: React.FC = () => {
     <Grid container spacing={0} className={classes.travel}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.travel.title}</Typography>
+        <Typography variant='h3' component='h2'>{info.travel.title}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Typography variant='body1' component='p'>{info.travel.description}</Typography>

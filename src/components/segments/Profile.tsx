@@ -89,7 +89,7 @@ const Profile: React.FC = () => {
         </Slide>
       </Grid>
       <Grid item xs={8} sm={8} md={6} lg={4} className={classes.image} >
-        <img src={lightMode ? info.profile.image : info.profile.imageDark} alt='Leonard' ref={profileRef} />
+        <img src={lightMode ? info.profile.image : info.profile.imageDark} alt='Leonard Tng' ref={profileRef} />
       </Grid>
       <Grid item xs={2} sm={2} md={3} lg={4} className={classes.rectRight}>
         <Slide in={checked} direction='left'>
