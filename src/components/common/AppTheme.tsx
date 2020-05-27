@@ -9,7 +9,7 @@ const AppTheme: React.FC = () => {
 
   const common: ThemeOptions = {
     typography: {
-      fontFamily: "'Avenir', sans-serif !important",
+      fontFamily: navigator.userAgent.match(/Android/i) || navigator.appVersion.indexOf("Win") !== -1 ? "'Raleway', sans-serif !important" : "'Avenir', sans-serif !important",
       h3: {
         fontFamily: navigator.userAgent.match(/Android/i) || navigator.appVersion.indexOf("Win") !== -1 ? "'Arvo', sans-serif !important" : "'American Typewriter', sans-serif !important"
       }
