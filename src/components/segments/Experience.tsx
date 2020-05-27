@@ -142,7 +142,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       },
       '& .MuiCard-root': {
         position: 'relative',
-        overflow: 'visible',
+        overflow: 'hidden',
         bottom: 0,
         width: 470,
         padding: 0,

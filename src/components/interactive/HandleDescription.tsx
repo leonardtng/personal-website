@@ -14,6 +14,7 @@ const BORDER_RADIUS = 30
 
 const useStyles = makeStyles((theme: Theme) => ({
   maxheight: {
+    overflow:'hidden',
     maxHeight: IMAGE_HEIGHT,
     '& img': {
       transition: '0.3s ease'
@@ -77,7 +78,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   listItem: {
     paddingLeft: 32,
   },
-  '@media only screen and (max-width: 600px)': {
+  '@media only screen and (max-height: 900px)': {
     dialog: {
       '& .MuiDialog-paper': {
         maxWidth: 400,

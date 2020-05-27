@@ -5,10 +5,10 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import { CardDialogImage } from '../../@types';
-import { vw } from '../../@utils/useScrollPosition';
+import { vh } from '../../@utils/useScrollPosition';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-export const IMAGE_HEIGHT = vw < 600 ? 250 : 400;
+export const IMAGE_HEIGHT = vh < 900 ? 250 : 400;
 export const PAPER_OFFSET = 50;
 
 const useStyles = makeStyles({

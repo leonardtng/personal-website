@@ -4,13 +4,14 @@ import Cover from '../../assets/images/cover.jpg';
 import Corners from '../shapes/Corners';
 import { Typography, Fade, Hidden } from '@material-ui/core';
 import { useScrollPosition } from '../../@utils/useScrollPosition';
+import { isIos } from '../../@utils/isIos';
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
     height: '100vh',
     backgroundImage: `url(${Cover})`,
     backgroundRepeat: 'no-repeat',
-    backgroundAttachment: navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)  || navigator.userAgent.match(/iPod/i) ? 'scroll' : 'fixed',
+    backgroundAttachment: isIos() ? 'scroll' : 'fixed',
     backgroundPosition: 'bottom',
     backgroundSize: 'cover',
     '-webkit-background-size': 'cover',
