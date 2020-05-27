@@ -13,7 +13,8 @@ const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 30
 
 const useStyles = makeStyles((theme: Theme) => ({
-  maxheight: {
+  imageArea: {
+    borderRadius: 10,
     maxHeight: IMAGE_HEIGHT,
     '& img': {
       transition: '0.3s ease'
@@ -134,7 +135,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
   return (
     <Fragment>
       <CardActionArea
-        className={classes.maxheight}
+        className={classes.imageArea}
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
         onClick={() => setOpen(true)}

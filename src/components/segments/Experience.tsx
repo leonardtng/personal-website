@@ -10,7 +10,6 @@ import ScrollDownMouse from '../shapes/ScrollDownMouse';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
-const CARD_HEIGHT = 250;
 
 const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   experience: {
@@ -149,6 +148,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         background: theme.palette.background.paper,
         borderRadius: 10,
         animation: '$pulse 1.5s ease infinite',
+        boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)',
         '&:before': {
           content: '""',
           position: 'absolute',
@@ -162,7 +162,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         }
       },
       '& .MuiCardMedia-root': {
-        height: CARD_HEIGHT,
+        height: 250,
         borderRadius: '10px 10px 0 0',
       },
       '& time': {
@@ -294,7 +294,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   '@media only screen and (max-width: 600px)': {
     circle: {
-      left: 23, //TIMELINE_WIDTH /2 + marginLeft
+      left: 23, //TIMELINE_WIDTH/2 + marginLeft
     },
     timeline: {
       '& ul': {
@@ -302,7 +302,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           left: 23
         },
         '& .MuiCard-root': {
-          width: 'calc(100vw - 160px)',
+          width: 'calc(100vw - 170px)',
         },
         '& li': {
           marginLeft: 20,
@@ -314,21 +314,26 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
               borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
             }
           },
-        }
+        },
+        '& .MuiCardMedia-root': {
+          height: 150,
+          borderRadius: '10px 10px 0 0',
+        },
       }
     },
   },
   '@keyframes pulse': {
     '0%': {
-      transform: 'scale(0.98)',
-      
+      transform: 'scale(1.02)',
+      boxShadow: '0px 6px 6px -3px rgba(0,0,0,0.2), 0px 10px 14px 1px rgba(0,0,0,0.14), 0px 4px 18px 3px rgba(0,0,0,0.12)',
     },
     '70%': {
       transform: 'scale(1)',
-      boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
+      boxShadow: '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)',
     },
     '100%': {
-      transform: 'scale(0.98)',
+      transform: 'scale(1.02)',
+      boxShadow: '0px 6px 6px -3px rgba(0,0,0,0.2), 0px 10px 14px 1px rgba(0,0,0,0.14), 0px 4px 18px 3px rgba(0,0,0,0.12)',
     }
   },
 }));

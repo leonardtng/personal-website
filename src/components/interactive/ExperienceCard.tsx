@@ -16,7 +16,7 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProps) => {
   return (
-    <Card elevation={5}>
+    <Card>
       <HandleDescription
         image={props.image}
         title={props.title}
