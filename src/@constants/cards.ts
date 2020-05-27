@@ -84,7 +84,7 @@ export const cards: Array<CardData> = [
           infoItems: [
             'React',
             'React Native',
-            'Typescript',
+            'TypeScript',
             'Python',
             'Django',
             'MySQL',
