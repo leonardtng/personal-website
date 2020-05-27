@@ -149,7 +149,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         <div className={classes.textContainer}>
           <Slide in={showDescription} direction={props.direction} timeout={300}>
             <Typography className={classes.description} variant='body1' component='p'>
-              {modifyDescription(props.description)}
+              {modifyDescription(`${props.description}${props.descriptionSecondPart? props.descriptionSecondPart : ''}`)}
             </Typography>
           </Slide>
         </div>

@@ -157,6 +157,9 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           height: 0,
           borderStyle: 'solid',
         },
+        '&:hover': {
+          animation: '',
+        }
       },
       '& .MuiCardMedia-root': {
         height: CARD_HEIGHT,
@@ -318,9 +321,11 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   '@keyframes pulse': {
     '0%': {
       transform: 'scale(0.98)',
+      
     },
     '70%': {
       transform: 'scale(1)',
+      boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
     },
     '100%': {
       transform: 'scale(0.98)',

@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab, Tooltip } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { vh } from '../../@utils/useScrollPosition';
+import { vh, vw } from '../../@utils/useScrollPosition';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       right: theme.spacing(3),
     },
     themeToggle: {
-      bottom: theme.spacing(12),
+      bottom: theme.spacing(11),
       right: theme.spacing(3),
     },
   },
@@ -48,7 +48,7 @@ const FloatingButtons = () => {
       <Zoom in={trigger}>
         <Tooltip title='Toggle Theme'>
           <div onClick={toggleTheme} role='presentation' className={classes.themeToggle}>
-            <Fab color='secondary' size='large'>
+            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
               {lightMode ? (
                 <NightsStayIcon />
               ) : (
@@ -61,7 +61,7 @@ const FloatingButtons = () => {
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
         <Tooltip title='Scroll to Top'>
           <div onClick={handleClick} role='presentation' className={classes.arrow}>
-            <Fab color='secondary' size='large'>
+            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
               <KeyboardArrowUpIcon />
             </Fab>
           </div>
