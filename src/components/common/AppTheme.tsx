@@ -11,7 +11,7 @@ const AppTheme: React.FC = () => {
     typography: {
       fontFamily: "'Avenir', sans-serif !important",
       h3: {
-        fontFamily: navigator.userAgent.match(/Android/i) ? "'Arvo', sans-serif !important" : "'American Typewriter', sans-serif !important"
+        fontFamily: navigator.userAgent.match(/Android/i) || navigator.appVersion.indexOf("Win") !== -1 ? "'Arvo', sans-serif !important" : "'American Typewriter', sans-serif !important"
       }
     }
   };
