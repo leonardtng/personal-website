@@ -14,7 +14,6 @@ const BORDER_RADIUS = 30
 
 const useStyles = makeStyles((theme: Theme) => ({
   maxheight: {
-    // overflow:'hidden',
     maxHeight: IMAGE_HEIGHT,
     '& img': {
       transition: '0.3s ease'

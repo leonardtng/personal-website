@@ -43,7 +43,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       '& span': {
         borderColor: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
         transition: '0.5s ease',
-        transform: styleProps => styleProps.scroll ? 'scale(1.3)' : 'scale(1)',
+        transform: styleProps => styleProps.scroll ? 'scale(1.2)' : 'scale(1)',
         '&:before': {
           backgroundColor: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
           transition: '0.5s ease',
@@ -142,7 +142,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       },
       '& .MuiCard-root': {
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'visible',
         bottom: 0,
         width: 470,
         padding: 0,

@@ -8,16 +8,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 60,
     '& #mouse': {
       position: 'relative',
-      zIndex: 2,
       display: 'inline-block',
       color: theme.palette.secondary.main,
       '& span': {
         position: 'absolute',
         top: 0,
-        left: '50%',
+        left: -12.5,
         width: 21,
         height: 35,
-        marginLeft: -15,
         border: '2px solid',
         borderRadius: 50,
         '&:before': {
@@ -31,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
           borderRadius: '100%',
           animation: '$scrolling 2s infinite',
           boxSizing: 'border-box',
+          zIndex: -1,
         }
       }
     }
