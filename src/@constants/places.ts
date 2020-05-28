@@ -37,6 +37,12 @@ export const places: Array<Place> = [
     color: colorSet.next(),
   },
   {
+    title: 'Brisbane',
+    longitude: 153.0251,
+    latitude: -27.4698,
+    color: colorSet.next(),
+  },
+  {
     title: 'Sydney',
     longitude: 151.2093,
     latitude: -33.8688,
