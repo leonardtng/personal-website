@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab, Tooltip } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -17,6 +17,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'fixed',
     bottom: theme.spacing(15),
     right: theme.spacing(5),
+  },
+  buttonAnimation: {
+    animation: '$pulse 1.5s ease infinite',
+  },
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(1.2)',
+      backgroundColor: '#0B0C10',
+    },
+    '70%': {
+      transform: 'scale(1)',
+      backgroundColor: theme.palette.secondary.main,
+    },
+    '100%': {
+      transform: 'scale(1.2)',
+      backgroundColor: '#0B0C10',
+    }
   },
   '@media only screen and (max-width: 600px)': {
     arrow: {
@@ -39,7 +56,14 @@ const FloatingButtons = () => {
     threshold: vh * 2.5,
   });
 
-  const handleClick = () => {
+  const [clicked, setClicked] = useState<boolean>(false);
+
+  const handleThemeClick = () => {
+    toggleTheme();
+    setClicked(true)
+  };
+
+  const handleScrollClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -47,8 +71,8 @@ const FloatingButtons = () => {
     <Fragment>
       <Zoom in={trigger}>
         <Tooltip title='Toggle Theme'>
-          <div onClick={toggleTheme} role='presentation' className={classes.themeToggle}>
-            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
+          <div onClick={handleThemeClick} role='presentation' className={classes.themeToggle}>
+            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'} className={clicked || !lightMode ? undefined : classes.buttonAnimation}>
               {lightMode ? (
                 <NightsStayIcon />
               ) : (
@@ -60,7 +84,7 @@ const FloatingButtons = () => {
       </Zoom>
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
         <Tooltip title='Scroll to Top'>
-          <div onClick={handleClick} role='presentation' className={classes.arrow}>
+          <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
             <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
               <KeyboardArrowUpIcon />
             </Fab>
