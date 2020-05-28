@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Zoom } from '@material-ui/core';
 import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../@constants/info';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -52,14 +53,23 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Travel: React.FC = () => {
   const classes = useStyles();
 
+  const [checked, setChecked] = useState<boolean>(false);
+  const travelRef = useRef<HTMLImageElement>(null);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.75 ? setChecked(true) : setChecked(false);
+  }, travelRef, false);
+
   return (
-    <Grid container spacing={0} className={classes.travel}>
+    <Grid container spacing={0} className={classes.travel} ref={travelRef}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h2'>{info.travel.title}</Typography>
       </Grid>
       <Grid item xs={12}>
+        <Zoom in={checked}>
         <Typography variant='body1' component='p'>{info.travel.description}</Typography>
+        </Zoom>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>

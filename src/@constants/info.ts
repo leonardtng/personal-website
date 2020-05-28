@@ -17,7 +17,8 @@ export const info: Info = {
     title: `I write code.`,
     description: `Not just any code. I believe in writing code with both structure and readability, and as a developer, enjoys optimising and improving the quality of the code 
     that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of machine learning and
-    artificial intelligence. A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
+    artificial intelligence.`,
+    descriptionSecondPart: `A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
     to complex systems, I thoroughly enjoy the process of building software, solving complex problems, and working with others to produce amazing end-products.`,
   },
   experience: {

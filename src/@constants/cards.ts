@@ -120,7 +120,7 @@ export const cards: Array<CardData> = [
           infoTitle: 'Stack',
           infoItems: [
             'React',
-            'Typescript',
+            'TypeScript',
             'AWS',
           ]
         }

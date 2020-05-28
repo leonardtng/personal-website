@@ -3,25 +3,19 @@ export interface AbilityInterface {
     value: number;
 };
 
+export interface AbilityBlockInterface {
+    title: string;
+    itemsBlockLeft: Array<AbilityInterface>;
+    itemsBlockRight: Array<AbilityInterface>;
+}
+
 export interface SubsectionsInterface {
     stack: {
         title: string;
-    },
-    skills: {
-        title: string;
-        itemsBlockLeft: Array<AbilityInterface>;
-        itemsBlockRight: Array<AbilityInterface>;
-    },
-    languages: {
-        title: string;
-        itemsBlockLeft: Array<AbilityInterface>;
-        itemsBlockRight: Array<AbilityInterface>;
-    }
-    tools: {
-        title: string;
-        itemsBlockLeft: Array<AbilityInterface>;
-        itemsBlockRight: Array<AbilityInterface>;
-    }
+    };
+    skills: AbilityBlockInterface;
+    languages: AbilityBlockInterface;
+    tools: AbilityBlockInterface;
 };
 
 export interface AbilitiesInterface {

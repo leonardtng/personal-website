@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { makeStyles, withStyles, Theme } from '@material-ui/core/styles';
 import Rating, { IconContainerProps } from '@material-ui/lab/Rating';
-import { Grid, Typography, Box } from '@material-ui/core';
+import { Grid, Typography, Box, Zoom } from '@material-ui/core';
 import BuildIcon from '@material-ui/icons/Build';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import HotTubIcon from '@material-ui/icons/HotTub';
@@ -10,6 +10,7 @@ import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfie
 import Stack from '../interactive/Stack';
 import { info } from '../../@constants/info';
 import { Ability } from '../../@types';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -144,20 +145,29 @@ const RatingComponent: React.FC<RatingProps> = (props: RatingProps) => {
 const Abilities: React.FC = () => {
   const classes = useStyles();
 
+  const [checked, setChecked] = useState<boolean>(false);
+  const abilitiesRef = useRef<HTMLDivElement>(null);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.75 ? setChecked(true) : setChecked(false);
+  }, abilitiesRef, false);
+
   return (
-    <Grid container spacing={0} className={classes.about}>
+    <Grid container spacing={0} className={classes.about} ref={abilitiesRef}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h2'>{info.abilities.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant='body1' component='p'>{info.abilities.description}</Typography>
+        <Zoom in={checked}>
+          <Typography variant='body1' component='p'>{info.abilities.description}</Typography>
+        </Zoom>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>{info.abilities.subsections.stack.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Stack />
+        <Stack checked={checked} />
       </Grid>
       <Grid item xs={12} className={classes.italics}>
         <Typography variant='body1' component='p'>This project was built with React</Typography>
@@ -184,7 +194,7 @@ const Abilities: React.FC = () => {
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
-        {info.abilities.subsections.languages.itemsBlockRight.map((item: Ability)=> {
+        {info.abilities.subsections.languages.itemsBlockRight.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
       </Grid>

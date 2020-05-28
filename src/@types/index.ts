@@ -4,7 +4,7 @@ import { ExperienceStylePropsInterface } from './ExperienceStyleProps';
 import { ProfileInterface } from './info/Profile';
 import { AboutInterface } from './info/About';
 import { CardDialogImageInterface, CardDialogInfoInterface, CardDialogContentInterface, CardDataInterface, ExperienceInterface } from './info/Experience';
-import { AbilityInterface, SubsectionsInterface, AbilitiesInterface } from './info/Abilities';
+import { AbilityInterface, AbilityBlockInterface, SubsectionsInterface, AbilitiesInterface } from './info/Abilities';
 import { PlaceInterface, PictureInterface, TravelInterface } from './info/Travel';
 import { InfoInterface } from './info/Info';
 
@@ -20,6 +20,7 @@ export type CardDialogContent = CardDialogContentInterface;
 export type CardData = CardDataInterface;
 export type Experience = ExperienceInterface;
 export type Ability = AbilityInterface;
+export type AbilityBlock = AbilityBlockInterface;
 export type Subsection = SubsectionsInterface;
 export type Abilities = AbilitiesInterface;
 export type Place = PlaceInterface;
