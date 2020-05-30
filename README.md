@@ -17,4 +17,4 @@
 This website was built using React, Material-UI and TypeScript.
 
 ## 😊 Contact Me
-If you liked the website or just want to get in touch, email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a> and I can also be found on the various social media platform links at the bottom of my website. Cheers.
+If you liked the website or just want to get in touch, email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a> drop me a message at the various social media platforms listed at the bottom of my website. Cheers.
