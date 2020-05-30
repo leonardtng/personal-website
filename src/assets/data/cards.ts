@@ -1,13 +1,13 @@
-import NjcCover from '../assets/images/cards/national-junior-college/national-junior-college-1024x683.jpg';
-import BoogleCover from '../assets/images/cards/boogle/boogle-hq.jpg';
-import YaleNusCover from '../assets/images/cards/yale-nus/yale-nus.png';
-import PersonalWebsiteV1Cover from '../assets/images/cards/personal-website-v1/personal-website-v1.png';
-import { CardData } from '../@types';
+import NjcCover from '../images/cards/national-junior-college/national-junior-college-1024x683.jpg';
+import BoogleCover from '../images/cards/boogle/boogle-hq.jpg';
+import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
+import PersonalWebsiteV1Cover from '../images/cards/personal-website-v1/personal-website-v1.png';
+import { CardData } from '../../@types';
 
-import NJC1 from '../assets/images/cards/national-junior-college/carousel1.jpg';
-import Boogle1 from '../assets/images/cards/boogle/carousel1.jpg';
-import PW1 from '../assets/images/cards/personal-website-v1/carousel1.png';
-import PW2 from '../assets/images/cards/personal-website-v1/carousel2.png';
+import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
+import Boogle1 from '../images/cards/boogle/carousel1.jpg';
+import PW1 from '../images/cards/personal-website-v1/carousel1.png';
+import PW2 from '../images/cards/personal-website-v1/carousel2.png';
 
 export const cards: Array<CardData> = [
   {

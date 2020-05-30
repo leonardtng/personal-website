@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { GridList, GridListTile } from '@material-ui/core';
 import { vw } from '../../@utils/useScrollPosition';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

@@ -1,10 +1,10 @@
-import ProfileImage from '../assets/images/profile/profile.png';
-import ProfileImageDark from '../assets/images/profile/profile-dark.png';
+import ProfileImage from '../images/profile/profile.png';
+import ProfileImageDark from '../images/profile/profile-dark.png';
 import { places } from './places';
 import { pictures } from './pictures';
 import { subsections } from './subsections';
 import { cards } from './cards';
-import { Info } from '../@types';
+import { Info } from '../../@types';
 
 export const info: Info = {
   profile: {

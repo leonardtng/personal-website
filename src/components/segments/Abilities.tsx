@@ -8,7 +8,7 @@ import HotTubIcon from '@material-ui/icons/HotTub';
 import StarsIcon from '@material-ui/icons/Stars';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import Stack from '../interactive/Stack';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 

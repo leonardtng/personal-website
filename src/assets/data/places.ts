@@ -1,5 +1,5 @@
 import * as am4core from '@amcharts/amcharts4/core';
-import { Place } from '../@types';
+import { Place } from '../../@types';
 
 let colorSet = new am4core.ColorSet();
 

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Zoom } from '@material-ui/core';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 
 const useStyles = makeStyles((theme: Theme) => ({

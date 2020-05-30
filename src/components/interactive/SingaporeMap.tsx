@@ -4,7 +4,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_singaporeHigh from '@amcharts/amcharts4-geodata/singaporeHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import { tooltipString } from '../../@constants/mapTooltip';
+import { tooltipString } from '../../assets/data/mapTooltip';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);

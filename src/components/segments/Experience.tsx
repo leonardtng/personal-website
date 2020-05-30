@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Slide, List, ListItem } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';

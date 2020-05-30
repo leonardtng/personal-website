@@ -4,7 +4,7 @@ import { Grid, Slide, Typography } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
   profile: {

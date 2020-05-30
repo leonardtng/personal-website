@@ -5,7 +5,7 @@ import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldHigh from '@amcharts/amcharts4-geodata/worldHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { vw } from '../../@utils/useScrollPosition';
-import { info } from '../../@constants/info';
+import { info } from '../../assets/data/info';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
