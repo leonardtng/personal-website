@@ -83,7 +83,7 @@ const Heading: React.FC = () => {
         <div className={classes.title}>
           <Typography className={classes.name} component='h1'>Leonard Tng</Typography>
           <div className={classes.divider} />
-          <Typography className={classes.description} component='h2'>Software Engineer, Singapore</Typography>
+          <Typography className={classes.description} component='h1'>Software Engineer, Singapore</Typography>
         </div>
       </Fade>
     </header>
