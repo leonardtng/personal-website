@@ -13,31 +13,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     transition: 'transform 0.2s',
     '&:hover': {
       transform: 'scale(1.05)',
-      '& .MuiRating-root': {
-        '& .MuiRating-iconFilled': {
-          animation: '$hovereffect 0.4s',
-        },
-        '& span:nth-child(2)': {
-          '& .MuiRating-iconFilled': {
-            animationDelay: 100,
-          }
-        },
-        '& span:nth-child(3)': {
-          '& .MuiRating-iconFilled': {
-            animationDelay: 200,
-          }
-        },
-        '& span:nth-child(4)': {
-          '& .MuiRating-iconFilled': {
-            animationDelay: 300,
-          }
-        },
-        '& span:nth-child(5)': {
-          '& .MuiRating-iconFilled': {
-            animationDelay: 400,
-          }
-        }
-      }
     },
     '& legend': {
       fontSize: '1.5rem',
