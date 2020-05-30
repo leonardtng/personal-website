@@ -47,10 +47,10 @@ const Footer: React.FC = () => {
     <Grid container spacing={0} className={classes.footer}>
       <Grid item xs={12} className={classes.container}>
         <Typography className={classes.section} variant='body1' component='p'>
-          <Link href='https://www.linkedin.com/in/leonard-tng/'>
+          <Link href='https://www.linkedin.com/in/leonard-tng/' target='_blank'>
             <LinkedInIcon />
           </Link>
-          <Link href='https://www.linkedin.com/in/leonard-tng/'>
+          <Link href='https://www.linkedin.com/in/leonard-tng/' target='_blank'>
             <Hidden mdDown>https://www.linkedin.com/in/leonard-tng/</Hidden>
           </Link>
         </Typography>
@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
           </Link>
         </Typography>
         <Typography className={classes.section} variant='body1' component='p'>
-          <Link href='https://www.instagram.com/saxonardtng/'>
+          <Link href='https://www.instagram.com/saxonardtng/' target='_blank'>
             <InstagramIcon />
           </Link>
-          <Link href='https://www.instagram.com/saxonardtng/'>
+          <Link href='https://www.instagram.com/saxonardtng/' target='_blank'>
             <Hidden mdDown>https://www.instagram.com/saxonardtng/</Hidden>
           </Link>
         </Typography>

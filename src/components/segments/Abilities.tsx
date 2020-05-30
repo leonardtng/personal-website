@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Fade } from '@material-ui/core';
+import { Grid, Typography, Fade, Button } from '@material-ui/core';
 import Stack from '../interactive/Stack';
+import RatingComponent from '../interactive/RatingComponent';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { info } from '../../assets/data/info';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import RatingComponent from '../interactive/RatingComponent';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -26,6 +27,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   italics: {
     fontStyle: 'oblique',
     marginTop: 20,
+  },
+  button: {
+    marginTop: 50,
+    marginBottom: 20,
+    backgroundColor: '#24292e',
+    color: '#fafbfc',
   },
   subheader: {
     marginTop: 50,
@@ -83,6 +90,18 @@ const Abilities: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.italics}>
         <Typography variant='body1' component='p'>This project was built with React</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Button
+          variant='contained'
+          color='secondary'
+          className={classes.button}
+          startIcon={<GitHubIcon />}
+          href='https://github.com/leonardtng/personal-website'
+          target='_blank'
+        >
+          View Project on Github
+        </Button>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>{info.abilities.subsections.skills.title}</Typography>
