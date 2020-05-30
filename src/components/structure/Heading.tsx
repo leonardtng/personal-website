@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   name: {
     fontSize: 36.7,
     // fontWeight: 'bold',
-    color: '#ffffff',
+    color: theme.palette.secondary.contrastText,
     textTransform: 'uppercase',
   },
   divider: {
@@ -45,12 +45,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '80vw',
     width: 410,
     margin: 5,
-    backgroundColor: '#ffffff',
+    backgroundColor: theme.palette.secondary.contrastText,
   },
   description: {
     fontSize: 23.55,
     // fontWeight: 'bold',
-    color: '#ffffff',
+    color: theme.palette.secondary.contrastText,
   },
   hi: {
     fontSize: 50,

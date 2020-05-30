@@ -1,5 +1,5 @@
-import ProfileImage from '../assets/images/profile.png';
-import ProfileImageDark from '../assets/images/profile-dark.png';
+import ProfileImage from '../assets/images/profile/profile.png';
+import ProfileImageDark from '../assets/images/profile/profile-dark.png';
 import { places } from './places';
 import { pictures } from './pictures';
 import { subsections } from './subsections';
