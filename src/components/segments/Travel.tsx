@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Zoom } from '@material-ui/core';
+import { Grid, Typography, Fade } from '@material-ui/core';
 import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../assets/data/info';
@@ -67,9 +67,9 @@ const Travel: React.FC = () => {
         <Typography variant='h3' component='h2'>{info.travel.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Zoom in={checked}>
+        <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>
         <Typography variant='body1' component='p'>{info.travel.description}</Typography>
-        </Zoom>
+        </Fade>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>

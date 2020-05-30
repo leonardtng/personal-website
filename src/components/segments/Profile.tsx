@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 15,
     width: '80%',
     backgroundColor: theme.palette.primary.main,
+    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
+    borderRadius: '15px 15px 15px 15px / 100% 100% 100% 100%',
   },
   rectLeft: {
     '& div': {
       float: 'right',
-      boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
-      borderRadius: '15px 15px 15px 15px / 100% 100% 100% 100%',
     }
   },
   image: {
@@ -37,8 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   rectRight: {
     '& div': {
       float: 'left',
-      boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);',
-      borderRadius: '15px 15px 15px 15px / 100% 100% 100% 100%',
     }
   },
   description: {

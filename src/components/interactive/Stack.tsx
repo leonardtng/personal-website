@@ -43,42 +43,42 @@ const Stack: React.FC<StackProps> = (props: StackProps) => {
   return (
     <div className={classes.container}>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '200ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '400ms' : '0ms' }}>
           <Tooltip title='React'>
             <img className={classes.logo} src={ReactLogo} alt='React' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '250ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '450ms' : '0ms' }}>
           <Tooltip title='Material-UI'>
             <img className={classes.logo} src={MUILogo} alt='Material-UI' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '300ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '500ms' : '0ms' }}>
           <Tooltip title='TypeScript'>
             <img className={classes.logo} src={TypescriptLogo} alt='TypeScript' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '350ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '550ms' : '0ms' }}>
           <Tooltip title='Python'>
             <img className={classes.logo} src={PythonLogo} alt='Python' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '400ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '600ms' : '0ms' }}>
           <Tooltip title='Django'>
             <img className={classes.django} src={DjangoLogo} alt='Django' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '450ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '650ms' : '0ms' }}>
           <Tooltip title='MySQL'>
             <img className={classes.logo} src={MySQLLogo} alt='MySQL' />
           </Tooltip>

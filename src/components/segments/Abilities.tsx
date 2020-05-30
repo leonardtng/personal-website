@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Zoom } from '@material-ui/core';
+import { Grid, Typography, Fade } from '@material-ui/core';
 import Stack from '../interactive/Stack';
 import { info } from '../../assets/data/info';
 import { Ability } from '../../@types';
@@ -71,9 +71,9 @@ const Abilities: React.FC = () => {
         <Typography variant='h3' component='h2'>{info.abilities.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Zoom in={checked}>
+        <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>
           <Typography variant='body1' component='p'>{info.abilities.description}</Typography>
-        </Zoom>
+        </Fade>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>{info.abilities.subsections.stack.title}</Typography>
