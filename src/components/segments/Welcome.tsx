@@ -38,7 +38,7 @@ const Welcome: React.FC = () => {
   return (
     <div className={classes.hiBox} style={{ position: hiState.sticky ? 'sticky' : 'relative' }}>
       <Fade in={hiState.enter} timeout={{ enter: 1500, exit: 1500 }}>
-        <Typography className={classes.hi} variant='h3' component='h2'>Hi</Typography>
+        <Typography className={classes.hi} variant='h1' component='h2'>Hi</Typography>
       </Fade>
       <ArrowDown />
     </div>

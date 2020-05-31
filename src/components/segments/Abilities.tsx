@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   title: {
     margin: '50px 0 20px',
-    '& h2': {
+    '& h1': {
       fontWeight: 500,
     },
   },
@@ -75,7 +75,7 @@ const Abilities: React.FC = () => {
     <Grid container spacing={0} className={classes.about} ref={abilitiesRef}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h2'>{info.abilities.title}</Typography>
+        <Typography variant='h3' component='h1'>{info.abilities.title}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>

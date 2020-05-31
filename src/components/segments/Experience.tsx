@@ -25,7 +25,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   title: {
     margin: '50px 0 10px',
-    '& h2': {
+    '& h1': {
       fontWeight: 500,
     },
   },
@@ -34,7 +34,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
     transition: '0.5s ease',
     margin: '20px 0',
-    '& h3': {
+    '& h2': {
       fontWeight: 500,
       marginBottom: 10,
     },
@@ -399,10 +399,10 @@ const Experience: React.FC = () => {
     <Grid container spacing={0} className={classes.experience}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h2'>{info.experience.title}</Typography>
+        <Typography variant='h3' component='h1'>{info.experience.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
-        <Typography variant='h5' component='h3'>{info.experience.subtitle}</Typography>
+        <Typography variant='h5' component='h2'>{info.experience.subtitle}</Typography>
         <ScrollDownMouse />
         {/* <Typography variant='body1' component='h4'>Scroll</Typography> */}
       </Grid>

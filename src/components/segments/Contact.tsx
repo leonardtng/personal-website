@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   title: {
     margin: '50px 0 20px',
-    '& h2': {
+    '& h1': {
       fontWeight: 500,
     },
   },
@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
     <Grid container spacing={0} className={classes.contact}>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h2' ref={contactRef}>What I can do for you</Typography>
+        <Typography variant='h3' component='h1' ref={contactRef}>What I can do for you</Typography>
       </Grid>
       <Grid item xs={12}>
         <Zoom in={checked}>
