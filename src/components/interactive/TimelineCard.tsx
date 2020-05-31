@@ -14,7 +14,7 @@ interface ExperienceCardProps {
   direction: 'left' | 'right';
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProps) => {
+const TimelineCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProps) => {
   return (
     <Card>
       <HandleDescription
@@ -34,4 +34,4 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProp
   );
 }
 
-export default ExperienceCard;
+export default TimelineCard;

@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Slide, List, ListItem } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
-import ExperienceCard from '../interactive/ExperienceCard';
+import TimelineCard from '../interactive/TimelineCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';
 import ScrollDownMouse from '../shapes/ScrollDownMouse';
@@ -338,7 +338,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
 }));
 
-const Experience: React.FC = () => {
+const Timeline: React.FC = () => {
   const { setCurrentPage } = useContext(CurrentPageView);
 
   const timelineRef = useRef<HTMLUListElement>(null);
@@ -390,7 +390,7 @@ const Experience: React.FC = () => {
   const classes = useStyles(styleProps);
 
   const cardList = info.experience.cards.map((item: CardData, index: number) => {
-    return <ExperienceCard
+    return <TimelineCard
       title={item.title}
       date={item.date}
       role={item.role}
@@ -455,4 +455,4 @@ const Experience: React.FC = () => {
   );
 }
 
-export default Experience;
+export default Timeline;

@@ -1,15 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Slide from '@material-ui/core/Slide';
+import { AppBar, Toolbar, Typography, Slide, Button, Grid, Hidden, IconButton, Avatar } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { Button, Grid, Hidden, IconButton, Avatar } from '@material-ui/core';
 import { info } from '../../assets/data/info';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
+import DrawerMenu from './DrawerMenu';
 
 const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
@@ -17,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     '& .MuiTypography-root': {
       color: theme.palette.secondary.contrastText,
-    }
+    },
   },
   headerGroup: {
     display: 'flex',
@@ -25,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     '& .MuiAvatar-root': {
       marginRight: 20,
-    }
+    },
   },
   buttonGroup: {
     display: 'flex',
@@ -37,8 +35,29 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     '& a': {
       textDecoration: 'none',
-    }
-  }
+    },
+  },
+  menuButton: {
+    display: 'flex',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& .MuiIconButton-root': {
+      color: theme.palette.secondary.contrastText,
+    },
+  },
+  focus: {
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      height: 3,
+      backgroundColor: theme.palette.secondary.contrastText,
+      width: '100%',
+      left: '50%',
+      bottom: 0,
+      transform: 'translateX(-50%)',
+    },
+  },
 }));
 
 const NavBar: React.FC = () => {
@@ -52,55 +71,66 @@ const NavBar: React.FC = () => {
     currPos.y < prevPos.y && currPos.y > vh * 3 ? setChecked(true) : setChecked(false);
   });
 
+  const [open, setOpen] = useState<boolean>(false)
+  const handleMenuOpen = () => {
+    open? setOpen(false): setOpen(true);
+  }
+
   return (
     <Slide appear={false} direction='down' in={checked}>
       <AppBar className={classes.appbar} elevation={2}>
         <Toolbar>
           <Grid container spacing={0}>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={4} className={classes.headerGroup}>
-              <Hidden mdDown>
+            <Hidden mdDown>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={4} className={classes.headerGroup}>
                 <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
-              </Hidden>
-            </Grid>
-            <Grid item xs={6} className={classes.buttonGroup}>
-              <Hidden mdDown>
+              </Grid>
+              <Grid item xs={6} className={classes.buttonGroup}>
                 <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   <Typography variant='body1' component='h2'>Home</Typography>
                 </Button>
-                <Button>
+                <Button className={currentPage === 'About' ? classes.focus : undefined}>
                   <Link smooth to='#about'>
-                    <Typography variant='body1' component='h2'>About</Typography>
+                    <Typography variant='body1' component='h2' >About</Typography>
                   </Link>
                 </Button>
-                <Button>
+                <Button className={currentPage === 'Timeline' ? classes.focus : undefined}>
                   <Link smooth to='#timeline'>
                     <Typography variant='body1' component='h2'>Timeline</Typography>
                   </Link>
                 </Button>
-                <Button>
+                <Button className={currentPage === 'Abilities' ? classes.focus : undefined}>
                   <Link smooth to='#abilities'>
                     <Typography variant='body1' component='h2'>Abilities</Typography>
                   </Link>
                 </Button>
-                <Button>
+                <Button className={currentPage === 'Travel' ? classes.focus : undefined}>
                   <Link smooth to='#travel'>
                     <Typography variant='body1' component='h2'>Travel</Typography>
                   </Link>
                 </Button>
-                <Button>
+                <Button className={currentPage === 'Contact' ? classes.focus : undefined}>
                   <Link smooth to='#contact'>
                     <Typography variant='body1' component='h2'>Get in Touch!</Typography>
                   </Link>
                 </Button>
-              </Hidden>
-              <Hidden lgUp>
-                <IconButton></IconButton>
-              </Hidden>
-            </Grid>
-            <Grid item xs={1}></Grid>
-
+              </Grid>
+              <Grid item xs={1}></Grid>
+            </Hidden>
+            <Hidden lgUp>
+              <Grid item xs={2} className={classes.menuButton}>
+                <IconButton onClick={handleMenuOpen}>
+                  <MenuIcon />
+                  <DrawerMenu open={open} setOpen={handleMenuOpen} />
+                </IconButton>
+              </Grid>
+              <Grid item xs={1}></Grid>
+              <Grid item xs={9} className={classes.headerGroup}>
+                <Typography variant='h5' component='h1'>{currentPage}</Typography>
+              </Grid>
+            </Hidden>
           </Grid>
         </Toolbar>
       </AppBar>

@@ -5,7 +5,7 @@ import ResponsiveWrapper from '../utility/ResponsiveWrapper';
 import Profile from '../segments/Profile';
 import About from '../segments/About';
 import Welcome from '../segments/Welcome';
-import Experience from '../segments/Experience';
+import Timeline from '../segments/Timeline';
 import Abilities from '../segments/Abilities';
 import FloatingButtons from '../buttons/FloatingButtons';
 import Travel from '../segments/Travel';
@@ -54,7 +54,7 @@ const Body: React.FC = () => {
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>
-          <Experience />
+          <Timeline />
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>

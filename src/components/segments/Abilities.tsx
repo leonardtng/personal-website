@@ -74,7 +74,6 @@ const Abilities: React.FC = () => {
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.75 ? setChecked(true) : setChecked(false);
     if (containerHeight) {
-      console.log(currPos.y)
       if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Abilities');
     };
   }, abilitiesRef, false);
