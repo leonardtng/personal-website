@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Slide, List, ListItem } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
@@ -7,6 +7,8 @@ import ExperienceCard from '../interactive/ExperienceCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';
 import ScrollDownMouse from '../shapes/ScrollDownMouse';
+import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CONTAINER_OFFSET } from '../../@constants';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
@@ -33,7 +35,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     textAlign: 'center',
     color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
     transition: '0.5s ease',
-    margin: '20px 0',
+    margin: '10px 0',
     '& h2': {
       fontWeight: 500,
       marginBottom: 10,
@@ -51,8 +53,6 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     }
   },
   container: {
-    paddingTop: 20,
-    paddingBottom: 50,
     width: '90%',
     textAlign: 'center',
     overflow: 'hidden',
@@ -339,6 +339,8 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
 }));
 
 const Experience: React.FC = () => {
+  const { setCurrentPage } = useContext(CurrentPageView);
+
   const timelineRef = useRef<HTMLUListElement>(null);
   const firstRef = useRef<HTMLSpanElement>(null);
   const secondRef = useRef<HTMLSpanElement>(null);
@@ -346,6 +348,7 @@ const Experience: React.FC = () => {
   const fourthRef = useRef<HTMLSpanElement>(null);
 
   const [scroll, setScroll] = useState<number>(0);
+  const containerHeight = timelineRef.current?.clientHeight;
 
   const [firstCheck, setFirstCheck] = useState<boolean>(false);
   const [secondCheck, setSecondCheck] = useState<boolean>(false);
@@ -370,6 +373,9 @@ const Experience: React.FC = () => {
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
+    if (containerHeight) {
+      if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Timeline');
+    };
   }, timelineRef, false);
 
   const styleProps: ExperienceStyleProps = {
@@ -396,7 +402,7 @@ const Experience: React.FC = () => {
   });
 
   return (
-    <Grid container spacing={0} className={classes.experience}>
+    <Grid container spacing={3} className={classes.experience} id='timeline'>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1'>{info.experience.title}</Typography>

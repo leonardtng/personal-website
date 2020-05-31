@@ -3,6 +3,7 @@ import AppRouter from './AppRouter';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import CurrentPageViewProvider from '../../contexts/CurrentPageView';
 
 const AppTheme: React.FC = () => {
   const currentThemeContext = useContext(ThemeContext);
@@ -57,12 +58,14 @@ const AppTheme: React.FC = () => {
       },
     },
     ...common
-  }, );
+  });
 
   return (
-    <ThemeProvider theme={currentThemeContext.lightMode ? light : dark}>
-      <AppRouter />
-    </ThemeProvider>
+    <CurrentPageViewProvider>
+      <ThemeProvider theme={currentThemeContext.lightMode ? light : dark}>
+        <AppRouter />
+      </ThemeProvider>
+    </CurrentPageViewProvider>
   );
 }
 

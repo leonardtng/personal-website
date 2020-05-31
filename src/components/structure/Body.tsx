@@ -10,6 +10,7 @@ import Abilities from '../segments/Abilities';
 import FloatingButtons from '../buttons/FloatingButtons';
 import Travel from '../segments/Travel';
 import Contact from '../segments/Contact';
+import NavBar from './NavBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
   body: {
@@ -42,6 +43,7 @@ const Body: React.FC = () => {
 
       <div className={classes.buffer} />
       <Grid container spacing={2} className={classes.content}>
+        <NavBar />
 
         <ResponsiveWrapper>
           <Profile />

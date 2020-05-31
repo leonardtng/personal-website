@@ -11,18 +11,16 @@ interface ScrollPosition {
 }
 
 function getScrollPosition({ element, useWindow }: ScrollPosition) {
-  if (!isBrowser) return { x: 0, y: 0 }
+  if (!isBrowser) return { x: 0, y: 0 };
 
-  const target = element ? element.current : document.body
-  const position = target.getBoundingClientRect()
+  const target = element ? element.current : document.body;
+  const position = target.getBoundingClientRect();
 
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
+  return useWindow ? { x: window.scrollX, y: window.scrollY } : { x: position.left, y: position.top };
 }
 
 export function useScrollPosition(effect: any, element?: React.RefObject<HTMLElement>, useWindow: boolean = true) {
-  const position = useRef(getScrollPosition({ useWindow }))
+  const position = useRef(getScrollPosition({ useWindow }));
 
   const callBack = useCallback(() => {
     const currPos = getScrollPosition({ element, useWindow });

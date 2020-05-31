@@ -1,8 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Button, Zoom } from '@material-ui/core';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CONTAINER_OFFSET } from '../../@constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
   contact: {
@@ -21,11 +23,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontWeight: 500,
     },
   },
-  subtitle: {
-    marginBottom: 30,
-  },
   button: {
-    margin: 50,
+    margin: 30,
     boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
     animation: '$pulse 1.5s ease infinite',
   },
@@ -46,23 +45,28 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Contact: React.FC = () => {
   const classes = useStyles();
+  const { setCurrentPage } = useContext(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
   const contactRef = useRef<HTMLHeadingElement>(null);
+  const containerHeight = contactRef.current?.clientHeight;
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.85 ? setChecked(true) : setChecked(false);
+    if (containerHeight) {
+      if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Timeline');
+    };
   }, contactRef, false);
 
   return (
-    <Grid container spacing={0} className={classes.contact}>
+    <Grid container spacing={3} className={classes.contact} id='contact'>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1' ref={contactRef}>What I can do for you</Typography>
       </Grid>
       <Grid item xs={12}>
         <Zoom in={checked}>
-          <Typography className={classes.subtitle} variant='h5' component='h3'>I'm currently available for internships.</Typography>
+          <Typography variant='h5' component='h3'>I'm currently available for internships.</Typography>
         </Zoom>
       </Grid>
       <Grid item xs={12}>
@@ -81,7 +85,6 @@ const Contact: React.FC = () => {
           Contact Me!
         </Button>
       </Grid>
-
     </Grid>
   );
 }

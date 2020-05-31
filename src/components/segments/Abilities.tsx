@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Fade, Button } from '@material-ui/core';
 import Stack from '../interactive/Stack';
@@ -7,6 +7,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { info } from '../../assets/data/info';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CONTAINER_OFFSET } from '../../@constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -26,10 +28,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   italics: {
     fontStyle: 'oblique',
-    marginTop: 20,
+    marginTop: 15,
   },
   button: {
-    marginTop: 50,
+    marginTop: 35,
     marginBottom: 20,
     backgroundColor: '#24292e',
     color: '#fafbfc',
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'left',
-    marginBottom: 50,
+    marginBottom: 30,
     paddingRight: 20,
     paddingLeft: 20,
   },
@@ -63,16 +65,22 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Abilities: React.FC = () => {
   const classes = useStyles();
+  const { setCurrentPage } = useContext(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
   const abilitiesRef = useRef<HTMLDivElement>(null);
+  const containerHeight = abilitiesRef.current?.clientHeight;
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.75 ? setChecked(true) : setChecked(false);
+    if (containerHeight) {
+      console.log(currPos.y)
+      if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Abilities');
+    };
   }, abilitiesRef, false);
 
   return (
-    <Grid container spacing={0} className={classes.about} ref={abilitiesRef}>
+    <Grid container spacing={3} className={classes.about} ref={abilitiesRef} id='abilities'>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
         <Typography variant='h3' component='h1'>{info.abilities.title}</Typography>

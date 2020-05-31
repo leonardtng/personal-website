@@ -1,5 +1,7 @@
 import ProfileImage from '../images/profile/profile.png';
 import ProfileImageDark from '../images/profile/profile-dark.png';
+import ProfileImageAvatar from '../images/profile/profile-avatar.png';
+import ProfileImageDarkAvatar from '../images/profile/profile-dark-avatar.png';
 import { places } from './places';
 import { pictures } from './pictures';
 import { subsections } from './subsections';
@@ -10,6 +12,8 @@ export const info: Info = {
   profile: {
     image: ProfileImage,
     imageDark: ProfileImageDark,
+    imageAvatar: ProfileImageAvatar,
+    imageDarkAvatar: ProfileImageDarkAvatar,
     captionFirstLine: `I'm an imaginative and fun-loving Software Engineer,`,
     captionSecondLine: ` based in Singapore`
   },
