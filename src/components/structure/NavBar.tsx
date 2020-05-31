@@ -32,6 +32,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'flex-end',
     '& .MuiButton-root': {
       marginRight: 20,
+      '& .MuiTypography-root': {
+        transition: 'transform 0.2s',
+        '&:hover': {
+          transform: 'scale(1.2)',
+        },
+      },
     },
     '& a': {
       textDecoration: 'none',
@@ -73,7 +79,7 @@ const NavBar: React.FC = () => {
 
   const [open, setOpen] = useState<boolean>(false)
   const handleMenuOpen = () => {
-    open? setOpen(false): setOpen(true);
+    open ? setOpen(false) : setOpen(true);
   }
 
   return (
