@@ -69,7 +69,7 @@ const Heading: React.FC = () => {
   })
 
   return (
-    <header className={classes.header}>
+    <header className={classes.header} id='home'>
       <div className={classes.mask}>
       </div>
       <Hidden smDown>

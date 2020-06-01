@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { GridList, GridListTile } from '@material-ui/core';
+import { GridList, GridListTile, Dialog, Typography, Zoom } from '@material-ui/core';
 import { vw } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
+import { Picture } from '../../@types';
+import { TransitionProps } from '@material-ui/core/transitions/transition';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -33,6 +35,24 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     height: '100%',
   },
+  dialog: {
+    '& .MuiBackdrop-root': {
+      backgroundColor: 'rgba(0,0,0,0.7)',
+    },
+    '& .MuiDialog-paper': {
+      boxShadow: 'none',
+      backgroundColor: '#00000000',
+    },
+    '& img': {
+      maxWidth: 700,
+      maxHeight: 500,
+      borderRadius: 10,
+    },
+    '& .MuiTypography-root': {
+      fontStyle: 'oblique',
+      color: '#ffffff',
+    },
+  },
   '@media only screen and (max-width: 1200px)': {
     root: {
       '& .MuiGridListTile-tile': {
@@ -54,21 +74,46 @@ const useStyles = makeStyles((theme: Theme) => ({
       flex: 'calc(100% - 8px)',
       maxWidth: '100%',
     },
+    dialog: {
+      '& img': {
+        maxWidth: 350,
+        maxHeight: 450,
+      },
+    },
   },
 }));
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement<any, any> },
+  ref: React.Ref<unknown>,
+) {
+  return <Zoom ref={ref} {...props} />;
+});
 
 const Gallery: React.FC = () => {
   const classes = useStyles();
 
+  const [enlarge, setEnlarge] = useState({ open: false, img: '', caption: '' });
+
   return (
     <div className={classes.root}>
       <GridList cellHeight={vw < 600 ? 260 : vw < 1200 ? 350 : 260} className={classes.gridList} cols={vw < 600 ? 1 : vw < 1200 ? 2 : 5}>
-        {info.travel.pictures.map((tile: any) => (
-          <GridListTile key={tile.img} cols={tile.cols || 1}>
+        {info.travel.pictures.map((tile: Picture) => (
+          <GridListTile key={tile.img} cols={tile.cols || 1} onClick={() => setEnlarge({ open: true, img: tile.img, caption: tile.title })}>
             <img src={tile.img} alt={tile.title} />
           </GridListTile>
         ))}
       </GridList>
+      <Dialog
+        className={classes.dialog}
+        maxWidth='lg'
+        open={enlarge.open}
+        onClose={() => setEnlarge({ open: false, img: '', caption: '' })}
+        TransitionComponent={Transition}
+      >
+        <img src={enlarge.img} alt={enlarge.caption} />
+        <Typography variant='h6' component='caption'>{enlarge.caption}</Typography>
+      </Dialog>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Drawer, List, Divider, ListItem, Typography, Avatar } from '@material-ui/core';
+import { Drawer, List, Divider, ListItem, Typography, Avatar } from '@material-ui/core';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { info } from '../../assets/data/info';
 import { HashLink as Link } from 'react-router-hash-link';
@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexShrink: 0,
       textAlign: 'left',
       '& .MuiAvatar-root': {
-        margin: 20,
+        height: 50,
+        width: 50,
+        margin: 30,
       },
       '& .MuiDivider-root': {
         backgroundColor: theme.palette.secondary.main,
@@ -48,7 +50,6 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <Drawer
         className={classes.drawer}
         variant="temporary"
@@ -62,9 +63,11 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
         <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
         <Divider />
         <List>
-          <ListItem onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <Link smooth to='#home'>
+          <ListItem>
             <Typography variant='body1' component='h2'>Home</Typography>
           </ListItem>
+          </Link>
           <Link smooth to='#about'>
             <ListItem>
               <Typography variant='body1' component='h2'>About</Typography>

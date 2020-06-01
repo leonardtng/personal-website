@@ -83,7 +83,7 @@ const NavBar: React.FC = () => {
   }
 
   return (
-    <Slide appear={false} direction='down' in={checked}>
+    <Slide direction='down' in={checked}>
       <AppBar className={classes.appbar} elevation={2}>
         <Toolbar>
           <Grid container spacing={0}>
@@ -94,8 +94,10 @@ const NavBar: React.FC = () => {
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
               </Grid>
               <Grid item xs={6} className={classes.buttonGroup}>
-                <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                  <Typography variant='body1' component='h2'>Home</Typography>
+                <Button>
+                  <Link smooth to='#home'>
+                    <Typography variant='body1' component='h2'>Home</Typography>
+                  </Link>
                 </Button>
                 <Button className={currentPage === 'About' ? classes.focus : undefined}>
                   <Link smooth to='#about'>
