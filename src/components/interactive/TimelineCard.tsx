@@ -28,7 +28,7 @@ const TimelineCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProps)
       <CardContent>
         <time>{props.date}</time>
         <Typography variant='subtitle1' component='h2'>{props.title}</Typography>
-        <Typography variant='body1' component='h3'>{props.role}</Typography>
+        <Typography variant='body1' component='h3' color='textSecondary'>{props.role}</Typography>
       </CardContent>
     </Card>
   );

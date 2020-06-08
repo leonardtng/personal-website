@@ -34,6 +34,7 @@ const AppTheme: React.FC = () => {
       },
       text: {
         primary: '#121858',
+        secondary:'rgba(0, 0, 0, 0.54)',
       },
     },
     ...common
@@ -55,6 +56,7 @@ const AppTheme: React.FC = () => {
       },
       text: {
         primary: '#C5C6C7',
+        secondary: 'rgba(255, 255, 255, 0.5)',
       },
     },
     ...common

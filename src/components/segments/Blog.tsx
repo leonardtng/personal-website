@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: 50,
+    overflowX: 'hidden',
   },
   divider: {
     height: 2,
