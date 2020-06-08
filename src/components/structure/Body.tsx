@@ -58,6 +58,10 @@ const Body: React.FC = () => {
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>
+
+        </ResponsiveWrapper>
+
+        <ResponsiveWrapper>
           <Abilities />
         </ResponsiveWrapper>
 

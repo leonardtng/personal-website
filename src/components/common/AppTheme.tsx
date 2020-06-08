@@ -6,7 +6,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import CurrentPageViewProvider from '../../contexts/CurrentPageView';
 
 const AppTheme: React.FC = () => {
-  const currentThemeContext = useContext(ThemeContext);
+  const { lightMode } = useContext(ThemeContext);
 
   const common: ThemeOptions = {
     typography: {
@@ -62,7 +62,7 @@ const AppTheme: React.FC = () => {
 
   return (
     <CurrentPageViewProvider>
-      <ThemeProvider theme={currentThemeContext.lightMode ? light : dark}>
+      <ThemeProvider theme={lightMode ? light : dark}>
         <AppRouter />
       </ThemeProvider>
     </CurrentPageViewProvider>
