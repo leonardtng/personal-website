@@ -78,6 +78,11 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
               <Typography variant='body1' component='h2'>Timeline</Typography>
             </ListItem>
           </Link>
+          <Link smooth to='#blog'>
+            <ListItem>
+              <Typography variant='body1' component='h2'>Blog</Typography>
+            </ListItem>
+          </Link>
           <Link smooth to='#abilities'>
             <ListItem>
               <Typography variant='body1' component='h2'>Abilities</Typography>

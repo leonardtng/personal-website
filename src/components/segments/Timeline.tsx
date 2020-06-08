@@ -83,6 +83,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     },
   },
   timeline: {
+    marginBottom: 20,
     '& ul': {
       padding: 0,
       '&:before': {
@@ -389,7 +390,7 @@ const Timeline: React.FC = () => {
 
   const classes = useStyles(styleProps);
 
-  const cardList = info.experience.cards.map((item: CardData, index: number) => {
+  const cardList = info.timeline.cards.map((item: CardData, index: number) => {
     return <TimelineCard
       title={item.title}
       date={item.date}
@@ -405,12 +406,11 @@ const Timeline: React.FC = () => {
     <Grid container spacing={3} className={classes.experience} id='timeline'>
       <div className={classes.divider} />
       <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.experience.title}</Typography>
+        <Typography variant='h3' component='h1'>{info.timeline.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
-        <Typography variant='h5' component='h2'>{info.experience.subtitle}</Typography>
+        <Typography variant='h5' component='h2'>{info.timeline.subtitle}</Typography>
         <ScrollDownMouse />
-        {/* <Typography variant='body1' component='h4'>Scroll</Typography> */}
       </Grid>
       <Grid item xs={12} className={classes.container}>
         <section className={classes.timeline}>

@@ -23,7 +23,7 @@ export interface CardDataInterface {
     cardDialogContent: CardDialogContentInterface;
 };
 
-export interface ExperienceInterface {
+export interface TimelineInterface {
     title: string;
     subtitle: string;
     caption: string;

@@ -6,8 +6,8 @@ import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
-import { vw } from '../../@utils/useScrollPosition';
 import ThemeToggle from '../buttons/ThemeToggle';
+import { modifyDescription } from '../../@utils/modifyDescription';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 30
@@ -114,17 +114,6 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
   const classes = useStyles();
 
   const [showDescription, setShowDescription] = useState<boolean>(false);
-
-  const modifyDescription = (description: string) => {
-    if (description.length > 405) {
-      const newDescription = description.slice(0, 400) + ' ...'
-      return newDescription;
-    } else if (vw < 600) {
-      const newDescription = description.slice(0, 200) + ' ...'
-      return newDescription;
-    };
-    return description
-  };
 
   const [open, setOpen] = React.useState(false);
   const [dropdown, setDropdown] = useState<Array<boolean | undefined>>([]);

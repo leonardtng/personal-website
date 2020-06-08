@@ -6,6 +6,7 @@ import Profile from '../segments/Profile';
 import About from '../segments/About';
 import Welcome from '../segments/Welcome';
 import Timeline from '../segments/Timeline';
+import Blog from '../segments/Blog';
 import Abilities from '../segments/Abilities';
 import FloatingButtons from '../buttons/FloatingButtons';
 import Travel from '../segments/Travel';
@@ -58,7 +59,7 @@ const Body: React.FC = () => {
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>
-
+          <Blog />
         </ResponsiveWrapper>
 
         <ResponsiveWrapper>

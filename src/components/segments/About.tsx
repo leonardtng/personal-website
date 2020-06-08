@@ -33,7 +33,7 @@ const About: React.FC = () => {
   const { setCurrentPage } = useContext(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
-  const aboutRef = useRef<HTMLImageElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
   const containerHeight = aboutRef.current?.clientHeight;
 
   useScrollPosition(({ currPos }: any) => {
@@ -64,6 +64,3 @@ const About: React.FC = () => {
 }
 
 export default About;
-
-
-// I have a great interest in learning and approaches given tasks with a desire to succeed. With a mindset of curiosity and the eagerness to challenge myself, I work hard and is able to learn fast, given any new environment and work setting. This is such that I can have a deep understanding and knowledge of the field of work, ensuring results of high standard to be produced. Energetic and enthusiastic, I enjoy working with other people and takes joy in sharing ideas, engaging discussion, and motivating others.

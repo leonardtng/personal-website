@@ -1,9 +1,10 @@
-import { Profile, About, Experience, Abilities, Travel } from "..";
+import { Profile, About, Timeline, Blog, Abilities, Travel } from "..";
 
 export interface InfoInterface {
     profile: Profile;
     about: About;
-    experience: Experience;
+    timeline: Timeline;
+    blog: Blog;
     abilities: Abilities;
     travel: Travel;
 };

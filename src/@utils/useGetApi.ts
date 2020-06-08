@@ -45,9 +45,8 @@ const config: AxiosRequestConfig = API_CONFIG;
 
 const useGetApi = (
   source: string,
-  initialData: Action['payload'],
+  initialData: Action['payload'] | null,
   defaultFetch: boolean,
-  input?: object,
 ): State => {
 
   const [shouldFetch, setShouldFetch] = useState<boolean>(defaultFetch);
@@ -61,7 +60,6 @@ const useGetApi = (
   useEffect(() => {
     let cancel: Canceler
     config.url = source;
-    // console.log('0: API', config.url)
     config.cancelToken = new axios.CancelToken(c => cancel = c);
     const fetchData = async () => {
       dispatch({ type: 'FETCH_INIT' });

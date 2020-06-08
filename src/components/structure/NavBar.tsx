@@ -89,11 +89,11 @@ const NavBar: React.FC = () => {
           <Grid container spacing={0}>
             <Hidden mdDown>
               <Grid item xs={1}></Grid>
-              <Grid item xs={4} className={classes.headerGroup}>
+              <Grid item xs={3} className={classes.headerGroup}>
                 <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
               </Grid>
-              <Grid item xs={6} className={classes.buttonGroup}>
+              <Grid item xs={7} className={classes.buttonGroup}>
                 <Button>
                   <Link smooth to='#home'>
                     <Typography variant='body1' component='h2'>Home</Typography>
@@ -107,6 +107,11 @@ const NavBar: React.FC = () => {
                 <Button className={currentPage === 'Timeline' ? classes.focus : undefined}>
                   <Link smooth to='#timeline'>
                     <Typography variant='body1' component='h2'>Timeline</Typography>
+                  </Link>
+                </Button>
+                <Button className={currentPage === 'Blog' ? classes.focus : undefined}>
+                  <Link smooth to='#blog'>
+                    <Typography variant='body1' component='h2'>Blog</Typography>
                   </Link>
                 </Button>
                 <Button className={currentPage === 'Abilities' ? classes.focus : undefined}>

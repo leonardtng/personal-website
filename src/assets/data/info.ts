@@ -25,11 +25,14 @@ export const info: Info = {
     descriptionSecondPart: `A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
     to complex systems, I thoroughly enjoy the process of building software, solving complex problems, and working with others to produce amazing end-products.`,
   },
-  experience: {
+  timeline: {
     title: `What I've Done So Far`,
     subtitle: `My journey begins here`,
     caption: ``,
     cards: cards,
+  },
+  blog: {
+    title: `What I've Written`
   },
   abilities: {
     title: `What I Can Do`,
