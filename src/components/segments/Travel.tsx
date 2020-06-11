@@ -78,8 +78,8 @@ const Travel: React.FC = () => {
           <Typography variant='body1' component='p'>{info.travel.description}</Typography>
         </Fade>
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
-      <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
+      <Grid item sm={1} md={2} lg={2} />
+      <Grid item xs={12} sm={10} md={8} lg={8} className={classes.map}>
         <Fade in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
           <Box>
             <WorldMap enter={checked} />
@@ -90,7 +90,7 @@ const Travel: React.FC = () => {
       <Grid item xs={12} className={classes.caption}>
         <Typography variant='body1' component='p'>{info.travel.caption}</Typography>
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
+      <Grid item sm={1} md={2} lg={2} />
       <Grid item xs={12}>
         <Gallery />
       </Grid>
