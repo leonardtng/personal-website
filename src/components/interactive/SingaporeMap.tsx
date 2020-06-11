@@ -5,6 +5,7 @@ import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_singaporeHigh from '@amcharts/amcharts4-geodata/singaporeHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { tooltipString } from '../../assets/data/mapTooltip';
+import SINGAPORE_PIN from '../../assets/images/map/singapore-pin.svg'
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
@@ -56,32 +57,36 @@ class SingaporeMap extends Component<{}, DataMapState> {
     imageSeries.mapImages.template.tooltipHTML = tooltipString;
     // imageSeries.mapImages.template.propertyFields.url = "url";
 
-    let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle.radius = 8;
-    circle.propertyFields.fill = "color";
+    let marker = imageSeries.mapImages.template.createChild(am4core.Image);
+    marker.href = SINGAPORE_PIN;
+    marker.width = 50;
+    marker.height = 50;
+    marker.nonScaling = true;
+    marker.tooltipText = "{title}";
+    marker.horizontalCenter = "middle";
+    marker.verticalCenter = "bottom";
 
-    let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle2.radius = 8;
-    circle2.propertyFields.fill = "color";
+    marker.showOnInit = true;
+    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
+    marker.defaultState.transitionDuration = 2500;
+    marker.hiddenState.properties.dy = -300;
+    marker.tooltipPosition = 'pointer';
 
-    circle2.events.on("inited", function (event) {
+    marker.events.on("inited", function (event) {
       animateBullet(event.target);
     })
 
-    function animateBullet(circle: any) {
-      let animation = circle.animate([{ property: "scale", from: 1, to: 5 }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+    function animateBullet(marker: any) {
+      let animation = marker.animate([{ property: "y", from: -10, to: 10 }], 1000, am4core.ease.circleIn);
       animation.events.on("animationended", function (event: any) {
-        animateBullet(event.target.object);
+        let nextAnimation = marker.animate([{ property: "y", from: 10, to: -10 }], 1000, am4core.ease.circleOut);
+        nextAnimation.events.on("animationended", function (event: any) {
+          animateBullet(event.target.object);
+        })
       })
     }
 
-    let colorSet = new am4core.ColorSet();
-
-    imageSeries.data = [{ longitude: 103.8536, latitude: 1.2789, color: colorSet.next() }];
-
-    for (let object of imageSeries.data) {
-      object.color = colorSet.next();
-    }
+    imageSeries.data = [{ longitude: 103.8536, latitude: 1.2789 }];
 
     map.chartContainer.wheelable = false;
 

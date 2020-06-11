@@ -116,7 +116,7 @@ export const places: Array<Place> = [
   },
   {
     title: 'Rome and Vatican City',
-    longitude: 12.4964,
+    longitude: 14.4964, //longitude: 12.4964
     latitude: 41.9028,
     color: colorSet.next(),
   },

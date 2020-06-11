@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Slide, Typography } from '@material-ui/core';
+import { Grid, Slide, Typography, Box } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   profile: {
     display: 'flex',
     alignItems: 'center',
-    overflowX: 'hidden',
+    overflow: 'hidden',
   },
   rect: {
     height: 15,
@@ -72,12 +72,19 @@ const Profile: React.FC = () => {
   const classes = useStyles();
   const { lightMode } = useContext(ThemeContext);
 
-  const [checked, setChecked] = useState<boolean>(false)
+  const [checked, setChecked] = useState<boolean>(false);
   const profileRef = useRef<HTMLImageElement>(null);
+
+  const [mapChecked, setMapChecked] = useState<boolean>(false);
+  const mapRef = useRef<HTMLImageElement>(null);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < vh * 0.55 && currPos.y > 0 ? setChecked(true) : setChecked(false);
   }, profileRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < vh * 0.65 ? setMapChecked(true) : setMapChecked(false);
+  }, mapRef, false);
 
   return (
     <Grid container spacing={0} className={classes.profile}>
@@ -95,12 +102,16 @@ const Profile: React.FC = () => {
         </Slide>
       </Grid>
       <Grid item xs={12} className={classes.description}>
-        <Typography variant='subtitle1'>{info.profile.captionFirstLine}<br/>{info.profile.captionSecondLine}</Typography>
+        <Typography variant='subtitle1'>{info.profile.captionFirstLine}<br />{info.profile.captionSecondLine}</Typography>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
-      <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
-        <SingaporeMap />
-        {/* <div className={classes.buffer} /> */}
+      <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map} ref={mapRef}>
+        <Slide direction='up' in={mapChecked} timeout={{ enter: 600, exit: 300 }}>
+          <Box>
+            <SingaporeMap />
+            {/* <div className={classes.buffer} /> */}
+          </Box>
+        </Slide>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
     </Grid>

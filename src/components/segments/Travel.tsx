@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Fade } from '@material-ui/core';
+import { Grid, Typography, Fade, Box } from '@material-ui/core';
 import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../assets/data/info';
@@ -75,13 +75,17 @@ const Travel: React.FC = () => {
       </Grid>
       <Grid item xs={12}>
         <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>
-        <Typography variant='body1' component='p'>{info.travel.description}</Typography>
+          <Typography variant='body1' component='p'>{info.travel.description}</Typography>
         </Fade>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={2} />
       <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map}>
-        <WorldMap />
-        {/* <div className={classes.buffer} /> */}
+        <Fade in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
+          <Box>
+            <WorldMap enter={checked} />
+            {/* <div className={classes.buffer} /> */}
+          </Box>
+        </Fade>
       </Grid>
       <Grid item xs={12} className={classes.caption}>
         <Typography variant='body1' component='p'>{info.travel.caption}</Typography>

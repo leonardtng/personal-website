@@ -6,19 +6,24 @@ import am4geodata_worldHigh from '@amcharts/amcharts4-geodata/worldHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { vw } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
+import PIN_ICON from '../../assets/images/map/pin-icon.svg'
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
+
+interface WorldMapProps {
+  enter: boolean;
+}
 
 interface DataMapState {
   map: am4maps.MapChart;
 }
 
-class WorldMap extends Component<{}, DataMapState> {
+class WorldMap extends Component<WorldMapProps, DataMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
-    
+
     var map = am4core.create('mapWorld', am4maps.MapChart);
     map.geodata = am4geodata_worldHigh;
     map.projection = new am4maps.projections.Miller();
@@ -41,32 +46,36 @@ class WorldMap extends Component<{}, DataMapState> {
     imageSeries.mapImages.template.tooltipText = "{title}";
     // imageSeries.mapImages.template.propertyFields.url = "url";
 
-    let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle.radius = 5;
-    circle.propertyFields.fill = "color";
+    let marker = imageSeries.mapImages.template.createChild(am4core.Image);
+    marker.href = PIN_ICON;
+    marker.width = 30;
+    marker.height = 30;
+    marker.nonScaling = true;
+    marker.tooltipText = "{title}";
+    marker.horizontalCenter = "middle";
+    marker.verticalCenter = "bottom";
 
-    let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle2.radius = 5;
-    circle2.propertyFields.fill = "color";
+    marker.showOnInit = true;
+    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
+    marker.defaultState.transitionDuration = 2500;
+    marker.hiddenState.properties.dy = -300;
+    marker.tooltipPosition = 'pointer';
 
-    circle2.events.on("inited", function (event) {
+    marker.events.on("inited", function (event) {
       animateBullet(event.target);
     })
 
-    function animateBullet(circle: any) {
-      let animation = circle.animate([{ property: "scale", from: 1, to: 2.5 }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+    function animateBullet(marker: any) {
+      let animation = marker.animate([{ property: "y", from: -3, to: 3 }], 1000, am4core.ease.circleIn);
       animation.events.on("animationended", function (event: any) {
-        animateBullet(event.target.object);
+        let nextAnimation = marker.animate([{ property: "y", from: 3, to: -3 }], 1000, am4core.ease.circleOut);
+        nextAnimation.events.on("animationended", function (event: any) {
+          animateBullet(event.target.object);
+        })
       })
     }
 
-    let colorSet = new am4core.ColorSet();
-
     imageSeries.data = info.travel.places;
-
-    for (let object of imageSeries.data) {
-      object.color = colorSet.next();
-    }
 
     map.zoomControl = new am4maps.ZoomControl();
 
