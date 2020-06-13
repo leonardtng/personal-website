@@ -6,15 +6,21 @@ import am4geodata_singaporeHigh from '@amcharts/amcharts4-geodata/singaporeHigh'
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { tooltipString } from '../../assets/data/mapTooltip';
 import SINGAPORE_PIN from '../../assets/images/map/singapore-pin.svg'
+import { vw } from '../../@utils/useScrollPosition';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
 
-interface DataMapState {
-  map: am4maps.MapChart;
+interface DataMapProps {
+  enter: boolean;
 }
 
-class SingaporeMap extends Component<{}, DataMapState> {
+interface SingaporeMapState {
+  map: am4maps.MapChart;
+  markerRendered: boolean;
+}
+
+class SingaporeMap extends Component<DataMapProps, SingaporeMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
@@ -51,32 +57,22 @@ class SingaporeMap extends Component<{}, DataMapState> {
       map.zoomToMapObject(ev.target);
     });
 
-    let imageSeries = map.series.push(new am4maps.MapImageSeries());
-    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-    imageSeries.mapImages.template.tooltipHTML = tooltipString;
-    // imageSeries.mapImages.template.propertyFields.url = "url";
+    map.showOnInit = true;
+    map.defaultState.transitionEasing = am4core.ease.elasticOut;
+    map.defaultState.transitionDuration = 2000;
+    map.hiddenState.properties.dy = vw < 1200 ? 200 : 300;
+    map.tooltipPosition = 'pointer';
 
-    let marker = imageSeries.mapImages.template.createChild(am4core.Image);
-    marker.href = SINGAPORE_PIN;
-    marker.width = 50;
-    marker.height = 50;
-    marker.nonScaling = true;
-    marker.tooltipText = "{title}";
-    marker.horizontalCenter = "middle";
-    marker.verticalCenter = "bottom";
+    map.hidden = true;
 
-    marker.showOnInit = true;
-    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
-    marker.defaultState.transitionDuration = 2500;
-    marker.hiddenState.properties.dy = -300;
-    marker.tooltipPosition = 'pointer';
-
-    marker.events.on("inited", function (event) {
-      animateBullet(event.target);
+    map.chartContainer.wheelable = false;
+    this.setState({
+      map: map
     })
+  }
 
-    function animateBullet(marker: any) {
+  componentDidUpdate(prevProps: DataMapProps) {
+    const animateBullet = (marker: any) => {
       let animation = marker.animate([{ property: "y", from: -10, to: 10 }], 1000, am4core.ease.circleIn);
       animation.events.on("animationended", function (event: any) {
         let nextAnimation = marker.animate([{ property: "y", from: 10, to: -10 }], 1000, am4core.ease.circleOut);
@@ -86,25 +82,44 @@ class SingaporeMap extends Component<{}, DataMapState> {
       })
     }
 
-    imageSeries.data = [{ longitude: 103.8536, latitude: 1.2789 }];
+    if (this.props.enter !== prevProps.enter && this.props.enter && !this.state.markerRendered) {
+      this.state.map.show()
+      let imageSeries = this.state.map.series.push(new am4maps.MapImageSeries());
+      imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+      imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+      imageSeries.mapImages.template.tooltipHTML = tooltipString;
+      let marker = imageSeries.mapImages.template.createChild(am4core.Image);
+      marker.href = SINGAPORE_PIN;
+      marker.width = 50;
+      marker.height = 50;
+      marker.nonScaling = true;
+      marker.tooltipText = "{title}";
+      marker.horizontalCenter = "middle";
+      marker.verticalCenter = "bottom";
 
-    map.chartContainer.wheelable = false;
+      marker.showOnInit = true;
+      marker.defaultState.transitionEasing = am4core.ease.bounceOut;
+      marker.defaultState.transitionDuration = 2500;
+      marker.hiddenState.properties.dy = -300;
+      marker.tooltipPosition = 'pointer';
 
-    // map.zoomControl = new am4maps.ZoomControl();
+      marker.events.on("inited", function (event) {
+        animateBullet(event.target);
+      })
 
-    // let button = map.chartContainer.createChild(am4core.Button);
-    // button.padding(5, 5, 5, 5);
-    // button.align = "left";
-    // button.marginLeft = 10;
-    // button.events.on("hit", function () {
-    //     map.goHome();
-    // });
-    // button.icon = new am4core.Sprite();
-    // button.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+      imageSeries.data = [{ longitude: 103.8536, latitude: 1.2789 }];
 
-    this.setState({
-      map: map
-    })
+      this.setState({
+        markerRendered: true
+      })
+    } else if (this.props.enter !== prevProps.enter && !this.props.enter) {
+      this.state.map.hide();
+      this.state.map.series.removeIndex(1).dispose();
+
+      this.setState({
+        markerRendered: false
+      })
+    }
   }
 
   componentWillUnmount() {
@@ -115,7 +130,7 @@ class SingaporeMap extends Component<{}, DataMapState> {
 
   render() {
     return (
-      <div id='mapSG' style={{ width: '100%', height: '35vh' }}></div>
+      <div id='mapSG' style={{ width: '100%', height: vw < 1200 ? '35vh' : '60vh' }}></div>
     );
   }
 }

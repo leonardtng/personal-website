@@ -46,8 +46,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   map: {
-    marginTop: 50,
-    marginBottom: 50,
   },
   buffer: {
     position: 'relative',
@@ -104,16 +102,14 @@ const Profile: React.FC = () => {
       <Grid item xs={12} className={classes.description}>
         <Typography variant='subtitle1'>{info.profile.captionFirstLine}<br />{info.profile.captionSecondLine}</Typography>
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
-      <Grid item xs={10} sm={10} md={8} lg={8} className={classes.map} ref={mapRef}>
-        <Slide direction='up' in={mapChecked} timeout={{ enter: 600, exit: 300 }}>
+      <Grid item xs={1} sm={1} md={2} lg={3} />
+      <Grid item xs={10} sm={10} md={8} lg={6} className={classes.map} ref={mapRef}>
           <Box>
-            <SingaporeMap />
+            <SingaporeMap enter={mapChecked}/>
             {/* <div className={classes.buffer} /> */}
           </Box>
-        </Slide>
       </Grid>
-      <Grid item xs={1} sm={1} md={2} lg={2} />
+      <Grid item xs={1} sm={1} md={2} lg={3} />
     </Grid>
   );
 }
