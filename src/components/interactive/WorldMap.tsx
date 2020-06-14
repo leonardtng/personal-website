@@ -29,6 +29,7 @@ class WorldMap extends Component<WorldMapProps, DataMapState> {
     map.projection = new am4maps.projections.Miller();
     var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
     polygonSeries.useGeodata = true;
+    polygonSeries.exclude = ["AQ"];
 
     let polygonTemplate = polygonSeries.mapPolygons.template;
     // polygonTemplate.tooltipText = "{name}";

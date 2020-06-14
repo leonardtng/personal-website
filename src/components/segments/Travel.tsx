@@ -1,12 +1,13 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Fade, Box } from '@material-ui/core';
-import WorldMap from '../interactive/WorldMap';
+// import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET, LAST_SECTION_OFFSET } from '../../@constants';
+import AnimatedWorldMap from '../interactive/AnimatedWorldMap';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -82,7 +83,8 @@ const Travel: React.FC = () => {
       <Grid item xs={12} sm={10} md={8} lg={8} className={classes.map}>
         <Fade in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
           <Box>
-            <WorldMap enter={checked} />
+            <AnimatedWorldMap enter={checked} />
+            {/* <WorldMap enter={checked} /> */}
             {/* <div className={classes.buffer} /> */}
           </Box>
         </Fade>
