@@ -1,10 +1,7 @@
-import * as am4core from '@amcharts/amcharts4/core';
-
 export interface PlaceInterface {
     title: string;
     longitude: number;
     latitude: number;
-    color:  am4core.Color;
 };
 
 export interface PictureInterface {
@@ -18,5 +15,6 @@ export interface TravelInterface {
     description: string;
     caption: string;
     places: Array<PlaceInterface>;
+    mainPlaces: Array<PlaceInterface>;
     pictures: Array<PictureInterface>;
 };

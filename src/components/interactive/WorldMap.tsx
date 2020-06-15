@@ -15,11 +15,11 @@ interface WorldMapProps {
   enter: boolean;
 }
 
-interface DataMapState {
+interface WorldMapState {
   map: am4maps.MapChart;
 }
 
-class WorldMap extends Component<WorldMapProps, DataMapState> {
+class WorldMap extends Component<WorldMapProps, WorldMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
@@ -105,7 +105,7 @@ class WorldMap extends Component<WorldMapProps, DataMapState> {
 
   render() {
     return (
-      <div id='mapWorld' style={{ width: '100%', height: vw < 1200 ? '25vh' : '50vh' }}></div>
+      <div id='mapWorld' style={{ width: '100%', height: vw < 1200 ? '35vh' : '50vh' }}></div>
     );
   }
 }

@@ -11,7 +11,7 @@ import { vw } from '../../@utils/useScrollPosition';
 
 am4core.useTheme(am4themes_animated);
 
-interface DataMapProps {
+interface SingaporeMapProps {
   enter: boolean;
 }
 
@@ -20,7 +20,7 @@ interface SingaporeMapState {
   markerRendered: boolean;
 }
 
-class SingaporeMap extends Component<DataMapProps, SingaporeMapState> {
+class SingaporeMap extends Component<SingaporeMapProps, SingaporeMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
@@ -62,16 +62,16 @@ class SingaporeMap extends Component<DataMapProps, SingaporeMapState> {
     map.defaultState.transitionDuration = 2000;
     map.hiddenState.properties.dy = vw < 1200 ? 200 : 300;
     map.tooltipPosition = 'pointer';
-
     map.hidden = true;
 
     map.chartContainer.wheelable = false;
+
     this.setState({
       map: map
     })
   }
 
-  componentDidUpdate(prevProps: DataMapProps) {
+  componentDidUpdate(prevProps: SingaporeMapProps) {
     const animateBullet = (marker: any) => {
       let animation = marker.animate([{ property: "y", from: -10, to: 10 }], 1000, am4core.ease.circleIn);
       animation.events.on("animationended", function (event: any) {

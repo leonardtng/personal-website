@@ -7,6 +7,7 @@ import { pictures } from './pictures';
 import { subsections } from './subsections';
 import { cards } from './cards';
 import { Info } from '../../@types';
+import { mainPlaces } from './mainPlaces';
 
 export const info: Info = {
   profile: {
@@ -47,6 +48,7 @@ export const info: Info = {
     fill this map with even more locations that I've visited.`,
     caption: `Here are some snapshots I took from the places I've been recently.`,
     places: places,
+    mainPlaces: mainPlaces,
     pictures: pictures,
   }
 }

@@ -1,13 +1,15 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Fade, Box } from '@material-ui/core';
-// import WorldMap from '../interactive/WorldMap';
+import { Grid, Typography, Fade, Box, Grow, Button } from '@material-ui/core';
+import PublicIcon from '@material-ui/icons/Public';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import AnimatedWorldMap from '../interactive/AnimatedWorldMap';
+import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../assets/data/info';
-import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
+import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET, LAST_SECTION_OFFSET } from '../../@constants';
-import AnimatedWorldMap from '../interactive/AnimatedWorldMap';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -28,7 +30,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   map: {
     marginTop: 50,
-    marginBottom: 40,
+  },
+  mapChangeButton: {
+    transform: 'translateY(-120%)',
+    '& svg': {
+      marginRight: 20,
+    }
+  },
+  buttonAnimation: {
+    boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
+    animation: '$pulse 1.5s ease infinite',
   },
   buffer: {
     position: 'relative',
@@ -51,11 +62,32 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: '100%',
     },
   },
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(0.9)',
+    },
+    '70%': {
+      transform: 'scale(1)',
+      boxShadow: `0 0 0 15px ${theme.palette.secondary.main}00`,
+    },
+    '100%': {
+      transform: 'scale(0.9)',
+      boxShadow: `0 0 0 0 ${theme.palette.secondary.main}00`
+    }
+  },
 }));
 
 const Travel: React.FC = () => {
   const classes = useStyles();
   const { setCurrentPage } = useContext(CurrentPageView);
+
+  const [animatedMap, setAnimatedMap] = useState<boolean>(true);
+  const [clicked, setClicked] = useState<boolean>(false);
+
+  const handleChangeMap = () => {
+    setAnimatedMap(prev => !prev);
+    setClicked(true);
+  }
 
   const [checked, setChecked] = useState<boolean>(false);
   const travelRef = useRef<HTMLImageElement>(null);
@@ -81,13 +113,31 @@ const Travel: React.FC = () => {
       </Grid>
       <Grid item sm={1} md={2} lg={2} />
       <Grid item xs={12} sm={10} md={8} lg={8} className={classes.map}>
-        <Fade in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms', transformOrigin: '50% 50%' }}>
           <Box>
-            <AnimatedWorldMap enter={checked} />
-            {/* <WorldMap enter={checked} /> */}
+            {animatedMap ? (
+              <AnimatedWorldMap enter={checked} animatedMap={animatedMap} />
+            ) : (
+                <WorldMap enter={checked} />
+              )}
             {/* <div className={classes.buffer} /> */}
+
           </Box>
-        </Fade>
+        </Grow>
+        <div className={classes.mapChangeButton}>
+          <Button color='secondary' variant='contained' size={vw < 600 ? 'small' : 'medium'} className={clicked ? undefined : classes.buttonAnimation} onClick={handleChangeMap}>
+            {animatedMap ? (
+              <PublicIcon />
+            ) : (
+                <FlightTakeoffIcon />
+              )}
+            {animatedMap ? (
+              'Map'
+            ) : (
+                'Take Off!'
+              )}
+          </Button>
+        </div>
       </Grid>
       <Grid item xs={12} className={classes.caption}>
         <Typography variant='body1' component='p'>{info.travel.caption}</Typography>
