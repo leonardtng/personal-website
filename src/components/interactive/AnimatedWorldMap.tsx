@@ -32,6 +32,52 @@ class AnimatedWorldMap extends Component<WorldMapProps, DataMapState> {
     polygonSeries.exclude = ["AQ"];
     map.homeZoomLevel = 5;
 
+    let polygonTemplate = polygonSeries.mapPolygons.template;
+    // polygonTemplate.tooltipText = "{name}";
+
+    polygonTemplate.fill = am4core.color("#CCCCCC");
+    let hs = polygonTemplate.states.create("hover");
+    hs.properties.fill = am4core.color("#12CBD6");
+    polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
+      map.zoomToMapObject(ev.target);
+    });
+
+    let imageSeries = map.series.push(new am4maps.MapImageSeries());
+    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+    imageSeries.mapImages.template.tooltipText = "{title}";
+    // imageSeries.mapImages.template.propertyFields.url = "url";
+
+    let marker = imageSeries.mapImages.template.createChild(am4core.Image);
+    marker.href = PIN_ICON;
+    marker.width = 30;
+    marker.height = 30;
+    marker.nonScaling = true;
+    marker.tooltipText = "{title}";
+    marker.horizontalCenter = "middle";
+    marker.verticalCenter = "bottom";
+
+    marker.showOnInit = true;
+    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
+    marker.defaultState.transitionDuration = 2500;
+    marker.hiddenState.properties.dy = -300;
+    marker.tooltipPosition = 'pointer';
+
+    marker.events.on("inited", function (event) {
+      animateBullet(event.target);
+    })
+
+    function animateBullet(marker: any) {
+      let animation = marker.animate([{ property: "y", from: -3, to: 3 }], 1000, am4core.ease.circleIn);
+      animation.events.on("animationended", function (event: any) {
+        let nextAnimation = marker.animate([{ property: "y", from: 3, to: -3 }], 1000, am4core.ease.circleOut);
+        nextAnimation.events.on("animationended", function (event: any) {
+          animateBullet(event.target.object);
+        })
+      })
+    }
+
+    imageSeries.data = info.travel.places;
 
     // Add line bullets
     let cities = map.series.push(new am4maps.MapImageSeries());
@@ -95,7 +141,7 @@ class AnimatedWorldMap extends Component<WorldMapProps, DataMapState> {
 
 
     for (let index in info.travel.places) {
-      if (Number(index) + 1 !== info.travel.places.length) {
+      if (Number(index) + 1 < info.travel.places.length) { // < ? change to less than
         addLine(
           addCity({
             longitude: info.travel.places[Number(index)].longitude,
@@ -209,163 +255,6 @@ class AnimatedWorldMap extends Component<WorldMapProps, DataMapState> {
     // Go!
     flyPlane();
 
-
-    let polygonTemplate = polygonSeries.mapPolygons.template;
-    // polygonTemplate.tooltipText = "{name}";
-
-    polygonTemplate.fill = am4core.color("#CCCCCC");
-    let hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#12CBD6");
-    polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
-      map.zoomToMapObject(ev.target);
-    });
-
-    let imageSeries = map.series.push(new am4maps.MapImageSeries());
-    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-    imageSeries.mapImages.template.tooltipText = "{title}";
-    // imageSeries.mapImages.template.propertyFields.url = "url";
-
-    let marker = imageSeries.mapImages.template.createChild(am4core.Image);
-    marker.href = PIN_ICON;
-    marker.width = 30;
-    marker.height = 30;
-    marker.nonScaling = true;
-    marker.tooltipText = "{title}";
-    marker.horizontalCenter = "middle";
-    marker.verticalCenter = "bottom";
-
-    marker.showOnInit = true;
-    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
-    marker.defaultState.transitionDuration = 2500;
-    marker.hiddenState.properties.dy = -300;
-    marker.tooltipPosition = 'pointer';
-
-    marker.events.on("inited", function (event) {
-      animateBullet(event.target);
-    })
-
-    function animateBullet(marker: any) {
-      let animation = marker.animate([{ property: "y", from: -3, to: 3 }], 1000, am4core.ease.circleIn);
-      animation.events.on("animationended", function (event: any) {
-        let nextAnimation = marker.animate([{ property: "y", from: 3, to: -3 }], 1000, am4core.ease.circleOut);
-        nextAnimation.events.on("animationended", function (event: any) {
-          animateBullet(event.target.object);
-        })
-      })
-    }
-
-    imageSeries.data = info.travel.places;
-
-    // map.zoomControl = new am4maps.ZoomControl();
-
-    // let button = map.chartContainer.createChild(am4core.Button);
-    // button.padding(5, 5, 5, 5);
-    // button.align = "left";
-    // button.marginLeft = 10;
-    // button.events.on("hit", function () {
-    //   map.goHome();
-    // });
-    // button.icon = new am4core.Sprite();
-    // button.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
-
-    // map.chartContainer.wheelable = false;
-
-
-    // // Create first image container
-    // var citySeries = map.series.push(new am4maps.MapImageSeries());
-    // map.homeZoomLevel = 5;
-
-    // // Singapore properties
-    // var city1 = citySeries.mapImages.create();
-    // // Singapore's latitude/longitude
-    // city1.latitude = 1.2789;
-    // city1.longitude = 103.8536;
-    // // prevent from scaling when zoomed
-    // city1.nonScaling = true;
-
-    // // Milan properties
-    // var city2 = citySeries.mapImages.create();
-    // // Milan latitude/longitude
-    // city2.latitude = 45.4642;
-    // city2.longitude = 9.1900;
-    // // Prevent scaling when zoomed
-    // city2.nonScaling = true;
-
-    // var lineSeries = map.series.push(new am4maps.MapLineSeries());
-    // var mapLine = lineSeries.mapLines.create();
-
-    // // Tell the line to connect the two cities (latitudes/longitudes an be used alternatively)
-    // mapLine.imagesToConnect = [city1, city2]
-
-    // // Draw the line in dashes
-    // mapLine.line.strokeDasharray = "1,1";
-    // mapLine.line.strokeOpacity = 0.2;
-
-    // // Create the plane container
-    // var planeContainer = mapLine.lineObjects.create();
-
-    // planeContainer.position = 0;
-    // // Set the SVG path of a plane for the sprite
-    // var plane = planeContainer.createChild(am4core.Sprite);
-    // planeContainer.nonScaling = false;
-    // planeContainer.scale = 0.015;
-
-    // // SVG plane illustration
-    // plane.path = "M71,515.3l-33,72.5c-0.9,2.1,0.6,4.4,2.9,4.4l19.7,0c2.8,0,5.4-1,7.5-2.9l54.1-39.9c2.4-2.2,5.4-3.4,8.6-3.4 l103.9,0c1.8,0,3,1.8,2.3,3.5l-64.5,153.7c-0.7,1.6,0.5,3.3,2.2,3.3l40.5,0c2.9,0,5.7-1.3,7.5-3.6L338.4,554c3.9-5,9.9-8,16.2-8c24.2,0,85.5-0.1,109.1-0.2c21.4-0.1,41-6.3,59-17.8c4.2-2.6,7.9-6.1,11.2-9.8c2.6-2.9,3.8-5.7,3.7-8.5c0.1-2.8-1.1-5.5-3.7-8.5c-3.3-3.7-7-7.2-11.2-9.8c-18-11.5-37.6-17.7-59-17.8c-23.6-0.1-84.9-0.2-109.1-0.2c-6.4,0-12.3-2.9-16.2-8L222.6,316.6c-1.8-2.3-4.5-3.6-7.5-3.6l-40.5,0c-1.7,0-2.9,1.7-2.2,3.3L237,470c0.7,1.7-0.5,3.5-2.3,3.5l-103.9,0c-3.2,0-6.2-1.2-8.6-3.4l-54.1-39.9c-2.1-1.9-4.7-2.9-7.5-2.9l-19.7,0c-2.3,0-3.8,2.4-2.9,4.4l33,72.5C72.6,507.7,72.6,511.8,71,515.3z";
-    // plane.fill = am4core.color("#000000");
-
-    // plane.horizontalCenter = "middle";
-    // plane.verticalCenter = "middle";
-
-    // map.events.on("ready", goForward);
-
-    // function goForward() {
-    //   // var animation = planeContainer.animate({ property: "position", from: 0, to: 1 }, 3000).delay(300);
-    //   plane.rotation = 0;
-    //   var animation = planeContainer.animate(
-    //     { property: "position", from: 0, to: 1 },
-    //     5000,
-    //     am4core.ease.polyInOut3
-    //   );
-    //   animation.events.on("animationprogress", function (event) {
-    //     var point = mapLine.positionToPoint(event.progress);
-    //     var geoPoint = map.seriesPointToGeo(point);
-
-    //     map.zoomToGeoPoint(geoPoint, map.zoomLevel, true, 0);
-    //     map.seriesContainer.validatePosition();
-    //   });
-    //   map.seriesContainer.validatePosition();
-    //   animation.events.on("animationended", goForward);
-    // }
-
-    // // make the plane to be bigger in the middle of the line
-    // planeContainer.adapter.add("scale", function (scale, target) {
-    //   return (0.07 - 0.10 * (Math.abs(0.5 - target.position))) / map.zoomLevel;
-    // })
-
-
-    // // Make the plane to be bigger in the middle of the line
-    // planeContainer.adapter.add("scale", function (scale, target) {
-    //   return (0.07 - 0.10 * (Math.abs(0.5 - target.position))) / map.zoomLevel;
-    // })
-
-    // // Milan properties
-    // var city3 = citySeries.mapImages.create();
-    // // Milan latitude/longitude
-    // city3.latitude = 34.0522;
-    // city3.longitude = -118.2437;
-    // // Prevent scaling when zoomed
-    // city3.nonScaling = true;
-
-    // var mapLine2 = lineSeries.mapLines.create();
-
-    // // Tell the line to connect the two cities (latitudes/longitudes an be used alternatively)
-    // mapLine.imagesToConnect = [city2, city3]
-
-    // // Draw the line in dashes
-    // mapLine.line.strokeDasharray = "1,1";
-    // mapLine.line.strokeOpacity = 0.2;
 
 
 
