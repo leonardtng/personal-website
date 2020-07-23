@@ -57,7 +57,7 @@ class WorldMap extends Component<WorldMapProps, WorldMapState> {
     marker.verticalCenter = "bottom";
 
     marker.showOnInit = true;
-    marker.defaultState.transitionEasing = am4core.ease.cubicIn;
+    marker.defaultState.transitionEasing = am4core.ease.bounceOut;
     marker.defaultState.transitionDuration = 2500;
     marker.hiddenState.properties.dy = -300;
     marker.tooltipPosition = 'pointer';

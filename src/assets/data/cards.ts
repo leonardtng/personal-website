@@ -76,17 +76,17 @@ export const cards: Array<CardData> = [
           infoTitle: 'Positions Held',
           infoItems: [
             'Oct 2019 - Jan 2020: Product Specialist Intern',
-            'Jan 2020 - : Software Engineer Intern'
+            'Jan 2020 - Jul 2020: Software Engineer Intern'
           ]
         },
         {
           infoTitle: 'Skills',
           infoItems: [
             'React',
+            'Django',
             'React Native',
             'TypeScript',
             'Python',
-            'Django',
             'MySQL',
             'AWS'
           ]
