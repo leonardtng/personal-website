@@ -67,7 +67,7 @@ const Blog: React.FC = () => {
             <Fragment>
               {blogDataLoadState.data.items.map((post: any, index: number) => {
                 const shortenedDescription = modifyDescription(htmlToText(post.description), vw * 0.22);
-                return <Slide in={checked} direction='right' timeout={{ enter: 300, exit: 300 }} style={{ transitionDelay: checked ? `${(index + 1) * 50}ms` : '0ms' }} key={index}>
+                return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 50}ms` : '0ms' }} key={index}>
                   <div>
                     <BlogCard title={post.title} pubDate={post.pubDate} link={post.link} image={post.thumbnail} description={shortenedDescription} isLoading={blogDataLoadState.isLoading} />
                   </div>

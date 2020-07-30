@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Fade, Box, Grow, Button } from '@material-ui/core';
+import { Grid, Typography, Box, Grow, Button } from '@material-ui/core';
 import PublicIcon from '@material-ui/icons/Public';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import AnimatedWorldMap from '../interactive/AnimatedWorldMap';
@@ -107,9 +107,9 @@ const Travel: React.FC = () => {
         <Typography variant='h3' component='h1'>{info.travel.title}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }}>
           <Typography variant='body1' component='p'>{info.travel.description}</Typography>
-        </Fade>
+        </Grow>
       </Grid>
       <Grid item sm={1} md={2} lg={2} />
       <Grid item xs={12} sm={10} md={8} lg={8} className={classes.map}>

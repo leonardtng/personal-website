@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Fade } from '@material-ui/core';
+import { Grid, Typography, Grow } from '@material-ui/core';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
@@ -50,14 +50,14 @@ const About: React.FC = () => {
         <Typography variant='h3' component='h1'>{info.about.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.description}>
-        <Fade in={checked} timeout={{ enter: 600, exit: 300 }}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }}>
           <Typography variant='body1' component='p'>{info.about.description}</Typography>
-        </Fade>
+        </Grow>
       </Grid>
       <Grid item xs={12}>
-        <Fade in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
           <Typography variant='body1' component='p'>{info.about.descriptionSecondPart}</Typography>
-        </Fade>
+        </Grow>
       </Grid>
     </Grid>
   );
