@@ -75,7 +75,7 @@ export const cards: Array<CardData> = [
         {
           infoTitle: 'Positions Held',
           infoItems: [
-            'Oct 2019 - Jan 2020: Product Specialist Intern',
+            'Oct 2019 - Jan 2020: Product Management Specialist Intern',
             'Jan 2020 - Jul 2020: Software Engineer Intern'
           ]
         },

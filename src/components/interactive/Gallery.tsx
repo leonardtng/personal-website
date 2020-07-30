@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.default,
     '& li': {
+      cursor: 'pointer',
       display: 'block',
       objectFit: 'cover',
       overflow: 'hidden',
