@@ -63,11 +63,11 @@ const Footer: React.FC = () => {
           </Link>
         </Typography>
         <Typography className={classes.section} variant='body1' component='p'>
-          <Link href='https://www.instagram.com/saxonardtng/' target='_blank'>
+          <Link href='https://www.instagram.com/leonard.tng/' target='_blank'>
             <InstagramIcon />
           </Link>
-          <Link href='https://www.instagram.com/saxonardtng/' target='_blank'>
-            <Hidden mdDown>https://www.instagram.com/saxonardtng/</Hidden>
+          <Link href='https://www.instagram.com/leonard.tng/' target='_blank'>
+            <Hidden mdDown>https://www.instagram.com/leonard.tng/</Hidden>
           </Link>
         </Typography>
       </Grid>
