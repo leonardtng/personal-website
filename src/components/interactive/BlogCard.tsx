@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'justify',
+    alignItems: 'flex-start'
   },
   content: {
     flex: '1 0 auto',
