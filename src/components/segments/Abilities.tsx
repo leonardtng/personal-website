@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingRight: 20,
     paddingLeft: 20,
   },
+  note: {
+    fontStyle: 'oblique',
+    marginBottom: 30,
+  },
   '@media only screen and (max-width: 1200px)': {
     ratingsBlock: {
       paddingRight: 5,
@@ -148,6 +152,9 @@ const Abilities: React.FC = () => {
         {info.abilities.subsections.tools.itemsBlockRight.map((item: Ability) => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} />
         })}
+      </Grid>
+            <Grid item xs={12} className={classes.note}>
+        <Typography variant='subtitle1' gutterBottom>{info.abilities.note}</Typography>
       </Grid>
     </Grid>
   );

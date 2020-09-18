@@ -131,7 +131,7 @@ export const cards: Array<CardData> = [
     title: `Yale-NUS College`,
     date: `July 2020`,
     role: `[Undergraduate]`,
-    description: `I am an incoming student at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
+    description: `I am a current freshman at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
     image: YaleNusCover,
     cardDialogContent: {
       carousel: [

@@ -22,4 +22,5 @@ export interface AbilitiesInterface {
     title: string;
     description: string;
     subsections: SubsectionsInterface;
+    note: string;
 };
