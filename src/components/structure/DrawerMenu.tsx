@@ -4,6 +4,7 @@ import { Drawer, List, Divider, ListItem, Typography, Avatar } from '@material-u
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { info } from '../../assets/data/info';
 import { HashLink as Link } from 'react-router-hash-link';
+import resume from '../../assets/documents/resume.pdf';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       '& a': {
         textDecoration: 'none',
+        color: theme.palette.primary.main,
       },
     },
     drawerPaper: {
@@ -63,10 +65,10 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
         <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
         <Divider />
         <List>
-        <Link smooth to='#home'>
-          <ListItem>
-            <Typography variant='body1' component='h2'>Home</Typography>
-          </ListItem>
+          <Link smooth to='#home'>
+            <ListItem>
+              <Typography variant='body1' component='h2'>Home</Typography>
+            </ListItem>
           </Link>
           <Link smooth to='#about'>
             <ListItem>
@@ -98,6 +100,9 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
               <Typography variant='body1' component='h2'>Get in Touch!</Typography>
             </ListItem>
           </Link>
+          <ListItem>
+            <Typography variant='body1' component='h2'><a href={resume} target='_blank' rel='noopener noreferrer'>Resume</a></Typography>
+          </ListItem>
         </List>
       </Drawer >
     </div>

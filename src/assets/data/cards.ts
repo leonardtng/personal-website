@@ -52,7 +52,7 @@ export const cards: Array<CardData> = [
   },
   {
     title: `Boogle Group Ltd`,
-    date: `Oct 2019`,
+    date: `Oct 2019 - Sep 2020`,
     role: `[Software Engineer Intern]`,
     description: `My time at this vibrant startup has been nothing less than fruitful. It was here where I started designing and building sophisticated software from the ground up, and 
     learnt much of the coding best practices and standards which I still practice heavily today. During the months I was here, I was heavily involved in the front-end

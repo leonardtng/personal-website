@@ -8,6 +8,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
 import DrawerMenu from './DrawerMenu';
+import resume from '../../assets/documents/resume.pdf';
 
 const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     '& a': {
       textDecoration: 'none',
+      color: theme.palette.secondary.contrastText,
     },
   },
   menuButton: {
@@ -128,6 +130,9 @@ const NavBar: React.FC = () => {
                   <Link smooth to='#contact'>
                     <Typography variant='body1' component='h2'>Get in Touch!</Typography>
                   </Link>
+                </Button>
+                <Button>
+                  <Typography variant='body1' component='h2'><a href={resume} target='_blank' rel='noopener noreferrer'>Resume</a></Typography>
                 </Button>
               </Grid>
               <Grid item xs={1}></Grid>

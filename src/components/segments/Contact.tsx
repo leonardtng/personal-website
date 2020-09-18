@@ -5,6 +5,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
+import resume from '../../assets/documents/resume.pdf';
 
 const useStyles = makeStyles((theme: Theme) => ({
   contact: {
@@ -22,6 +23,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& h1': {
       fontWeight: 500,
     },
+  },
+  resume: {
+    '& a': {
+      textDecoration: 'underline',
+      color: theme.palette.secondary.main,
+    }
   },
   button: {
     margin: 30,
@@ -69,8 +76,13 @@ const Contact: React.FC = () => {
           <Typography variant='h5' component='h3'>I'm currently available for internships.</Typography>
         </Zoom>
       </Grid>
+      <Grid item xs={12} className={classes.resume}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '400ms' : '0ms' }}>
+          <Typography variant='h6' component='h4'>View my resume <a href={resume} target='_blank' rel='noopener noreferrer'>here</a>!</Typography>
+        </Zoom>
+      </Grid>
       <Grid item xs={12}>
-        <Zoom in={checked} style={{ transitionDelay: checked ? '200ms' : '0ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
           <Typography variant='body1' component='p'>But of course, if you want to work together, find out more, or just wanna chill and chat, </Typography>
         </Zoom>
       </Grid>
