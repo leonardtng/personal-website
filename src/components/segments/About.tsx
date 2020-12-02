@@ -67,7 +67,7 @@ const About: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.projectLink}>
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
-          <Typography variant='body1' component='p'>View my latest endeavor, CodeCache, at <a href='https://www.codecache.io' target='_blank' rel='noopener noreferrer'>https://www.codecache.io</a>!</Typography>
+          <Typography variant='h5' component='p'><b>View my latest project, CodeCache, at <a href='https://www.codecache.io' target='_blank' rel='noopener noreferrer'>https://www.codecache.io</a>!</b></Typography>
         </Grow>
       </Grid>
     </Grid>
