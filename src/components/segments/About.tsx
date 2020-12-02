@@ -26,6 +26,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   description: {
     paddingBottom: 20,
   },
+  projectLink: {
+    '& a': {
+      textDecoration: 'underline',
+      color: theme.palette.secondary.main,
+    }
+  },
 }));
 
 const About: React.FC = () => {
@@ -54,9 +60,14 @@ const About: React.FC = () => {
           <Typography variant='body1' component='p'>{info.about.description}</Typography>
         </Grow>
       </Grid>
-      <Grid item xs={12}>
-        <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
+      <Grid item xs={12} className={classes.description}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '125ms' : '0ms' }}>
           <Typography variant='body1' component='p'>{info.about.descriptionSecondPart}</Typography>
+        </Grow>
+      </Grid>
+      <Grid item xs={12} className={classes.projectLink}>
+        <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
+          <Typography variant='body1' component='p'>View my latest endeavor, CodeCache, at <a href='https://www.codecache.io' target='_blank' rel='noopener noreferrer'>https://www.codecache.io</a>!</Typography>
         </Grow>
       </Grid>
     </Grid>

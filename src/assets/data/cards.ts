@@ -1,13 +1,20 @@
 import NjcCover from '../images/cards/national-junior-college/national-junior-college-1024x683.jpg';
 import BoogleCover from '../images/cards/boogle/boogle-hq.jpg';
-import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
 import PersonalWebsiteV1Cover from '../images/cards/personal-website-v1/personal-website-v1.png';
+import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
+import CodeCacheCover from '../images/cards/codecache/codecache.png';
 import { CardData } from '../../@types';
 
 import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
 import Boogle1 from '../images/cards/boogle/carousel1.jpg';
 import PW1 from '../images/cards/personal-website-v1/carousel1.png';
 import PW2 from '../images/cards/personal-website-v1/carousel2.png';
+import C1 from '../images/cards/codecache/carousel1.png';
+import C2 from '../images/cards/codecache/carousel2.png';
+import C3 from '../images/cards/codecache/carousel3.png';
+import C4 from '../images/cards/codecache/carousel4.png';
+import C5 from '../images/cards/codecache/carousel5.png';
+import C6 from '../images/cards/codecache/carousel6.png';
 
 export const cards: Array<CardData> = [
   {
@@ -46,7 +53,14 @@ export const cards: Array<CardData> = [
             'MOE Pre-U Scholarship',
             'YDSP Academic Award for Mathematics'
           ]
-        }
+        },
+        {
+          infoTitle: 'Positions Held',
+          infoItems: [
+            'Aug 2014 - Aug 2016: Section Leader, Symphonic Band',
+            'Aug 2016 - Aug 2017: President, Symphonic Band'
+          ]
+        },
       ],
     }
   },
@@ -103,6 +117,7 @@ export const cards: Array<CardData> = [
     building this website allow me to put my development skills to the test, it was also a great sandbox for me to explore and experiment with new development and design techniques
     such as implementing a dark theme`,
     descriptionSecondPart: `, using React hooks, and being creative with scroll effects.`,
+    projectLink: `https://github.com/leonardtng/personal-website`,
     image: PersonalWebsiteV1Cover,
     cardDialogContent: {
       carousel: [
@@ -145,6 +160,57 @@ export const cards: Array<CardData> = [
           infoTitle: 'Awards and Scholarships',
           infoItems: [
             'Global Leader Scholar',
+          ]
+        }
+      ]
+    }
+  },
+  {
+    title: `CodeCache`,
+    date: `November 2020`,
+    role: `The lightweight code snippet storage built for developers and learners`,
+    description: `My first full-stack project I designed, built and deployed during my first semester in college consisting of both a frontend and a backend. Initially, 
+    this project started off as a simple idea for a site that can store my code snippets. Eventually I saw this idea through to build the final product, complete 
+    with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 
+    improve on both my frontend and backend skills, as well as important development tools such as AWS EC2, Lambda, and Docker.`,
+    projectLink: `https://www.codecache.io`,
+    image: CodeCacheCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: 'CodeCache Cover',
+          image: C1
+        },
+        {
+          caption: 'CodeCache Landing Page',
+          image: C2
+        },
+        {
+          caption: 'CodeCache Dashboard',
+          image: C3
+        },
+        {
+          caption: 'CodeCache Add Snippet',
+          image: C4
+        },
+        {
+          caption: 'CodeCache Stats Interface',
+          image: C5
+        },
+        {
+          caption: 'CodeCache Settings',
+          image: C6
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: 'Stack',
+          infoItems: [
+            'React',
+            'TypeScript',
+            'Django REST Framework',
+            'Docker',
+            'AWS'
           ]
         }
       ]

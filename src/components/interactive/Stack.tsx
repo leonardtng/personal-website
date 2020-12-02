@@ -2,11 +2,12 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Tooltip, Zoom } from '@material-ui/core';
 import ReactLogo from '../../assets/images/stack/react.png';
+import MUILogo from '../../assets/images/stack/material-ui.png';
 import TypescriptLogo from '../../assets/images/stack/typescript.png';
 import PythonLogo from '../../assets/images/stack/python.png';
 import DjangoLogo from '../../assets/images/stack/django.png';
+import DockerLogo from '../../assets/images/stack/docker.png';
 import MySQLLogo from '../../assets/images/stack/mysql.png';
-import MUILogo from '../../assets/images/stack/material-ui.png';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -29,7 +30,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 45.5,
     width: 100,
     margin: '47.25px 50px',
-
   },
 }));
 
@@ -74,6 +74,13 @@ const Stack: React.FC<StackProps> = (props: StackProps) => {
         <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '600ms' : '0ms' }}>
           <Tooltip title='Django'>
             <img className={classes.django} src={DjangoLogo} alt='Django' />
+          </Tooltip>
+        </Zoom>
+      </div>
+      <div>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '650ms' : '0ms' }}>
+          <Tooltip title='Docker'>
+            <img className={classes.logo} src={DockerLogo} alt='MySQL' />
           </Tooltip>
         </Zoom>
       </div>

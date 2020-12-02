@@ -9,6 +9,7 @@ interface ExperienceCardProps {
   role: string;
   description: string;
   descriptionSecondPart?: string;
+  projectLink?: string;
   image: string;
   cardDialogContent: CardDialogContent;
   direction: 'left' | 'right';
@@ -22,6 +23,7 @@ const TimelineCard: React.FC<ExperienceCardProps> = (props: ExperienceCardProps)
         title={props.title}
         description={props.description}
         descriptionSecondPart={props.descriptionSecondPart}
+        projectLink={props.projectLink}
         cardDialogContent={props.cardDialogContent}
         direction={props.direction}
       />

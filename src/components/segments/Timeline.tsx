@@ -213,6 +213,15 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       backgroundColor: styleProps => styleProps.fourthCheck ? '#EAA03A' : theme.palette.primary.contrastText,
     },
   },
+  card5: {
+    '&:after': {
+      content: styleProps => styleProps.fifthCheck ? '"assignment"' : '""',
+      fontSize: styleProps => styleProps.fifthCheck ? 20 : 0,
+      width: styleProps => styleProps.fifthCheck ? 30 : 15,
+      height: styleProps => styleProps.fifthCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.fifthCheck ? '#ff6ec7' : theme.palette.primary.contrastText,
+    },
+  },
   '@media only screen and (max-width: 1700px)': {
     timeline: {
       '& ul': {
@@ -347,6 +356,7 @@ const Timeline: React.FC = () => {
   const secondRef = useRef<HTMLSpanElement>(null);
   const thirdRef = useRef<HTMLSpanElement>(null);
   const fourthRef = useRef<HTMLSpanElement>(null);
+  const fifthRef = useRef<HTMLSpanElement>(null);
 
   const [scroll, setScroll] = useState<number>(0);
   const containerHeight = timelineRef.current?.clientHeight;
@@ -355,6 +365,7 @@ const Timeline: React.FC = () => {
   const [secondCheck, setSecondCheck] = useState<boolean>(false);
   const [thirdCheck, setThirdCheck] = useState<boolean>(false);
   const [fourthCheck, setFourthCheck] = useState<boolean>(false);
+  const [fifthCheck, setFifthCheck] = useState<boolean>(false);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setFirstCheck(true) : setFirstCheck(false);
@@ -373,6 +384,10 @@ const Timeline: React.FC = () => {
   }, fourthRef, false);
 
   useScrollPosition(({ currPos }: any) => {
+    currPos.y < SCROLL_THRESHOLD + 40 ? setFifthCheck(true) : setFifthCheck(false);
+  }, fifthRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
     if (containerHeight) {
       if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Timeline');
@@ -384,6 +399,7 @@ const Timeline: React.FC = () => {
     secondCheck: secondCheck,
     thirdCheck: thirdCheck,
     fourthCheck: fourthCheck,
+    fifthCheck: fifthCheck,
     scroll: timelineRef.current ? scroll : 0,
     maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   }
@@ -397,6 +413,7 @@ const Timeline: React.FC = () => {
       role={item.role}
       description={item.description}
       descriptionSecondPart={item.descriptionSecondPart}
+      projectLink={item.projectLink}
       image={item.image}
       cardDialogContent={item.cardDialogContent}
       direction={getSlideDirection(index)} />
@@ -445,6 +462,14 @@ const Timeline: React.FC = () => {
                 <div>
                   {cardList[3]}
                   <span ref={fourthRef} />
+                </div>
+              </Slide>
+            </ListItem>
+            <ListItem className={classes.card5}>
+              <Slide in={fifthCheck} direction={getSlideDirection(4)}>
+                <div>
+                  {cardList[4]}
+                  <span ref={fifthRef} />
                 </div>
               </Slide>
             </ListItem>

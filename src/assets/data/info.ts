@@ -38,7 +38,7 @@ export const info: Info = {
   abilities: {
     title: `What I Can Do`,
     description:  `I have been coding at a professional level for 7 months and have experience in an array of modern web technologies such as React, TypeScript, React Native,
-    and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Invision Studio and Adobe XD.
+    and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Invision Studio and Affinity Designer.
     On the sideline, I enjoy building web applications and tinkering with the Arduino.`,
     subsections: subsections,
     note: `Note: Skills are portrayed relative to each other and not on an absolute level (learning never stops!)`,

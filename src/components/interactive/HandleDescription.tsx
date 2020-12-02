@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper, List, ListItem, Collapse, ListItemText } from '@material-ui/core';
+import { CardMedia, Typography, Slide, CardActionArea, Dialog, DialogContent, Paper, List, ListItem, Collapse, ListItemText, Button } from '@material-ui/core';
 import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
 import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { Assignment, ExpandLess, ExpandMore } from '@material-ui/icons';
 import ThemeToggle from '../buttons/ThemeToggle';
 import { modifyDescription } from '../../@utils/modifyDescription';
 
@@ -49,6 +49,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'justify',
     padding: 15,
     color: theme.palette.text.primary,
+  },
+  projectLink: {
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 25,
+    '& .MuiButton-root': {
+      height: 50,
+      width: '100%',
+    },
   },
   dialog: {
     '& .MuiDialog-paper': {
@@ -106,6 +115,7 @@ interface HandleDescriptionProps {
   title: string;
   description: string;
   descriptionSecondPart?: string;
+  projectLink?: string;
   cardDialogContent: CardDialogContent;
   direction: 'left' | 'right';
 }
@@ -159,6 +169,19 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
         <DialogCarousel carousel={props.cardDialogContent.carousel} />
         <Paper className={classes.content}>
           <DialogContent>
+            {props.projectLink &&
+              <div className={classes.projectLink}>
+                <Button
+                  variant='contained'
+                  color='secondary'
+                  startIcon={<Assignment />}
+                  href={props.projectLink}
+                  target='_blank'
+                >
+                  View this project!
+              </Button>
+              </div>
+            }
             <Typography variant='body1' component='p'>
               {props.description} {props.title === 'Personal Website' ? <><ThemeToggle />{props.descriptionSecondPart}</> : null}
             </Typography>

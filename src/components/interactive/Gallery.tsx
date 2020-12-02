@@ -96,10 +96,12 @@ const Gallery: React.FC = () => {
 
   const [enlarge, setEnlarge] = useState({ open: false, img: '', caption: '' });
 
+  const pictures = vw < 600 ? info.travel.pictures.slice(0, 8) : vw < 1200 ? info.travel.pictures.slice(0, 12) : info.travel.pictures
+
   return (
     <div className={classes.root}>
       <GridList cellHeight={vw < 600 ? 260 : vw < 1200 ? 350 : 260} className={classes.gridList} cols={vw < 600 ? 1 : vw < 1200 ? 2 : 5}>
-        {info.travel.pictures.map((tile: Picture) => (
+        {pictures.map((tile: Picture) => (
           <GridListTile key={tile.img} cols={tile.cols || 1} onClick={() => setEnlarge({ open: true, img: tile.img, caption: tile.title })}>
             <img src={tile.img} alt={tile.title} />
           </GridListTile>

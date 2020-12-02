@@ -18,9 +18,9 @@ export const subsections: Subsection = {
     itemsBlockRight: [
       { legend: "React Native", value: 4 },
       { legend: "Python", value: 4 },
-      { legend: "MySQL", value: 4 },
-      { legend: "Django REST Framework", value: 3 },
-      { legend: "R", value: 3 },
+      { legend: "Django REST Framework", value: 4 },
+      { legend: "MySQL", value: 3 },
+      { legend: "R", value: 2 },
       { legend: "Arduino", value: 2 },
       { legend: "Sci-kit Learn", value: 1 },
     ]
@@ -28,10 +28,10 @@ export const subsections: Subsection = {
   languages: {
     title: "Languages",
     itemsBlockLeft: [
-      { legend: "English", value: 5 }
+      { legend: "English", value: 5 },
     ],
     itemsBlockRight: [
-      { legend: "Mandarin", value: 4 }
+      { legend: "Mandarin", value: 4 },
     ]
   },
   tools: {
@@ -42,9 +42,9 @@ export const subsections: Subsection = {
       { legend: "Git", value: 4 },
     ],
     itemsBlockRight: [
-      { legend: "Invision Studio", value: 4 },
-      { legend: "Adobe XD", value: 4 },
-      { legend: "AWS EC2", value: 1 }
+      { legend: "Docker", value: 3 },
+      { legend: "AWS EC2", value: 3 },
+      { legend: "AWS Lambda", value: 2 },
     ]
   },
 }

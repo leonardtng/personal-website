@@ -3,6 +3,7 @@ export interface ExperienceStylePropsInterface {
     secondCheck: boolean;
     thirdCheck: boolean;
     fourthCheck: boolean;
+    fifthCheck: boolean;
     scroll: number;
     maxScroll: number;
 };
