@@ -32,7 +32,7 @@ export const cards: Array<CardData> = [
           image: NjcCover
         },
         {
-          caption: 'Picked up saxophone here!',
+          caption: 'Picked up the saxophone here!',
           image: NJC1
         },
       ],
@@ -168,7 +168,7 @@ export const cards: Array<CardData> = [
   {
     title: `CodeCache`,
     date: `November 2020`,
-    role: `The lightweight code snippet storage built for developers and learners`,
+    role: `The lightweight code snippet manager built for developers and learners`,
     description: `My first full-stack project I designed, built and deployed during my first semester in college consisting of both a frontend and a backend. Initially, 
     this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
     with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 

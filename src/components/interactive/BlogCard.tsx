@@ -85,7 +85,7 @@ const BlogCard: React.FC<BlogCardProps> = (props: BlogCardProps) => {
   const classes = useStyles();
 
   return (
-    <Link href={props.link} target='_blank' style={{ textDecoration: 'none' }}>
+    <Link href={props.link} target='_blank' style={{ textDecoration: 'none' }} rel="noopener" aria-label="Medium">
       <Card className={classes.root} elevation={5}>
         {props.isLoading ? (
           <Skeleton className={classes.cover} animation='wave' variant='rect' height={240} />

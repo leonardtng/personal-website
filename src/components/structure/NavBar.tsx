@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Slide, Button, Grid, Hidden, IconButton, Avatar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -91,11 +92,11 @@ const NavBar: React.FC = () => {
           <Grid container spacing={0}>
             <Hidden mdDown>
               <Grid item xs={1}></Grid>
-              <Grid item xs={3} className={classes.headerGroup}>
+              <Grid item xs={2} className={classes.headerGroup}>
                 <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
               </Grid>
-              <Grid item xs={7} className={classes.buttonGroup}>
+              <Grid item xs={8} className={classes.buttonGroup}>
                 <Button>
                   <Link smooth to='#home'>
                     <Typography variant='body1' component='h2'>Home</Typography>
@@ -128,12 +129,15 @@ const NavBar: React.FC = () => {
                 </Button>
                 <Button className={currentPage === 'Contact' ? classes.focus : undefined}>
                   <Link smooth to='#contact'>
-                    <Typography variant='body1' component='h2'>Get in Touch!</Typography>
+                    <Typography variant='body1' component='h2' noWrap>Get in Touch!</Typography>
                   </Link>
                 </Button>
                 <Button>
                   <Typography variant='body1' component='h2'><a href={resume} target='_blank' rel='noopener noreferrer'>Resume</a></Typography>
                 </Button>
+                <IconButton href='https://github.com/leonardtng/' target='_blank' rel='noopener' aria-label='GitHub'>
+                  <GitHubIcon />
+                </IconButton>
               </Grid>
               <Grid item xs={1}></Grid>
             </Hidden>

@@ -110,6 +110,8 @@ const Abilities: React.FC = () => {
           startIcon={<GitHubIcon />}
           href='https://github.com/leonardtng/personal-website'
           target='_blank'
+          rel="noopener" 
+          aria-label="GitHub Personal Website"
         >
           View Project on Github
         </Button>

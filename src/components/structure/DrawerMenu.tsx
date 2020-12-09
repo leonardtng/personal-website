@@ -103,6 +103,13 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
           <ListItem>
             <Typography variant='body1' component='h2'><a href={resume} target='_blank' rel='noopener noreferrer'>Resume</a></Typography>
           </ListItem>
+          <ListItem>
+            <Typography variant='body1' component='h2'>
+              <a href='https://github.com/leonardtng/' target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+                GitHub
+              </a>
+            </Typography>
+          </ListItem>
         </List>
       </Drawer >
     </div>
