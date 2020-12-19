@@ -5,7 +5,7 @@ import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
 import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
-import { Assignment, ExpandLess, ExpandMore } from '@material-ui/icons';
+import { ExpandLess, ExpandMore, OpenInNew } from '@material-ui/icons';
 import ThemeToggle from '../buttons/ThemeToggle';
 import { modifyDescription } from '../../@utils/modifyDescription';
 
@@ -174,7 +174,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
                 <Button
                   variant='contained'
                   color='secondary'
-                  startIcon={<Assignment />}
+                  startIcon={<OpenInNew />}
                   href={props.projectLink}
                   target='_blank'
                 >
