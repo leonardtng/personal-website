@@ -45,7 +45,7 @@ export const info: Info = {
   },
   travel: {
     title: `Where I've Been`,
-    description: `Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food, and I hope to one day 
+    description: `Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food. I hope to one day 
     fill this map with even more locations that I've visited.`,
     caption: `Here are some snapshots I took from the places I've been recently.`,
     places: places,

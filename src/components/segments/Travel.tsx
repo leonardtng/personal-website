@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   mapChangeButton: {
     transform: 'translateY(-120%)',
+    width: 'fit-content',
+    margin: 'auto',
     '& svg': {
       marginRight: 20,
     }
