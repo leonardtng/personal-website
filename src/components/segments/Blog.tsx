@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   posts: {
     marginTop: 20,
   },
+  cardWrapper: {
+    paddingBottom: 40,
+  }
 }));
 
 const Blog: React.FC = () => {
@@ -67,8 +70,8 @@ const Blog: React.FC = () => {
             <Fragment>
               {blogDataLoadState.data.items.map((post: any, index: number) => {
                 const shortenedDescription = modifyDescription(htmlToText(post.description), vw * 0.22);
-                return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 50}ms` : '0ms' }} key={index}>
-                  <div>
+                return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
+                  <div className={classes.cardWrapper}>
                     <BlogCard title={post.title} pubDate={post.pubDate} link={post.link} image={post.thumbnail} description={shortenedDescription} isLoading={blogDataLoadState.isLoading} />
                   </div>
                 </Slide>
