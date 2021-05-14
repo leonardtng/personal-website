@@ -102,25 +102,24 @@ const DialogCarousel: React.FC<DialogCarouselProps> = (props: DialogCarouselProp
       {maxSteps < 2 ? (
         null
       ) : (
-          <MobileStepper
-            className={dialogCarouselStyles.stepper}
-            steps={maxSteps}
-            position='static'
-            variant='dots'
-            activeStep={activeStep}
-            nextButton={
-              <IconButton size='small' className={dialogCarouselStyles.arrowButtonRight} onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-              </IconButton>
-            }
-            backButton={
-              <IconButton size='small' className={dialogCarouselStyles.arrowButtonLeft} onClick={handleBack} disabled={activeStep === 0}>
-                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-              </IconButton>
-            }
-          />
-        )}
-
+        <MobileStepper
+          className={dialogCarouselStyles.stepper}
+          steps={maxSteps}
+          position='static'
+          variant='dots'
+          activeStep={activeStep}
+          nextButton={
+            <IconButton size='small' className={dialogCarouselStyles.arrowButtonRight} onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            </IconButton>
+          }
+          backButton={
+            <IconButton size='small' className={dialogCarouselStyles.arrowButtonLeft} onClick={handleBack} disabled={activeStep === 0}>
+              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            </IconButton>
+          }
+        />
+      )}
     </div>
   );
 }
