@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useScrollPosition } from '../@utils/useScrollPosition';
 import { LAST_SECTION_OFFSET } from '../@constants';
 
-export const CurrentPageView = React.createContext(
+export interface PageContextProps {
+  currentPage: string;
+  setCurrentPage: (newPage: string) => void;
+}
+
+export const CurrentPageView = React.createContext<PageContextProps>(
   {
     currentPage: '',
     setCurrentPage: (newPage: string) => { }

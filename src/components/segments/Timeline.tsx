@@ -7,7 +7,7 @@ import TimelineCard from '../interactive/TimelineCard';
 import { getSlideDirection } from '../../@utils/getSlideDirection';
 import { ExperienceStyleProps, CardData } from '../../@types';
 import ScrollDownMouse from '../shapes/ScrollDownMouse';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 
 const SCROLL_THRESHOLD = vh * 0.75;
@@ -349,7 +349,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
 }));
 
 const Timeline: React.FC = () => {
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const timelineRef = useRef<HTMLUListElement>(null);
   const firstRef = useRef<HTMLSpanElement>(null);

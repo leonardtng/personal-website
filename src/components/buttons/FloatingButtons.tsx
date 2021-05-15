@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab, Tooltip } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { vh, vw } from '../../@utils/useScrollPosition';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const FloatingButtons = () => {
   const classes = useStyles();
-  const { lightMode, toggleTheme } = useContext(ThemeContext);
+  const { lightMode, toggleTheme } = useContext<ThemeContextProps>(ThemeContext);
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,

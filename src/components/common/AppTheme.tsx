@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import AppRouter from './AppRouter';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import CurrentPageViewProvider from '../../contexts/CurrentPageView';
 
 const AppTheme: React.FC = () => {
-  const { lightMode } = useContext(ThemeContext);
+  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
 
   const common: ThemeOptions = {
     typography: {

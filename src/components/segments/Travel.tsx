@@ -8,7 +8,7 @@ import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET, LAST_SECTION_OFFSET } from '../../@constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Travel: React.FC = () => {
   const classes = useStyles();
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [animatedMap, setAnimatedMap] = useState<boolean>(true);
   const [clicked, setClicked] = useState<boolean>(false);

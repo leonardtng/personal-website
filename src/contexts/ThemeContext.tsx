@@ -1,6 +1,6 @@
 import React, { useState, ReactNode } from 'react';
 
-interface ThemeContextProps {
+export interface ThemeContextProps {
   lightMode: boolean;
   toggleTheme: () => void;
 }

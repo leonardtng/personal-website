@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Switch, Tooltip } from '@material-ui/core';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
-  const { lightMode, toggleTheme } = useContext(ThemeContext);
+  const { lightMode, toggleTheme } = useContext<ThemeContextProps>(ThemeContext);
 
   return (
     <Tooltip title={lightMode ? 'Turn off the lights' : 'Turn the lights on'}>

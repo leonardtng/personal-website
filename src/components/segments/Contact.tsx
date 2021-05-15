@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Button, Zoom } from '@material-ui/core';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 import resume from '../../assets/documents/resume.pdf';
 
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Contact: React.FC = () => {
   const classes = useStyles();
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
   const contactRef = useRef<HTMLHeadingElement>(null);

@@ -7,7 +7,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { info } from '../../assets/data/info';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Abilities: React.FC = () => {
   const classes = useStyles();
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
   const abilitiesRef = useRef<HTMLDivElement>(null);

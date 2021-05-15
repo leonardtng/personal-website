@@ -5,9 +5,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import DrawerMenu from './DrawerMenu';
 import resume from '../../assets/documents/resume.pdf';
 
@@ -71,8 +71,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const NavBar: React.FC = () => {
   const classes = useStyles();
-  const { lightMode } = useContext(ThemeContext);
-  const { currentPage } = useContext(CurrentPageView);
+  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
+  const { currentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
 

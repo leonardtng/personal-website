@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Grow } from '@material-ui/core';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const About: React.FC = () => {
   const classes = useStyles();
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
   const aboutRef = useRef<HTMLDivElement>(null);

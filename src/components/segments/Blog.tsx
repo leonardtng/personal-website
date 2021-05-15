@@ -4,7 +4,7 @@ import { Grid, Typography, Slide } from '@material-ui/core';
 import BlogCard from '../interactive/BlogCard';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
-import { CurrentPageView } from '../../contexts/CurrentPageView';
+import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 import useGetApi from '../../@utils/useGetApi';
 import { modifyDescription } from '../../@utils/modifyDescription';
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Blog: React.FC = () => {
   const classes = useStyles();
-  const { setCurrentPage } = useContext(CurrentPageView);
+  const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const blogDataLoadState = useGetApi('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@leonardtng', null, true);
 

@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Slide, Typography, Box } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { info } from '../../assets/data/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Profile: React.FC = () => {
   const classes = useStyles();
-  const { lightMode } = useContext(ThemeContext);
+  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
 
   const [checked, setChecked] = useState<boolean>(false);
   const profileRef = useRef<HTMLImageElement>(null);
