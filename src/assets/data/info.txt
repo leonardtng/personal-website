@@ -29,9 +29,16 @@ Yale-NUS:
 
 I am a current freshman at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.
 
+CodeCache:
+
+My first full-stack project I designed, built and deployed during my first semester in college consisting of both a front-end and a back-end. Initially, 
+this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
+with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 
+improve on both my front-end and back-end skills, as well as important development tools such as AWS EC2, Lambda, and Docker.
+
 What I can do:
 
-I have been coding at a professional level for 7 months and have experience in an array of modern web technologies such as React, TypeScript, React Native,
+I have been coding at a professional level for a year and have experience in an array of modern web technologies such as React, TypeScript, React Native,
 and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Invision Studio and Affinity Designer.
 On the sideline, I enjoy building web applications and tinkering with the Arduino.
 
@@ -41,7 +48,7 @@ Note: Skills are portrayed relative to each other and not on an absolute level (
 
 Where I've Been:
 
-Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food, and I hope to one day 
+Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food. I hope to one day 
 fill this map with even more locations that I've visited.
 
 Where I've Been (Caption):

@@ -43,7 +43,7 @@ const Body: React.FC = () => {
       <Welcome />
 
       <div className={classes.buffer} />
-      <Grid container spacing={2} className={classes.content}>
+      <Grid container className={classes.content}>
         <NavBar />
 
         <ResponsiveWrapper>

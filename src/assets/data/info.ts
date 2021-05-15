@@ -37,7 +37,7 @@ export const info: Info = {
   },
   abilities: {
     title: `What I Can Do`,
-    description:  `I have been coding at a professional level for 10 months and have experience in an array of modern web technologies such as React, TypeScript, React Native,
+    description:  `I have been coding at a professional level for a year and have experience in an array of modern web technologies such as React, TypeScript, React Native,
     and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Invision Studio and Affinity Designer.
     On the sideline, I enjoy building web applications and tinkering with the Arduino.`,
     subsections: subsections,
@@ -45,7 +45,7 @@ export const info: Info = {
   },
   travel: {
     title: `Where I've Been`,
-    description: `Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food, and I hope to one day 
+    description: `Travelling greatly excites me. I love experiencing new cultures, immersing myself in breathtaking sceneries, as well as eating amazing food. I hope to one day 
     fill this map with even more locations that I've visited.`,
     caption: `Here are some snapshots I took from the places I've been recently.`,
     places: places,

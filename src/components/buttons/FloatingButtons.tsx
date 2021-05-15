@@ -70,7 +70,7 @@ const FloatingButtons = () => {
   return (
     <Fragment>
       <Zoom in={trigger}>
-        <Tooltip title='Toggle Theme'>
+        <Tooltip title='Toggle Theme' placement='top'>
           <div onClick={handleThemeClick} role='presentation' className={classes.themeToggle}>
             <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'} className={clicked || !lightMode ? undefined : classes.buttonAnimation}>
               {lightMode ? (
@@ -83,7 +83,7 @@ const FloatingButtons = () => {
         </Tooltip>
       </Zoom>
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
-        <Tooltip title='Scroll to Top'>
+        <Tooltip title='Scroll to Top' placement='top'>
           <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
             <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
               <KeyboardArrowUpIcon />

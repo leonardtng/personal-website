@@ -7,8 +7,12 @@ import { CardData } from '../../@types';
 
 import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
 import Boogle1 from '../images/cards/boogle/carousel1.jpg';
+import Boogle2 from '../images/cards/boogle/carousel2.jpg';
 import PW1 from '../images/cards/personal-website-v1/carousel1.png';
 import PW2 from '../images/cards/personal-website-v1/carousel2.png';
+import YNC1 from '../images/cards/yale-nus/carousel1.jpg';
+import YNC2 from '../images/cards/yale-nus/carousel2.jpg';
+import YNC3 from '../images/cards/yale-nus/carousel3.jpg';
 import C1 from '../images/cards/codecache/carousel1.png';
 import C2 from '../images/cards/codecache/carousel2.png';
 import C3 from '../images/cards/codecache/carousel3.png';
@@ -19,7 +23,7 @@ import C6 from '../images/cards/codecache/carousel6.png';
 export const cards: Array<CardData> = [
   {
     title: `National Junior College`,
-    date: `Nov 2017`,
+    date: `Jan 2012 - Nov 2017`,
     role: `[GCE 'A' Level Graduate]`,
     description: `I graduated from National Junior College in 2017 as a GCE 'A' Level Graduate from the Integrated Programme. My time here taught me to be a critical thinker and 
     nurtured my penchant for problem solving. It was also NJC that gave me my first leadership opportunity as the president of the NJC Symphonic Band, where I had the 
@@ -28,40 +32,40 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: 'NJC',
+          caption: `NJC`,
           image: NjcCover
         },
         {
-          caption: 'Picked up the saxophone here!',
+          caption: `Picked up the saxophone here!`,
           image: NJC1
         },
       ],
       infoList: [
         {
-          infoTitle: 'Subjects',
+          infoTitle: `Subjects`,
           infoItems: [
-            'H2 Mathematics',
-            'H2 Economics',
-            'H2 Physics',
-            'H2 Chemistry',
-            'H3 Economics'
+            `H2 Mathematics`,
+            `H2 Economics`,
+            `H2 Physics`,
+            `H2 Chemistry`,
+            `H3 Economics`
           ],
         },
         {
-          infoTitle: 'Awards and Scholarships',
+          infoTitle: `Awards and Scholarships`,
           infoItems: [
-            'MOE Pre-U Scholarship',
-            'YDSP Academic Award for Mathematics'
+            `MOE Pre-U Scholarship`,
+            `YDSP Academic Award for Mathematics`
           ]
         },
         {
-          infoTitle: 'Positions Held',
+          infoTitle: `Positions Held`,
           infoItems: [
-            'Aug 2014 - Aug 2016: Section Leader, Symphonic Band',
-            'Aug 2016 - Aug 2017: President, Symphonic Band'
+            `Aug 2014 - Aug 2016: Section Leader, Symphonic Band`,
+            `Aug 2016 - Aug 2017: President, Symphonic Band`
           ]
-        },
-      ],
+        }
+      ]
     }
   },
   {
@@ -77,41 +81,44 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: 'Boogle',
+          caption: `Boogle`,
           image: BoogleCover
         },
         {
-          caption: 'Interacting with a younger batch of interns',
+          caption: `Interacting with a younger batch of interns`,
           image: Boogle1
+        },
+        {
+          caption: `Celebrating Christmas`,
+          image: Boogle2
         },
       ],
       infoList: [
         {
-          infoTitle: 'Positions Held',
+          infoTitle: `Positions Held`,
           infoItems: [
-            'Oct 2019 - Jan 2020: Product Management Specialist Intern',
-            'Jan 2020 - Jul 2020: Software Engineer Intern'
+            `Oct 2019 - Jan 2020: Product Management Specialist Intern`,
+            `Jan 2020 - Jul 2020: Software Engineer Intern`
           ]
         },
         {
-          infoTitle: 'Skills',
+          infoTitle: `Skills`,
           infoItems: [
-            'React',
-            'Django',
-            'React Native',
-            'TypeScript',
-            'Python',
-            'MySQL',
-            'AWS'
+            `React`,
+            `Django`,
+            `React Native`,
+            `TypeScript`,
+            `Python`,
+            `MySQL`,
+            `AWS`
           ]
         }
       ]
-
     }
   },
   {
     title: `Personal Website`,
-    date: `June 2020`,
+    date: `Launched June 2020`,
     role: `V1`,
     description: `This website is the very first personal project I designed, built, and deployed on my own, and is also my first take on a personal website. Not only did 
     building this website allow me to put my development skills to the test, it was also a great sandbox for me to explore and experiment with new development and design techniques
@@ -122,21 +129,21 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: 'Personal Website Cover',
+          caption: `Personal Website Cover`,
           image: PW1,
         },
         {
-          caption: 'Tried out creating with dark theme',
+          caption: `Tried out creating with dark theme`,
           image: PW2,
         },
       ],
       infoList: [
         {
-          infoTitle: 'Stack',
+          infoTitle: `Stack`,
           infoItems: [
-            'React',
-            'TypeScript',
-            'AWS',
+            `React`,
+            `TypeScript`,
+            `AWS`,
           ]
         }
       ]
@@ -144,22 +151,41 @@ export const cards: Array<CardData> = [
   },
   {
     title: `Yale-NUS College`,
-    date: `July 2020`,
+    date: `July 2020 - Present`,
     role: `[Undergraduate]`,
     description: `I am a current freshman at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
     image: YaleNusCover,
     cardDialogContent: {
       carousel: [
         {
-          caption: 'Yale-NUS',
+          caption: `Yale-NUS`,
           image: YaleNusCover
+        },
+        {
+          caption: `Conducting a web development workshop`,
+          image: YNC1
+        },
+        {
+          caption: `Explaining the code of a basic website`,
+          image: YNC2
+        },
+        {
+          caption: `Debugging a workshop attendee's code`,
+          image: YNC3
         },
       ],
       infoList: [
         {
-          infoTitle: 'Awards and Scholarships',
+          infoTitle: `Awards and Scholarships`,
           infoItems: [
-            'Global Leader Scholar',
+            `Global Leader Scholar`,
+          ]
+        },
+        {
+          infoTitle: `Positions Held`,
+          infoItems: [
+            `Aug 2020 - Dec 2020: React.js Instructor, YNC_Hacks`,
+            `Dec 2020 - Present: Vice President, YNC_Hacks`
           ]
         }
       ]
@@ -167,7 +193,7 @@ export const cards: Array<CardData> = [
   },
   {
     title: `CodeCache`,
-    date: `November 2020`,
+    date: `Launched November 2020`,
     role: `The lightweight code snippet manager built for developers and learners`,
     description: `My first full-stack project I designed, built and deployed during my first semester in college consisting of both a front-end and a back-end. Initially, 
     this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
@@ -178,42 +204,42 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: 'CodeCache Cover',
+          caption: `CodeCache Cover`,
           image: C1
         },
         {
-          caption: 'CodeCache Landing Page',
+          caption: `CodeCache Landing Page`,
           image: C2
         },
         {
-          caption: 'CodeCache Dashboard',
+          caption: `CodeCache Dashboard`,
           image: C3
         },
         {
-          caption: 'CodeCache Add Snippet',
+          caption: `CodeCache Add Snippet`,
           image: C4
         },
         {
-          caption: 'CodeCache Stats Interface',
+          caption: `CodeCache Stats Interface`,
           image: C5
         },
         {
-          caption: 'CodeCache Settings',
+          caption: `CodeCache Settings`,
           image: C6
         },
       ],
       infoList: [
         {
-          infoTitle: 'Stack',
+          infoTitle: `Stack`,
           infoItems: [
-            'React',
-            'TypeScript',
-            'Django REST Framework',
-            'Docker',
-            'AWS'
+            `React`,
+            `TypeScript`,
+            `Django REST Framework`,
+            `Docker`,
+            `AWS`
           ]
         }
       ]
     }
-  },
+  }
 ]
