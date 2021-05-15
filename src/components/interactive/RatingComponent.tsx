@@ -1,12 +1,7 @@
 import React from 'react';
 import { makeStyles, withStyles, Theme } from '@material-ui/core/styles';
-import Rating, { IconContainerProps } from '@material-ui/lab/Rating';
+import Rating from '@material-ui/lab/Rating';
 import { Typography, Box } from '@material-ui/core';
-import BuildIcon from '@material-ui/icons/Build';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import HotTubIcon from '@material-ui/icons/HotTub';
-import StarsIcon from '@material-ui/icons/Stars';
-import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 const useStyles = makeStyles((theme: Theme) => ({
   rating: {
@@ -49,37 +44,28 @@ const StyledRating = withStyles((theme: Theme) => ({
   }
 }))(Rating);
 
-const customIcons: { [index: string]: { icon: React.ReactElement; label: string } } = {
+const labels: { [index: string]: { label: string } } = {
   1: {
-    icon: <BuildIcon />,
     label: 'Working on it',
   },
   2: {
-    icon: <MenuBookIcon />,
     label: 'Novice',
   },
   3: {
-    icon: <HotTubIcon />,
     label: 'Comfortable',
   },
   4: {
-    icon: <SentimentVerySatisfiedIcon />,
     label: 'Experienced',
   },
   5: {
-    icon: <StarsIcon />,
     label: 'Proficient',
   },
 };
 
-function IconContainer(props: IconContainerProps) {
-  const { value, ...other } = props;
-  return <span {...other}>{customIcons[value].icon}</span>;
-}
-
 interface RatingProps {
   legend: string;
   value: number;
+  icon: React.ReactNode;
 }
 
 const RatingComponent: React.FC<RatingProps> = (props: RatingProps) => {
@@ -92,11 +78,11 @@ const RatingComponent: React.FC<RatingProps> = (props: RatingProps) => {
         <StyledRating
           readOnly
           size='large'
-          name='customized-icons'
+          name='rating-component'
           defaultValue={props.value}
-          IconContainerComponent={IconContainer}
+          icon={props.icon}
         />
-        <Typography variant='body1' component='p'>{customIcons[props.value].label}</Typography>
+        <Typography variant='body1' component='p'>{labels[props.value].label}</Typography>
       </div>
     </Box>
   )

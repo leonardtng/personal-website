@@ -8,15 +8,13 @@ export const subsections: Subsection = {
     title: "Skills",
     itemsBlockLeft: [
       { legend: "React", value: 5 },
-      { legend: "Material-UI", value: 5 },
       { legend: "TypeScript", value: 5 },
       { legend: "Product Management", value: 4 },
-      { legend: "Scrum", value: 4 },
+      { legend: "React Native", value: 4 },
       { legend: "HTML(5)", value: 4 },
       { legend: "CSS(3)", value: 4 },
     ],
     itemsBlockRight: [
-      { legend: "React Native", value: 4 },
       { legend: "Python", value: 4 },
       { legend: "Django REST Framework", value: 4 },
       { legend: "MySQL", value: 3 },
@@ -43,8 +41,8 @@ export const subsections: Subsection = {
     ],
     itemsBlockRight: [
       { legend: "Docker", value: 3 },
-      { legend: "AWS EC2", value: 3 },
-      { legend: "AWS Lambda", value: 2 },
+      { legend: "AWS EC2", value: 2 },
+      { legend: "AWS Lambda", value: 1 },
     ]
   },
 }
