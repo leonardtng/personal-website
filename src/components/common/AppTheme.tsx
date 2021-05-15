@@ -9,12 +9,18 @@ const AppTheme: React.FC = () => {
   const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
 
   const common: ThemeOptions = {
-    typography: {
-      fontFamily: navigator.userAgent.match(/Android/i) || navigator.appVersion.indexOf("Win") !== -1 ? "'Raleway', sans-serif !important" : "'Avenir', sans-serif !important",
-      h3: {
-        // fontFamily: navigator.userAgent.match(/Android/i) || navigator.appVersion.indexOf("Win") !== -1 ? "'Arvo', sans-serif !important" : "'American Typewriter', sans-serif !important"
-        fontFamily: "'Arvo', sans-serif !important"
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
       }
+    },
+    typography: {
+      fontFamily: "'Mulish', sans-serif !important",
+      fontSize: 15,
     }
   };
 

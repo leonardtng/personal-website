@@ -329,6 +329,12 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           height: 150,
           borderRadius: '10px 10px 0 0',
         },
+        '& time': {
+          fontSize: '1rem'
+        },
+        '& .MuiTypography-root': {
+          fontSize: '0.8rem'
+        }
       }
     },
   },

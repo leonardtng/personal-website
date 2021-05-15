@@ -3,11 +3,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Slide } from '@material-ui/core';
 import BlogCard from '../interactive/BlogCard';
 import { info } from '../../assets/data/info';
-import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
+import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 import useGetApi from '../../@utils/useGetApi';
-import { modifyDescription } from '../../@utils/modifyDescription';
 import { htmlToText } from '../../@utils/htmlToText';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -69,7 +68,7 @@ const Blog: React.FC = () => {
         ) : (
             <Fragment>
               {blogDataLoadState.data.items.map((post: any, index: number) => {
-                const shortenedDescription = modifyDescription(htmlToText(post.description), vw * 0.22);
+                const shortenedDescription = htmlToText(post.description);
                 return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
                   <div className={classes.cardWrapper}>
                     <BlogCard title={post.title} pubDate={post.pubDate} link={post.link} image={post.thumbnail} description={shortenedDescription} isLoading={blogDataLoadState.isLoading} />
