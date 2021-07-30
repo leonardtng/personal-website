@@ -160,7 +160,7 @@ export const cards: Array<CardData> = [
     title: `Yale-NUS College`,
     date: `July 2020 - Present`,
     role: `[Undergraduate]`,
-    description: `I am a current freshman at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
+    description: `I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
     image: YaleNusCover,
     cardDialogContent: {
       carousel: [
@@ -183,6 +183,12 @@ export const cards: Array<CardData> = [
       ],
       infoList: [
         {
+          infoTitle: `Academic Grades`,
+          infoItems: [
+            `CAP: 4.9 / 5.0`,
+          ]
+        },
+        {
           infoTitle: `Awards and Scholarships`,
           infoItems: [
             `Global Leader Scholar`,
@@ -194,7 +200,22 @@ export const cards: Array<CardData> = [
             `Aug 2020 - Dec 2020: React.js Instructor, YNC_Hacks`,
             `Dec 2020 - Present: Vice President, YNC_Hacks`
           ]
-        }
+        },
+        {
+          infoTitle: `Core Modules`,
+          infoItems: [
+            `Introduction to Computer Science - A+`,
+            `Calculus - A+`
+          ]
+        },
+        {
+          infoTitle: `Other Modules`,
+          infoItems: [
+            `Philosophy and Political Thought - A`,
+            `Literature and Humanities - A-`,
+            `Scientific Inquiry - A`
+          ]
+        },
       ]
     }
   },
