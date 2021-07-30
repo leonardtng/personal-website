@@ -10,17 +10,17 @@ export const subsections: Subsection = {
       { legend: "React", value: 5 },
       { legend: "TypeScript", value: 5 },
       { legend: "Product Management", value: 4 },
-      { legend: "React Native", value: 4 },
+      { legend: "Redux", value: 4 },
       { legend: "HTML(5)", value: 4 },
       { legend: "CSS(3)", value: 4 },
     ],
     itemsBlockRight: [
       { legend: "Python", value: 4 },
       { legend: "Django REST Framework", value: 4 },
+      { legend: "React Native", value: 3 },
       { legend: "MySQL", value: 3 },
       { legend: "R", value: 2 },
-      { legend: "Arduino", value: 2 },
-      { legend: "Sci-kit Learn", value: 1 },
+      { legend: "Arduino", value: 1 }
     ]
   },
   languages: {

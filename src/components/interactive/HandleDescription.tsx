@@ -10,7 +10,7 @@ import ThemeToggle from '../buttons/ThemeToggle';
 import { modifyDescription } from '../../@utils/modifyDescription';
 
 const PAPER_HEIGHT = 300;
-const BORDER_RADIUS = 30
+const BORDER_RADIUS = 20;
 
 const useStyles = makeStyles((theme: Theme) => ({
   imageArea: {
@@ -70,9 +70,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       '&::-webkit-scrollbar': {
         display: 'none'
       }
-    },
-    '& img': {
-      borderRadius: BORDER_RADIUS
     },
   },
   content: {

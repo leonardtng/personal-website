@@ -1,8 +1,8 @@
 About: 
 
 Not just any code. I believe in writing code with both structure and readability, and as a developer, enjoy optimising and improving the quality of the code 
-that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of blockchain or
-artificial intelligence. A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
+that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of blockchain. 
+A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
 to complex systems, I thoroughly enjoy the process of building software, solving complex problems, and working with others to produce amazing end-products.
 
 NJC: 
@@ -35,6 +35,21 @@ My first full-stack project I designed, built and deployed during my first semes
 this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
 with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 
 improve on both my front-end and back-end skills, as well as important development tools such as AWS EC2, Lambda, and Docker.
+
+Dathena:
+My time at this energetic deep-tech AI and cybersecurity company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
+of the brightest software engineers and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
+complex enterprise-level product, the best practices of managing a gigantic codebase, and even got the opportunity to lead two sprints as a scrum master in the company's
+agile software development workflow. While the initial onboarding was indeed challenging, overcoming this phase was definitely rewarding as I was able to contribute greatly
+to their flagship product, Dathena Security, which ships to a multitude of international clients. Knowing that the code I have written will positively impact a client's data
+security definitely makes my few months at Dathena all the more fulfilling.
+
+Cryptoscapes:
+Cryptoscapes started out from a few skills I wanted to learn and practice over my summer break from college, the 
+state management library Redux, atomic design, and project management. After tinkering with a bunch of cryptocurrency data with 
+Redux, I eventually decided to create a simple UI to display this data, through the use of charts and graphs in a clean dashboard. 
+This project has allowed me to improve on my front-end skills, learn useful libraries such as Redux, and implement the
+atomic design file structure on top of managing the entire project with the tools provided by GitHub Projects.
 
 What I can do:
 

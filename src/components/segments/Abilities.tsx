@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 20,
     backgroundColor: '#24292e',
     color: '#fafbfc',
+    '&:hover': {
+      backgroundColor: '#24292eee',
+    }
   },
   subheader: {
     marginTop: 50,
@@ -50,6 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 30,
     paddingRight: 20,
     paddingLeft: 20,
+    cursor: 'pointer',
   },
   note: {
     fontStyle: 'oblique',

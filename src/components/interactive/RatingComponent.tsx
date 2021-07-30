@@ -21,17 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  '@keyframes hovereffect': {
-    '0%': {
-      transform: 'scale(1)'
-    },
-    '50%': {
-      transform: 'scale(1.4)'
-    },
-    '100%': {
-      transform: 'scale(1)'
-    },
   }
 }));
 

@@ -3,6 +3,8 @@ import BoogleCover from '../images/cards/boogle/boogle-hq.jpg';
 import PersonalWebsiteV1Cover from '../images/cards/personal-website-v1/personal-website-v1.png';
 import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
 import CodeCacheCover from '../images/cards/codecache/codecache.png';
+import DathenaCover from '../images/cards/dathena/dathena.png';
+import CryptoscapesCover from '../images/cards/cryptoscapes/cryptoscapes.png';
 import { CardData } from '../../@types';
 
 import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
@@ -18,7 +20,12 @@ import C2 from '../images/cards/codecache/carousel2.png';
 import C3 from '../images/cards/codecache/carousel3.png';
 import C4 from '../images/cards/codecache/carousel4.png';
 import C5 from '../images/cards/codecache/carousel5.png';
-import C6 from '../images/cards/codecache/carousel6.png';
+import CS1 from '../images/cards/cryptoscapes/carousel1.png';
+import CS2 from '../images/cards/cryptoscapes/carousel2.png';
+import CS3 from '../images/cards/cryptoscapes/carousel3.png';
+import CS4 from '../images/cards/cryptoscapes/carousel4.png';
+import CS5 from '../images/cards/cryptoscapes/carousel5.png';
+import CS6 from '../images/cards/cryptoscapes/carousel6.png';
 
 export const cards: Array<CardData> = [
   {
@@ -204,28 +211,28 @@ export const cards: Array<CardData> = [
     cardDialogContent: {
       carousel: [
         {
-          caption: `CodeCache Cover`,
-          image: C1
+          caption: `CodeCache`,
+          image: CodeCacheCover
         },
         {
           caption: `CodeCache Landing Page`,
-          image: C2
+          image: C1
         },
         {
           caption: `CodeCache Dashboard`,
-          image: C3
+          image: C2
         },
         {
           caption: `CodeCache Add Snippet`,
-          image: C4
+          image: C3
         },
         {
           caption: `CodeCache Stats Interface`,
-          image: C5
+          image: C4
         },
         {
           caption: `CodeCache Settings`,
-          image: C6
+          image: C5
         },
       ],
       infoList: [
@@ -236,6 +243,94 @@ export const cards: Array<CardData> = [
             `TypeScript`,
             `Django REST Framework`,
             `Docker`,
+            `AWS`
+          ]
+        }
+      ]
+    }
+  },
+  {
+    title: `Dathena`,
+    date: `May 2021 - Aug 2021`,
+    role: `[Software Engineer Intern]`,
+    description: `My time at this energetic deep-tech AI and cybersecurity company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
+    of the brightest software engineers and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
+    complex enterprise-level product, the best practices of managing a gigantic codebase, and even got the opportunity to lead two sprints as a scrum master in the company's
+    agile software development workflow. While the initial onboarding was indeed challenging, overcoming this phase was definitely rewarding as I was able to contribute greatly
+    to their flagship product, Dathena Security, which ships to a multitude of international clients. Knowing that the code I have written will positively impact a client's data
+    security definitely makes my few months at Dathena all the more fulfilling.`,
+    image: DathenaCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `Dathena`,
+          image: DathenaCover
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Skills`,
+          infoItems: [
+            `React`,
+            `TypeScript`,
+            `Redux`,
+            `D3.js`,
+            `React Testing Library`,
+            `Jira`
+          ]
+        }
+      ]
+    }
+  },
+  {
+    title: `Cryptoscapes`,
+    date: `Launched July 2021`,
+    role: `Cryptocurrency Prices, Charts and Market Overview`,
+    description: `Cryptoscapes started out from a few skills I wanted to learn and practice over my summer break from college, the 
+    state management library Redux, atomic design, and project management. After tinkering with a bunch of cryptocurrency data with 
+    Redux, I eventually decided to create a simple UI to display this data, through the use of charts and graphs in a clean dashboard. 
+    This project has allowed me to improve on my front-end skills, learn useful libraries such as Redux, and implement the
+    atomic design file structure on top of managing the entire project with the tools provided by GitHub Projects.`,
+    projectLink: `https://www.cryptoscapes.org`,
+    image: CryptoscapesCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `Cryptoscapes`,
+          image: CryptoscapesCover
+        },
+        {
+          caption: `Cryptoscapes Trends Page`,
+          image: CS1
+        },
+        {
+          caption: `Cryptoscapes Coins Page`,
+          image: CS2
+        },
+        {
+          caption: `Cryptoscapes Coin Details Chart`,
+          image: CS3
+        },
+        {
+          caption: `Cryptoscapes Developer Details`,
+          image: CS4
+        },
+        {
+          caption: `Cryptoscapes Exchanges Page`,
+          image: CS5
+        },
+        {
+          caption: `Cryptoscapes Updates Page`,
+          image: CS6
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Stack`,
+          infoItems: [
+            `React`,
+            `TypeScript`,
+            `Redux`,
             `AWS`
           ]
         }

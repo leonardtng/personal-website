@@ -1,7 +1,8 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Grow } from '@material-ui/core';
+import { Grid, Typography, Grow, Button } from '@material-ui/core';
 import { info } from '../../assets/data/info';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
@@ -26,12 +27,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   description: {
     paddingBottom: 20,
   },
-  projectLink: {
-    '& a': {
-      textDecoration: 'underline',
-      color: theme.palette.secondary.main,
+  button: {
+    marginTop: 12,
+    backgroundColor: '#24292e',
+    color: '#fafbfc',
+    '&:hover': {
+      backgroundColor: '#24292eee',
     }
-  },
+  }
 }));
 
 const About: React.FC = () => {
@@ -65,9 +68,20 @@ const About: React.FC = () => {
           <Typography variant='body1' component='p'>{info.about.descriptionSecondPart}</Typography>
         </Grow>
       </Grid>
-      <Grid item xs={12} className={classes.projectLink}>
+      <Grid item xs={12}>
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
-          <Typography variant='h5' component='p'><b>View my latest project, CodeCache, at <a href='https://www.codecache.io' target='_blank' rel='noopener noreferrer'>https://www.codecache.io</a>!</b></Typography>
+          <Button
+            variant='contained'
+            color='secondary'
+            className={classes.button}
+            startIcon={<GitHubIcon />}
+            href='https://github.com/leonardtng'
+            target='_blank'
+            rel="noopener"
+            aria-label="GitHub Personal Website"
+          >
+            GitHub
+          </Button>
         </Grow>
       </Grid>
     </Grid>

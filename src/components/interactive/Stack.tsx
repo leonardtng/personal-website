@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Tooltip, Zoom } from '@material-ui/core';
 import ReactLogo from '../../assets/images/stack/react.png';
-import MUILogo from '../../assets/images/stack/material-ui.png';
 import TypescriptLogo from '../../assets/images/stack/typescript.png';
 import PythonLogo from '../../assets/images/stack/python.png';
 import DjangoLogo from '../../assets/images/stack/django.png';
@@ -14,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    cursor: 'pointer',
     '& div': {
       transition: 'transform 0.2s',
     },
@@ -39,53 +39,47 @@ interface StackProps {
 
 const Stack: React.FC<StackProps> = (props: StackProps) => {
   const classes = useStyles();
+  const baseDelay = 400
 
   return (
     <div className={classes.container}>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '400ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay}ms` : '0ms' }}>
           <Tooltip title='React'>
             <img className={classes.logo} src={ReactLogo} alt='React' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '450ms' : '0ms' }}>
-          <Tooltip title='Material-UI'>
-            <img className={classes.logo} src={MUILogo} alt='Material-UI' />
-          </Tooltip>
-        </Zoom>
-      </div>
-      <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '500ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay + 50}ms` : '0ms' }}>
           <Tooltip title='TypeScript'>
             <img className={classes.logo} src={TypescriptLogo} alt='TypeScript' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '550ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay + 50 * 2}ms` : '0ms' }}>
           <Tooltip title='Python'>
             <img className={classes.logo} src={PythonLogo} alt='Python' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '600ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay + 50 * 3}ms` : '0ms' }}>
           <Tooltip title='Django'>
             <img className={classes.django} src={DjangoLogo} alt='Django' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '650ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay + 50 * 4}ms` : '0ms' }}>
           <Tooltip title='Docker'>
             <img className={classes.logo} src={DockerLogo} alt='MySQL' />
           </Tooltip>
         </Zoom>
       </div>
       <div>
-        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? '650ms' : '0ms' }}>
+        <Zoom in={props.checked} style={{ transitionDelay: props.checked ? `${baseDelay + 50 * 5}ms` : '0ms' }}>
           <Tooltip title='MySQL'>
             <img className={classes.logo} src={MySQLLogo} alt='MySQL' />
           </Tooltip>
