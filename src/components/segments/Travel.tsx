@@ -134,7 +134,7 @@ const Travel: React.FC = () => {
                 <FlightTakeoffIcon />
               )}
             {animatedMap ? (
-              'Map'
+              'Click for world map'
             ) : (
                 'Take Off!'
               )}
