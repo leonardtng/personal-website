@@ -8,8 +8,8 @@ import { CardDialogImage } from '../../@types';
 import { vh } from '../../@utils/useScrollPosition';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-export const IMAGE_HEIGHT = vh < 900 ? 250 : 400;
-export const PAPER_OFFSET = 50;
+export const IMAGE_HEIGHT = vh < 900 ? 220 : 370;
+export const PAPER_OFFSET = 20; // Currently equals to BORDER_RADIUS
 
 const useStyles = makeStyles({
   root: {

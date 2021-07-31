@@ -60,23 +60,27 @@ const Blog: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.posts}>
         {blogDataLoadState.isLoading ? (
-          <Slide in={checked} direction='right' timeout={{ enter: 300, exit: 300 }} style={{ transitionDelay: checked ? '50ms' : '0ms' }}>
-            <div>
-              <BlogCard title='' pubDate='' link='' image='' description='' isLoading={blogDataLoadState.isLoading} />
-            </div>
-          </Slide>
+          <Fragment>
+            {Array.from(Array(2).keys()).map((index: number) =>
+              <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
+                <div className={classes.cardWrapper}>
+                  <BlogCard title='' pubDate='' link='' image='' description='' isLoading={blogDataLoadState.isLoading} />
+                </div>
+              </Slide>
+            )}
+          </Fragment>
         ) : (
-            <Fragment>
-              {blogDataLoadState.data.items.map((post: any, index: number) => {
-                const shortenedDescription = htmlToText(post.description);
-                return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
-                  <div className={classes.cardWrapper}>
-                    <BlogCard title={post.title} pubDate={post.pubDate} link={post.link} image={post.thumbnail} description={shortenedDescription} isLoading={blogDataLoadState.isLoading} />
-                  </div>
-                </Slide>
-              })}
-            </Fragment>
-          )}
+          <Fragment>
+            {blogDataLoadState.data.items.map((post: any, index: number) => {
+              const shortenedDescription = htmlToText(post.description);
+              return <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
+                <div className={classes.cardWrapper}>
+                  <BlogCard title={post.title} pubDate={post.pubDate} link={post.link} image={post.thumbnail} description={shortenedDescription} isLoading={blogDataLoadState.isLoading} />
+                </div>
+              </Slide>
+            })}
+          </Fragment>
+        )}
       </Grid>
     </Grid>
   );
