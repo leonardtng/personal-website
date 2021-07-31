@@ -465,6 +465,7 @@ const Timeline: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
         <Typography variant='h5' component='h2'>{info.timeline.subtitle}</Typography>
+        <Typography variant='body2' component='p'>(Click each card to find out more!)</Typography>
         <ScrollDownMouse />
       </Grid>
       <Grid item xs={12} className={classes.container}>
