@@ -143,6 +143,7 @@ const Travel: React.FC = () => {
       </Grid>
       <Grid item xs={12} className={classes.caption}>
         <Typography variant='body1' component='p'>{info.travel.caption}</Typography>
+        <Typography variant='body2' component='p'>(Click to enlarge!)</Typography>
       </Grid>
       <Grid item sm={1} md={2} lg={2} />
       <Grid item xs={12}>
