@@ -11,10 +11,10 @@ import { mainPlaces } from './mainPlaces';
 
 export const info: Info = {
   profile: {
-    image: ProfileImage,
-    imageDark: ProfileImageDark,
-    imageAvatar: ProfileImageAvatar,
-    imageDarkAvatar: ProfileImageDarkAvatar,
+    image: ProfileImage, // Currently used in Navbar
+    imageDark: ProfileImageDark, // Currently unused
+    imageAvatar: ProfileImageAvatar, // Currently unused
+    imageDarkAvatar: ProfileImageDarkAvatar, // Currently used in Profile section
     captionFirstLine: `I'm an imaginative and fun-loving Software Engineer,`,
     captionSecondLine: ` based in Singapore`
   },

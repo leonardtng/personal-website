@@ -1,14 +1,16 @@
 import React, { useState, ReactNode } from 'react';
 
+export const defaultTheme = 'crimson';
+
 export interface ThemeContextProps {
-  lightMode: boolean;
-  toggleTheme: () => void;
+  theme: string;
+  toggleTheme: (newTheme: string) => void;
 }
 
 export const ThemeContext = React.createContext<ThemeContextProps>(
   {
-    lightMode: true,
-    toggleTheme: () => { },
+    theme: defaultTheme,
+    toggleTheme: (newTheme: string) => { },
   }
 );
 
@@ -18,13 +20,13 @@ interface ThemeContextProviderProps {
 
 const ThemeContextProvider: React.FC<ThemeContextProviderProps> = (props) => {
 
-  const [lightMode, setlightMode] = useState<boolean>(!(localStorage.getItem('theme') === 'dark'));
-  const toggleTheme = () => {
-    if (lightMode) {
-      setlightMode(false);
-      localStorage.setItem('theme', 'dark');
+  const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || defaultTheme);
+  const toggleTheme = (newTheme: string) => {
+    if (newTheme !== defaultTheme) {
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
     } else {
-      setlightMode(true);
+      setTheme(defaultTheme);
       localStorage.removeItem('theme');
     }
   }
@@ -32,7 +34,7 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = (props) => {
   return (
     <ThemeContext.Provider
       value={{
-        lightMode: lightMode,
+        theme: theme,
         toggleTheme: toggleTheme,
       }}
     >

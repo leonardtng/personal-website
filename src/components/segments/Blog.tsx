@@ -59,12 +59,12 @@ const Blog: React.FC = () => {
         <Typography variant='h3' component='h1'>{info.blog.title}</Typography>
       </Grid>
       <Grid item xs={12} className={classes.posts}>
-        {blogDataLoadState.isLoading ? (
+        {blogDataLoadState.isLoading || !blogDataLoadState.data ? (
           <Fragment>
             {Array.from(Array(2).keys()).map((index: number) =>
               <Slide in={checked} direction='right' timeout={{ enter: 600, exit: 600 }} style={{ transitionDelay: checked ? `${(index + 1) * 150}ms` : '0ms' }} key={index}>
                 <div className={classes.cardWrapper}>
-                  <BlogCard title='' pubDate='' link='' image='' description='' isLoading={blogDataLoadState.isLoading} />
+                  <BlogCard title='' pubDate='' link='' image='' description='' isLoading={true} />
                 </div>
               </Slide>
             )}

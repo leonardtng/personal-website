@@ -23,7 +23,7 @@ Personal Website:
 
 This website is the very first personal project I designed, built, and deployed on my own, and is also my first take on a personal website. Not only did 
 building this website allow me to put my development skills to the test, it was also a great sandbox for me to explore and experiment with new development and design techniques
-such as implementing a dark theme, using React hooks, and being creative with scroll effects.
+such as implementing different themes (try it out!), using React hooks, and being creative with scroll effects.
 
 Yale-NUS: 
 

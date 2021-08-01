@@ -6,8 +6,8 @@ import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore, OpenInNew } from '@material-ui/icons';
-import ThemeToggle from '../buttons/ThemeToggle';
 import { modifyDescription } from '../../@utils/modifyDescription';
+import ThemeToggleButtons from './ThemeToggleButtons';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 20;
@@ -182,7 +182,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
               </div>
             }
             <Typography variant='body1' component='p'>
-              {props.description} {props.title === 'Personal Website' ? <><ThemeToggle />{props.descriptionSecondPart}</> : null}
+              {props.description} {props.title === 'Personal Website' ? <><ThemeToggleButtons size="small" />{props.descriptionSecondPart}</> : null}
             </Typography>
             <List>
               {props.cardDialogContent.infoList ? props.cardDialogContent.infoList.map((category: CardDialogInfo, index: number) => {

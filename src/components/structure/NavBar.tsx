@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
-import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
+import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import DrawerMenu from './DrawerMenu';
@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
     fontSize: 12,
     justifyContent: 'center',
-    '& .MuiTypography-root': {
-      color: theme.palette.secondary.contrastText,
-    },
   },
   headerGroup: {
     display: 'flex',
@@ -51,16 +48,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    '& .MuiIconButton-root': {
-      color: theme.palette.secondary.contrastText,
-    },
   },
   focus: {
     '&:after': {
       content: '""',
       position: 'absolute',
       height: 3,
-      backgroundColor: theme.palette.secondary.contrastText,
       width: '100%',
       left: '50%',
       bottom: 0,
@@ -71,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const NavBar: React.FC = () => {
   const classes = useStyles();
-  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
+  const { theme } = useContext<ThemeContextProps>(ThemeContext);
   const { currentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
@@ -93,7 +86,7 @@ const NavBar: React.FC = () => {
             <Hidden mdDown>
               <Grid item xs={1}></Grid>
               <Grid item xs={2} className={classes.headerGroup}>
-                <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
+                <Avatar alt='Leonard Tng' src={theme === defaultTheme ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
               </Grid>
               <Grid item xs={8} className={classes.buttonGroup}>

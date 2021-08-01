@@ -10,6 +10,7 @@ import { info } from '../../assets/data/info';
 import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET, LAST_SECTION_OFFSET } from '../../@constants';
+import { useTheme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Travel: React.FC = () => {
   const classes = useStyles();
+  const theme = useTheme();
   const { setCurrentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [animatedMap, setAnimatedMap] = useState<boolean>(true);
@@ -118,12 +120,11 @@ const Travel: React.FC = () => {
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }} style={{ transitionDelay: checked ? '600ms' : '0ms', transformOrigin: '50% 50%' }}>
           <Box>
             {animatedMap ? (
-              <AnimatedWorldMap enter={checked} animatedMap={animatedMap} />
+              <AnimatedWorldMap enter={checked} animatedMap={animatedMap} theme={theme} />
             ) : (
                 <WorldMap enter={checked} />
               )}
             {/* <div className={classes.buffer} /> */}
-
           </Box>
         </Grow>
         <div className={classes.mapChangeButton}>

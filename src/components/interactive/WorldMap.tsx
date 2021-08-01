@@ -34,9 +34,9 @@ class WorldMap extends Component<WorldMapProps, WorldMapState> {
     let polygonTemplate = polygonSeries.mapPolygons.template;
     // polygonTemplate.tooltipText = "{name}";
 
-    polygonTemplate.fill = am4core.color("#CCCCCC");
-    let hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#12CBD6");
+    polygonTemplate.fill = am4core.color("#c4c4c4");
+    // let hs = polygonTemplate.states.create("hover");
+    // hs.properties.fill = am4core.color("#12CBD6");
     polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
       map.zoomToMapObject(ev.target);
     });

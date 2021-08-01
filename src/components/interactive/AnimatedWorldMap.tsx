@@ -6,6 +6,7 @@ import am4geodata_worldHigh from '@amcharts/amcharts4-geodata/worldHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { vw } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
+import { Theme } from '@material-ui/core';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
@@ -13,6 +14,7 @@ am4core.useTheme(am4themes_animated);
 interface AnimatedWorldMapProps {
   enter: boolean;
   animatedMap: boolean;
+  theme: Theme;
 }
 
 interface AnimatedWorldMapState {
@@ -36,8 +38,8 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
     let polygonTemplate = polygonSeries.mapPolygons.template;
 
     polygonTemplate.fill = am4core.color("#c4c4c4");
-    let hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#12CBD6");
+    // let hs = polygonTemplate.states.create("hover");
+    // hs.properties.fill = am4core.color("#12CBD6");
     polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
       map.zoomToMapObject(ev.target);
     });
@@ -56,7 +58,7 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
 
       let city = cities.mapImages.template.createChild(am4core.Circle);
       city.radius = 6;
-      city.fill = am4core.color('#65A1B9')
+      city.fill = am4core.color(this.props.theme.palette.secondary.main)
       city.strokeWidth = 2;
       city.stroke = am4core.color("#fff");
 
@@ -140,7 +142,7 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
       planeImage.horizontalCenter = "middle";
       planeImage.verticalCenter = "middle";
       planeImage.path = "M71,515.3l-33,72.5c-0.9,2.1,0.6,4.4,2.9,4.4l19.7,0c2.8,0,5.4-1,7.5-2.9l54.1-39.9c2.4-2.2,5.4-3.4,8.6-3.4 l103.9,0c1.8,0,3,1.8,2.3,3.5l-64.5,153.7c-0.7,1.6,0.5,3.3,2.2,3.3l40.5,0c2.9,0,5.7-1.3,7.5-3.6L338.4,554c3.9-5,9.9-8,16.2-8c24.2,0,85.5-0.1,109.1-0.2c21.4-0.1,41-6.3,59-17.8c4.2-2.6,7.9-6.1,11.2-9.8c2.6-2.9,3.8-5.7,3.7-8.5c0.1-2.8-1.1-5.5-3.7-8.5c-3.3-3.7-7-7.2-11.2-9.8c-18-11.5-37.6-17.7-59-17.8c-23.6-0.1-84.9-0.2-109.1-0.2c-6.4,0-12.3-2.9-16.2-8L222.6,316.6c-1.8-2.3-4.5-3.6-7.5-3.6l-40.5,0c-1.7,0-2.9,1.7-2.2,3.3L237,470c0.7,1.7-0.5,3.5-2.3,3.5l-103.9,0c-3.2,0-6.2-1.2-8.6-3.4l-54.1-39.9c-2.1-1.9-4.7-2.9-7.5-2.9l-19.7,0c-2.3,0-3.8,2.4-2.9,4.4l33,72.5C72.6,507.7,72.6,511.8,71,515.3z";
-      planeImage.fill = am4core.color('#4086A1')
+      planeImage.fill = am4core.color(this.props.theme.palette.primary.main)
       planeImage.strokeOpacity = 0;
 
       // Plane animation
@@ -211,7 +213,31 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
   }
 
   componentDidUpdate(prevProps: AnimatedWorldMapProps) {
-    if (this.props.enter !== prevProps.enter && this.props.enter && !this.state.start) {
+    if (this.props.theme !== prevProps.theme){
+      this.state.map.dispose();
+      var map = am4core.create('mapWorldAnimated', am4maps.MapChart);
+      map.geodata = am4geodata_worldHigh;
+      map.projection = new am4maps.projections.Miller();
+      var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
+      polygonSeries.useGeodata = true;
+      polygonSeries.exclude = ["AQ"];
+      map.homeZoomLevel = 5;
+  
+      let polygonTemplate = polygonSeries.mapPolygons.template;
+  
+      polygonTemplate.fill = am4core.color("#c4c4c4");
+      polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
+        map.zoomToMapObject(ev.target);
+      });
+  
+      map.chartContainer.wheelable = false;
+      this.setState({
+        map: map,
+        start: false
+      })
+    }
+
+    if ((this.props.enter !== prevProps.enter || !!this.props.theme) && this.props.enter && !this.state.start) {
       let imageSeries = this.state.map.series.push(new am4maps.MapImageSeries());
       imageSeries.mapImages.template.propertyFields.longitude = "longitude";
       imageSeries.mapImages.template.propertyFields.latitude = "latitude";
@@ -223,7 +249,7 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
 
       let city = cities.mapImages.template.createChild(am4core.Circle);
       city.radius = 6;
-      city.fill = am4core.color('#65A1B9')
+      city.fill = am4core.color(this.props.theme.palette.secondary.main)
       city.strokeWidth = 2;
       city.stroke = am4core.color("#fff");
 
@@ -307,7 +333,7 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
       planeImage.horizontalCenter = "middle";
       planeImage.verticalCenter = "middle";
       planeImage.path = "M71,515.3l-33,72.5c-0.9,2.1,0.6,4.4,2.9,4.4l19.7,0c2.8,0,5.4-1,7.5-2.9l54.1-39.9c2.4-2.2,5.4-3.4,8.6-3.4 l103.9,0c1.8,0,3,1.8,2.3,3.5l-64.5,153.7c-0.7,1.6,0.5,3.3,2.2,3.3l40.5,0c2.9,0,5.7-1.3,7.5-3.6L338.4,554c3.9-5,9.9-8,16.2-8c24.2,0,85.5-0.1,109.1-0.2c21.4-0.1,41-6.3,59-17.8c4.2-2.6,7.9-6.1,11.2-9.8c2.6-2.9,3.8-5.7,3.7-8.5c0.1-2.8-1.1-5.5-3.7-8.5c-3.3-3.7-7-7.2-11.2-9.8c-18-11.5-37.6-17.7-59-17.8c-23.6-0.1-84.9-0.2-109.1-0.2c-6.4,0-12.3-2.9-16.2-8L222.6,316.6c-1.8-2.3-4.5-3.6-7.5-3.6l-40.5,0c-1.7,0-2.9,1.7-2.2,3.3L237,470c0.7,1.7-0.5,3.5-2.3,3.5l-103.9,0c-3.2,0-6.2-1.2-8.6-3.4l-54.1-39.9c-2.1-1.9-4.7-2.9-7.5-2.9l-19.7,0c-2.3,0-3.8,2.4-2.9,4.4l33,72.5C72.6,507.7,72.6,511.8,71,515.3z";
-      planeImage.fill = am4core.color('#4086A1')
+      planeImage.fill = am4core.color(this.props.theme.palette.primary.main)
       planeImage.strokeOpacity = 0;
 
       // Plane animation

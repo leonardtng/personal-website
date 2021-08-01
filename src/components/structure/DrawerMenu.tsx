@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import { Drawer, List, Divider, ListItem, Typography, Avatar } from '@material-ui/core';
-import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
+import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { info } from '../../assets/data/info';
 import { HashLink as Link } from 'react-router-hash-link';
 import resume from '../../assets/documents/resume.pdf';
@@ -48,7 +48,7 @@ interface DraweMenuProps {
 
 const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
   const classes = useStyles();
-  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
+  const { theme } = useContext<ThemeContextProps>(ThemeContext);
 
   return (
     <div className={classes.root}>
@@ -62,7 +62,7 @@ const DrawerMenu: React.FC<DraweMenuProps> = (props: DraweMenuProps) => {
         }}
         anchor="left"
       >
-        <Avatar alt='Leonard Tng' src={lightMode ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
+        <Avatar alt='Leonard Tng' src={theme === defaultTheme ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
         <Divider />
         <List>
           <Link smooth to='#home'>

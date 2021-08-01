@@ -129,8 +129,8 @@ export const cards: Array<CardData> = [
     role: `First Iteration of My Online Portfolio`,
     description: `This website is the very first personal project I designed, built, and deployed on my own, and is also my first take on a personal website. Not only did 
     building this website allow me to put my development skills to the test, it was also a great sandbox for me to explore and experiment with new development and design techniques
-    such as implementing a dark theme`,
-    descriptionSecondPart: `, using React hooks, and being creative with scroll effects.`,
+    such as implementing different themes (try it out!`,
+    descriptionSecondPart: `), using React hooks, and being creative with scroll effects.`,
     projectLink: `https://github.com/leonardtng/personal-website`,
     image: PersonalWebsiteV1Cover,
     cardDialogContent: {

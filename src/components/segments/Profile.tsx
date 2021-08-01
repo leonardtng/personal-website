@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Slide, Typography, Box } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
-import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
+import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { info } from '../../assets/data/info';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Profile: React.FC = () => {
   const classes = useStyles();
-  const { lightMode } = useContext<ThemeContextProps>(ThemeContext);
+  const { theme } = useContext<ThemeContextProps>(ThemeContext);
 
   const [checked, setChecked] = useState<boolean>(false);
   const profileRef = useRef<HTMLImageElement>(null);
@@ -92,7 +92,7 @@ const Profile: React.FC = () => {
         </Slide>
       </Grid>
       <Grid item xs={8} sm={8} md={6} lg={4} className={classes.image}>
-        <img src={lightMode ? info.profile.image : info.profile.imageDark} alt='Leonard Tng' ref={profileRef} />
+        <img src={theme === defaultTheme ? info.profile.image : info.profile.imageDark} alt='Leonard Tng' ref={profileRef} />
       </Grid>
       <Grid item xs={2} sm={2} md={3} lg={4} className={classes.rectRight}>
         <Slide in={checked} direction='left'>
@@ -104,10 +104,10 @@ const Profile: React.FC = () => {
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={3} />
       <Grid item xs={10} sm={10} md={8} lg={6} className={classes.map} ref={mapRef}>
-          <Box>
-            <SingaporeMap enter={mapChecked}/>
-            {/* <div className={classes.buffer} /> */}
-          </Box>
+        <Box>
+          <SingaporeMap enter={mapChecked} />
+          {/* <div className={classes.buffer} /> */}
+        </Box>
       </Grid>
       <Grid item xs={1} sm={1} md={2} lg={3} />
     </Grid>

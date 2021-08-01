@@ -59,7 +59,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   circle: {
     position: 'absolute',
-    backgroundColor: styleProps => styleProps.scroll ? theme.palette.primary.main : theme.palette.primary.contrastText,
+    backgroundColor: styleProps => styleProps.scroll ? theme.palette.primary.main : theme.palette.timeline.fill,
     borderRadius: '50%',
     transform: styleProps => `translate(-${styleProps.scroll ? 15 : 7.5}px, -10px)`,
     height: styleProps => styleProps.scroll ? 30 : 15,
@@ -79,7 +79,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       content: styleProps => styleProps.scroll ? '"radio_button_unchecked"' : '""',
       fontSize: styleProps => styleProps.scroll ? 30 : 0,
       transitionDelay: '0.2s',
-      color: theme.palette.secondary.contrastText,
+      color: theme.palette.timeline.fill,
     },
   },
   timeline: {
@@ -106,7 +106,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
         width: 6,
         margin: '0 auto',
         paddingTop: 50,
-        background: theme.palette.primary.contrastText,
+        background: theme.palette.timeline.fill,
         boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);', //0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
         '&:after': {
           fontFamily: 'Material Icons',
@@ -118,7 +118,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           bottom: 0,
           transform: 'translateX(-50%)',
           zIndex: 1,
-          color: theme.palette.secondary.contrastText,
+          color: '#f7f9fb',
           borderRadius: '20%',
           transition: '0.5s ease',
           boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);',
@@ -179,7 +179,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.firstCheck ? 20 : 0,
       width: styleProps => styleProps.firstCheck ? 30 : 15,
       height: styleProps => styleProps.firstCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.firstCheck ? '#FF5755' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.firstCheck ? '#FF5755' : theme.palette.timeline.fill,
     },
   },
   card2: {
@@ -188,7 +188,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.secondCheck ? 20 : 0,
       width: styleProps => styleProps.secondCheck ? 30 : 15,
       height: styleProps => styleProps.secondCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.secondCheck ? '#AD3AEA' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.secondCheck ? '#AD3AEA' : theme.palette.timeline.fill,
     },
   },
   card3: {
@@ -197,7 +197,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.thirdCheck ? 20 : 0,
       width: styleProps => styleProps.thirdCheck ? 30 : 15,
       height: styleProps => styleProps.thirdCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.thirdCheck ? '#7ED857' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.thirdCheck ? '#1F5099' : theme.palette.timeline.fill,
     },
   },
   card4: {
@@ -206,7 +206,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.fourthCheck ? 20 : 0,
       width: styleProps => styleProps.fourthCheck ? 30 : 15,
       height: styleProps => styleProps.fourthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.fourthCheck ? '#FF5755' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.fourthCheck ? '#FF5755' : theme.palette.timeline.fill,
     },
   },
   card5: {
@@ -215,7 +215,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.fifthCheck ? 20 : 0,
       width: styleProps => styleProps.fifthCheck ? 30 : 15,
       height: styleProps => styleProps.fifthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.fifthCheck ? '#7ED857' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.fifthCheck ? '#1F5099' : theme.palette.timeline.fill,
     },
   },
   card6: {
@@ -224,7 +224,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.sixthCheck ? 20 : 0,
       width: styleProps => styleProps.sixthCheck ? 30 : 15,
       height: styleProps => styleProps.sixthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.sixthCheck ? '#AD3AEA' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.sixthCheck ? '#AD3AEA' : theme.palette.timeline.fill,
     },
   },
   card7: {
@@ -233,7 +233,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.seventhCheck ? 20 : 0,
       width: styleProps => styleProps.seventhCheck ? 30 : 15,
       height: styleProps => styleProps.seventhCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.seventhCheck ? '#7ED857' : theme.palette.primary.contrastText,
+      backgroundColor: styleProps => styleProps.seventhCheck ? '#1F5099' : theme.palette.timeline.fill,
     },
   },
   '@media only screen and (max-width: 1700px)': {

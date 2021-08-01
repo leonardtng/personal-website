@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { Switch, Tooltip } from '@material-ui/core';
-import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
+import React, { Fragment, useState } from 'react';
+import { IconButton, Tooltip } from '@material-ui/core';
+import BrushIcon from '@material-ui/icons/Brush';
+import ThemeToggleDialog from '../interactive/ThemeToggleButtons';
 
 const ThemeToggle: React.FC = () => {
-  const { lightMode, toggleTheme } = useContext<ThemeContextProps>(ThemeContext);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Tooltip title={lightMode ? 'Turn off the lights' : 'Turn the lights on'}>
-      <Switch
-        checked={lightMode}
-        onChange={toggleTheme}
-        name="checkedA"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      />
-    </Tooltip>
+    <Fragment>
+      <Tooltip title="Paint this website!">
+        <IconButton size="small" onClick={() => setOpen(true)} color="primary">
+          <BrushIcon />
+        </IconButton>
+      </Tooltip>
+    </Fragment>
   );
 };
 

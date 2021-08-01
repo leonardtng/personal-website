@@ -1,11 +1,10 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab, Tooltip } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { vh, vw } from '../../@utils/useScrollPosition';
-import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import NightsStayIcon from '@material-ui/icons/NightsStay';
+import PaletteIcon from '@material-ui/icons/Palette';
+import ThemeToggleButtons from '../interactive/ThemeToggleButtons';
 
 const useStyles = makeStyles((theme: Theme) => ({
   arrow: {
@@ -17,22 +16,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'fixed',
     bottom: theme.spacing(15),
     right: theme.spacing(5),
-  },
-  buttonAnimation: {
-    animation: '$pulse 1.5s ease infinite',
-  },
-  '@keyframes pulse': {
-    '0%': {
-      transform: 'scale(1.2)',
-      backgroundColor: '#0B0C10',
+    '& #theme-drawer': {
+      position: 'absolute',
+      textAlign: 'center',
+      height: 0,
+      width: theme.spacing(7),
+      bottom: theme.spacing(7) / 2,
+      zIndex: -1,
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+      borderTopLeftRadius: theme.spacing(7) / 2,
+      borderTopRightRadius: theme.spacing(7) / 2,
+      '-webkit-transition': 'height 1s',
+      transition: 'height 1s',
     },
-    '70%': {
-      transform: 'scale(1)',
-      backgroundColor: theme.palette.secondary.main,
-    },
-    '100%': {
-      transform: 'scale(1.2)',
-      backgroundColor: '#0B0C10',
+    '&:hover': {
+      '& #theme-drawer': {
+        height: (theme.spacing(5) + 10 + 6) * 4 + 10 + theme.spacing(7) / 2,
+        // (dimensions of toggle button + margin + border width) + margin from buttons to fab + half of fab dimensions
+      }
     }
   },
   '@media only screen and (max-width: 600px)': {
@@ -43,25 +45,28 @@ const useStyles = makeStyles((theme: Theme) => ({
     themeToggle: {
       bottom: theme.spacing(11),
       right: theme.spacing(3),
-    },
+      '& #theme-drawer': {
+        width: theme.spacing(6),
+        bottom: theme.spacing(6) / 2,
+        borderTopLeftRadius: theme.spacing(6) / 2,
+        borderTopRightRadius: theme.spacing(6) / 2,
+      },
+      '&:hover': {
+        '& #theme-drawer': {
+          height: (theme.spacing(4) + 7 + 6) * 4 + 10 + theme.spacing(6) / 2,
+        }
+      }
+    }
   },
 }));
 
 const FloatingButtons = () => {
   const classes = useStyles();
-  const { lightMode, toggleTheme } = useContext<ThemeContextProps>(ThemeContext);
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: vh * 3,
   });
-
-  const [clicked, setClicked] = useState<boolean>(false);
-
-  const handleThemeClick = () => {
-    toggleTheme();
-    setClicked(true)
-  };
 
   const handleScrollClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,17 +75,14 @@ const FloatingButtons = () => {
   return (
     <Fragment>
       <Zoom in={trigger}>
-        <Tooltip title='Toggle Theme' placement='top'>
-          <div onClick={handleThemeClick} role='presentation' className={classes.themeToggle}>
-            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'} className={clicked || !lightMode ? undefined : classes.buttonAnimation}>
-              {lightMode ? (
-                <NightsStayIcon />
-              ) : (
-                  <Brightness7Icon />
-                )}
-            </Fab>
+        <div role='presentation' className={classes.themeToggle}>
+          <div id="theme-drawer">
+            <ThemeToggleButtons size="medium" />
           </div>
-        </Tooltip>
+          <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
+            <PaletteIcon />
+          </Fab>
+        </div>
       </Zoom>
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
         <Tooltip title='Scroll to Top' placement='top'>
