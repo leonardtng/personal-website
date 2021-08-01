@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { MobileStepper, IconButton } from '@material-ui/core';
+import { MobileStepper, Button, Hidden } from '@material-ui/core';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
@@ -15,20 +15,16 @@ const useStyles = makeStyles({
   root: {
     overflow: 'hidden',
     height: IMAGE_HEIGHT,
-    width: '100%',
     '& .MuiMobileStepper-root': {
-      background: 'rgba(0,0,0,0)',
-    },
-    '& .MuiSvgIcon-root': {
-      fontSize: '3rem',
+      background: 'transparent',
     },
     '& .react-swipeable-view-container': {
       height: IMAGE_HEIGHT,
+      width: '100%'
     },
   },
   imgWrapper: {
     height: IMAGE_HEIGHT,
-    width: '100%',
   },
   img: {
     height: IMAGE_HEIGHT,
@@ -38,23 +34,13 @@ const useStyles = makeStyles({
   },
   stepper: {
     transform: `translateY(calc(-100% - ${PAPER_OFFSET}px))`,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    '& .MuiSvgIcon-root': {
-      fontSize: '2.5rem'
+  },
+  '@media only screen and (max-width: 600px)': {
+    stepper: {
+      display: 'flex',
+      justifyContent: 'center'
     }
-  },
-  arrowButtonLeft: {
-    position: 'absolute',
-    top: `calc(-${IMAGE_HEIGHT}px * 0.58 + ${PAPER_OFFSET}px)`,
-    left: 0,
-  },
-  arrowButtonRight: {
-    position: 'absolute',
-    top: `calc(-${IMAGE_HEIGHT}px * 0.58 + ${PAPER_OFFSET}px)`,
-    right: 0,
-  },
+  }
 });
 
 interface DialogCarouselProps {
@@ -109,14 +95,20 @@ const DialogCarousel: React.FC<DialogCarouselProps> = (props: DialogCarouselProp
           variant='dots'
           activeStep={activeStep}
           nextButton={
-            <IconButton size='small' className={dialogCarouselStyles.arrowButtonRight} onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-            </IconButton>
+            <Hidden xsDown>
+              <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} color="primary">
+                Next
+                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+              </Button>
+            </Hidden>
           }
           backButton={
-            <IconButton size='small' className={dialogCarouselStyles.arrowButtonLeft} onClick={handleBack} disabled={activeStep === 0}>
-              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            </IconButton>
+            <Hidden xsDown>
+              <Button size="small" onClick={handleBack} disabled={activeStep === 0} color="primary">
+                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                Previous
+              </Button>
+            </Hidden>
           }
         />
       )}

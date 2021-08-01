@@ -46,6 +46,50 @@ const AppTheme: React.FC = () => {
     ...common
   });
 
+  // const green: Theme = createMuiTheme({
+  //   palette: {
+  //     primary: {
+  //       main: '#72B339',
+  //       contrastText: '#DCD6D2',
+  //     },
+  //     secondary: {
+  //       main: '#606D88',
+  //       contrastText: '#f7f9fb',
+  //     },
+  //     background: {
+  //       default: '#01050D',
+  //       paper: '#233044', //#63939d
+  //     },
+  //     text: {
+  //       primary: '#fffffff2',
+  //       secondary:'#ffffff80',
+  //     },
+  //   },
+  //   ...common
+  // });
+
+  // const crimson: Theme = createMuiTheme({
+  //   palette: {
+  //     primary: {
+  //       main: '#EC407A',
+  //       contrastText: '#DCD6D2',
+  //     },
+  //     secondary: {
+  //       main: '#606D88',
+  //       contrastText: '#f7f9fb',
+  //     },
+  //     background: {
+  //       default: '#030614',
+  //       paper: '#233044', //#63939d
+  //     },
+  //     text: {
+  //       primary: '#fffffff2',
+  //       secondary:'#ffffff80',
+  //     },
+  //   },
+  //   ...common
+  // });
+
   const dark: Theme = createMuiTheme({
     palette: {
       primary: {
