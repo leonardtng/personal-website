@@ -31,7 +31,7 @@ export const cards: Array<CardData> = [
   {
     title: `National Junior College`,
     date: `Jan 2012 - Nov 2017`,
-    role: `[GCE 'A' Level Graduate]`,
+    role: `GCE 'A' Level Graduate`,
     description: `I graduated from National Junior College in 2017 as a GCE 'A' Level Graduate from the Integrated Programme. My time here taught me to be a critical thinker and 
     nurtured my penchant for problem solving. It was also NJC that gave me my first leadership opportunity as the president of the NJC Symphonic Band, where I had the 
     experience of being part of a great team, and leading a great community.`,
@@ -78,7 +78,7 @@ export const cards: Array<CardData> = [
   {
     title: `Boogle Group Ltd`,
     date: `Oct 2019 - Sep 2020`,
-    role: `[Software Engineer Intern]`,
+    role: `Software Engineer Intern`,
     description: `My time at this vibrant startup has been nothing less than fruitful. It was here where I started designing and building sophisticated software from the ground up, and 
     learnt much of the coding best practices and standards which I still practice heavily today. During the months I was here, I was heavily involved in the front-end
     development, while occasionally finding myself immersed in the back-end and mobile development as well. I also had the opportunity to be part of an amazing product team,
@@ -126,7 +126,7 @@ export const cards: Array<CardData> = [
   {
     title: `Personal Website`,
     date: `Launched June 2020`,
-    role: `V1`,
+    role: `First Iteration of My Online Portfolio`,
     description: `This website is the very first personal project I designed, built, and deployed on my own, and is also my first take on a personal website. Not only did 
     building this website allow me to put my development skills to the test, it was also a great sandbox for me to explore and experiment with new development and design techniques
     such as implementing a dark theme`,
@@ -159,7 +159,7 @@ export const cards: Array<CardData> = [
   {
     title: `Yale-NUS College`,
     date: `July 2020 - Present`,
-    role: `[Undergraduate]`,
+    role: `Undergraduate`,
     description: `I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
     image: YaleNusCover,
     cardDialogContent: {
@@ -222,7 +222,7 @@ export const cards: Array<CardData> = [
   {
     title: `CodeCache`,
     date: `Launched November 2020`,
-    role: `The lightweight code snippet manager built for developers and learners`,
+    role: `A Lightweight Code Snippet Manager`,
     description: `My first full-stack project I designed, built and deployed during my first semester in college consisting of both a front-end and a back-end. Initially, 
     this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
     with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 
@@ -273,7 +273,7 @@ export const cards: Array<CardData> = [
   {
     title: `Dathena`,
     date: `May 2021 - Aug 2021`,
-    role: `[Software Engineer Intern]`,
+    role: `Software Engineer Intern`,
     description: `My time at this energetic deep-tech AI and cybersecurity company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
     of the brightest software engineers and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
     complex enterprise-level product, the best practices of managing a gigantic codebase, and even got the opportunity to lead two sprints as a scrum master in the company's

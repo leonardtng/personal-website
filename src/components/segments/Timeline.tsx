@@ -162,10 +162,6 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           animation: '',
         }
       },
-      '& .MuiCardMedia-root': {
-        height: 250,
-        borderRadius: '10px 10px 0 0',
-      },
       '& time': {
         display: 'block',
         fontSize: '1.25rem',
@@ -342,10 +338,6 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
               borderColor: `transparent ${theme.palette.background.paper} transparent transparent`
             }
           },
-        },
-        '& .MuiCardMedia-root': {
-          height: 150,
-          borderRadius: '10px 10px 0 0',
         },
         '& time': {
           fontSize: '1rem'

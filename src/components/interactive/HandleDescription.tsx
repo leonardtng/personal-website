@@ -15,7 +15,6 @@ const BORDER_RADIUS = 20;
 const useStyles = makeStyles((theme: Theme) => ({
   imageArea: {
     borderRadius: 10,
-    maxHeight: IMAGE_HEIGHT,
     '& img': {
       transition: '0.3s ease'
     },
@@ -31,16 +30,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   media: {
-    height: IMAGE_HEIGHT,
-  },
-  background: {
-    height: IMAGE_HEIGHT,
+    height: 250,
+    borderRadius: '10px 10px 0 0',
   },
   textContainer: {
     overflow: 'hidden',
     position: 'absolute',
     top: 0,
-    height: IMAGE_HEIGHT,
+    height: '100%',
     width: '100%',
   },
   description: {
@@ -91,11 +88,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   listItem: {
     paddingLeft: 32,
   },
-  '@media only screen and (max-height: 900px)': {
+  '@media only screen and (max-width: 960px)': {
     dialog: {
       '& .MuiDialog-paper': {
         maxWidth: 400,
       },
+    },
+  },
+  '@media only screen and (max-width: 600px)': {
+    media: {
+      height: 150,
     },
   },
 }));
@@ -141,7 +143,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
       >
         <CardMedia
           component='img'
-          className={classes.background}
+          className={classes.media}
           alt={props.title}
           image={props.image}
           title={props.title}
