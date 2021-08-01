@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { useScrollTrigger, Zoom, Fab, Tooltip } from '@material-ui/core';
+import { useScrollTrigger, Zoom, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { vh, vw } from '../../@utils/useScrollPosition';
 import PaletteIcon from '@material-ui/icons/Palette';
-import ThemeToggleButtons from '../interactive/ThemeToggleButtons';
+import ThemeToggleButtons from './ThemeToggleButtons';
+import TooltipBasicLayout from '../common/TooltipBasicLayout';
 
 const useStyles = makeStyles((theme: Theme) => ({
   arrow: {
@@ -85,13 +86,13 @@ const FloatingButtons = () => {
         </div>
       </Zoom>
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
-        <Tooltip title='Scroll to Top' placement='top'>
-          <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
+        <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
+          <TooltipBasicLayout title='Scroll to Top' placement='top'>
             <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
               <KeyboardArrowUpIcon />
             </Fab>
-          </div>
-        </Tooltip>
+          </TooltipBasicLayout>
+        </div>
       </Zoom>
     </Fragment>
   );

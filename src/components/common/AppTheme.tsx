@@ -42,6 +42,9 @@ const AppTheme: React.FC = () => {
       },
       timeline: {
         fill: '#DCD6D2'
+      },
+      map: {
+        series: '#c4c4c4'
       }
     },
     ...common
@@ -65,6 +68,9 @@ const AppTheme: React.FC = () => {
       },
       timeline: {
         fill: '#DCD6D2'
+      },
+      map: {
+        series: '#233044'
       }
     },
     ...common
@@ -88,6 +94,9 @@ const AppTheme: React.FC = () => {
       },
       timeline: {
         fill: '#686c6c'
+      },
+      map: {
+        series: '#1F2833'
       }
     },
     ...common
@@ -111,6 +120,9 @@ const AppTheme: React.FC = () => {
       },
       timeline: {
         fill: '#686c6c'
+      },
+      map: {
+        series: '#010F17'
       }
     },
     ...common

@@ -34,6 +34,10 @@ const useStyles = makeStyles({
   },
   stepper: {
     transform: `translateY(calc(-100% - ${PAPER_OFFSET}px))`,
+    '& .MuiButton-root': {
+      minWidth: 0,
+      borderRadius: '50%'
+    }
   },
   '@media only screen and (max-width: 600px)': {
     stepper: {
@@ -97,7 +101,6 @@ const DialogCarousel: React.FC<DialogCarouselProps> = (props: DialogCarouselProp
           nextButton={
             <Hidden xsDown>
               <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} color="primary">
-                Next
                 {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
               </Button>
             </Hidden>
@@ -106,7 +109,6 @@ const DialogCarousel: React.FC<DialogCarouselProps> = (props: DialogCarouselProp
             <Hidden xsDown>
               <Button size="small" onClick={handleBack} disabled={activeStep === 0} color="primary">
                 {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-                Previous
               </Button>
             </Hidden>
           }

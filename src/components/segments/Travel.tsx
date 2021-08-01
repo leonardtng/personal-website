@@ -122,7 +122,7 @@ const Travel: React.FC = () => {
             {animatedMap ? (
               <AnimatedWorldMap enter={checked} animatedMap={animatedMap} theme={theme} />
             ) : (
-                <WorldMap enter={checked} />
+                <WorldMap enter={checked} theme={theme} />
               )}
             {/* <div className={classes.buffer} /> */}
           </Box>

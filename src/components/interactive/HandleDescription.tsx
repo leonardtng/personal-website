@@ -7,7 +7,7 @@ import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { ExpandLess, ExpandMore, OpenInNew } from '@material-ui/icons';
 import { modifyDescription } from '../../@utils/modifyDescription';
-import ThemeToggleButtons from './ThemeToggleButtons';
+import ThemeToggleButtons from '../buttons/ThemeToggleButtons';
 
 const PAPER_HEIGHT = 300;
 const BORDER_RADIUS = 20;

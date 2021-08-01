@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     left: 0,
     textAlign: 'left',
+    width: '100%'
   },
   cover: {
     float: 'left',
@@ -99,11 +100,11 @@ const BlogCard: React.FC<BlogCardProps> = (props: BlogCardProps) => {
         <CardActionArea className={classes.details}>
           {props.isLoading ? (
             <CardContent className={classes.skeleton}>
-              <Skeleton animation='wave' width='50rem' height='5rem' />
-              <Skeleton animation='wave' width='35rem' height='2rem' />
-              <Skeleton animation='wave' width='35rem' height='2rem' />
-              <Skeleton animation='wave' width='35rem' height='2rem' />
-              <Skeleton animation='wave' width='35rem' height='2rem' />
+              <Skeleton animation='wave' width='65%' height='5rem' />
+              <Skeleton animation='wave' width='80%' height='2rem' />
+              <Skeleton animation='wave' width='90%' height='2rem' />
+              <Skeleton animation='wave' width='70%' height='2rem' />
+              <Skeleton animation='wave' width='60%' height='2rem' />
             </CardContent>
           ) : (
               <CardContent className={classes.content}>

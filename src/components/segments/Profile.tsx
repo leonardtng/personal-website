@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Slide, Typography, Box } from '@material-ui/core';
+import { Grid, Slide, Typography, Box, useTheme } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import SingaporeMap from '../interactive/SingaporeMap';
 import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
@@ -68,6 +68,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Profile: React.FC = () => {
   const classes = useStyles();
+  const muiTheme = useTheme();
+
   const { theme } = useContext<ThemeContextProps>(ThemeContext);
 
   const [checked, setChecked] = useState<boolean>(false);
@@ -105,7 +107,7 @@ const Profile: React.FC = () => {
       <Grid item xs={1} sm={1} md={2} lg={3} />
       <Grid item xs={10} sm={10} md={8} lg={6} className={classes.map} ref={mapRef}>
         <Box>
-          <SingaporeMap enter={mapChecked} />
+          <SingaporeMap enter={mapChecked} theme={muiTheme} />
           {/* <div className={classes.buffer} /> */}
         </Box>
       </Grid>

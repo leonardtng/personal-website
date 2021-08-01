@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Theme } from '@material-ui/core';
 import 'core-js';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
@@ -13,6 +14,7 @@ am4core.useTheme(am4themes_animated);
 
 interface SingaporeMapProps {
   enter: boolean;
+  theme: Theme;
 }
 
 interface SingaporeMapState {
@@ -20,58 +22,73 @@ interface SingaporeMapState {
   markerRendered: boolean;
 }
 
+const renderMapBase = (theme: Theme) => {
+  var map = am4core.create('mapSG', am4maps.MapChart);
+  map.geodata = am4geodata_singaporeHigh;
+  map.projection = new am4maps.projections.Miller();
+  var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
+  polygonSeries.useGeodata = true;
+
+  polygonSeries.data = [{
+    "id": "SG-01",
+    "name": "Central Singapore",
+  }, {
+    "id": "SG-02",
+    "name": "North East",
+  }, {
+    "id": "SG-03",
+    "name": "North West",
+  }, {
+    "id": "SG-04",
+    "name": "South East",
+  }, {
+    "id": "SG-05",
+    "name": "South West",
+  }];
+
+  let polygonTemplate = polygonSeries.mapPolygons.template;
+  // polygonTemplate.tooltipText = "{name}";
+  polygonTemplate.fill = am4core.color(theme.palette.map.series);
+  // let hs = polygonTemplate.states.create("hover");
+  // hs.properties.fill = am4core.color("#12CBD6");
+  polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
+    map.zoomToMapObject(ev.target);
+  });
+
+  map.showOnInit = true;
+  map.defaultState.transitionEasing = am4core.ease.elasticOut;
+  map.defaultState.transitionDuration = 2000;
+  map.hiddenState.properties.dy = vw < 1200 ? 200 : 300;
+  map.tooltipPosition = 'pointer';
+  map.hidden = true;
+
+  map.chartContainer.wheelable = false;
+  return map
+}
+
 class SingaporeMap extends Component<SingaporeMapProps, SingaporeMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
 
-    var map = am4core.create('mapSG', am4maps.MapChart);
-    map.geodata = am4geodata_singaporeHigh;
-    map.projection = new am4maps.projections.Miller();
-    var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
-    polygonSeries.useGeodata = true;
-
-    polygonSeries.data = [{
-      "id": "SG-01",
-      "name": "Central Singapore",
-    }, {
-      "id": "SG-02",
-      "name": "North East",
-    }, {
-      "id": "SG-03",
-      "name": "North West",
-    }, {
-      "id": "SG-04",
-      "name": "South East",
-    }, {
-      "id": "SG-05",
-      "name": "South West",
-    }];
-
-    let polygonTemplate = polygonSeries.mapPolygons.template;
-    // polygonTemplate.tooltipText = "{name}";
-    polygonTemplate.fill = am4core.color("#c4c4c4");
-    // let hs = polygonTemplate.states.create("hover");
-    // hs.properties.fill = am4core.color("#12CBD6");
-    polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
-      map.zoomToMapObject(ev.target);
-    });
-
-    map.showOnInit = true;
-    map.defaultState.transitionEasing = am4core.ease.elasticOut;
-    map.defaultState.transitionDuration = 2000;
-    map.hiddenState.properties.dy = vw < 1200 ? 200 : 300;
-    map.tooltipPosition = 'pointer';
-    map.hidden = true;
-
-    map.chartContainer.wheelable = false;
-
     this.setState({
-      map: map
+      map: renderMapBase(this.props.theme)
     })
   }
 
   componentDidUpdate(prevProps: SingaporeMapProps) {
+    if (this.props.theme !== prevProps.theme){
+      this.state.map.dispose();
+      
+      var map = renderMapBase(this.props.theme);
+      map.hidden = false;
+      
+      this.setState({
+        map: map,
+        markerRendered: false
+      })
+    }
+
     const animateBullet = (marker: any) => {
       let animation = marker.animate([{ property: "y", from: -10, to: 10 }], 1000, am4core.ease.circleIn);
       animation.events.on("animationended", function (event: any) {
@@ -82,7 +99,7 @@ class SingaporeMap extends Component<SingaporeMapProps, SingaporeMapState> {
       })
     }
 
-    if (this.props.enter !== prevProps.enter && this.props.enter && !this.state.markerRendered) {
+    if ((this.props.enter !== prevProps.enter || !!this.props.theme) && this.props.enter && !this.state.markerRendered) {
       this.state.map.show()
       let imageSeries = this.state.map.series.push(new am4maps.MapImageSeries());
       imageSeries.mapImages.template.propertyFields.longitude = "longitude";

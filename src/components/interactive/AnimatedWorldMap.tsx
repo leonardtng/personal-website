@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Theme } from '@material-ui/core';
 import 'core-js';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
@@ -6,7 +7,6 @@ import am4geodata_worldHigh from '@amcharts/amcharts4-geodata/worldHigh';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { vw } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
-import { Theme } from '@material-ui/core';
 // import * as geodata from '@amcharts/amcharts4-geodata';
 
 am4core.useTheme(am4themes_animated);
@@ -22,29 +22,35 @@ interface AnimatedWorldMapState {
   start: boolean;
 }
 
+const renderMapBase = (theme: Theme) => {
+  var map = am4core.create('mapWorldAnimated', am4maps.MapChart);
+  map.geodata = am4geodata_worldHigh;
+  map.projection = new am4maps.projections.Miller();
+  var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
+  polygonSeries.useGeodata = true;
+  polygonSeries.exclude = ["AQ"];
+  map.homeZoomLevel = 5;
+
+  let polygonTemplate = polygonSeries.mapPolygons.template;
+
+  polygonTemplate.fill = am4core.color(theme.palette.map.series);
+  // let hs = polygonTemplate.states.create("hover");
+  // hs.properties.fill = am4core.color("#12CBD6");
+  polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
+    map.zoomToMapObject(ev.target);
+  });
+
+  map.chartContainer.wheelable = false;
+
+  return map
+}
+
 class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMapState> {
   componentDidMount() {
     am4core.addLicense("CH224389178")
     am4core.addLicense("MP224380308");
 
-    var map = am4core.create('mapWorldAnimated', am4maps.MapChart);
-    map.geodata = am4geodata_worldHigh;
-    map.projection = new am4maps.projections.Miller();
-    var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
-    polygonSeries.useGeodata = true;
-    polygonSeries.exclude = ["AQ"];
-    map.homeZoomLevel = 5;
-
-    let polygonTemplate = polygonSeries.mapPolygons.template;
-
-    polygonTemplate.fill = am4core.color("#c4c4c4");
-    // let hs = polygonTemplate.states.create("hover");
-    // hs.properties.fill = am4core.color("#12CBD6");
-    polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
-      map.zoomToMapObject(ev.target);
-    });
-
-    map.chartContainer.wheelable = false;
+    var map = renderMapBase(this.props.theme);
 
     if (this.props.enter && this.props.animatedMap) {
       let imageSeries = map.series.push(new am4maps.MapImageSeries());
@@ -215,24 +221,9 @@ class AnimatedWorldMap extends Component<AnimatedWorldMapProps, AnimatedWorldMap
   componentDidUpdate(prevProps: AnimatedWorldMapProps) {
     if (this.props.theme !== prevProps.theme){
       this.state.map.dispose();
-      var map = am4core.create('mapWorldAnimated', am4maps.MapChart);
-      map.geodata = am4geodata_worldHigh;
-      map.projection = new am4maps.projections.Miller();
-      var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
-      polygonSeries.useGeodata = true;
-      polygonSeries.exclude = ["AQ"];
-      map.homeZoomLevel = 5;
-  
-      let polygonTemplate = polygonSeries.mapPolygons.template;
-  
-      polygonTemplate.fill = am4core.color("#c4c4c4");
-      polygonSeries.mapPolygons.template.events.on('hit', function (ev) {
-        map.zoomToMapObject(ev.target);
-      });
-  
-      map.chartContainer.wheelable = false;
+      
       this.setState({
-        map: map,
+        map: renderMapBase(this.props.theme),
         start: false
       })
     }

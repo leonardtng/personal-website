@@ -29,7 +29,7 @@ const StyledRating = withStyles((theme: Theme) => ({
     color: theme.palette.primary.main,
   },
   iconEmpty: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.timeline.fill,
   }
 }))(Rating);
 
