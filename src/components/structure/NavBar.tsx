@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
     fontSize: 12,
     justifyContent: 'center',
+    '& .MuiTypography-root': {
+      color: theme.palette.secondary.contrastText,
+    },
   },
   headerGroup: {
     display: 'flex',
@@ -48,12 +51,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+    '& .MuiIconButton-root': {
+      color: theme.palette.secondary.contrastText,
+    },
   },
   focus: {
     '&:after': {
       content: '""',
       position: 'absolute',
       height: 3,
+      backgroundColor: theme.palette.secondary.contrastText,
       width: '100%',
       left: '50%',
       bottom: 0,
