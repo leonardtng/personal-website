@@ -6,11 +6,11 @@ const getMaxChar = () => {
   } else if (vw < 960) {
     return 255
   } else if (vw < 1200) {
-    return 405
+    return 355
   } else if (vw < 1400) {
     return 305
   } else {
-    return 405
+    return 355
   }
 }
 

@@ -5,7 +5,7 @@ import { Typography, Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => ({
   rating: {
-    transition: 'transform 0.2s',
+    transition: 'transform 0.3s',
     '&:hover': {
       transform: 'scale(1.05)',
     },

@@ -28,7 +28,7 @@ const useStyles = makeStyles<Theme, ThemeToggleButtonsProps>((theme: Theme) => (
   radioactive: {
     background: 'linear-gradient(135deg, #72B339 50%, #C77E23 50%)',
   },
-  light: {
+  sky: {
     background: 'linear-gradient(135deg, #17577e 50%, #E7E7E4 50%)',
   },
   '@media only screen and (max-width: 600px)': {
@@ -76,12 +76,12 @@ const ThemeToggleButtons: React.FC<ThemeToggleButtonsProps> = (props: ThemeToggl
           <Avatar className={classes.radioactive}> </Avatar>
         </ButtonBase>
       </TooltipBasicLayout>
-      <TooltipBasicLayout title="Light" placement="top">
+      <TooltipBasicLayout title="Sky" placement="top">
         <ButtonBase
-          onClick={() => toggleTheme('light')}
-          className={`${classes.toggleButton} ${theme === 'light' ? classes.selected : classes.unselected}`}
+          onClick={() => toggleTheme('sky')}
+          className={`${classes.toggleButton} ${theme === 'sky' ? classes.selected : classes.unselected}`}
         >
-          <Avatar className={classes.light}> </Avatar>
+          <Avatar className={classes.sky}> </Avatar>
         </ButtonBase>
       </TooltipBasicLayout>
     </Fragment>

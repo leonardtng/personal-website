@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     cursor: 'pointer',
     '& div': {
-      transition: 'transform 0.2s',
+      transition: 'transform 0.3s',
     },
     '& div:hover': {
-      transform: 'scale(1.50)',
+      transform: 'scale(1.20)',
     },
   },
   logo: {

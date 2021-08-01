@@ -19,12 +19,12 @@ const AppTheme: React.FC = () => {
       }
     },
     typography: {
-      fontFamily: "'Mulish', sans-serif !important",
+      fontFamily: "'Inconsolata', sans-serif !important",
       fontSize: 15,
     }
   };
 
-  const light: Theme = createMuiTheme({
+  const sky: Theme = createMuiTheme({
     palette: {
       primary: {
         main: '#17577e',
@@ -136,8 +136,8 @@ const AppTheme: React.FC = () => {
         return electric
       case ('radioactive'):
         return radioactive
-      case ('light'):
-        return light
+      case ('sky'):
+        return sky
       default:
         return crimson 
     }
