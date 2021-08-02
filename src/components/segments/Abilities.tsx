@@ -1,13 +1,13 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Button, Grow } from '@material-ui/core';
+import { Grid, Typography, Grow, Link } from '@material-ui/core';
 import Stack from '../interactive/Stack';
 import RatingComponent from '../interactive/RatingComponent';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import StarIcon from '@material-ui/icons/Star';
 import ChatIcon from '@material-ui/icons/Chat';
 import BuildIcon from '@material-ui/icons/Build';
 import { info } from '../../assets/data/info';
+import OpenInNewRoundedIcon from '@material-ui/icons/OpenInNewRounded';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
@@ -32,6 +32,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   italics: {
     fontStyle: 'oblique',
     marginTop: 15,
+    '& a': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      '& .MuiSvgIcon-root': {
+        height: 16,
+        width: 16,
+        marginLeft: 6,
+        color: theme.palette.text.secondary
+      }
+    }
   },
   button: {
     marginBottom: 20,
@@ -106,21 +117,9 @@ const Abilities: React.FC = () => {
         <Stack checked={checked} />
       </Grid>
       <Grid item xs={12} className={classes.italics}>
-        <Typography variant='body1' component='p'>This project was built with React</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Button
-          variant='contained'
-          color='secondary'
-          className={classes.button}
-          startIcon={<GitHubIcon />}
-          href='https://github.com/leonardtng/personal-website'
-          target='_blank'
-          rel="noopener" 
-          aria-label="GitHub Personal Website"
-        >
-          View Project on Github
-        </Button>
+        <Link href="https://github.com/leonardtng/personal-website" target='_blank' rel="noopener" aria-label="GitHub Personal Website"> 
+          <Typography variant='body1' component='p' color="textSecondary">This project was built with React</Typography> <OpenInNewRoundedIcon />
+        </Link>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
         <Typography variant='h5'>{info.abilities.subsections.skills.title}</Typography>
@@ -161,7 +160,7 @@ const Abilities: React.FC = () => {
           return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<BuildIcon fontSize="inherit" />} />
         })}
       </Grid>
-            <Grid item xs={12} className={classes.note}>
+      <Grid item xs={12} className={classes.note}>
         <Typography variant='subtitle1' gutterBottom>{info.abilities.note}</Typography>
       </Grid>
     </Grid>
