@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      width: 'fit-content',
+      margin: 'auto',
       '& .MuiSvgIcon-root': {
         height: 16,
         width: 16,
