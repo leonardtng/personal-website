@@ -4,7 +4,9 @@ import { Tooltip } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => ({
   customTooltip: {
-    fontSize: 12,
+    fontSize: 13,
+    color: theme.palette.background.default,
+    backgroundColor: theme.palette.text.primary,
     borderRadius: 8,
     padding: 8,
   }

@@ -1,6 +1,7 @@
 import { useState, useReducer, useEffect } from 'react';
 import axios, { Canceler, AxiosRequestConfig } from 'axios';
 import { API_CONFIG } from '../@constants';
+import { cacheWithExpiry, retrieveCache } from './cacheStorageHandler';
 
 interface State {
   isLoading: boolean;
@@ -14,8 +15,8 @@ interface Action {
 }
 
 const dataFetchReducer = (state: State, action: Action) => {
-//   console.log('1: state', state)
-//   console.log('2: action', action)
+  //   console.log('1: state', state)
+  //   console.log('2: action', action)
   switch (action.type) {
     case 'FETCH_INIT':
       return {
@@ -63,18 +64,25 @@ const useGetApi = (
     config.cancelToken = new axios.CancelToken(c => cancel = c);
     const fetchData = async () => {
       dispatch({ type: 'FETCH_INIT' });
-      try {
-        const result = await axios.request(config);
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-      }
-      catch (error) {
-        if (axios.isCancel(error)) {
-        //   console.log('3: CANCEL', error)
-          return
+      const cachedData = retrieveCache(source);
+
+      if (cachedData) {
+        dispatch({ type: 'FETCH_SUCCESS', payload: cachedData });
+      } else {
+        try {
+          const result = await axios.request(config);
+          cacheWithExpiry(source, result.data, 8.64e+7)
+          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
         }
-        dispatch({ type: 'FETCH_FAILURE'});
+        catch (error) {
+          if (axios.isCancel(error)) {
+            //   console.log('3: CANCEL', error)
+            return
+          }
+          dispatch({ type: 'FETCH_FAILURE' });
+        }
+        // console.log('1', shouldFetch, method, sourceURL)
       }
-      // console.log('1', shouldFetch, method, sourceURL)
       setShouldFetch(false);
     }
     // console.log('2', shouldFetch, method, sourceURL)

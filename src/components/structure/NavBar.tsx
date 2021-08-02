@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
     fontSize: 12,
     justifyContent: 'center',
+    backgroundColor: theme.palette.navBar.main,
     '& .MuiTypography-root': {
-      color: theme.palette.secondary.contrastText,
+      color: theme.palette.navBar.contrastText,
     },
   },
   headerGroup: {
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     '& a': {
       textDecoration: 'none',
-      color: theme.palette.secondary.contrastText,
+      color: theme.palette.navBar.contrastText,
     },
   },
   menuButton: {
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     '& .MuiIconButton-root': {
-      color: theme.palette.secondary.contrastText,
+      color: theme.palette.navBar.contrastText,
     },
   },
   focus: {
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       content: '""',
       position: 'absolute',
       height: 3,
-      backgroundColor: theme.palette.secondary.contrastText,
+      backgroundColor: theme.palette.navBar.contrastText,
       width: '100%',
       left: '50%',
       bottom: 0,

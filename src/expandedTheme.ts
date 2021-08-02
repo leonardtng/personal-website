@@ -8,6 +8,7 @@ declare module '@material-ui/core/styles/createPalette' {
     map: {
       series: string;
     };
+    navBar: Palette['primary'] | Palette['secondary']
   }
   interface PaletteOptions {
     timeline: {
@@ -16,5 +17,6 @@ declare module '@material-ui/core/styles/createPalette' {
     map: {
       series: string;
     };
+    navBar: PaletteOptions['primary'] | PaletteOptions['secondary']
   }
 }

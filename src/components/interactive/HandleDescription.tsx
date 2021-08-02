@@ -173,7 +173,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
                 <Button
                   variant='contained'
                   color='secondary'
-                  startIcon={<OpenInNew />}
+                  endIcon={<OpenInNew />}
                   href={props.projectLink}
                   target='_blank'
                 >

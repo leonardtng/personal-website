@@ -79,7 +79,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       content: styleProps => styleProps.scroll ? '"radio_button_unchecked"' : '""',
       fontSize: styleProps => styleProps.scroll ? 30 : 0,
       transitionDelay: '0.2s',
-      color: theme.palette.timeline.fill,
+      color: theme.palette.primary.contrastText,
     },
   },
   timeline: {
@@ -118,7 +118,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           bottom: 0,
           transform: 'translateX(-50%)',
           zIndex: 1,
-          color: '#f7f9fb',
+          color: theme.palette.secondary.contrastText,
           borderRadius: '20%',
           transition: '0.5s ease',
           boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);',
@@ -179,7 +179,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.firstCheck ? 20 : 0,
       width: styleProps => styleProps.firstCheck ? 30 : 15,
       height: styleProps => styleProps.firstCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.firstCheck ? '#FF5755' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.firstCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card2: {
@@ -188,16 +188,16 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.secondCheck ? 20 : 0,
       width: styleProps => styleProps.secondCheck ? 30 : 15,
       height: styleProps => styleProps.secondCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.secondCheck ? '#AD3AEA' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.secondCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card3: {
     '&:after': {
-      content: styleProps => styleProps.thirdCheck ? '"assignment"' : '""',
+      content: styleProps => styleProps.thirdCheck ? '"handyman"' : '""',
       fontSize: styleProps => styleProps.thirdCheck ? 20 : 0,
       width: styleProps => styleProps.thirdCheck ? 30 : 15,
       height: styleProps => styleProps.thirdCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.thirdCheck ? '#1F5099' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.thirdCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card4: {
@@ -206,16 +206,16 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.fourthCheck ? 20 : 0,
       width: styleProps => styleProps.fourthCheck ? 30 : 15,
       height: styleProps => styleProps.fourthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.fourthCheck ? '#FF5755' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.fourthCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card5: {
     '&:after': {
-      content: styleProps => styleProps.fifthCheck ? '"assignment"' : '""',
+      content: styleProps => styleProps.fifthCheck ? '"handyman"' : '""',
       fontSize: styleProps => styleProps.fifthCheck ? 20 : 0,
       width: styleProps => styleProps.fifthCheck ? 30 : 15,
       height: styleProps => styleProps.fifthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.fifthCheck ? '#1F5099' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.fifthCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card6: {
@@ -224,16 +224,16 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
       fontSize: styleProps => styleProps.sixthCheck ? 20 : 0,
       width: styleProps => styleProps.sixthCheck ? 30 : 15,
       height: styleProps => styleProps.sixthCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.sixthCheck ? '#AD3AEA' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.sixthCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   card7: {
     '&:after': {
-      content: styleProps => styleProps.seventhCheck ? '"assignment"' : '""',
+      content: styleProps => styleProps.seventhCheck ? '"handyman"' : '""',
       fontSize: styleProps => styleProps.seventhCheck ? 20 : 0,
       width: styleProps => styleProps.seventhCheck ? 30 : 15,
       height: styleProps => styleProps.seventhCheck ? 30 : 15,
-      backgroundColor: styleProps => styleProps.seventhCheck ? '#1F5099' : theme.palette.timeline.fill,
+      backgroundColor: styleProps => styleProps.seventhCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   '@media only screen and (max-width: 1700px)': {

@@ -45,6 +45,10 @@ const AppTheme: React.FC = () => {
       },
       map: {
         series: '#c4c4c4'
+      },
+      navBar: {
+        main: '#17577e',
+        contrastText: '#fff'
       }
     },
     ...common
@@ -71,6 +75,10 @@ const AppTheme: React.FC = () => {
       },
       map: {
         series: '#233044'
+      },
+      navBar: {
+        main: '#606D88',
+        contrastText: '#fff'
       }
     },
     ...common
@@ -97,6 +105,10 @@ const AppTheme: React.FC = () => {
       },
       map: {
         series: '#1F2833'
+      },
+      navBar: {
+        main: '#66FCF1',
+        contrastText: 'rgba(0, 0, 0, 0.87)'
       }
     },
     ...common
@@ -123,6 +135,10 @@ const AppTheme: React.FC = () => {
       },
       map: {
         series: '#010F17'
+      },
+      navBar: {
+        main: '#C77E23',
+        contrastText: '#fff'
       }
     },
     ...common
