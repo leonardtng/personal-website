@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   about: {
     display: 'flex',
     alignItems: 'center',
+    marginBottom: 100,
   },
   divider: {
     height: 2,
@@ -62,7 +63,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   note: {
     fontStyle: 'oblique',
-    marginBottom: 30,
   },
   '@media only screen and (max-width: 1200px)': {
     ratingsBlock: {
