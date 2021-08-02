@@ -9,6 +9,8 @@ import { ExperienceStyleProps, CardData } from '../../@types';
 import ScrollDownMouse from '../shapes/ScrollDownMouse';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
+import CelebrationMemoji from '../../assets/images/section-memoji/celebration-memoji.png';
+import TitleContainer from '../interactive/TitleContainer';
 
 const SCROLL_THRESHOLD = vh * 0.75;
 const TIMELINE_WIDTH = 6;
@@ -25,17 +27,11 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
     width: '100%',
     backgroundColor: '#7F7F7F',
   },
-  title: {
-    margin: '50px 0 10px',
-    '& h1': {
-      fontWeight: 500,
-    },
-  },
   subtitle: {
     textAlign: 'center',
     color: styleProps => styleProps.scroll ? theme.palette.secondary.main : theme.palette.background.default,
     transition: '0.5s ease',
-    margin: '10px 0',
+    marginBottom: 10,
     '& h2': {
       fontWeight: 500,
       marginBottom: 10,
@@ -452,8 +448,8 @@ const Timeline: React.FC = () => {
   return (
     <Grid container spacing={3} className={classes.experience} id='timeline'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.timeline.title}</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title={info.timeline.title} image={CelebrationMemoji} />
       </Grid>
       <Grid item xs={12} className={classes.subtitle}>
         <Typography variant='h5' component='h2'>{info.timeline.subtitle}</Typography>

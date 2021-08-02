@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { Avatar, ButtonBase } from '@material-ui/core';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import TooltipBasicLayout from '../common/TooltipBasicLayout';
 
 const useStyles = makeStyles<Theme, ThemeToggleButtonsProps>((theme: Theme) => ({
@@ -48,7 +48,7 @@ interface ThemeToggleButtonsProps {
 
 const ThemeToggleButtons: React.FC<ThemeToggleButtonsProps> = (props: ThemeToggleButtonsProps) => {
   const classes = useStyles(props);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext<ThemeContextProps>(ThemeContext);
 
   return (
     <Fragment>

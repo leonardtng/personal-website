@@ -6,6 +6,8 @@ import { GitHub } from '@material-ui/icons';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
+import CodeMemoji from '../../assets/images/section-memoji/code-memoji.png';
+import TitleContainer from '../interactive/TitleContainer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -17,12 +19,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 2,
     width: '100%',
     backgroundColor: '#7F7F7F',
-  },
-  title: {
-    margin: '50px 0 20px',
-    '& h1': {
-      fontWeight: 500,
-    },
   },
   description: {
     paddingBottom: 20,
@@ -55,8 +51,8 @@ const About: React.FC = () => {
   return (
     <Grid container spacing={3} className={classes.about} ref={aboutRef} id='about'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.about.title}</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title={info.about.title} image={CodeMemoji} />
       </Grid>
       <Grid item xs={12} className={classes.description}>
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }}>

@@ -2,6 +2,7 @@ import ProfileImage from '../images/profile/profile.png';
 import ProfileImageDark from '../images/profile/profile-dark.png';
 import ProfileImageAvatar from '../images/profile/profile-avatar.png';
 import ProfileImageDarkAvatar from '../images/profile/profile-dark-avatar.png';
+import ProfileMemoji from '../images/profile/profile-memoji.png';
 import { places } from './places';
 import { pictures } from './pictures';
 import { subsections } from './subsections';
@@ -11,10 +12,11 @@ import { mainPlaces } from './mainPlaces';
 
 export const info: Info = {
   profile: {
-    image: ProfileImage, // Currently used in Navbar
-    imageDark: ProfileImageDark, // Currently unused
+    image: ProfileImage, // Currently used in Profile section
+    imageDark: ProfileImageDark, // Currently used in Profile section
     imageAvatar: ProfileImageAvatar, // Currently unused
-    imageDarkAvatar: ProfileImageDarkAvatar, // Currently used in Profile section
+    imageDarkAvatar: ProfileImageDarkAvatar, // Currently unused
+    imageMemoji: ProfileMemoji,
     captionFirstLine: `I'm an imaginative and fun-loving Software Engineer,`,
     captionSecondLine: ` based in Singapore`
   },

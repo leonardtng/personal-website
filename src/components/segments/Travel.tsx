@@ -10,6 +10,8 @@ import { useScrollPosition, vh, vw } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET, LAST_SECTION_OFFSET } from '../../@constants';
 import { useTheme } from '@material-ui/core';
+import CowboyMemoji from '../../assets/images/section-memoji/cowboy-memoji.png'
+import TitleContainer from '../interactive/TitleContainer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   travel: {
@@ -21,12 +23,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 2,
     width: '100%',
     backgroundColor: '#7F7F7F',
-  },
-  title: {
-    margin: '50px 0 20px',
-    '& h1': {
-      fontWeight: 500,
-    },
   },
   map: {
     marginTop: 50,
@@ -106,8 +102,8 @@ const Travel: React.FC = () => {
   return (
     <Grid container spacing={3} className={classes.travel} ref={travelRef} id='travel'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.travel.title}</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title={info.travel.title} image={CowboyMemoji} />
       </Grid>
       <Grid item xs={12}>
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }}>

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Slide } from '@material-ui/core';
+import { Grid, Slide } from '@material-ui/core';
 import BlogCard from '../interactive/BlogCard';
 import { info } from '../../assets/data/info';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
@@ -8,6 +8,8 @@ import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageVie
 import { CONTAINER_OFFSET } from '../../@constants';
 import useGetApi from '../../@utils/useGetApi';
 import { htmlToText } from '../../@utils/htmlToText';
+import ThinkingMemoji from '../../assets/images/section-memoji/thinking-memoji.png';
+import TitleContainer from '../interactive/TitleContainer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   blog: {
@@ -20,12 +22,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 2,
     width: '100%',
     backgroundColor: '#7F7F7F',
-  },
-  title: {
-    margin: '50px 0 20px',
-    '& h1': {
-      fontWeight: 500,
-    },
   },
   posts: {
     marginTop: 20,
@@ -55,8 +51,8 @@ const Blog: React.FC = () => {
   return (
     <Grid container spacing={3} className={classes.blog} ref={blogRef} id='blog'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.blog.title}</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title={info.blog.title} image={ThinkingMemoji} />
       </Grid>
       <Grid item xs={12} className={classes.posts}>
         {blogDataLoadState.isLoading || !blogDataLoadState.data ? (

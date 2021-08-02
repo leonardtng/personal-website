@@ -1,11 +1,12 @@
 import React, { useRef, useState, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Button, Zoom } from '@material-ui/core';
-import { EmojiPeopleRounded } from '@material-ui/icons';
+import { Grid, Typography, Button, Zoom, Avatar } from '@material-ui/core';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
 import resume from '../../assets/documents/resume.pdf';
+import HelloMemoji from '../../assets/images/section-memoji/hello-memoji.png';
+import TitleContainer from '../interactive/TitleContainer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   contact: {
@@ -18,12 +19,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     backgroundColor: '#7F7F7F',
   },
-  title: {
-    margin: '50px 0 20px',
-    '& h1': {
-      fontWeight: 500,
-    },
-  },
   resume: {
     '& a': {
       textDecoration: 'underline',
@@ -34,6 +29,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 30,
     boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
     animation: '$pulse 1.5s ease infinite',
+    '& .MuiAvatar-root': {
+      height: 55,
+      width: 55
+    }
   },
   '@keyframes pulse': {
     '0%': {
@@ -66,10 +65,10 @@ const Contact: React.FC = () => {
   }, contactRef, false);
 
   return (
-    <Grid container spacing={3} className={classes.contact} id='contact'>
+    <Grid container spacing={3} className={classes.contact} ref={contactRef} id='contact'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1' ref={contactRef}>What I can do for you</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title='What I can do for you' />
       </Grid>
       <Grid item xs={12}>
         <Zoom in={checked}>
@@ -91,7 +90,7 @@ const Contact: React.FC = () => {
           variant='contained'
           color='secondary'
           className={classes.button}
-          startIcon={<EmojiPeopleRounded />}
+          startIcon={<Avatar src={HelloMemoji} variant='rounded' />}
           href='mailto:theleonardtng@gmail.com'
         >
           Contact Me!

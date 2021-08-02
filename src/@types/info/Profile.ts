@@ -3,6 +3,7 @@ export interface ProfileInterface {
     imageDark: string;
     imageAvatar: string;
     imageDarkAvatar: string;
+    imageMemoji: string;
     captionFirstLine: string;
     captionSecondLine: string;
 };

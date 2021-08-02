@@ -9,6 +9,8 @@ import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
+import GoodMemoji from '../../assets/images/section-memoji/good-memoji.png';
+import TitleContainer from '../interactive/TitleContainer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   about: {
@@ -19,12 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 2,
     width: '100%',
     backgroundColor: '#7F7F7F',
-  },
-  title: {
-    margin: '50px 0 20px',
-    '& h1': {
-      fontWeight: 500,
-    },
   },
   italics: {
     fontStyle: 'oblique',
@@ -101,8 +97,8 @@ const Abilities: React.FC = () => {
   return (
     <Grid container spacing={3} className={classes.about} ref={abilitiesRef} id='abilities'>
       <div className={classes.divider} />
-      <Grid item xs={12} className={classes.title}>
-        <Typography variant='h3' component='h1'>{info.abilities.title}</Typography>
+      <Grid item xs={12}>
+        <TitleContainer title={info.abilities.title} image={GoodMemoji} />
       </Grid>
       <Grid item xs={12}>
         <Grow in={checked} timeout={{ enter: 600, exit: 300 }}>

@@ -4,7 +4,6 @@ import { AppBar, Toolbar, Typography, Slide, Button, Grid, Hidden, IconButton, A
 import { GitHub, MenuRounded } from '@material-ui/icons';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
-import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import DrawerMenu from './DrawerMenu';
@@ -71,7 +70,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const NavBar: React.FC = () => {
   const classes = useStyles();
-  const { theme } = useContext<ThemeContextProps>(ThemeContext);
   const { currentPage } = useContext<PageContextProps>(CurrentPageView);
 
   const [checked, setChecked] = useState<boolean>(false);
@@ -93,7 +91,7 @@ const NavBar: React.FC = () => {
             <Hidden mdDown>
               <Grid item xs={1}></Grid>
               <Grid item xs={2} className={classes.headerGroup}>
-                <Avatar alt='Leonard Tng' src={theme === defaultTheme ? info.profile.imageAvatar : info.profile.imageDarkAvatar}></Avatar>
+                <Avatar alt='Leonard Tng' src={info.profile.imageMemoji}></Avatar>
                 <Typography variant='h5' component='h1'>{currentPage}</Typography>
               </Grid>
               <Grid item xs={8} className={classes.buttonGroup}>
