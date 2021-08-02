@@ -27,36 +27,6 @@ const AppTheme: React.FC = () => {
     }
   };
 
-  const sky: Theme = createMuiTheme({
-    palette: {
-      primary: {
-        main: '#17577e',
-      },
-      secondary: {
-        main: '#4086A1',
-      },
-      background: {
-        default: '#E7E7E4',
-        paper: '#A5C9CD', //#63939d
-      },
-      text: {
-        primary: '#121858',
-        secondary:'rgba(0, 0, 0, 0.54)',
-      },
-      timeline: {
-        fill: '#DCD6D2'
-      },
-      map: {
-        series: '#c4c4c4'
-      },
-      navBar: {
-        main: '#17577e',
-        contrastText: '#fff'
-      }
-    },
-    ...common
-  });
-
   const crimson: Theme = createMuiTheme({
     palette: {
       primary: {
@@ -141,6 +111,36 @@ const AppTheme: React.FC = () => {
       },
       navBar: {
         main: '#C77E23',
+        contrastText: '#fff'
+      }
+    },
+    ...common
+  });
+
+  const sky: Theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#17577e',
+      },
+      secondary: {
+        main: '#4086A1',
+      },
+      background: {
+        default: '#E7E7E4',
+        paper: '#A5C9CD', //#63939d
+      },
+      text: {
+        primary: '#121858',
+        secondary:'rgba(0, 0, 0, 0.54)',
+      },
+      timeline: {
+        fill: '#DCD6D2'
+      },
+      map: {
+        series: '#c4c4c4'
+      },
+      navBar: {
+        main: '#17577e',
         contrastText: '#fff'
       }
     },

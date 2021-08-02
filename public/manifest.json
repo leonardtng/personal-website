@@ -1,6 +1,6 @@
 {
   "short_name": "Leonard Tng",
-  "name": "Leonard Tng - Software Engineer Personal Website",
+  "name": "Leonard Tng - Personal Website",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#F7F9FB",
-  "background_color": "#E7E7E4"
+  "theme_color": "#030614",
+  "background_color": "#030614"
 }
