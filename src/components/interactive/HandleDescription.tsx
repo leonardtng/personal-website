@@ -5,7 +5,7 @@ import { IMAGE_HEIGHT } from '../interactive/DialogCarousel';
 import DialogCarousel, { PAPER_OFFSET } from '../interactive/DialogCarousel';
 import { CardDialogContent, CardDialogInfo } from '../../@types';
 import { TransitionProps } from '@material-ui/core/transitions/transition';
-import { ExpandLess, ExpandMore, OpenInNew } from '@material-ui/icons';
+import { ExpandLessRounded, ExpandMoreRounded, OpenInNewRounded } from '@material-ui/icons';
 import { modifyDescription } from '../../@utils/modifyDescription';
 import ThemeToggleButtons from '../buttons/ThemeToggleButtons';
 
@@ -173,7 +173,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
                 <Button
                   variant='contained'
                   color='secondary'
-                  endIcon={<OpenInNew />}
+                  endIcon={<OpenInNewRounded />}
                   href={props.projectLink}
                   target='_blank'
                 >
@@ -189,7 +189,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (props: HandleDescri
                 return <Fragment key={index}>
                   <ListItem button onClick={() => setDropdown(handleChange(index))}>
                     <ListItemText primary={category.infoTitle} className={classes.infoHeader} />
-                    {dropdown[index] ? <ExpandLess /> : <ExpandMore />}
+                    {dropdown[index] ? <ExpandLessRounded /> : <ExpandMoreRounded />}
                   </ListItem>
                   <Typography variant='subtitle2' component='div'>
                     <Collapse in={dropdown[index]} timeout='auto' unmountOnExit>

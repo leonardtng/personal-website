@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Slide, Button, Grid, Hidden, IconButton, Avatar } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import { GitHub, MenuRounded } from '@material-ui/icons';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { info } from '../../assets/data/info';
 import { defaultTheme, ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
@@ -137,7 +136,7 @@ const NavBar: React.FC = () => {
                   <Typography variant='body1' component='h2'><a href={resume} target='_blank' rel='noopener noreferrer'>Resume</a></Typography>
                 </Button>
                 <IconButton href='https://github.com/leonardtng/' target='_blank' rel='noopener' aria-label='GitHub'>
-                  <GitHubIcon />
+                  <GitHub />
                 </IconButton>
               </Grid>
               <Grid item xs={1}></Grid>
@@ -145,7 +144,7 @@ const NavBar: React.FC = () => {
             <Hidden lgUp>
               <Grid item xs={2} className={classes.menuButton}>
                 <IconButton onClick={handleMenuOpen}>
-                  <MenuIcon />
+                  <MenuRounded />
                   <DrawerMenu open={open} setOpen={handleMenuOpen} />
                 </IconButton>
               </Grid>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { MobileStepper, Button, Hidden } from '@material-ui/core';
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons';
+import { KeyboardArrowLeftRounded, KeyboardArrowRightRounded } from '@material-ui/icons';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import { CardDialogImage } from '../../@types';
@@ -101,14 +101,14 @@ const DialogCarousel: React.FC<DialogCarouselProps> = (props: DialogCarouselProp
           nextButton={
             <Hidden xsDown>
               <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} color="primary">
-                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                {theme.direction === 'rtl' ? <KeyboardArrowLeftRounded /> : <KeyboardArrowRightRounded />}
               </Button>
             </Hidden>
           }
           backButton={
             <Hidden xsDown>
               <Button size="small" onClick={handleBack} disabled={activeStep === 0} color="primary">
-                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                {theme.direction === 'rtl' ? <KeyboardArrowRightRounded /> : <KeyboardArrowLeftRounded />}
               </Button>
             </Hidden>
           }

@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab } from '@material-ui/core';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { KeyboardArrowUpRounded, PaletteRounded}  from '@material-ui/icons';
 import { vh, vw } from '../../@utils/useScrollPosition';
-import PaletteIcon from '@material-ui/icons/Palette';
 import ThemeToggleButtons from './ThemeToggleButtons';
 import TooltipBasicLayout from '../common/TooltipBasicLayout';
 
@@ -81,7 +80,7 @@ const FloatingButtons = () => {
             <ThemeToggleButtons size="medium" />
           </div>
           <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
-            <PaletteIcon />
+            <PaletteRounded />
           </Fab>
         </div>
       </Zoom>
@@ -89,7 +88,7 @@ const FloatingButtons = () => {
         <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
           <TooltipBasicLayout title='Scroll to Top' placement='top'>
             <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
-              <KeyboardArrowUpIcon />
+              <KeyboardArrowUpRounded />
             </Fab>
           </TooltipBasicLayout>
         </div>

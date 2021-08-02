@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Button, Zoom } from '@material-ui/core';
-import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import { EmojiPeopleRounded } from '@material-ui/icons';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
           variant='contained'
           color='secondary'
           className={classes.button}
-          startIcon={<EmojiPeopleIcon />}
+          startIcon={<EmojiPeopleRounded />}
           href='mailto:theleonardtng@gmail.com'
         >
           Contact Me!

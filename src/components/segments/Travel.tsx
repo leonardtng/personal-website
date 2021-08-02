@@ -1,8 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Box, Grow, Button } from '@material-ui/core';
-import PublicIcon from '@material-ui/icons/Public';
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import { FlightTakeoffRounded, PublicRounded } from '@material-ui/icons';
 import AnimatedWorldMap from '../interactive/AnimatedWorldMap';
 import WorldMap from '../interactive/WorldMap';
 import Gallery from '../interactive/Gallery';
@@ -130,9 +129,9 @@ const Travel: React.FC = () => {
         <div className={classes.mapChangeButton}>
           <Button color='secondary' variant='contained' size={vw < 600 ? 'small' : 'medium'} className={clicked ? undefined : classes.buttonAnimation} onClick={handleChangeMap}>
             {animatedMap ? (
-              <PublicIcon />
+              <PublicRounded />
             ) : (
-                <FlightTakeoffIcon />
+                <FlightTakeoffRounded />
               )}
             {animatedMap ? (
               'Click for world map!'

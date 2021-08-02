@@ -3,11 +3,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Grow, Link } from '@material-ui/core';
 import Stack from '../interactive/Stack';
 import RatingComponent from '../interactive/RatingComponent';
-import StarIcon from '@material-ui/icons/Star';
-import ChatIcon from '@material-ui/icons/Chat';
-import BuildIcon from '@material-ui/icons/Build';
+import { OpenInNewRounded, StarRounded, ChatRounded, BuildRounded } from '@material-ui/icons';
 import { info } from '../../assets/data/info';
-import OpenInNewRoundedIcon from '@material-ui/icons/OpenInNewRounded';
 import { Ability } from '../../@types';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
@@ -117,8 +114,8 @@ const Abilities: React.FC = () => {
         <Stack checked={checked} />
       </Grid>
       <Grid item xs={12} className={classes.italics}>
-        <Link href="https://github.com/leonardtng/personal-website" target='_blank' rel="noopener" aria-label="GitHub Personal Website"> 
-          <Typography variant='body1' component='p' color="textSecondary">This project was built with React</Typography> <OpenInNewRoundedIcon />
+        <Link href="https://github.com/leonardtng/personal-website" target='_blank' rel="noopener" aria-label="GitHub Personal Website">
+          <Typography variant='body1' component='p' color="textSecondary">This project was built with React</Typography> <OpenInNewRounded />
         </Link>
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
@@ -126,12 +123,12 @@ const Abilities: React.FC = () => {
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.skills.itemsBlockLeft.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<StarIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<StarRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.skills.itemsBlockRight.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<StarIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<StarRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
@@ -139,12 +136,12 @@ const Abilities: React.FC = () => {
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.languages.itemsBlockLeft.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<ChatIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<ChatRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.languages.itemsBlockRight.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<ChatIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<ChatRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} className={classes.subheader}>
@@ -152,12 +149,12 @@ const Abilities: React.FC = () => {
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.tools.itemsBlockLeft.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<BuildIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<BuildRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} sm={6} className={classes.ratingsBlock}>
         {info.abilities.subsections.tools.itemsBlockRight.map((item: Ability) => {
-          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<BuildIcon fontSize="inherit" />} />
+          return <RatingComponent key={item.legend} legend={item.legend} value={item.value} icon={<BuildRounded fontSize="inherit" />} />
         })}
       </Grid>
       <Grid item xs={12} className={classes.note}>

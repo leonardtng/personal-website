@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography, Grow, Button } from '@material-ui/core';
 import { info } from '../../assets/data/info';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import { GitHub } from '@material-ui/icons';
 import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
 import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
 import { CONTAINER_OFFSET } from '../../@constants';
@@ -74,7 +74,7 @@ const About: React.FC = () => {
             variant='contained'
             color='secondary'
             className={classes.button}
-            startIcon={<GitHubIcon />}
+            startIcon={<GitHub />}
             href='https://github.com/leonardtng'
             target='_blank'
             rel="noopener"
