@@ -274,11 +274,11 @@ export const cards: Array<CardData> = [
     title: `Dathena`,
     date: `May 2021 - Aug 2021`,
     role: `Software Engineer Intern`,
-    description: `My time at this energetic deep-tech AI and cybersecurity company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
-    of the brightest software engineers and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
+    description: `My time at this energetic deep-tech AI and data protection company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
+    of the brightest software engineers, product managers, and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
     complex enterprise-level product, the best practices of managing a gigantic codebase, and even got the opportunity to lead two sprints as a scrum master in the company's
-    agile software development workflow. While the initial onboarding was indeed challenging, overcoming this phase was definitely rewarding as I was able to contribute greatly
-    to their flagship product, Dathena Security, which ships to a multitude of international clients. Knowing that the code I have written will positively impact a client's data
+    agile software development workflow. While the initial onboarding was indeed challenging, overcoming this phase was certainly rewarding as I was able to contribute greatly
+    to their flagship product, Dathena Security, which will ship to a multitude of clients internationally. Knowing that the code I have written will positively impact a client's data
     security definitely makes my few months at Dathena all the more fulfilling.`,
     image: DathenaCover,
     cardDialogContent: {
@@ -295,6 +295,7 @@ export const cards: Array<CardData> = [
             `React`,
             `TypeScript`,
             `Redux`,
+            `styled-components`,
             `D3.js`,
             `React Testing Library`,
             `Jira`

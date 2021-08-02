@@ -21,6 +21,9 @@ const AppTheme: React.FC = () => {
     typography: {
       fontFamily: "'Inconsolata', sans-serif !important",
       fontSize: 15,
+    },
+    shape: {
+      borderRadius: 8,
     }
   };
 

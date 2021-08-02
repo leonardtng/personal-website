@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 30,
     boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
     animation: '$pulse 1.5s ease infinite',
+    fontSize: '1.2rem',
+    borderRadius: 12,
     '& .MuiAvatar-root': {
       height: 55,
       width: 55

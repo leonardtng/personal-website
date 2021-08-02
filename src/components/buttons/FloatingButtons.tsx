@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useScrollTrigger, Zoom, Fab } from '@material-ui/core';
-import { KeyboardArrowUpRounded, PaletteRounded}  from '@material-ui/icons';
+import { KeyboardArrowUpRounded, PaletteRounded } from '@material-ui/icons';
 import { vh, vw } from '../../@utils/useScrollPosition';
 import ThemeToggleButtons from './ThemeToggleButtons';
 import TooltipBasicLayout from '../common/TooltipBasicLayout';
@@ -35,7 +35,24 @@ const useStyles = makeStyles((theme: Theme) => ({
         height: (theme.spacing(5) + 10 + 6) * 4 + 10 + theme.spacing(7) / 2,
         // (dimensions of toggle button + margin + border width) + margin from buttons to fab + half of fab dimensions
       }
+    },
+    '& .MuiFab-root': {
+      background: 'linear-gradient(-45deg, #EC407A, #C77E23, #72B339, #66FCF1, #9fb3c8, #4086A1, #606D88, #17577e)',
+      backgroundSize: '1200% 100%',
+      animation: '$gradient-change 15s ease infinite',
+      color: theme.palette.primary.contrastText
     }
+  },
+  '@keyframes gradient-change': {
+    '0%': {
+      backgroundPosition: '0% 50%',
+    },
+    '50%': {
+      backgroundPosition: '100% 50%',
+    },
+    '100%': {
+      backgroundPosition: '0% 50%',
+    },
   },
   '@media only screen and (max-width: 600px)': {
     arrow: {
@@ -79,7 +96,7 @@ const FloatingButtons = () => {
           <div id="theme-drawer">
             <ThemeToggleButtons size="medium" />
           </div>
-          <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
+          <Fab color='primary' size={vw < 600 ? 'medium' : 'large'}>
             <PaletteRounded />
           </Fab>
         </div>
@@ -87,7 +104,7 @@ const FloatingButtons = () => {
       <Zoom in={trigger} style={{ transitionDelay: trigger ? '300ms' : '0ms' }}>
         <div onClick={handleScrollClick} role='presentation' className={classes.arrow}>
           <TooltipBasicLayout title='Scroll to Top' placement='top'>
-            <Fab color='secondary' size={vw < 600 ? 'medium' : 'large'}>
+            <Fab color='primary' size={vw < 600 ? 'medium' : 'large'}>
               <KeyboardArrowUpRounded />
             </Fab>
           </TooltipBasicLayout>
