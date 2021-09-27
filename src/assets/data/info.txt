@@ -27,7 +27,7 @@ such as implementing different themes (try it out!), using React hooks, and bein
 
 Yale-NUS: 
 
-I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.
+I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited to join this thriving liberal arts college, what the future holds for me here remains to be seen.
 
 CodeCache:
 
@@ -35,6 +35,14 @@ My first full-stack project I designed, built and deployed during my first semes
 this project started off as a simple idea for a site that can store my code snippets. I eventually saw this idea through to build the final product, complete 
 with its own authentication system and fully functional code editor in a clean and simple UI. This project has allowed me to 
 improve on both my front-end and back-end skills, as well as important development tools such as AWS EC2, Lambda, and Docker.
+
+Love Letter Generator:
+
+This project is a simple love letter generator which I had a lot of fun building for Valentine's Day in 2021. 
+It was initially meant as a modern spinoff of a love letter generator made back in the 1950s by one of the first software engineers, 
+Christopher Strachey, which a college professor, Professor Olivier Danvy, showed me after a computer science class (link can be found at the footer of the project).
+Surprisingly, the project itself became semi-viral on Valentine's and many of the letters exchanged on college was actually from the generator. 
+Professor Danvy loved it and even decided to add my name to his roster of Computer Scientists in his lecture notes right underneath Christopher Strachy himself!
 
 Dathena:
 My time at this energetic deep-tech AI and data protection company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
@@ -50,6 +58,15 @@ state management library Redux, atomic design, and project management. After tin
 Redux, I eventually decided to create a simple UI to display this data, through the use of charts and graphs in a clean dashboard. 
 This project has allowed me to improve on my front-end skills, learn useful libraries such as Redux, and implement the
 atomic design file structure on top of managing the entire project with the tools provided by GitHub Projects.
+
+Saving Yale-NUS:
+On 27 August 2021, the National University of Singapore announced the plan to ‘merge’ Yale-NUS College 
+with the University Scholars Programme by 2025. In short: The Yale-NUS we knew would be gone in four years.
+The announcement and its finality were a complete shock to some 2,500 Yale-NUS staff, faculty, students and alumni. 
+As a result, I came together with a few of my friends to work on this website to consolidate the reflections and expressions 
+of grief by the college community, consisting of poems, artworks, essays, etc. We hope that this website serves as an archive of these
+commemorations, and will never be forgotten even long after the college ceases to exist.
+The website uses Python scripts that converts content from Google Forms into a markdown file which is then rendered on a NextJS blog.
 
 What I can do:
 

@@ -216,7 +216,7 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   card6: {
     '&:after': {
-      content: styleProps => styleProps.sixthCheck ? '"work"' : '""',
+      content: styleProps => styleProps.sixthCheck ? '"handyman"' : '""',
       fontSize: styleProps => styleProps.sixthCheck ? 20 : 0,
       width: styleProps => styleProps.sixthCheck ? 30 : 15,
       height: styleProps => styleProps.sixthCheck ? 30 : 15,
@@ -225,11 +225,29 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
   },
   card7: {
     '&:after': {
-      content: styleProps => styleProps.seventhCheck ? '"handyman"' : '""',
+      content: styleProps => styleProps.seventhCheck ? '"work"' : '""',
       fontSize: styleProps => styleProps.seventhCheck ? 20 : 0,
       width: styleProps => styleProps.seventhCheck ? 30 : 15,
       height: styleProps => styleProps.seventhCheck ? 30 : 15,
       backgroundColor: styleProps => styleProps.seventhCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
+    },
+  },
+  card8: {
+    '&:after': {
+      content: styleProps => styleProps.eighthCheck ? '"handyman"' : '""',
+      fontSize: styleProps => styleProps.eighthCheck ? 20 : 0,
+      width: styleProps => styleProps.eighthCheck ? 30 : 15,
+      height: styleProps => styleProps.eighthCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.eighthCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
+    },
+  },
+  card9: {
+    '&:after': {
+      content: styleProps => styleProps.eighthCheck ? '"handyman"' : '""',
+      fontSize: styleProps => styleProps.eighthCheck ? 20 : 0,
+      width: styleProps => styleProps.eighthCheck ? 30 : 15,
+      height: styleProps => styleProps.eighthCheck ? 30 : 15,
+      backgroundColor: styleProps => styleProps.eighthCheck ? theme.palette.secondary.main : theme.palette.timeline.fill,
     },
   },
   '@media only screen and (max-width: 1700px)': {
@@ -371,6 +389,8 @@ const Timeline: React.FC = () => {
   const fifthRef = useRef<HTMLSpanElement>(null);
   const sixthRef = useRef<HTMLSpanElement>(null);
   const seventhRef = useRef<HTMLSpanElement>(null);
+  const eighthRef = useRef<HTMLSpanElement>(null);
+  const ninthRef = useRef<HTMLSpanElement>(null);
 
   const [scroll, setScroll] = useState<number>(0);
   const containerHeight = timelineRef.current?.clientHeight;
@@ -382,6 +402,8 @@ const Timeline: React.FC = () => {
   const [fifthCheck, setFifthCheck] = useState<boolean>(false);
   const [sixthCheck, setSixthCheck] = useState<boolean>(false);
   const [seventhCheck, setSeventhCheck] = useState<boolean>(false);
+  const [eighthCheck, setEighthCheck] = useState<boolean>(false);
+  const [ninthCheck, setNinthCheck] = useState<boolean>(false);
 
   useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setFirstCheck(true) : setFirstCheck(false);
@@ -412,6 +434,14 @@ const Timeline: React.FC = () => {
   }, seventhRef, false);
 
   useScrollPosition(({ currPos }: any) => {
+    currPos.y < SCROLL_THRESHOLD + 40 ? setEighthCheck(true) : setEighthCheck(false);
+  }, eighthRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
+    currPos.y < SCROLL_THRESHOLD + 40 ? setNinthCheck(true) : setNinthCheck(false);
+  }, ninthRef, false);
+
+  useScrollPosition(({ currPos }: any) => {
     currPos.y < SCROLL_THRESHOLD + 40 ? setScroll(-(currPos.y - SCROLL_THRESHOLD)) : setScroll(0);
     if (containerHeight) {
       if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Timeline');
@@ -426,6 +456,8 @@ const Timeline: React.FC = () => {
     fifthCheck: fifthCheck,
     sixthCheck: sixthCheck,
     seventhCheck: seventhCheck,
+    eighthCheck: eighthCheck,
+    ninthCheck: ninthCheck,
     scroll: timelineRef.current ? scroll : 0,
     maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   }
@@ -513,6 +545,22 @@ const Timeline: React.FC = () => {
                 <div>
                   {cardList[6]}
                   <span ref={seventhRef} />
+                </div>
+              </Slide>
+            </ListItem>
+            <ListItem className={classes.card8}>
+              <Slide in={eighthCheck} direction={getSlideDirection(7)}>
+                <div>
+                  {cardList[7]}
+                  <span ref={eighthRef} />
+                </div>
+              </Slide>
+            </ListItem>
+            <ListItem className={classes.card9}>
+              <Slide in={ninthCheck} direction={getSlideDirection(8)}>
+                <div>
+                  {cardList[8]}
+                  <span ref={ninthRef} />
                 </div>
               </Slide>
             </ListItem>

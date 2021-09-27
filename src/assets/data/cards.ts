@@ -3,8 +3,10 @@ import BoogleCover from '../images/cards/boogle/boogle-hq.jpg';
 import PersonalWebsiteV1Cover from '../images/cards/personal-website-v1/personal-website-v1.png';
 import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
 import CodeCacheCover from '../images/cards/codecache/codecache.png';
+import LoveLetterGeneratorCover from '../images/cards/love-letter-generator/love-letter-generator.png';
 import DathenaCover from '../images/cards/dathena/dathena.png';
 import CryptoscapesCover from '../images/cards/cryptoscapes/cryptoscapes.png';
+import SavingYaleNusCover from '../images/cards/saving-yale-nus/saving-yale-nus.png';
 import { CardData } from '../../@types';
 
 import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
@@ -20,12 +22,21 @@ import C2 from '../images/cards/codecache/carousel2.png';
 import C3 from '../images/cards/codecache/carousel3.png';
 import C4 from '../images/cards/codecache/carousel4.png';
 import C5 from '../images/cards/codecache/carousel5.png';
+import LLG1 from '../images/cards/love-letter-generator/carousel1.png';
+import LLG2 from '../images/cards/love-letter-generator/carousel2.png';
+import D1 from '../images/cards/dathena/carousel1.jpg'
+import D2 from '../images/cards/dathena/carousel2.jpg'
 import CS1 from '../images/cards/cryptoscapes/carousel1.png';
 import CS2 from '../images/cards/cryptoscapes/carousel2.png';
 import CS3 from '../images/cards/cryptoscapes/carousel3.png';
 import CS4 from '../images/cards/cryptoscapes/carousel4.png';
 import CS5 from '../images/cards/cryptoscapes/carousel5.png';
 import CS6 from '../images/cards/cryptoscapes/carousel6.png';
+import SYNC1 from '../images/cards/saving-yale-nus/carousel1.png';
+import SYNC2 from '../images/cards/saving-yale-nus/carousel2.png';
+import SYNC3 from '../images/cards/saving-yale-nus/carousel3.png';
+import SYNC4 from '../images/cards/saving-yale-nus/carousel4.png';
+import SYNC5 from '../images/cards/saving-yale-nus/carousel5.png';
 
 export const cards: Array<CardData> = [
   {
@@ -159,8 +170,8 @@ export const cards: Array<CardData> = [
   {
     title: `Yale-NUS College`,
     date: `July 2020 - Present`,
-    role: `Undergraduate`,
-    description: `I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited, what the future holds for me here remains to be seen.`,
+    role: `Bachelor of Science, Computer Science`,
+    description: `I am currently a sophomore at Yale-NUS College in the class of 2024. While I cannot be more excited to join this thriving liberal arts college, what the future holds for me here remains to be seen.`,
     image: YaleNusCover,
     cardDialogContent: {
       carousel: [
@@ -271,6 +282,41 @@ export const cards: Array<CardData> = [
     }
   },
   {
+    title: `Love Letter Generator`,
+    date: `Launched February 2021`,
+    role: `Compose Romantic Letters!`,
+    description: `This project is a simple love letter generator which I had a lot of fun building for Valentine's Day in 2021. 
+    It was initially meant as a modern spinoff of a love letter generator made back in the 1950s by one of the first software engineers, 
+    Christopher Strachey, which a college professor, Professor Olivier Danvy, showed me after a computer science class (link can be found at the footer of the project).
+    Surprisingly, the project itself became semi-viral on Valentine's and many of the letters exchanged on college was actually from the generator. 
+    Professor Danvy loved it and even decided to add my name to his roster of Computer Scientists in his lecture notes 
+    right underneath Christopher Strachy himself!`,
+    projectLink: `https://www.lovelettergenerator.com`,
+    image: LoveLetterGeneratorCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `Love Letter Generator`,
+          image: LLG1
+        },
+        {
+          caption: `Love Letter Generator Landing Page`,
+          image: LLG2
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Stack`,
+          infoItems: [
+            `React`,
+            `TypeScript`,
+            `AWS`
+          ]
+        }
+      ]
+    }
+  },
+  {
     title: `Dathena`,
     date: `May 2021 - Aug 2021`,
     role: `Software Engineer Intern`,
@@ -286,6 +332,14 @@ export const cards: Array<CardData> = [
         {
           caption: `Dathena`,
           image: DathenaCover
+        },
+        {
+          caption: `Dathena Social House`,
+          image: D1
+        },
+        {
+          caption: `Dathena Backend Team`,
+          image: D2
         },
       ],
       infoList: [
@@ -353,6 +407,55 @@ export const cards: Array<CardData> = [
             `React`,
             `TypeScript`,
             `Redux`,
+            `AWS`
+          ]
+        }
+      ]
+    }
+  },
+  {
+    title: `Saving Yale-NUS`,
+    date: `Launched September 2021`,
+    role: `A Collection of Memoirs for Our College`,
+    description: `On 27 August 2021, the National University of Singapore announced the plan to ‘merge’ Yale-NUS College 
+    with the University Scholars Programme by 2025. In short: The Yale-NUS we knew would be gone in four years.
+    The announcement and its finality were a complete shock to some 2,500 Yale-NUS staff, faculty, students and alumni. 
+    As a result, I came together with a few of my friends to work on this website to consolidate the reflections and expressions 
+    of grief by the college community, consisting of poems, artworks, essays, etc. We hope that this website serves as an archive of these
+    commemorations, and will never be forgotten even long after the college ceases to exist.
+    The website uses Python scripts that converts content from Google Forms into a markdown file which is then rendered on a NextJS blog.`,
+    projectLink: `https://www.savingyalenus.com`,
+    image: SavingYaleNusCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `Saving Yale-NUS`,
+          image: SYNC1
+        },
+        {
+          caption: `Saving Yale-NUS Artwork Post`,
+          image: SYNC2
+        },
+        {
+          caption: `Saving Yale-NUS Poem Post`,
+          image: SYNC3
+        },
+        {
+          caption: `Saving Yale-NUS All Stories Page`,
+          image: SYNC4
+        },
+        {
+          caption: `Saving Yale-NUS About Page`,
+          image: SYNC5
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Stack`,
+          infoItems: [
+            `NextJS`,
+            `TypeScript`,
+            `Python`,
             `AWS`
           ]
         }

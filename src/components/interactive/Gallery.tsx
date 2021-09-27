@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       borderRadius: 10,
     },
     '& .MuiTypography-root': {
+      textAlign: 'center',
       fontStyle: 'oblique',
       color: '#ffffff',
     },
@@ -115,7 +116,7 @@ const Gallery: React.FC = () => {
         TransitionComponent={Transition}
       >
         <img src={enlarge.img} alt={enlarge.caption} />
-        <Typography variant='h6' component='caption'>{enlarge.caption}</Typography>
+        <Typography variant='h6' component='p'>{enlarge.caption}</Typography>
       </Dialog>
     </div>
   );
