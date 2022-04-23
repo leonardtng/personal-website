@@ -1,21 +1,23 @@
 import { vw } from "./useScrollPosition";
 
-const getMaxChar = () => { 
+const getMaxChar = (range?: number[]) => {
+  const wordCount = range ?? [105, 255, 355, 305, 355]
+
   if (vw < 600) {
-    return 105
+    return wordCount[0]
   } else if (vw < 960) {
-    return 255
+    return wordCount[1]
   } else if (vw < 1200) {
-    return 355
+    return wordCount[2]
   } else if (vw < 1400) {
-    return 305
+    return wordCount[3]
   } else {
-    return 355
+    return wordCount[4]
   }
 }
 
-export const modifyDescription = (description: string) => {
-  const maxChars = getMaxChar()
+export const modifyDescription = (description: string, range?: number[]) => {
+  const maxChars = getMaxChar(range)
 
   if (description.length > maxChars) {
     const newDescription = description.slice(0, (maxChars - 5)) + ' ...'

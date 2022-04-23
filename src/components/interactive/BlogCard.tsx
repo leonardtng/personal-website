@@ -1,38 +1,47 @@
-import React from 'react';
-import { Theme, makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, Typography, Link, CardActionArea, Hidden } from '@material-ui/core';
-import Skeleton from '@material-ui/lab/Skeleton';
-import MediumLogo from '../../assets/images/medium.svg';
+import React from "react";
+import { Theme, makeStyles } from "@material-ui/core/styles";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Link,
+  CardActionArea,
+  Hidden,
+} from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
+import MediumLogo from "../../assets/images/medium.svg";
+import { modifyDescription } from "../../@utils/modifyDescription";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
     height: 240,
   },
   details: {
-    display: 'flex',
-    flexDirection: 'column',
-    textAlign: 'justify',
-    alignItems: 'flex-start'
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "justify",
+    alignItems: "flex-start",
   },
   content: {
-    flex: '1 0 auto',
-    '& #date': {
-      position: 'absolute',
+    flex: "1 0 auto",
+    "& #date": {
+      position: "absolute",
       bottom: 15,
       right: 15,
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
     },
   },
   skeleton: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
-    textAlign: 'left',
-    width: '100%'
+    textAlign: "left",
+    width: "100%",
   },
   cover: {
-    float: 'left',
+    float: "left",
     width: 400,
   },
   mediumLogo: {
@@ -41,23 +50,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: 20,
     opacity: 0.6,
   },
-  '@media (max-width: 1200px)': {
+  "@media (max-width: 1200px)": {
     cover: {
       width: 300,
     },
   },
-  '@media (max-width: 600px)': {
+  "@media (max-width: 600px)": {
     root: {
       height: 150,
     },
     details: {
-      textAlign: 'left',
-      '& h4': {
-        fontSize: '1rem',
-        marginBottom: 15
+      textAlign: "left",
+      "& h4": {
+        fontSize: "1rem",
+        marginBottom: 15,
       },
-      '& #date': {
-        fontSize: '0.5rem',
+      "& #date": {
+        fontSize: "0.5rem",
         bottom: 10,
         right: 10,
       },
@@ -70,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: 10,
       marginRight: 10,
     },
-  }
+  },
 }));
 
 interface BlogCardProps {
@@ -84,48 +93,70 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = (props: BlogCardProps) => {
   const classes = useStyles();
-
+  console.log(props);
   return (
-    <Link href={props.link} target='_blank' style={{ textDecoration: 'none' }} rel="noopener" aria-label="Medium">
+    <Link
+      href={props.link}
+      target="_blank"
+      style={{ textDecoration: "none" }}
+      rel="noopener"
+      aria-label="Medium"
+    >
       <Card className={classes.root} elevation={5}>
         {props.isLoading ? (
-          <Skeleton className={classes.cover} animation='wave' variant='rect' height={240} />
+          <Skeleton
+            className={classes.cover}
+            animation="wave"
+            variant="rect"
+            height={240}
+          />
         ) : (
-            <CardMedia
-              className={classes.cover}
-              image={props.image}
-              title={props.title}
-            />
-          )}
+          <CardMedia
+            className={classes.cover}
+            image={props.image}
+            title={props.title}
+          />
+        )}
         <CardActionArea className={classes.details}>
           {props.isLoading ? (
             <CardContent className={classes.skeleton}>
-              <Skeleton animation='wave' width='65%' height='5rem' />
-              <Skeleton animation='wave' width='80%' height='2rem' />
-              <Skeleton animation='wave' width='90%' height='2rem' />
-              <Skeleton animation='wave' width='70%' height='2rem' />
-              <Skeleton animation='wave' width='60%' height='2rem' />
+              <Skeleton animation="wave" width="65%" height="5rem" />
+              <Skeleton animation="wave" width="80%" height="2rem" />
+              <Skeleton animation="wave" width="90%" height="2rem" />
+              <Skeleton animation="wave" width="70%" height="2rem" />
+              <Skeleton animation="wave" width="60%" height="2rem" />
             </CardContent>
           ) : (
-              <CardContent className={classes.content}>
-                <Typography variant='h6' component='h4' gutterBottom>
-                  {props.title}
+            <CardContent className={classes.content}>
+              <Typography variant="h6" component="h4" gutterBottom>
+                {props.title}
+              </Typography>
+              <Hidden xsDown>
+                <Typography
+                  variant="subtitle1"
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  {modifyDescription(
+                    props.description,
+                    [50, 80, 120, 200, 350]
+                  )}
                 </Typography>
-                <Hidden xsDown>
-                  <Typography variant='subtitle1' color='textSecondary' gutterBottom>
-                    {props.description}
-                  </Typography>
-                </Hidden>
-                <Typography variant='body2' component='div' id='date'>
-                  <img src={MediumLogo} alt='Medium' className={classes.mediumLogo} />
-                  {props.pubDate}
-                </Typography>
-              </CardContent>
-            )}
+              </Hidden>
+              <Typography variant="body2" component="div" id="date">
+                <img
+                  src={MediumLogo}
+                  alt="Medium"
+                  className={classes.mediumLogo}
+                />
+                {props.pubDate}
+              </Typography>
+            </CardContent>
+          )}
         </CardActionArea>
       </Card>
     </Link>
   );
-}
+};
 
-export default BlogCard
+export default BlogCard;
