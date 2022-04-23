@@ -93,7 +93,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = (props: BlogCardProps) => {
   const classes = useStyles();
-  console.log(props);
+
   return (
     <Link
       href={props.link}
