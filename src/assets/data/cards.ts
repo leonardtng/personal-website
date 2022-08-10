@@ -1,42 +1,55 @@
-import NjcCover from '../images/cards/national-junior-college/national-junior-college-1024x683.jpg';
-import BoogleCover from '../images/cards/boogle/boogle-hq.jpg';
-import PersonalWebsiteV1Cover from '../images/cards/personal-website-v1/personal-website-v1.png';
-import YaleNusCover from '../images/cards/yale-nus/yale-nus.png';
-import CodeCacheCover from '../images/cards/codecache/codecache.png';
-import LoveLetterGeneratorCover from '../images/cards/love-letter-generator/love-letter-generator.png';
-import DathenaCover from '../images/cards/dathena/dathena.png';
-import CryptoscapesCover from '../images/cards/cryptoscapes/cryptoscapes.png';
-import SavingYaleNusCover from '../images/cards/saving-yale-nus/saving-yale-nus.png';
-import { CardData } from '../../@types';
+import NjcCover from "../images/cards/national-junior-college/national-junior-college-1024x683.jpg";
+import BoogleCover from "../images/cards/boogle/boogle-hq.jpg";
+import PersonalWebsiteV1Cover from "../images/cards/personal-website-v1/personal-website-v1.png";
+import YaleNusCover from "../images/cards/yale-nus/yale-nus.png";
+import CodeCacheCover from "../images/cards/codecache/codecache.png";
+import LoveLetterGeneratorCover from "../images/cards/love-letter-generator/love-letter-generator.png";
+import DathenaCover from "../images/cards/dathena/dathena.png";
+import CryptoscapesCover from "../images/cards/cryptoscapes/cryptoscapes.png";
+import SavingYaleNusCover from "../images/cards/saving-yale-nus/saving-yale-nus.png";
+import BytedanceCover from "../images/cards/bytedance/bytedance.png";
+import ApeWallpapers from "../images/cards/ape-wallpapers/ape-wallpapers.png";
 
-import NJC1 from '../images/cards/national-junior-college/carousel1.jpg';
-import Boogle1 from '../images/cards/boogle/carousel1.jpg';
-import Boogle2 from '../images/cards/boogle/carousel2.jpg';
-import PW1 from '../images/cards/personal-website-v1/carousel1.png';
-import PW2 from '../images/cards/personal-website-v1/carousel2.png';
-import YNC1 from '../images/cards/yale-nus/carousel1.jpg';
-import YNC2 from '../images/cards/yale-nus/carousel2.jpg';
-import YNC3 from '../images/cards/yale-nus/carousel3.jpg';
-import C1 from '../images/cards/codecache/carousel1.png';
-import C2 from '../images/cards/codecache/carousel2.png';
-import C3 from '../images/cards/codecache/carousel3.png';
-import C4 from '../images/cards/codecache/carousel4.png';
-import C5 from '../images/cards/codecache/carousel5.png';
-import LLG1 from '../images/cards/love-letter-generator/carousel1.png';
-import LLG2 from '../images/cards/love-letter-generator/carousel2.png';
-import D1 from '../images/cards/dathena/carousel1.jpg'
-import D2 from '../images/cards/dathena/carousel2.jpg'
-import CS1 from '../images/cards/cryptoscapes/carousel1.png';
-import CS2 from '../images/cards/cryptoscapes/carousel2.png';
-import CS3 from '../images/cards/cryptoscapes/carousel3.png';
-import CS4 from '../images/cards/cryptoscapes/carousel4.png';
-import CS5 from '../images/cards/cryptoscapes/carousel5.png';
-import CS6 from '../images/cards/cryptoscapes/carousel6.png';
-import SYNC1 from '../images/cards/saving-yale-nus/carousel1.png';
-import SYNC2 from '../images/cards/saving-yale-nus/carousel2.png';
-import SYNC3 from '../images/cards/saving-yale-nus/carousel3.png';
-import SYNC4 from '../images/cards/saving-yale-nus/carousel4.png';
-import SYNC5 from '../images/cards/saving-yale-nus/carousel5.png';
+import { CardData } from "../../@types";
+
+import NJC1 from "../images/cards/national-junior-college/carousel1.jpg";
+import Boogle1 from "../images/cards/boogle/carousel1.jpg";
+import Boogle2 from "../images/cards/boogle/carousel2.jpg";
+import PW1 from "../images/cards/personal-website-v1/carousel1.png";
+import PW2 from "../images/cards/personal-website-v1/carousel2.png";
+import YNC1 from "../images/cards/yale-nus/carousel1.jpg";
+import YNC2 from "../images/cards/yale-nus/carousel2.jpg";
+import YNC3 from "../images/cards/yale-nus/carousel3.jpg";
+import C1 from "../images/cards/codecache/carousel1.png";
+import C2 from "../images/cards/codecache/carousel2.png";
+import C3 from "../images/cards/codecache/carousel3.png";
+import C4 from "../images/cards/codecache/carousel4.png";
+import C5 from "../images/cards/codecache/carousel5.png";
+import LLG1 from "../images/cards/love-letter-generator/carousel1.png";
+import LLG2 from "../images/cards/love-letter-generator/carousel2.png";
+import D1 from "../images/cards/dathena/carousel1.jpg";
+import D2 from "../images/cards/dathena/carousel2.jpg";
+import CS1 from "../images/cards/cryptoscapes/carousel1.png";
+import CS2 from "../images/cards/cryptoscapes/carousel2.png";
+import CS3 from "../images/cards/cryptoscapes/carousel3.png";
+import CS4 from "../images/cards/cryptoscapes/carousel4.png";
+import CS5 from "../images/cards/cryptoscapes/carousel5.png";
+import CS6 from "../images/cards/cryptoscapes/carousel6.png";
+import SYNC1 from "../images/cards/saving-yale-nus/carousel1.png";
+import SYNC2 from "../images/cards/saving-yale-nus/carousel2.png";
+import SYNC3 from "../images/cards/saving-yale-nus/carousel3.png";
+import SYNC4 from "../images/cards/saving-yale-nus/carousel4.png";
+import SYNC5 from "../images/cards/saving-yale-nus/carousel5.png";
+import BD1 from "../images/cards/bytedance/carousel1.png";
+import BD2 from "../images/cards/bytedance/carousel2.png";
+import BD3 from "../images/cards/bytedance/carousel3.png";
+import BD4 from "../images/cards/bytedance/carousel4.png";
+import BD5 from "../images/cards/bytedance/carousel5.png";
+import BD6 from "../images/cards/bytedance/carousel6.png";
+import AW1 from "../images/cards/ape-wallpapers/carousel1.png";
+import AW2 from "../images/cards/ape-wallpapers/carousel2.png";
+import AW3 from "../images/cards/ape-wallpapers/carousel3.png";
+import AW4 from "../images/cards/ape-wallpapers/carousel4.png";
 
 export const cards: Array<CardData> = [
   {
@@ -51,11 +64,11 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `NJC`,
-          image: NjcCover
+          image: NjcCover,
         },
         {
           caption: `Picked up the saxophone here!`,
-          image: NJC1
+          image: NJC1,
         },
       ],
       infoList: [
@@ -66,25 +79,25 @@ export const cards: Array<CardData> = [
             `H2 Economics`,
             `H2 Physics`,
             `H2 Chemistry`,
-            `H3 Economics`
+            `H3 Economics`,
           ],
         },
         {
           infoTitle: `Awards and Scholarships`,
           infoItems: [
             `MOE Pre-U Scholarship`,
-            `YDSP Academic Award for Mathematics`
-          ]
+            `YDSP Academic Award for Mathematics`,
+          ],
         },
         {
           infoTitle: `Positions Held`,
           infoItems: [
             `Aug 2014 - Aug 2016: Section Leader, Symphonic Band`,
-            `Aug 2016 - Aug 2017: President, Symphonic Band`
-          ]
-        }
-      ]
-    }
+            `Aug 2016 - Aug 2017: President, Symphonic Band`,
+          ],
+        },
+      ],
+    },
   },
   {
     title: `Boogle Group Ltd`,
@@ -100,15 +113,15 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Boogle`,
-          image: BoogleCover
+          image: BoogleCover,
         },
         {
           caption: `Interacting with a younger batch of interns`,
-          image: Boogle1
+          image: Boogle1,
         },
         {
           caption: `Celebrating Christmas`,
-          image: Boogle2
+          image: Boogle2,
         },
       ],
       infoList: [
@@ -116,8 +129,8 @@ export const cards: Array<CardData> = [
           infoTitle: `Positions Held`,
           infoItems: [
             `Oct 2019 - Jan 2020: Product Management Specialist Intern`,
-            `Jan 2020 - Jul 2020: Software Engineer Intern`
-          ]
+            `Jan 2020 - Jul 2020: Software Engineer Intern`,
+          ],
         },
         {
           infoTitle: `Skills`,
@@ -128,11 +141,11 @@ export const cards: Array<CardData> = [
             `TypeScript`,
             `Python`,
             `MySQL`,
-            `AWS`
-          ]
-        }
-      ]
-    }
+            `AWS`,
+          ],
+        },
+      ],
+    },
   },
   {
     title: `Personal Website`,
@@ -158,14 +171,10 @@ export const cards: Array<CardData> = [
       infoList: [
         {
           infoTitle: `Stack`,
-          infoItems: [
-            `React`,
-            `TypeScript`,
-            `AWS`,
-          ]
-        }
-      ]
-    }
+          infoItems: [`React`, `TypeScript`, `AWS`],
+        },
+      ],
+    },
   },
   {
     title: `Yale-NUS College`,
@@ -177,58 +186,61 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Yale-NUS`,
-          image: YaleNusCover
+          image: YaleNusCover,
         },
         {
           caption: `Conducting a web development workshop`,
-          image: YNC1
+          image: YNC1,
         },
         {
           caption: `Explaining the code of a basic website`,
-          image: YNC2
+          image: YNC2,
         },
         {
           caption: `Debugging a workshop attendee's code`,
-          image: YNC3
+          image: YNC3,
         },
       ],
       infoList: [
         {
           infoTitle: `Academic Grades`,
-          infoItems: [
-            `CAP: 4.9 / 5.0`,
-          ]
+          infoItems: [`CAP: 4.84 / 5.0`],
         },
         {
           infoTitle: `Awards and Scholarships`,
-          infoItems: [
-            `Global Leader Scholar`,
-          ]
+          infoItems: [`Global Leader Scholar`],
         },
         {
           infoTitle: `Positions Held`,
           infoItems: [
             `Aug 2020 - Dec 2020: React.js Instructor, YNC_Hacks`,
-            `Dec 2020 - Present: Vice President, YNC_Hacks`
-          ]
+            `Dec 2020 - Jan 2022: Vice President, YNC_Hacks`,
+          ],
         },
         {
           infoTitle: `Core Modules`,
           infoItems: [
+            `Introductory Data Structures and Algorithms - A+`,
             `Introduction to Computer Science - A+`,
-            `Calculus - A+`
-          ]
+            `Programming for Data Science - A+`,
+            `Introduction to Data Science - A+`,
+            `Calculus - A+`,
+          ],
         },
         {
           infoTitle: `Other Modules`,
           infoItems: [
             `Philosophy and Political Thought - A`,
             `Literature and Humanities - A-`,
-            `Scientific Inquiry - A`
-          ]
+            `Scientific Inquiry - A`,
+            `Proof - A-`,
+            `Model Social Thought - A-`,
+            `Introduction to Python - A+`,
+            `Geometry and the Emergence of Perspective - A-`,
+          ],
         },
-      ]
-    }
+      ],
+    },
   },
   {
     title: `CodeCache`,
@@ -244,27 +256,27 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `CodeCache`,
-          image: CodeCacheCover
+          image: CodeCacheCover,
         },
         {
           caption: `CodeCache Landing Page`,
-          image: C1
+          image: C1,
         },
         {
           caption: `CodeCache Dashboard`,
-          image: C2
+          image: C2,
         },
         {
           caption: `CodeCache Add Snippet`,
-          image: C3
+          image: C3,
         },
         {
           caption: `CodeCache Stats Interface`,
-          image: C4
+          image: C4,
         },
         {
           caption: `CodeCache Settings`,
-          image: C5
+          image: C5,
         },
       ],
       infoList: [
@@ -275,11 +287,11 @@ export const cards: Array<CardData> = [
             `TypeScript`,
             `Django REST Framework`,
             `Docker`,
-            `AWS`
-          ]
-        }
-      ]
-    }
+            `AWS`,
+          ],
+        },
+      ],
+    },
   },
   {
     title: `Love Letter Generator`,
@@ -297,29 +309,25 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Love Letter Generator`,
-          image: LLG1
+          image: LLG1,
         },
         {
           caption: `Love Letter Generator Landing Page`,
-          image: LLG2
+          image: LLG2,
         },
       ],
       infoList: [
         {
           infoTitle: `Stack`,
-          infoItems: [
-            `React`,
-            `TypeScript`,
-            `AWS`
-          ]
-        }
-      ]
-    }
+          infoItems: [`React`, `TypeScript`, `AWS`],
+        },
+      ],
+    },
   },
   {
     title: `Dathena`,
     date: `May 2021 - Aug 2021`,
-    role: `Software Engineer Intern`,
+    role: `Software Engineer Intern (Product)`,
     description: `My time at this energetic deep-tech AI and data protection company was an amazing eye-opener into the technology industry. Here, I was given the opportunity to work with some
     of the brightest software engineers, product managers, and data science experts I have seen so far in my professional career. I was exposed to the challenges of creating a 
     complex enterprise-level product, the best practices of managing a gigantic codebase, and even got the opportunity to lead two sprints as a scrum master in the company's
@@ -331,15 +339,15 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Dathena`,
-          image: DathenaCover
+          image: DathenaCover,
         },
         {
           caption: `Dathena Social House`,
-          image: D1
+          image: D1,
         },
         {
           caption: `Dathena Backend Team`,
-          image: D2
+          image: D2,
         },
       ],
       infoList: [
@@ -352,11 +360,11 @@ export const cards: Array<CardData> = [
             `styled-components`,
             `D3.js`,
             `React Testing Library`,
-            `Jira`
-          ]
-        }
-      ]
-    }
+            `Jira`,
+          ],
+        },
+      ],
+    },
   },
   {
     title: `Cryptoscapes`,
@@ -373,45 +381,40 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Cryptoscapes`,
-          image: CryptoscapesCover
+          image: CryptoscapesCover,
         },
         {
           caption: `Cryptoscapes Trends Page`,
-          image: CS1
+          image: CS1,
         },
         {
           caption: `Cryptoscapes Coins Page`,
-          image: CS2
+          image: CS2,
         },
         {
           caption: `Cryptoscapes Coin Details Chart`,
-          image: CS3
+          image: CS3,
         },
         {
           caption: `Cryptoscapes Developer Details`,
-          image: CS4
+          image: CS4,
         },
         {
           caption: `Cryptoscapes Exchanges Page`,
-          image: CS5
+          image: CS5,
         },
         {
           caption: `Cryptoscapes Updates Page`,
-          image: CS6
+          image: CS6,
         },
       ],
       infoList: [
         {
           infoTitle: `Stack`,
-          infoItems: [
-            `React`,
-            `TypeScript`,
-            `Redux`,
-            `AWS`
-          ]
-        }
-      ]
-    }
+          infoItems: [`React`, `TypeScript`, `Redux`, `AWS`],
+        },
+      ],
+    },
   },
   {
     title: `Saving Yale-NUS`,
@@ -430,36 +433,143 @@ export const cards: Array<CardData> = [
       carousel: [
         {
           caption: `Saving Yale-NUS`,
-          image: SYNC1
+          image: SYNC1,
         },
         {
           caption: `Saving Yale-NUS Artwork Post`,
-          image: SYNC2
+          image: SYNC2,
         },
         {
           caption: `Saving Yale-NUS Poem Post`,
-          image: SYNC3
+          image: SYNC3,
         },
         {
           caption: `Saving Yale-NUS All Stories Page`,
-          image: SYNC4
+          image: SYNC4,
         },
         {
           caption: `Saving Yale-NUS About Page`,
-          image: SYNC5
+          image: SYNC5,
         },
       ],
       infoList: [
         {
           infoTitle: `Stack`,
-          infoItems: [
-            `NextJS`,
-            `TypeScript`,
-            `Python`,
-            `AWS`
-          ]
-        }
-      ]
-    }
-  }
-]
+          infoItems: [`NextJS`, `TypeScript`, `Python`, `AWS`],
+        },
+      ],
+    },
+  },
+  {
+    title: `ByteDance / TikTok`,
+    date: `Dec 2021 - Present`,
+    role: `Software Engineer Intern (ML Platforms)`,
+    description: `Always Day 1 - A core "ByteStyle" and something that 
+    perfectly encapsulates my experience of working at this tech giant. In this 
+    fast-paced and innovative company, the work culture is instead synonymous 
+    with that of a startup; fresh new challenges everyday and always something 
+    new to learn and explore. Here, I was given the opportunity to work on their
+    internal machine learning platforms, and was the first time I was exposed
+    to an incredibly complex and sophisticated product. Furthermore, most of
+    my team members were based in China, and were more comfortable communicating
+    in Mandarin - something which I definitely was not used to at a professional
+    level prior to this internship. Despite these challenges, I was quickly able
+    to adapt and contribute heavily to the codebase, even pushing out an 
+    entirely new feature that is currently being used by hundreds of data 
+    scientists and engineers throughout the company. Moreover, I am now also 
+    more than comfortable to converse fluently in Mandarin with my colleagues 
+    at a professional level, even helping out with and writing documentation in 
+    Mandarin. My growth here at ByteDance / TikTok has definitely been one of 
+    the most fulfilling among my professional experiences, and I cannot be more 
+    excited for what's to come in the remainder of my time here.`,
+    image: BytedanceCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `ByteDance / TikTok`,
+          image: BytedanceCover,
+        },
+        {
+          caption: `ByteDance Guoco Tower`,
+          image: BD1,
+        },
+        {
+          caption: `ByteDance Minister Engagement`,
+          image: BD2,
+        },
+        {
+          caption: `ByteDance AML SG`,
+          image: BD3,
+        },
+        {
+          caption: `ByteDance Minister Engagement`,
+          image: BD4,
+        },
+        {
+          caption: `ByteDance Guoco Tower`,
+          image: BD5,
+        },
+        {
+          caption: `ByteDance Guoco Tower`,
+          image: BD6,
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Skills`,
+          infoItems: [`React`, `TypeScript`, `Python`, `Flask`, `Redux`],
+        },
+      ],
+    },
+  },
+  {
+    title: `Ape Wallpapers`,
+    date: `Launched June 2022`,
+    role: `Create Wallpapers of Your Apes!`,
+    description: `Over many months of being actively involved in the Web3 and 
+    NFT space, as well as being a member of the Bored Ape Yacht Club (BAYC) 
+    community, Ape Wallpapers was created out of a desire to contribute and 
+    build something of value for this community. To many members of the club, 
+    their ape serves not only as a membership token, but also as their Web3 and 
+    online identity. Ape Wallpapers was made to streamline the process of 
+    creating mobile wallpapers of BAYC NFTs with no hassle at all, allowing
+    holders and community members to more easily express their identity on their
+    lock screens. This is the first project where I was required to dabble into
+    image manipulation. I first had to fetch the image of the ape from IPFS 
+    (only available in square dimensions), and then combined it with the logos 
+    and custom text of the user's choice to construct the wallpaper. It was 
+    indeed a challenge I have never faced before, but was definitely worthwhile 
+    with the site being very positively received by the community; reaching a 
+    peak user count of over 3000 users, as well as spawning an array of copies 
+    and similar websites for other NFT communities. Read more on the dedicated 
+    Twitter thread `,
+    projectLink: `https://www.apewallpapers.com`,
+    image: ApeWallpapers,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `BAYC Wallpapers`,
+          image: AW1,
+        },
+        {
+          caption: `MAYC Wallpapers`,
+          image: AW2,
+        },
+        {
+          caption: `Custom Ovrlay Text`,
+          image: AW3,
+        },
+        {
+          caption: `Ape Wallpapers Twitter Thread`,
+          image: AW4,
+        },
+      ],
+      infoList: [
+        {
+          infoTitle: `Skills`,
+          infoItems: [`React`, `TypeScript`, `Redux`, `AWS`],
+        },
+      ],
+    },
+  },
+];

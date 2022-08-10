@@ -1,7 +1,7 @@
 About: 
 
 Not just any code. I believe in writing code with both structure and readability, and as a developer, enjoy optimising and improving the quality of the code 
-that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of blockchain. 
+that I write. I have good knowledge in front-end, back-end, as well as mobile application development, and plan to venture into the field of blockchain and Web3. 
 A technology enthusiast, I am hopeful and passionate about the potential of technology in changing the world. From simple websites
 to complex systems, I thoroughly enjoy the process of building software, solving complex problems, and working with others to produce amazing end-products.
 
@@ -70,9 +70,9 @@ The website uses Python scripts that converts content from Google Forms into a m
 
 What I can do:
 
-I have been coding at a professional level for two years and is experienced in an array of modern web technologies such as React, TypeScript, React Native,
-and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Invision Studio and Affinity Designer.
-On the sideline, I enjoy building web applications and tinkering with the Arduino.
+I have been coding at a professional level for three years and is experienced in an array of modern web technologies such as React, TypeScript, React Native,
+and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Figma and Adobe Illustrator.
+On the sideline, I enjoy building web applications, tinkering with the Arduino, and taking up freelance development projects in Web3 (contact me for more information on this!).
 
 What I can do (note):
 
