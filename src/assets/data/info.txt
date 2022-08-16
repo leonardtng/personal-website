@@ -68,6 +68,45 @@ of grief by the college community, consisting of poems, artworks, essays, etc. W
 commemorations, and will never be forgotten even long after the college ceases to exist.
 The website uses Python scripts that converts content from Google Forms into a markdown file which is then rendered on a NextJS blog.
 
+ByteDance / TikTok:
+Always Day 1 - A core "ByteStyle" and something that 
+perfectly encapsulates my experience of working at this tech giant. In this 
+fast-paced and innovative company, the work culture is instead synonymous 
+with that of a startup; fresh new challenges everyday and always something 
+new to learn and explore. Here, I was given the opportunity to work on their
+internal machine learning platforms, and was the first time I was exposed
+to an incredibly complex and sophisticated product. Furthermore, most of
+my team members were based in China, and were more comfortable communicating
+in Mandarin - something which I definitely was not used to at a professional
+level prior to this internship. Despite these challenges, I was quickly able
+to adapt and contribute heavily to the codebase, even pushing out an 
+entirely new feature that is currently being used by hundreds of data 
+scientists and engineers throughout the company. Moreover, I am now also 
+more than comfortable to converse fluently in Mandarin with my colleagues 
+at a professional level, even helping out with and writing documentation in 
+Mandarin. My growth here at ByteDance / TikTok has definitely been one of 
+the most fulfilling among my professional experiences, and I cannot be more 
+excited for what's to come in the remainder of my time here.
+
+Ape Wallpapers:
+Over many months of being actively involved in the Web3 and 
+NFT space, as well as being a member of the Bored Ape Yacht Club (BAYC) 
+community, Ape Wallpapers was created out of a desire to contribute and 
+build something of value for this community. To many members of the club, 
+their ape serves not only as a membership token, but also as their Web3 and 
+online identity. Ape Wallpapers was made to streamline the process of 
+creating mobile wallpapers of BAYC NFTs, allowing ape holders and community 
+members to seamlessly express their Web3 identity on their lock screens.
+This is the first project where I was required to dabble into
+image manipulation. I first had to fetch the image of the ape from IPFS 
+(only available in square dimensions), and then combined it with the logos 
+and custom text of the user's choice to construct the wallpaper. At launch,
+the site was very positively received by the community; reaching a 
+peak user count of over 3000 users, as well as spawning an array of copies 
+and similar websites from other NFT communities. Take a look at all the 
+happy users flexing their wallpapers generated from the site on the 
+dedicated Twitter thread 
+
 What I can do:
 
 I have been coding at a professional level for three years and is experienced in an array of modern web technologies such as React, TypeScript, React Native,

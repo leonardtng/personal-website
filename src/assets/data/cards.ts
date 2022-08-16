@@ -532,17 +532,17 @@ export const cards: Array<CardData> = [
     build something of value for this community. To many members of the club, 
     their ape serves not only as a membership token, but also as their Web3 and 
     online identity. Ape Wallpapers was made to streamline the process of 
-    creating mobile wallpapers of BAYC NFTs with no hassle at all, allowing
-    holders and community members to more easily express their identity on their
-    lock screens. This is the first project where I was required to dabble into
+    creating mobile wallpapers of BAYC NFTs, allowing ape holders and community 
+    members to seamlessly express their Web3 identity on their lock screens.
+    This is the first project where I was required to dabble into
     image manipulation. I first had to fetch the image of the ape from IPFS 
     (only available in square dimensions), and then combined it with the logos 
-    and custom text of the user's choice to construct the wallpaper. It was 
-    indeed a challenge I have never faced before, but was definitely worthwhile 
-    with the site being very positively received by the community; reaching a 
+    and custom text of the user's choice to construct the wallpaper. At launch,
+    the site was very positively received by the community; reaching a 
     peak user count of over 3000 users, as well as spawning an array of copies 
-    and similar websites for other NFT communities. Read more on the dedicated 
-    Twitter thread `,
+    and similar websites from other NFT communities. Take a look at all the 
+    happy users flexing their wallpapers generated from the site on the 
+    dedicated Twitter thread `,
     projectLink: `https://www.apewallpapers.com`,
     image: ApeWallpapers,
     cardDialogContent: {
@@ -567,7 +567,7 @@ export const cards: Array<CardData> = [
       infoList: [
         {
           infoTitle: `Skills`,
-          infoItems: [`React`, `TypeScript`, `Redux`, `AWS`],
+          infoItems: [`React`, `TypeScript`, `Redux`, `Express`, `AWS`],
         },
       ],
     },
