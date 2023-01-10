@@ -1,53 +1,56 @@
-import React, { useRef, useState, useContext } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Button, Zoom, Avatar } from '@material-ui/core';
-import { useScrollPosition, vh } from '../../@utils/useScrollPosition';
-import { CurrentPageView, PageContextProps } from '../../contexts/CurrentPageView';
-import { CONTAINER_OFFSET } from '../../@constants';
-import resume from '../../assets/documents/resume.pdf';
-import HelloMemoji from '../../assets/images/section-memoji/hello-memoji.png';
-import TitleContainer from '../interactive/TitleContainer';
+import React, { useRef, useState, useContext } from "react";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import { Grid, Typography, Button, Zoom, Avatar } from "@material-ui/core";
+import { useScrollPosition, vh } from "../../@utils/useScrollPosition";
+import {
+  CurrentPageView,
+  PageContextProps,
+} from "../../contexts/CurrentPageView";
+import { CONTAINER_OFFSET } from "../../@constants";
+import resume from "../../assets/documents/resume.pdf";
+import HelloMemoji from "../../assets/images/section-memoji/hello-memoji.png";
+import TitleContainer from "../interactive/TitleContainer";
 
 const useStyles = makeStyles((theme: Theme) => ({
   contact: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     marginBottom: 10,
   },
   divider: {
     height: 2,
-    width: '100%',
-    backgroundColor: '#7F7F7F',
+    width: "100%",
+    backgroundColor: "#7F7F7F",
   },
   resume: {
-    '& a': {
-      textDecoration: 'underline',
+    "& a": {
+      textDecoration: "underline",
       color: theme.palette.secondary.main,
-    }
+    },
   },
   button: {
     margin: 30,
     boxShadow: `0 0 0 0 ${theme.palette.secondary.main}80`,
-    animation: '$pulse 1.5s ease infinite',
-    fontSize: '1.2rem',
+    animation: "$pulse 1.5s ease infinite",
+    fontSize: "1.2rem",
     borderRadius: 12,
-    '& .MuiAvatar-root': {
+    "& .MuiAvatar-root": {
       height: 55,
-      width: 55
-    }
-  },
-  '@keyframes pulse': {
-    '0%': {
-      transform: 'scale(0.9)',
+      width: 55,
     },
-    '70%': {
-      transform: 'scale(1)',
+  },
+  "@keyframes pulse": {
+    "0%": {
+      transform: "scale(0.9)",
+    },
+    "70%": {
+      transform: "scale(1)",
       boxShadow: `0 0 0 15px ${theme.palette.secondary.main}00`,
     },
-    '100%': {
-      transform: 'scale(0.9)',
-      boxShadow: `0 0 0 0 ${theme.palette.secondary.main}00`
-    }
+    "100%": {
+      transform: "scale(0.9)",
+      boxShadow: `0 0 0 0 ${theme.palette.secondary.main}00`,
+    },
   },
 }));
 
@@ -59,47 +62,79 @@ const Contact: React.FC = () => {
   const contactRef = useRef<HTMLHeadingElement>(null);
   const containerHeight = contactRef.current?.clientHeight;
 
-  useScrollPosition(({ currPos }: any) => {
-    currPos.y < vh * 0.85 ? setChecked(true) : setChecked(false);
-    if (containerHeight) {
-      if (CONTAINER_OFFSET > currPos.y && currPos.y > -containerHeight + CONTAINER_OFFSET) setCurrentPage('Timeline');
-    };
-  }, contactRef, false);
+  useScrollPosition(
+    ({ currPos }: any) => {
+      currPos.y < vh * 0.85 ? setChecked(true) : setChecked(false);
+      if (containerHeight) {
+        if (
+          CONTAINER_OFFSET > currPos.y &&
+          currPos.y > -containerHeight + CONTAINER_OFFSET
+        )
+          setCurrentPage("Timeline");
+      }
+    },
+    contactRef,
+    false
+  );
 
   return (
-    <Grid container spacing={3} className={classes.contact} ref={contactRef} id='contact'>
+    <Grid
+      container
+      spacing={3}
+      className={classes.contact}
+      ref={contactRef}
+      id="contact"
+    >
       <div className={classes.divider} />
       <Grid item xs={12}>
-        <TitleContainer title='What I can do for you' />
+        <TitleContainer title="What I can do for you" />
       </Grid>
       <Grid item xs={12}>
         <Zoom in={checked}>
-          <Typography variant='h5' component='h3'>I'm currently available for internships.</Typography>
+          <Typography variant="h5" component="h3">
+            {/* I'm currently available for internships. */}
+            Interested to find out more?
+          </Typography>
         </Zoom>
       </Grid>
       <Grid item xs={12} className={classes.resume}>
-        <Zoom in={checked} style={{ transitionDelay: checked ? '400ms' : '0ms' }}>
-          <Typography variant='h6' component='h4'>View my resume <a href={resume} target='_blank' rel='noopener noreferrer'>here</a>!</Typography>
+        <Zoom
+          in={checked}
+          style={{ transitionDelay: checked ? "400ms" : "0ms" }}
+        >
+          <Typography variant="h6" component="h4">
+            View my resume{" "}
+            <a href={resume} target="_blank" rel="noopener noreferrer">
+              here
+            </a>
+            !
+          </Typography>
         </Zoom>
       </Grid>
       <Grid item xs={12}>
-        <Zoom in={checked} style={{ transitionDelay: checked ? '600ms' : '0ms' }}>
-          <Typography variant='body1' component='p'>But of course, if you want to work together, find out more, or just wanna chill and chat, </Typography>
+        <Zoom
+          in={checked}
+          style={{ transitionDelay: checked ? "600ms" : "0ms" }}
+        >
+          <Typography variant="body1" component="p">
+            But of course, if you want to work together, find out more, or just
+            wanna chill and chat,{" "}
+          </Typography>
         </Zoom>
       </Grid>
       <Grid item xs={12}>
         <Button
-          variant='contained'
-          color='secondary'
+          variant="contained"
+          color="secondary"
           className={classes.button}
-          startIcon={<Avatar src={HelloMemoji} variant='rounded' />}
-          href='mailto:theleonardtng@gmail.com'
+          startIcon={<Avatar src={HelloMemoji} variant="rounded" />}
+          href="mailto:theleonardtng@gmail.com"
         >
           Contact Me!
         </Button>
       </Grid>
     </Grid>
   );
-}
+};
 
 export default Contact;

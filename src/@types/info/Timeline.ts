@@ -1,32 +1,35 @@
+import { ReactNode } from "react";
+
 export interface CardDialogImageInterface {
-    caption: string;
-    image: string;
-};
+  caption: string;
+  image: string;
+}
 
 export interface CardDialogInfoInterface {
-    infoTitle: string;
-    infoItems: Array<string>;
+  infoTitle: string;
+  infoItems: Array<string>;
 }
 
 export interface CardDialogContentInterface {
-    carousel: Array<CardDialogImageInterface>;
-    infoList?: Array<CardDialogInfoInterface>;
-};
+  carousel: Array<CardDialogImageInterface>;
+  infoList?: Array<CardDialogInfoInterface>;
+}
 
 export interface CardDataInterface {
-    title: string;
-    date: string;
-    role: string;
-    description: string;
-    descriptionSecondPart?: string;
-    projectLink?: string;
-    image: string;
-    cardDialogContent: CardDialogContentInterface;
-};
+  title: string;
+  date: string;
+  role: string;
+  description: string | ReactNode;
+  descriptionString?: string;
+  descriptionSecondPart?: string;
+  projectLink?: string;
+  image: string;
+  cardDialogContent: CardDialogContentInterface;
+}
 
 export interface TimelineInterface {
-    title: string;
-    subtitle: string;
-    caption: string;
-    cards: Array<CardDataInterface>;
-};
+  title: string;
+  subtitle: string;
+  caption: string;
+  cards: Array<CardDataInterface>;
+}

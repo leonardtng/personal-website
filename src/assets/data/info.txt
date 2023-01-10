@@ -107,6 +107,16 @@ and similar websites from other NFT communities. Take a look at all the
 happy users flexing their wallpapers generated from the site on the 
 dedicated Twitter thread 
 
+Dust Labs:
+After being heavily involved in the crypto and NFT space for years, I had the 
+opportunity to be in the founding team of software engineers at Dust Labs, 
+a software-as-a-service (SaaS) company focused on building software products 
+for Web3 communities; and birthed from two very successful NFT collections - DeGods and y00ts. 
+We raised $7 million in our seed round and more recently received an additional $3 million grant from
+Polygon to build on their ecosystem. Working alongside tech industry legends 
+such as Kevin Henrikson, I hope to make an impact in the Web3 space and embark 
+on this exciting journey.
+
 What I can do:
 
 I have been coding at a professional level for three years and is experienced in an array of modern web technologies such as React, TypeScript, React Native,

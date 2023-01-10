@@ -1,3 +1,4 @@
+import React from "react";
 import NjcCover from "../images/cards/national-junior-college/national-junior-college-1024x683.jpg";
 import BoogleCover from "../images/cards/boogle/boogle-hq.jpg";
 import PersonalWebsiteV1Cover from "../images/cards/personal-website-v1/personal-website-v1.png";
@@ -8,7 +9,8 @@ import DathenaCover from "../images/cards/dathena/dathena.png";
 import CryptoscapesCover from "../images/cards/cryptoscapes/cryptoscapes.png";
 import SavingYaleNusCover from "../images/cards/saving-yale-nus/saving-yale-nus.png";
 import BytedanceCover from "../images/cards/bytedance/bytedance.png";
-import ApeWallpapers from "../images/cards/ape-wallpapers/ape-wallpapers.png";
+import ApeWallpapersCover from "../images/cards/ape-wallpapers/ape-wallpapers.png";
+import DustLabsCover from "../images/cards/dust-labs/dust-labs.png";
 
 import { CardData } from "../../@types";
 
@@ -50,6 +52,7 @@ import AW1 from "../images/cards/ape-wallpapers/carousel1.png";
 import AW2 from "../images/cards/ape-wallpapers/carousel2.png";
 import AW3 from "../images/cards/ape-wallpapers/carousel3.png";
 import AW4 from "../images/cards/ape-wallpapers/carousel4.png";
+import { Link } from "@material-ui/core";
 
 export const cards: Array<CardData> = [
   {
@@ -462,7 +465,7 @@ export const cards: Array<CardData> = [
   },
   {
     title: `ByteDance / TikTok`,
-    date: `Dec 2021 - Present`,
+    date: `Dec 2021 - Dec 2022`,
     role: `Software Engineer Intern (ML Platforms)`,
     description: `Always Day 1 - A core "ByteStyle" and something that 
     perfectly encapsulates my experience of working at this tech giant. In this 
@@ -544,7 +547,7 @@ export const cards: Array<CardData> = [
     happy users flexing their wallpapers generated from the site on the 
     dedicated Twitter thread `,
     projectLink: `https://www.apewallpapers.com`,
-    image: ApeWallpapers,
+    image: ApeWallpapersCover,
     cardDialogContent: {
       carousel: [
         {
@@ -568,6 +571,56 @@ export const cards: Array<CardData> = [
         {
           infoTitle: `Skills`,
           infoItems: [`React`, `TypeScript`, `Redux`, `Express`, `AWS`],
+        },
+      ],
+    },
+  },
+  {
+    title: `Dust Labs`,
+    date: `September 2022 - Present`,
+    role: `Software Engineer`,
+    description: (
+      <span>
+        After being heavily involved in the crypto and NFT space for years, I
+        had the opportunity to be in the founding team of software engineers at
+        Dust Labs, a software-as-a-service (SaaS) company focused on building
+        software products for Web3 communities; and birthed from two very
+        successful NFT collections -{" "}
+        <Link
+          href="https://twitter.com/degodsnft"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DeGods
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://twitter.com/y00tsnft"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          y00ts
+        </Link>
+        . We raised $7 million in our seed round and more recently received an
+        additional $3 million grant from Polygon to build on their ecosystem.
+        Working alongside tech industry legends such as Kevin Henrikson, I hope
+        to make an impact in the Web3 space as I embark on this exciting
+        journey.
+      </span>
+    ),
+    descriptionString: `After being heavily involved in the crypto and NFT space for years, I had the 
+    opportunity to be in the founding team of software engineers at Dust Labs, 
+    a software-as-a-service (SaaS) company focused on building software products 
+    for Web3 communities; and birthed from two very successful NFT collections - DeGods and y00ts. 
+    We raised $7 million in our seed round and more recently received an additional $3 million grant from 
+    Polygon to build on their ecosystem. Working alongside tech industry legends 
+    such as Kevin Henrikson, I hope to make an impact in the Web3 space and embark on this exciting journey.`,
+    image: DustLabsCover,
+    cardDialogContent: {
+      carousel: [
+        {
+          caption: `Dust Labs`,
+          image: DustLabsCover,
         },
       ],
     },

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import {
   CardMedia,
@@ -130,7 +130,8 @@ const Transition = React.forwardRef(function Transition(
 interface HandleDescriptionProps {
   image: string;
   title: string;
-  description: string;
+  description: string | ReactNode;
+  descriptionString?: string;
   descriptionSecondPart?: string;
   projectLink?: string;
   cardDialogContent: CardDialogContent;
@@ -176,7 +177,11 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (
               component="p"
             >
               {modifyDescription(
-                `${props.description}${
+                `${
+                  typeof props.description === "string"
+                    ? props.description
+                    : props.descriptionString
+                }${
                   props.descriptionSecondPart ? props.descriptionSecondPart : ""
                 }`
               )}

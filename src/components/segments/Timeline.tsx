@@ -320,6 +320,18 @@ const useStyles = makeStyles<Theme, ExperienceStyleProps>((theme: Theme) => ({
           : theme.palette.timeline.fill,
     },
   },
+  card12: {
+    "&:after": {
+      content: (styleProps) => (styleProps.twelfthCheck ? '"work"' : '""'),
+      fontSize: (styleProps) => (styleProps.twelfthCheck ? 20 : 0),
+      width: (styleProps) => (styleProps.twelfthCheck ? 30 : 15),
+      height: (styleProps) => (styleProps.twelfthCheck ? 30 : 15),
+      backgroundColor: (styleProps) =>
+        styleProps.twelfthCheck
+          ? theme.palette.secondary.main
+          : theme.palette.timeline.fill,
+    },
+  },
   "@media only screen and (max-width: 1700px)": {
     timeline: {
       "& ul": {
@@ -466,6 +478,7 @@ const Timeline: React.FC = () => {
   const ninthRef = useRef<HTMLSpanElement>(null);
   const tenthRef = useRef<HTMLSpanElement>(null);
   const eleventhRef = useRef<HTMLSpanElement>(null);
+  const twelfthRef = useRef<HTMLSpanElement>(null);
 
   const [scroll, setScroll] = useState<number>(0);
   const containerHeight = timelineRef.current?.clientHeight;
@@ -481,6 +494,7 @@ const Timeline: React.FC = () => {
   const [ninthCheck, setNinthCheck] = useState<boolean>(false);
   const [tenthCheck, setTenthCheck] = useState<boolean>(false);
   const [eleventhCheck, setEleventhCheck] = useState<boolean>(false);
+  const [twelfthCheck, setTwelfthCheck] = useState<boolean>(false);
 
   useScrollPosition(
     ({ currPos }: any) => {
@@ -595,6 +609,16 @@ const Timeline: React.FC = () => {
   useScrollPosition(
     ({ currPos }: any) => {
       currPos.y < SCROLL_THRESHOLD + 40
+        ? setTwelfthCheck(true)
+        : setTwelfthCheck(false);
+    },
+    twelfthRef,
+    false
+  );
+
+  useScrollPosition(
+    ({ currPos }: any) => {
+      currPos.y < SCROLL_THRESHOLD + 40
         ? setScroll(-(currPos.y - SCROLL_THRESHOLD))
         : setScroll(0);
       if (containerHeight) {
@@ -621,6 +645,7 @@ const Timeline: React.FC = () => {
     ninthCheck: ninthCheck,
     tenthCheck: tenthCheck,
     eleventhCheck: eleventhCheck,
+    twelfthCheck: twelfthCheck,
     scroll: timelineRef.current ? scroll : 0,
     maxScroll: timelineRef.current ? timelineRef.current.clientHeight : 0,
   };
@@ -634,6 +659,7 @@ const Timeline: React.FC = () => {
         date={item.date}
         role={item.role}
         description={item.description}
+        descriptionString={item.descriptionString}
         descriptionSecondPart={item.descriptionSecondPart}
         projectLink={item.projectLink}
         image={item.image}
@@ -747,6 +773,14 @@ const Timeline: React.FC = () => {
                 <div>
                   {cardList[10]}
                   <span ref={eleventhRef} />
+                </div>
+              </Slide>
+            </ListItem>
+            <ListItem className={classes.card12}>
+              <Slide in={twelfthCheck} direction={getSlideDirection(11)}>
+                <div>
+                  {cardList[11]}
+                  <span ref={twelfthRef} />
                 </div>
               </Slide>
             </ListItem>

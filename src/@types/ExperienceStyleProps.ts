@@ -10,6 +10,7 @@ export interface ExperienceStylePropsInterface {
   ninthCheck: boolean;
   tenthCheck: boolean;
   eleventhCheck: boolean;
+  twelfthCheck: boolean;
   scroll: number;
   maxScroll: number;
 }
