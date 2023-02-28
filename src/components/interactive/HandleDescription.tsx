@@ -225,7 +225,7 @@ const HandleDescription: React.FC<HandleDescriptionProps> = (
               {props.title === "Ape Wallpapers" ? (
                 <>
                   <Link
-                    href="https://twitter.com/Brainy8469/status/1533502239515414528"
+                    href="https://twitter.com/leonardmainnet/status/1533502239515414528"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
