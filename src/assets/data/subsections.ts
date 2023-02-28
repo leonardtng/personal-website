@@ -9,18 +9,18 @@ export const subsections: Subsection = {
     itemsBlockLeft: [
       { legend: "React", value: 5 },
       { legend: "TypeScript", value: 5 },
-      { legend: "NextJS", value: 4 },
-      { legend: "Redux", value: 4 },
-      { legend: "HTML(5)", value: 4 },
-      { legend: "CSS(3)", value: 4 },
+      { legend: "NextJS", value: 5 },
+      { legend: "Storybook", value: 4 },
+      { legend: "Web3.js", value: 4 },
+      { legend: "Express.js", value: 4 },
     ],
     itemsBlockRight: [
       { legend: "Python", value: 4 },
       { legend: "Flask", value: 4 },
       { legend: "Django REST Framework", value: 4 },
-      { legend: "React Native", value: 3 },
+      { legend: "MongoDB", value: 3 },
       { legend: "MySQL", value: 3 },
-      { legend: "Arduino", value: 1 },
+      { legend: "React Native", value: 2 },
     ],
   },
   languages: {
@@ -31,14 +31,14 @@ export const subsections: Subsection = {
   tools: {
     title: "Tools",
     itemsBlockLeft: [
-      { legend: "AWS S3", value: 5 },
-      { legend: "AWS Cloudfront", value: 4 },
+      { legend: "GitHub", value: 5 },
+      { legend: "AWS", value: 4 },
       { legend: "Git", value: 4 },
     ],
     itemsBlockRight: [
       { legend: "Docker", value: 3 },
-      { legend: "AWS EC2", value: 2 },
-      { legend: "AWS Lambda", value: 1 },
+      { legend: "Cloudflare", value: 2 },
+      { legend: "Kubernetes", value: 1 },
     ],
   },
 };

@@ -38,9 +38,9 @@ export const info: Info = {
   },
   abilities: {
     title: `What I Can Do`,
-    description: `I have been coding at a professional level for three years and is experienced in an array of modern web technologies such as React, TypeScript, React Native,
-    and Django REST Framework. I am also adept in using development tools such as git and AWS, and design / prototyping tools such as Figma and Adobe Illustrator.
-    On the sideline, I enjoy building web applications, tinkering with the Arduino, and taking up freelance development projects in Web3`,
+    description: `I have been coding at a professional level for three years and is experienced in an array of modern web technologies such as React, TypeScript, NextJS, 
+    Flask and more. I am also adept in using development and CI / CD tools such as Docker and AWS, and design / prototyping tools such as Figma and Adobe Illustrator.
+    On the sideline, I enjoy building web applications, tinkering with new frameworks, and taking up freelance development projects in Web3`,
     subsections: subsections,
     note: `Note: Skills are portrayed relative to each other and not on an absolute level (learning never stops!)`,
   },
