@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
         <Zoom in={checked}>
           <Typography variant="h5" component="h3">
             {/* I'm currently available for internships. */}
-            Interested to find out more?
+            Interested?
           </Typography>
         </Zoom>
       </Grid>
